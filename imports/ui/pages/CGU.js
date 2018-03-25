@@ -702,16 +702,6 @@ autre situation de concours de ce dernier.<br />
 Toutes les données reprises de façon inaltérable, fiable, et sécurisée dans la base de données
 informatique de l’Emetteur relatives notamment aux ordres de paiement et confirmations reçues 
 de l’Utilisateur, aux notifications envoyées, aux accès, Retrait, Remboursement feront foi entre
-les parties jusqu’à preuve du contraire.<br />
-21 Réclamation et médiation<br />
-L’Utilisateur est invité à s’adresser au service relations clients indiqué dans les Conditions
-Particulières et sur le Site pour toute réclamation.<br />
-Toute réclamation autre que celle prévue à l’article 5.2 portant sur la conclusion,
-l’exécution ou la résiliation du Contrat-cadre et des services d’émission et de gestion de
-Monnaie électronique devra être notifiée par lettre recommandée avec avis de réception
-au service suivant:legal@mangopay.com<br />
-Si l’Utilisateur estime que la réponse donnée n’est pas satisfaisante ou en l’absence de
-réponse dans un délai d’un mois à compte de l’envoi du courrier, il pourrait saisir le CSSF
 
 
 
