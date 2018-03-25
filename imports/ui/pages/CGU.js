@@ -712,8 +712,7 @@ Monnaie électronique devra être notifiée par lettre recommandée avec avis de
 au service suivant:legal@mangopay.com<br />
 Si l’Utilisateur estime que la réponse donnée n’est pas satisfaisante ou en l’absence de
 réponse dans un délai d’un mois à compte de l’envoi du courrier, il pourrait saisir le CSSF
-par voie postale 110 route d’Arlon L-1150 Luxembourg ou par email : direction@cssf.lu
-22 Droit applicable et juridiction compétente
+
 
 
 
