@@ -35,33 +35,28 @@ class chat extends Component {
           let name = this.props.username
           return AllChat.map((message) => {
            let date = Date.parse(message.post_date);
-             
             return (
-
-
               <ChatContent
                 key={message._id}
                 message={message}
                 date={date}
                 to_id = {this.props.match.params.id} 
-
               />
             );
           });
-      }
+    }
 
-      componentWillReceiveProps(){
+    componentWillReceiveProps(){
          this.setState({update: false})
-
-       }
+    }
       
-
-
     render() {
+    
     const { visible } = this.state
+    
     if (!Meteor.loggingIn() && !Meteor.userId()){
       return <Redirect to="/" />;
-      } 
+    } 
 
       const to_id = this.props.match.params.id;
        
@@ -125,50 +120,39 @@ class chat extends Component {
 
         <div className="containerSiteChat" onClick={this.toggleHidden}>
           <div className="containerChat">
-          
             <div className="containerContactChat"  >
               <ContactChat to_id = {this.props.match.params.id}  />
             </div>
             <div className="containerDiscussion">
               <div className="MainContentChat">
-            
-              <div className="headerChat">
-
-                   <div className={"ChatUsername" + " " + this.state.gender}>
-                    <Link to={'/Profil/' + this.props.match.params.id}>
-                    {this.state.username}
-                    </Link>
-                   </div>
-
+                <div className="headerChat">
+                  <div className={"ChatUsername" + " " + this.state.gender}>
+                      <Link to={'/Profil/' + this.props.match.params.id}>
+                      {this.state.username}
+                      </Link>
+                  </div>
                   <div className="ChatAge">  
-                    {this.state.naissance} ans
+                      {this.state.naissance} ans
                   </div>
-
                   <div className="recommmander">
-                    <Link to={'/Recommander/' + this.props.match.params.id}>    
-                      <Button inverted color='green' > Recommander</Button>
+                      <Link to={'/Recommander/' + this.props.match.params.id}>    
+                        <Button inverted color='green' > Recommander</Button>
+                      </Link>
+                  </div>
+                  <div className="FaireDon">
+                    <Link to={'/Dons/' + this.props.match.params.id}>  
+                        <Button inverted color='red' > Faire un don</Button>
                     </Link>
                   </div>
-
-                  <div className="FaireDon">
-                  <Link to={'/Dons/' + this.props.match.params.id}>  
-                  <Button inverted color='red' > Faire un don</Button>
-                  </Link>
-                  </div>
-
-              </div>
-            
-                <div className="ContentDiscussion">
-                 {this.renderAllChat()}
-                <FormChat to_id = {this.props.match.params.id} />
                 </div>
-                
+                <div className="ContentDiscussion">
+                   {this.renderAllChat()}
+                  <FormChat to_id = {this.props.match.params.id} />
+                </div>
               </div>
             </div>
           </div> 
         </div>
-
-       
       </div>
     );
   }
@@ -179,14 +163,13 @@ class chat extends Component {
 export default chat =  withTracker(({ match }) => {
   const to_id = match.params.id;
   const from_id = Meteor.userId();
-  const Handle = Meteor.subscribe('AllChat');
+  const Handle = Meteor.subscribe('Chat', to_id, from_id);
   const loading = !Handle.ready();
   const allreponses = Chat.find({$or : [{from_id: from_id, to_id:to_id}, {from_id: to_id, to_id:from_id}]});
   const reponseExists = !loading && !!allreponses;
   let username = '';
 
   return {
-
     allChat: reponseExists ? allreponses.fetch() : [],
   };
 })(chat);

@@ -44,8 +44,6 @@ class Profil extends Component {
             </div>
           </div>
         </header>
-
-       
         <Sidebar.Pushable >
               <Sidebar
                 animation='overlay'
@@ -58,9 +56,7 @@ class Profil extends Component {
               >
                 <ContentMenuRight />
               </Sidebar>
-              
               <Sidebar.Pusher>
-        
                 <div className="containerSite" onClick={this.toggleHidden}>
                   <div className="containerIMG">
                   <ProfilContent id={this.props.match.params.id} /> 
@@ -69,23 +65,14 @@ class Profil extends Component {
                       
                   </div> 
                 </div>
-
               </Sidebar.Pusher>
-
         </Sidebar.Pushable>
-      
       </div>
     );
   }
 }
 
-
-
 export default withTracker(() => {
-  //Meteor.subscribe('tasks');
   return {
-    /*tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
-    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
-    currentUser: Meteor.user(),*/
   };
 })(Profil);

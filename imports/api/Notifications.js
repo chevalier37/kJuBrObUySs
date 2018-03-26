@@ -121,6 +121,16 @@ Meteor.publish('AllNotifications', function () {
   return Notifications.find();
 });
 
+Meteor.publish('Notifications', function (id) {
+  new SimpleSchema({
+      id: {type: String},
+    }).validate({id});
+
+  return Notifications.find({'to_id':id})
+});
+
+
+
 
 }
 

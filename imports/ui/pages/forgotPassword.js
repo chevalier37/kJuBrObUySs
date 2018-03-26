@@ -6,13 +6,10 @@ import { Link } from 'react-router-dom';
 import { Button, Checkbox, Form,  Message, Segment, Header} from 'semantic-ui-react'
 import { check } from 'meteor/check';
 import { Route, Redirect } from 'react-router';
-
  
 //Component
 import Header1 from '../component/Header.js';
 import Footer from '../component/Footer.js';
-
-
 
 class forgotPassword extends Component {
 
@@ -24,10 +21,7 @@ class forgotPassword extends Component {
       mail:false,
       password:false,
       connection:false,     
-    };
-
-    
-    
+    };   
   }
 
   Submit(event) {
@@ -79,8 +73,6 @@ class forgotPassword extends Component {
           },
       });
 
-  
-
       {
         this.state.errorLogin==false
         ?
@@ -99,10 +91,8 @@ class forgotPassword extends Component {
         })
         :
         ''
-
       }
         
-
       const errorLogin = this.state.errorLogin;
 
       if (errorLogin == false) {
@@ -118,7 +108,6 @@ class forgotPassword extends Component {
             }
           });
       }
-  
   }
 
   render() {
@@ -138,7 +127,6 @@ class forgotPassword extends Component {
             </div>
           </div>
         </header>
-
 
         <div className="containerSupIMG">
           <div className="containerIMG">
@@ -214,24 +202,18 @@ class forgotPassword extends Component {
                   </Segment>
                 </div>
             </div> 
-          </div>
-
-                    
-          <div className="containerFooter">    
+        </div>
+                
+        <div className="containerFooter">    
             <Footer />
-          </div>
+        </div>
                   
       </div>
     );
   }
 }
 
-
-
 export default withTracker(() => {
-   //Meteor.subscribe('all');
-  return {
-    
-   
+  return { 
   };
 })(forgotPassword);

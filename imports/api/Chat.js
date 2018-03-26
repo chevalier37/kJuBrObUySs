@@ -74,17 +74,30 @@ Meteor.methods({
         Chat.update(message_id, {$set: {read:true} })
       }
 
-      
-
-  
 
 });
 
 
 
-Meteor.publish('AllChat', function () {
+Meteor.publish('Chat', function (to_id, from_id) {
+  new SimpleSchema({
+      to_id: {type: String},
+      from_id: {type: String},
+    }).validate({to_id, from_id});
 
-  return Chat.find();
+  return Chat.find({$or : [{from_id: from_id, to_id:to_id}, {from_id: to_id, to_id:from_id}]}, {
+    fields: {'post_date':1, 'message':1, 'from_id':1, 'to_id':1, 'read':1}
+  });
+});
+
+Meteor.publish('ChatCount', function (id) {
+  new SimpleSchema({
+      id: {type: String},
+    }).validate({id});
+
+  return Chat.find({$or : [{from_id: id}, {to_id:id}]}, {
+    fields: {'to_id':1, 'read':1, 'post_date':1, 'message':1, 'from_id':1}
+  });
 });
 
 

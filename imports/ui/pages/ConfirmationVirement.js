@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
-import { Sidebar, Segment, Button, Menu, Image, Icon, Header,  Message, Divider } from 'semantic-ui-react'
+import { Sidebar, Segment, Button, Icon, Header, Divider } from 'semantic-ui-react'
 import { Route, Redirect } from 'react-router';
  
 //Component
@@ -63,39 +63,26 @@ class ConfirmationVirement extends Component {
         
                 <div className="containerSite" onClick={this.toggleHidden}>
                   <div className="containerIMG">
-                  <div className="MainContent">
-                    <Segment className="MainContent">
-                      
+                    <div className="MainContent">
+                      <Segment className="MainContent">
                         <Header>
-                        Virement confirmé
+                          Virement confirmé
                         </Header>
                       
-                      <Divider />
+                        <Divider />
 
-                      <p className="consigne">
-                      Votre demande de paiement à bien été enregistré.<br />
-                      Il apparaitra sur votre compte bancaire dans 7 jours. 
-                      </p>
-                      <div className="consigne2">
-                     
-                       
-                      </div>
+                        <p className="consigne">
+                        Votre demande de paiement à bien été enregistré.<br />
+                        Il apparaitra sur votre compte bancaire dans 7 jours. 
+                        </p>
 
-                       <p></p>
-
-
-
-                      
-                    </Segment>
-                  </div>
-                  <ContentMenuLeft />
-                      
-                      
+                      </Segment>
+                    </div>
+                    <ContentMenuLeft /> 
                   </div> 
                 </div>
 
               </Sidebar.Pusher>
-
         </Sidebar.Pushable>
       
       </div>
@@ -106,10 +93,6 @@ class ConfirmationVirement extends Component {
 
 
 export default withTracker(() => {
-  //Meteor.subscribe('tasks');
   return {
-    /*tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
-    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
-    currentUser: Meteor.user(),*/
   };
 })(ConfirmationVirement);

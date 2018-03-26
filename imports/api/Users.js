@@ -164,17 +164,7 @@ Accounts.onCreateUser(function(options, user) {
 
 
 Meteor.publish('fetchUser', function ( ) {
-  // Validate the arguments to be what we expect
-  /*new SimpleSchema({
-    username: { type: [String] }
-  }).validate({ username });*/
 
-  // Select only the users that match the array of IDs passed in
-  /*const selector = {
-    username: { $in: username }
-  };*/
-
-  // Only return one field, `initials`
   const options = {
     fields: { username: 1 }
   };
@@ -183,25 +173,7 @@ Meteor.publish('fetchUser', function ( ) {
   return Meteor.users.find(options);
 });
 
-/*
-Meteor.publish('fetchEmail', function ({ email }) {
-  // Validate the arguments to be what we expect
-  new SimpleSchema({
-    email: { type: [String] }
-  }).validate({ email });
 
-  // Select only the users that match the array of IDs passed in
-  const selector = {
-    email: { $in: profile.mail }
-  };
-
-  // Only return one field, `initials`
-  const options = {
-    fields: { 'profile.mail': 1 }
-  };
-
-  return Meteor.users.find(selector, options);
-});*/
 
 Meteor.publish('all', function () {
   // Validate the arguments to be what we expect
@@ -212,4 +184,19 @@ Meteor.publish('all', function () {
   /*return Meteor.users.find({},{limit:2, fields:{_id:1}});*/
   return Meteor.users.find()
 });
+
+
+Meteor.publish('userDon', function (id) {
+  new SimpleSchema({
+      id: {type: String},
+    }).validate({id});
+
+  return Meteor.users.find({'_id':id}, {
+    fields: {'status.online':1, 'profile.mail':1}
+  });
+});
+
+
 }
+
+

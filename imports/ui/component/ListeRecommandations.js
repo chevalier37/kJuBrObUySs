@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Segment, Button, Checkbox, Form, Header, Divider, Label, Comment, Rating } from 'semantic-ui-react'
+import { Segment, Button, Header, Divider, Label, Comment, Rating } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 import Vote from 'react-icons/lib/fa/thumbs-up'; 
-
 
 
 class ListeReponses extends Component {
@@ -100,8 +99,6 @@ class ListeReponses extends Component {
 		  	
 		  			<Comment>
 	      				<Comment.Content>
-	        				
-	         				
 	         				<div className="dateMessage">
 		         			{	this.state.nbrSeconde<60 ? "Il y a " + this.state.nbrSeconde +" secondes": 
 		         				this.state.nbrMinutes<2 ? "Il y a " + this.state.nbrMinutes +" minute": 
@@ -112,9 +109,7 @@ class ListeReponses extends Component {
 								this.state.nbrJours<30 ? "Il y a " + this.state.nbrJours  +" jours":  
 								"Il y a " + this.state.nbrMois +" mois" 
 	         				}
-	         				
 	         				</div>
-	         				
 							<div className="noteRecommandation" >
 								<span className="vote">
 									<Rating icon='heart'
@@ -124,23 +119,15 @@ class ListeReponses extends Component {
               	 				/>
 								</span>
 							</div>
-							
 	      				</Comment.Content>
 	    			</Comment>
-
 	  			</Segment>
-
 			</div>
-
 		);
   	}
 }
 
-export default ListeReponses =  withTracker(({ id }) => {
-
-
+export default ListeReponses =  withTracker(() => {
   return {
-
-
   };
 })(ListeReponses);

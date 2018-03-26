@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
-import { Sidebar, Segment, Button, Menu, Image, Icon, Header, Checkbox, Form,  Message } from 'semantic-ui-react'
+import { Sidebar, Segment, Button, Header, } from 'semantic-ui-react'
 import { Route, Redirect } from 'react-router';
  
 //Component
@@ -13,15 +13,12 @@ import ButtonPusher from '../component/ButtonPusher.js';
 import ContentMenuLeft from '../component/ContentMenuLeft.js';
 import ListeDonsContent from '../component/ListeDonsContent.js';
 
-
 class ListeDons extends Component {
 
     state = { visible: false }
 
     toggleVisibility = () => this.setState({ visible: !this.state.visible })
     toggleHidden = () => this.setState({ visible: false })
-
-
 
     render() {
     const { visible } = this.state
@@ -76,19 +73,12 @@ class ListeDons extends Component {
               </Sidebar.Pusher>
 
         </Sidebar.Pushable>
-      
       </div>
     );
   }
 }
 
-
-
 export default withTracker(() => {
-  //Meteor.subscribe('tasks');
   return {
-    /*tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
-    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
-    currentUser: Meteor.user(),*/
   };
 })(ListeDons);

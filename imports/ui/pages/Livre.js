@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
-import { Sidebar, Segment, Button, Menu, Image, Icon, Header, Checkbox, Form,  Message, Divider } from 'semantic-ui-react'
+import { Sidebar, Segment, Button, Header, Divider } from 'semantic-ui-react'
 import { Route, Redirect } from 'react-router';
 import Img from 'react-image'
  
@@ -89,9 +89,6 @@ class Livre extends Component {
                          </Button>
                        </div>
                       </div>
-
-                      
-
                       <div  className="textCendrillon">
                       <br /><br />
                       <div className="center titre">
@@ -221,57 +218,24 @@ class Livre extends Component {
                         <p className="titre center">Une fille heureuse est une fille qui n’a pas peur d’aller au bout de ses rêves.</p><br /><br />
 
                         <p className="center">Fin de l’extrait<br />
-
-                      
-
-                        
-
                       
                         </p>
-
                         <br /><br /><br /><br /><br /><br />
-
-
-
-
-
-
                       </div><br />
 
-
-
-
                     </div>
-
-
-
-
                     </Segment>
-                  </div>
-
-                      
-
-
-                      
+                  </div> 
                   </div> 
                 </div>
-
               </Sidebar.Pusher>
-
         </Sidebar.Pushable>
-      
       </div>
     );
   }
 }
 
-
-
 export default withTracker(() => {
-  //Meteor.subscribe('tasks');
   return {
-    /*tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
-    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
-    currentUser: Meteor.user(),*/
   };
 })(Livre);

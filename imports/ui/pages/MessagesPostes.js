@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
-import { Sidebar, Segment, Button, Menu, Image, Icon, Header, Checkbox, Form,  Message } from 'semantic-ui-react'
+import { Sidebar, Segment, Button, Header, } from 'semantic-ui-react'
 import Img from 'react-image'
 import { Route, Redirect } from 'react-router';
  
@@ -44,7 +44,6 @@ class Home extends Component {
             </div>
           </div>
         </header>
-
        
         <Sidebar.Pushable >
               <Sidebar
@@ -60,32 +59,21 @@ class Home extends Component {
               </Sidebar>
               
               <Sidebar.Pusher>
-        
+
                 <div className="containerSite" onClick={this.toggleHidden}>
                   <div className="containerIMG">
-                  <ContentMenuLeft />
-                  <ContentMessagePostes  />  
-                      
-                      
+                    <ContentMenuLeft />
+                    <ContentMessagePostes  />  
                   </div> 
                 </div>
-
               </Sidebar.Pusher>
-
         </Sidebar.Pushable>
-      
       </div>
     );
   }
 }
 
-
-
 export default withTracker(() => {
-  //Meteor.subscribe('users');
-  return {
-    /*tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
-    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),*/
-    
+  return {  
   };
 })(Home);

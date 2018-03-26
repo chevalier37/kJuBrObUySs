@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
-import { Sidebar, Segment, Button, Menu, Image, Icon, Header, Checkbox, Form,  Message } from 'semantic-ui-react'
+import { Sidebar, Segment, Button, Header } from 'semantic-ui-react'
 import { Route, Redirect } from 'react-router';
  
 //Component
@@ -20,8 +20,6 @@ class ResultatsConseiller extends Component {
 
     toggleVisibility = () => this.setState({ visible: !this.state.visible })
     toggleHidden = () => this.setState({ visible: false })
-
-
 
     render() {
     const { visible } = this.state
@@ -45,9 +43,7 @@ class ResultatsConseiller extends Component {
             </div>
             </div>
           </div>
-        </header>
-
-       
+        </header>     
         <Sidebar.Pushable >
               <Sidebar
                 animation='overlay'
@@ -61,34 +57,21 @@ class ResultatsConseiller extends Component {
               >
                 <ContentMenuRight />
               </Sidebar>
-              
               <Sidebar.Pusher>
-        
                 <div className="containerSite" onClick={this.toggleHidden}>
                   <div className="containerIMG">
-                  
                   <ContentMenuLeft />
                   <ResultatsConseillerContent theme={this.props.match.params.theme}/> 
-                      
                   </div> 
                 </div>
-
               </Sidebar.Pusher>
-
         </Sidebar.Pushable>
-      
       </div>
     );
   }
 }
 
-
-
 export default withTracker(() => {
-  //Meteor.subscribe('tasks');
   return {
-    /*tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
-    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
-    currentUser: Meteor.user(),*/
   };
 })(ResultatsConseiller);

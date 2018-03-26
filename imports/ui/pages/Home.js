@@ -44,7 +44,6 @@ class Home extends Component {
             </div>
           </div>
         </header>
-
        
         <Sidebar.Pushable >
               <Sidebar
@@ -63,29 +62,19 @@ class Home extends Component {
         
                 <div className="containerSite" onClick={this.toggleHidden}>
                   <div className="containerIMG">
-                  <ContentMenuLeft />
-                  <MainContent  />  
-                      
-                      
+                    <ContentMenuLeft />
+                    <MainContent  />  
                   </div> 
                 </div>
 
               </Sidebar.Pusher>
-
         </Sidebar.Pushable>
-      
       </div>
     );
   }
 }
 
-
-
 export default withTracker(() => {
-  //Meteor.subscribe('users');
-  return {
-    /*tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
-    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),*/
-    
+  return {   
   };
 })(Home);

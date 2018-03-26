@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
-import { Sidebar, Segment, Button, Menu, Image, Icon, Header, Checkbox, Form,  Message } from 'semantic-ui-react'
+import { Sidebar, Segment, Button, Header, Message } from 'semantic-ui-react'
 import { Route, Redirect } from 'react-router';
  
 //Component
@@ -43,9 +43,7 @@ class DevenirConseiller extends Component {
             </div>
             </div>
           </div>
-        </header>
-
-       
+        </header>     
         <Sidebar.Pushable >
               <Sidebar
                 animation='overlay'
@@ -58,34 +56,21 @@ class DevenirConseiller extends Component {
               >
                 <ContentMenuRight />
               </Sidebar>
-              
               <Sidebar.Pusher>
-        
                 <div className="containerSite" onClick={this.toggleHidden}>
                   <div className="containerIMG">
                   <RecommanderContent id={this.props.match.params.id} /> 
                   <ContentMenuLeft />
-                      
-                      
                   </div> 
                 </div>
-
               </Sidebar.Pusher>
-
         </Sidebar.Pushable>
-      
       </div>
     );
   }
 }
 
-
-
 export default withTracker(() => {
-  //Meteor.subscribe('tasks');
   return {
-    /*tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
-    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
-    currentUser: Meteor.user(),*/
   };
 })(DevenirConseiller);

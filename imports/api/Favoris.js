@@ -40,6 +40,13 @@ Meteor.publish('allFavoris', function () {
   return Favoris.find()
 });
 
+Meteor.publish('PageFavoris', function (id) {
+  new SimpleSchema({
+      id: {type: String},
+    }).validate({id});
+
+  return Favoris.find({'from_id':id})
+});
 
 }
 

@@ -139,20 +139,21 @@ class ButtonPusher extends Component {
   		let recommandationsCount = this.props.recommandationsCount;
   		let DonsCount = this.props.DonsCount;
       
-       {
+      {
        	this.props.chat == "true" ?  ChatCount = 0 : ChatCount
-       }
+      }
+
+      
 
   		let totalNotif = ChatCount + reponsesCount + recommandationsCount + DonsCount ;
   		let stringTotalNotif =totalNotif.toString() 
-
   		const trigger = (
 					  <span>
 					     <Bell />
 					    <div className={totalNotif>0 ? "visible" : "none"}>
 						     <div className="ContainerNotifCircle">
 								<div className="NotifCircle">
-									{totalNotif}
+									{stringTotalNotif}
 								</div>
 							</div>
 						</div>
@@ -287,11 +288,12 @@ class ButtonPusher extends Component {
 }
 
 export default withTracker(() => {
+  const MyId = Meteor.userId();
   let id = Meteor.user();
   let search = Meteor.users.findOne(id);
   {id ? name = search.username : name =''}
   //Chat
-  const Handle = Meteor.subscribe('AllChat');
+  const Handle = Meteor.subscribe('ChatCount', MyId );
   const to_id = Meteor.userId();
   const loading = !Handle.ready();
   const allreponses = Chat.find({to_id:to_id, read:false}, { sort: {post_date: -1 } });
@@ -306,7 +308,6 @@ export default withTracker(() => {
 
   //réponses 
   const Handle2 = Meteor.subscribe('allRecommandations');
-  const MyId = Meteor.userId();
   const loading2 = !Handle2.ready();
   const allreponses2 = Recommandations.find({to_id:MyId, read:false}, { sort: {date: -1 } });
   const reponseExists2 = !loading2 && !!allreponses2;

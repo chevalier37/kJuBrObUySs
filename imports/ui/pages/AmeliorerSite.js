@@ -13,7 +13,7 @@ import ButtonPusher from '../component/ButtonPusher.js';
 import ContentMenuLeft from '../component/ContentMenuLeft.js';
 
 
-class DevenirConseiller extends Component {
+class AmelioreSite extends Component {
 
     state = { visible: false }
 
@@ -57,32 +57,27 @@ class DevenirConseiller extends Component {
               >
                 <ContentMenuRight />
               </Sidebar>
-              
+
               <Sidebar.Pusher>
-        
                 <div className="containerSite" onClick={this.toggleHidden}>
                   <div className="containerIMG">
                   <ContentMenuLeft />
-
-                  <div className="MainContent">
-                    <Segment className="MainContentPage">
-                      <Header>
-                      Améliorer le site
-                      </Header>
-                      <Divider />
-                      <div className="corpsText">
-                      Vous avez une idée pour améliorer le site ? <br />
-                      Vous pouvez contacter Caroline afin de lui faire part de votre idée.
-                      </div>
-                    </Segment>
-                  </div>
-                      
-                      
+                    <div className="MainContent">
+                      <Segment className="MainContentPage">
+                        <Header>
+                          Améliorer le site
+                        </Header>
+                        <Divider />
+                        <div className="corpsText">
+                          Vous avez une idée pour améliorer le site ? <br />
+                          Vous pouvez contacter Caroline afin de lui faire part de votre idée.
+                        </div>
+                      </Segment>
+                    </div>
                   </div> 
                 </div>
-
               </Sidebar.Pusher>
-
+              
         </Sidebar.Pushable>
       
       </div>
@@ -93,10 +88,6 @@ class DevenirConseiller extends Component {
 
 
 export default withTracker(() => {
-  //Meteor.subscribe('tasks');
   return {
-    /*tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
-    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
-    currentUser: Meteor.user(),*/
   };
-})(DevenirConseiller);
+})(AmelioreSite);

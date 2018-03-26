@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
-import { Sidebar, Segment, Button, Menu, Image, Icon, Header, Checkbox, Form,  Message, Label } from 'semantic-ui-react'
+import { Sidebar, Segment, Button, Header } from 'semantic-ui-react'
 import Img from 'react-image'
 import { Route, Redirect } from 'react-router';
-
 
 //Component
 import HeaderPage from '../component/HeaderPage.js';
@@ -52,9 +51,7 @@ class allNotifications extends Component {
                  ''}
 
                 },
-        })
-
-    
+        })   
       }
 
     renderAllreponses() {
@@ -73,10 +70,8 @@ class allNotifications extends Component {
           });
       }
 
-
-
-
     render() {
+    
     const { visible } = this.state  
 
     if (!Meteor.loggingIn() && !Meteor.userId()){
@@ -100,7 +95,6 @@ class allNotifications extends Component {
             </div>
           </div>
         </header>
-
        
         <Sidebar.Pushable >
               <Sidebar
@@ -116,47 +110,34 @@ class allNotifications extends Component {
               </Sidebar>
               
               <Sidebar.Pusher>
-        
                 <div className="containerSite" onClick={this.toggleHidden}>
-                  <div className="containerIMG">
-                  <ContentMenuLeft />
-                  <div className="MainContent">
-                  <Segment>
-                  <Header>
-                    <div className="titreRecomandation">Toutes mes notifications </div>
-                      
-                  </Header>
-                  </Segment>
-                  
-                   {this.renderAllreponses()}
-                  </div>    
-                      
-                  </div> 
+                    <div className="containerIMG">
+                      <ContentMenuLeft />
+                      <div className="MainContent">
+                        <Segment>
+                          <Header>
+                            <div className="titreRecomandation">Toutes mes notifications </div>
+                          </Header>
+                        </Segment>
+                         {this.renderAllreponses()}
+                      </div>    
+                    </div> 
                 </div>
-
               </Sidebar.Pusher>
-
         </Sidebar.Pushable>
-      
       </div>
     );
   }
 }
 
-
-
 export default allNotifications =  withTracker(() => {
-  const Handle = Meteor.subscribe('AllNotifications');
   const myId = Meteor.userId();
-  //chat
+  const Handle = Meteor.subscribe('Notifications', myId);
   const loading = !Handle.ready();
   const allreponses = Notifications.find({'to_id':myId}, { sort: {date: -1 } });
   const reponseExists = !loading && !!allreponses;
 
-
   return {
-
     allreponses: reponseExists ? allreponses.fetch() : [],
-
   };
 })(allNotifications);

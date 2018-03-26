@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
-import { Sidebar, Segment, Button, Menu, Image, Icon, Header, Checkbox, Form,  Message, Label } from 'semantic-ui-react'
+import { Sidebar, Segment, Button, Header,  } from 'semantic-ui-react'
 import Img from 'react-image'
 import { Route, Redirect } from 'react-router';
 
@@ -50,11 +50,8 @@ class allFavoris extends Component {
                  this.setState({gender: response.profile.gender}) 
                  :
                  ''}
-
                 },
         })
-
-    
       }
 
     renderAllreponses() {
@@ -71,12 +68,10 @@ class allFavoris extends Component {
               />
             );
           });
-      }
-
-
-
+    }
 
     render() {
+   
     const { visible } = this.state  
 
     if (!Meteor.loggingIn() && !Meteor.userId()){
@@ -143,19 +138,14 @@ class allFavoris extends Component {
   }
 }
 
-
-
-export default allFavoris =  withTracker(({ match }) => {
-  const id = match.params.id;
-  const Handle = Meteor.subscribe('allFavoris');
+export default allFavoris =  withTracker(() => {
+  const id = Meteor.userId();
+  const Handle = Meteor.subscribe('PageFavoris', id);
   const loading = !Handle.ready();
-  const allreponses = Favoris.find({'to_id':id}, { sort: {date: -1 } });
+  const allreponses = Favoris.find({'from_id':id}, { sort: {date: -1 } });
   const reponseExists = !loading && !!allreponses;
 
-
   return {
-
     allreponses: reponseExists ? allreponses.fetch() : [],
-
   };
 })(allFavoris);

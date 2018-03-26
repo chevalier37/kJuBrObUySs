@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
-import { Sidebar, Segment, Button, Menu, Image, Icon, Header, Checkbox, Form,  Message, Label } from 'semantic-ui-react'
+import { Sidebar, Segment, Button, Header} from 'semantic-ui-react'
 import Img from 'react-image'
 import { Route, Redirect } from 'react-router';
 
@@ -50,12 +50,9 @@ class allRecommandations extends Component {
                  this.setState({gender: response.profile.gender}) 
                  :
                  ''}
-
                 },
         })
-
-    
-      }
+    }
 
     renderAllreponses() {
           let Allreponses = this.props.allreponses;
@@ -72,9 +69,6 @@ class allRecommandations extends Component {
             );
           });
       }
-
-
-
 
     render() {
     const { visible } = this.state  
@@ -100,7 +94,6 @@ class allRecommandations extends Component {
             </div>
           </div>
         </header>
-
        
         <Sidebar.Pushable >
               <Sidebar
@@ -129,15 +122,12 @@ class allRecommandations extends Component {
                       </div>
                   </Header>
                   </Segment>
-                  
                    {this.renderAllreponses()}
                   </div>    
                       
                   </div> 
                 </div>
-
               </Sidebar.Pusher>
-
         </Sidebar.Pushable>
       
       </div>
@@ -145,19 +135,14 @@ class allRecommandations extends Component {
   }
 }
 
-
-
 export default allRecommandations =  withTracker(({ match }) => {
   const id = match.params.id;
-  const Handle = Meteor.subscribe('allRecommandations');
+  const Handle = Meteor.subscribe('Recommandations', id);
   const loading = !Handle.ready();
   const allreponses = Recommandations.find({'to_id':id}, { sort: {date: -1 } });
   const reponseExists = !loading && !!allreponses;
 
-
   return {
-
     allreponses: reponseExists ? allreponses.fetch() : [],
-
   };
 })(allRecommandations);

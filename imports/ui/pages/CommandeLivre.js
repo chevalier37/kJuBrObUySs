@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
-import { Sidebar, Segment, Button, Menu, Image, Icon, Header, Checkbox, Form,  Message, Divider } from 'semantic-ui-react'
+import { Sidebar, Segment, Button, Icon, Header, Divider } from 'semantic-ui-react'
 import { Route, Redirect } from 'react-router';
 import Img from 'react-image'
  
@@ -12,8 +12,6 @@ import HeaderPage from '../component/HeaderPage.js';
 import ContentMenuRight from '../component/ContentMenuRight.js';
 import ButtonPusher from '../component/ButtonPusher.js';
 import ContentMenuLeft from '../component/ContentMenuLeft.js';
-
-import FaCartArrowDown from 'react-icons/lib/fa/cart-arrow-down';
 
 //Stripe
 import {StripeProvider} from 'react-stripe-elements';
@@ -72,37 +70,33 @@ class Livre extends Component {
         
                 <div className="containerSite" onClick={this.toggleHidden}>
                   <div className="containerIMG">
-                  <ContentMenuLeft />
+                    <ContentMenuLeft />
+                    <div className="MainContent">
+                      <Segment className="MainContentPage">
+                        <Header>
+                        Commander Le Secret de Cendrillon
+                        </Header>
 
-                  <div className="MainContent">
-                    <Segment className="MainContentPage">
-                      <Header>
-                      Commander Le Secret de Cendrillon
-                      </Header>
-                      <Divider />
+                        <Divider />
 
-                      <div className="imgLivreCommande">
-                        <Img className="imgLivre" src="/livre.png"/>
-                      </div>
+                        <div className="imgLivreCommande">
+                          <Img className="imgLivre" src="/livre.png"/>
+                        </div>
 
-                      <div className="prix">
-                      <b>Format :</b> 21cm x 14cm<br />
-                      <b>Nombre de pages :</b> 250 pages<br />
-                      <b>Auteur :</b> Jean-Benoit ROUSSAT<br />
-                      <b>Editions :</b> Seconde Vie Editions<br />
-                      <b>Prix :</b> 22€<br />
+                        <div className="prix">
+                          <b>Format :</b> 21cm x 14cm<br />
+                          <b>Nombre de pages :</b> 250 pages<br />
+                          <b>Auteur :</b> Jean-Benoit ROUSSAT<br />
+                          <b>Editions :</b> Seconde Vie Editions<br />
+                          <b>Prix :</b> 22€<br />
+                        </div>
 
-                      </div>
-                      
-                          <StripeProvider apiKey="pk_test_FYPy2HMQEUB5q9EwN27MAWyo">
-                            <MyStoreCheckoutLivre />
-                          </StripeProvider>
+                        <StripeProvider apiKey="pk_test_FYPy2HMQEUB5q9EwN27MAWyo">
+                          <MyStoreCheckoutLivre />
+                        </StripeProvider>
 
-
-
-                    </Segment>
-                  </div>
-                      
+                      </Segment>
+                    </div>
                   </div> 
                 </div>
 
@@ -118,10 +112,6 @@ class Livre extends Component {
 
 
 export default withTracker(() => {
-  //Meteor.subscribe('tasks');
   return {
-    /*tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
-    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
-    currentUser: Meteor.user(),*/
   };
 })(Livre);

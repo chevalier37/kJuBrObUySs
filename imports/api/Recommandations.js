@@ -79,6 +79,14 @@ Meteor.publish('allRecommandations', function () {
   return Recommandations.find()
 });
 
+Meteor.publish('Recommandations', function (id) {
+  new SimpleSchema({
+      id: {type: String},
+    }).validate({id});
+
+  return Recommandations.find({'to_id':id})
+});
+
 
 }
 

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
-import { Sidebar, Segment, Button, Menu, Image, Icon, Header, Divider} from 'semantic-ui-react'
+import { Sidebar, Segment, Button, Header, Divider} from 'semantic-ui-react'
 import { Route, Redirect } from 'react-router';
  
 //Component
@@ -19,14 +19,12 @@ import MyStoreCheckout from '../component/MyStoreCheckout.js';
 class Dons extends Component {
 
     constructor(props) {
-
         super(props);
         this.state = {
         visible: false,
         stripe: null,
         username:''
         }
-
     }
 
     toggleVisibility = () => this.setState({ visible: !this.state.visible })
@@ -56,10 +54,11 @@ class Dons extends Component {
 
 
     render() {
-    const { visible } = this.state
-    if (!Meteor.loggingIn() && !Meteor.userId()){
-      return <Redirect to="/" />;
-    }  
+      const { visible } = this.state
+    
+      if (!Meteor.loggingIn() && !Meteor.userId()){
+        return <Redirect to="/" />;
+      }  
 
     return (
       <div className="container">
@@ -78,7 +77,6 @@ class Dons extends Component {
             </div>
           </div>
         </header>
-
        
         <Sidebar.Pushable >
               <Sidebar
@@ -98,7 +96,6 @@ class Dons extends Component {
                 <div className="containerSite" onClick={this.toggleHidden}>
                   <div className="containerIMG">
                   <ContentMenuLeft />
-
                   <div className="MainContent">
                     <Segment className="MainContentPage">
                       <Header>
@@ -112,10 +109,7 @@ class Dons extends Component {
 
                       <Divider />
 
-                      <div className="corpsText">
-
-                 
-                        
+                      <div className="corpsText">                     
                         <StripeProvider apiKey="pk_test_FYPy2HMQEUB5q9EwN27MAWyo">
                             <MyStoreCheckout
                              gender={this.state.gender}
@@ -127,16 +121,12 @@ class Dons extends Component {
                           </StripeProvider>
                       </div>
                     </Segment>
-                  </div>
-                      
-                      
+                  </div>                    
                   </div> 
                 </div>
 
               </Sidebar.Pusher>
-
         </Sidebar.Pushable>
-      
       </div>
     );
   }
@@ -145,9 +135,9 @@ class Dons extends Component {
 
 
 export default Dons =  withTracker(({match}) => {
-  const Handle = Meteor.subscribe('all');
-  const loading = !Handle.ready();
   const id = match.params.id;
+  const Handle = Meteor.subscribe('userDon', id);
+  const loading = !Handle.ready();
   const user = Meteor.users.findOne({'_id':id});
   const reponseExists = !loading && !!user;
   return {

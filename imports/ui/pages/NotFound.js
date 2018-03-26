@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
-import { Sidebar, Segment, Button, Menu, Image, Icon, Header, Checkbox, Form,  Message, Label } from 'semantic-ui-react'
+import { Sidebar, Segment, Button, Header } from 'semantic-ui-react'
 import Img from 'react-image'
 import { Route, Redirect } from 'react-router';
-
 
 //Component
 import HeaderPage from '../component/HeaderPage.js';
@@ -28,7 +27,6 @@ class NotFound extends Component {
     toggleVisibility = () => this.setState({ visible: !this.state.visible })
     toggleHidden = () => this.setState({ visible: false })
 
-
     render() {
     const { visible } = this.state  
 
@@ -46,14 +44,12 @@ class NotFound extends Component {
               <span
                className="buttonPush"
                onClick={this.toggleVisibility}>
-
                <ButtonPusher />
                </span>
             </div>
             </div>
           </div>
         </header>
-
        
         <Sidebar.Pushable >
               <Sidebar
@@ -69,38 +65,26 @@ class NotFound extends Component {
               </Sidebar>
               
               <Sidebar.Pusher>
-        
                 <div className="containerSite" onClick={this.toggleHidden}>
                   <div className="containerIMG">
-                  <ContentMenuLeft />
-                  <div className="MainContent">
-                  <Segment>
-                  <Header>
-                    <div className="titreRecomandation"> Page non trouvée </div>
-                      
-                  </Header>
-                  </Segment>
-                  
-                  
-                  </div>    
-                      
+                    <ContentMenuLeft />
+                    <div className="MainContent">
+                      <Segment>
+                        <Header>
+                          <div className="titreRecomandation"> Page non trouvée </div>
+                        </Header>
+                      </Segment>
+                    </div>     
                   </div> 
                 </div>
-
               </Sidebar.Pusher>
-
         </Sidebar.Pushable>
-      
       </div>
     );
   }
 }
 
-
-
 export default NotFound =  withTracker(({ match }) => {
-
   return {
-
   };
 })(NotFound);
