@@ -8,8 +8,6 @@ import { withTracker } from 'meteor/react-meteor-data';
 //Icons
 import Send from 'react-icons/lib/fa/paper-plane-o';
 
-//import { Posts } from '../../api/Messages.js';
-
 class FormChat extends Component {
 
 	constructor(props) {
@@ -21,7 +19,6 @@ class FormChat extends Component {
 	      
 	    };
 	}
-
 
 	focusMessage() {
 	     this.setState({
@@ -83,44 +80,35 @@ class FormChat extends Component {
 	}
 
   render() {
-
-  		
+ 		
   		const { placeholderMessage } = this.state
-
 		
 		return (
 			<div className="valideChatForm">
-				
-				    <Form onSubmit={this.Submit.bind(this)}>
-				      <Button fluid color="green"  >
-					    	Envoyer 
-					    </Button>
-				    						    
-					   
-					     <div className="valideChatArea">
-					      <TextArea
-					       ref="message"
-					       onFocus={this.focusMessage.bind(this)}
-					       onBlur={this.focusMessageOut.bind(this)}
-					       placeholder={placeholderMessage}
-					       rows={8}
-					       />
-						</div>
-					    
-
-			  	
-			  		</Form>
-	  			
-
+			    <Form onSubmit={this.Submit.bind(this)}>
+			      <Button fluid color="green"  >
+				    	Envoyer 
+				    </Button>
+			    						    
+				   
+				     <div className="valideChatArea">
+				      <TextArea
+				       ref="message"
+				       onFocus={this.focusMessage.bind(this)}
+				       onBlur={this.focusMessageOut.bind(this)}
+				       placeholder={placeholderMessage}
+				       rows={8}
+				       />
+					</div>
+		  		</Form>
 			</div>
-
 		);
   	}
 }
 
 
 export default FormChat =  withTracker(({ to_id }) => {
-  const Handle = Meteor.subscribe('all');
+  const Handle = Meteor.subscribe('user', to_id);
   const loading = !Handle.ready();
   const user = Meteor.users.findOne({'_id':to_id});
   const reponseExists = !loading && !!user;

@@ -7,7 +7,6 @@ import Vote from 'react-icons/lib/fa/thumbs-up';
 
 import FaEur from 'react-icons/lib/fa/eur';
 
-
 class DonsNotif extends Component {
 	
 	constructor(props) {
@@ -20,7 +19,6 @@ class DonsNotif extends Component {
 			    Chatredirect:false,
 		    };
 		}
-
 
 	componentWillMount(){
 		const sexe = this.props.message.gender;
@@ -48,8 +46,6 @@ class DonsNotif extends Component {
 
 		const nbrMois = Math.round(nbrJours/30);
 		this.setState({nbrMois: nbrMois})
-
-
 	}
 
 	reponse(event){
@@ -67,8 +63,6 @@ class DonsNotif extends Component {
             	}
         })
 	}
-
-	
 
 	breaklines(){
 			  let text = this.props.message.message
@@ -129,10 +123,6 @@ class DonsNotif extends Component {
 }
 
 export default DonsNotif =  withTracker(({ id }) => {
-
-
   return {
-
-
   };
 })(DonsNotif);

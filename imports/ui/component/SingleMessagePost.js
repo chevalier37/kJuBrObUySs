@@ -106,11 +106,11 @@ class ListeMessagePost extends Component {
 }
 
 export default ListeMessagePost =  withTracker(({ id }) => {
-  const Handle = Meteor.subscribe('AllMessages');
+  const Handle = Meteor.subscribe('Message', id);
   const loading = !Handle.ready();
   const allposts = Posts.findOne({_id:id});
   const postExists = !loading && !!allposts;
-  const HandleReponse = Meteor.subscribe('Allreponses');
+  const HandleReponse = Meteor.subscribe('reponsesSingleMessage', id);
 
   return {
    message: postExists ? allposts : [],

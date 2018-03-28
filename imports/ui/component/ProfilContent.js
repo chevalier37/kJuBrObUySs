@@ -1148,12 +1148,6 @@ class ProfilContent extends Component {
       		return <Redirect to="/" />;
     		}
 
-
-
-    		
-    		
-    		
-
 		return (
 			<div className="MainContent">
 				
@@ -2328,9 +2322,9 @@ class ProfilContent extends Component {
 }
 
 export default ProfilContent =  withTracker(({id}) => {
-	const Handle = Meteor.subscribe('AllConseiller');
-	const Handle2 = Meteor.subscribe('all');
-	const Handle1 = Meteor.subscribe('allRecommandations');
+	const Handle = Meteor.subscribe('IsConseiller', id);
+	const Handle2 = Meteor.subscribe('user', id);
+	const Handle1 = Meteor.subscribe('Recommandations', id);
 	const loading = !Handle.ready();
 	const loading1 = !Handle1.ready();
 	const loading2 = !Handle2.ready();

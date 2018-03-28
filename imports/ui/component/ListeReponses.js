@@ -7,8 +7,6 @@ import Vote from 'react-icons/lib/fa/thumbs-up';
 
 import { Favoris } from '../../api/Favoris.js';
 
-
-
 class ListeReponses extends Component {
 	
 	constructor(props) {
@@ -89,17 +87,11 @@ class ListeReponses extends Component {
 
    		}
 
-
-		
 	}
-
-
-
 
   render() {
     
 	const colorSexe = this.state.sexe;
-
    
 		return (
 			<div className="ListeMessages">
@@ -193,18 +185,13 @@ class ListeReponses extends Component {
 }
 
 export default ListeReponses =  withTracker(({ message }) => {
-	const Handle = Meteor.subscribe('allFavoris');
+	let id = message._id;
+	let myId = Meteor.userId();
+	const Handle = Meteor.subscribe('isFavoris', id, myId );
 	const loading = !Handle.ready();
-	let id = message._id
- 	let FavorisSearch = Favoris.findOne({'idMessage':id, 'from_id':Meteor.userId()});
- 	
+ 	let FavorisSearch = Favoris.findOne({'idMessage':id, 'from_id':myId});
  	const reponseExists = !loading && !!FavorisSearch;
-
-
   return {
-  
   	isFavoris:reponseExists ? true : false,
-  
-  
   };
 })(ListeReponses);

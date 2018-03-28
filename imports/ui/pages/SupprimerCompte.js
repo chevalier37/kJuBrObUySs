@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
-import { Sidebar, Segment, Button, Menu, Image, Icon, Header, Divider, Modal } from 'semantic-ui-react'
+import { Sidebar, Segment, Button, Header, Divider, Modal } from 'semantic-ui-react'
 import { Route, Redirect } from 'react-router';
  
 //Component
@@ -11,10 +11,9 @@ import HeaderPage from '../component/HeaderPage.js';
 import ContentMenuRight from '../component/ContentMenuRight.js';
 import ButtonPusher from '../component/ButtonPusher.js';
 import ContentMenuLeft from '../component/ContentMenuLeft.js';
-import DevenirConseillerContent from '../component/DevenirConseillerContent.js';
 
 
-class DevenirConseiller extends Component {
+class SupprimerCompte extends Component {
 
     state = { 
       visible: false,
@@ -28,8 +27,6 @@ class DevenirConseiller extends Component {
     supprimer(){
       Meteor.call('supprimerCompte')
       this.setState({delete: true})
-
-
     }
 
     non(){
@@ -59,14 +56,12 @@ class DevenirConseiller extends Component {
               <span
                className="buttonPush"
                onClick={this.toggleVisibility}>
-
                <ButtonPusher />
                </span>
             </div>
             </div>
           </div>
         </header>
-
        
         <Sidebar.Pushable >
               <Sidebar
@@ -89,15 +84,11 @@ class DevenirConseiller extends Component {
 
                   <div className="MainContent">
                     <Segment className="MainContentPage">
-                      
                         <Header>
                         Supprimer mon compte
                         </Header>
+                       
                         <Divider />
-                        
-                        <div className="corpsText">
-                          
-                        </div>
                      
                       <Modal trigger={<Button color='red' onClick={this.open.bind(this)}>
                           Supprimer mon compte
@@ -127,13 +118,9 @@ class DevenirConseiller extends Component {
                       </Modal>
                     </Segment>
                   </div>
-                      
-                      
                   </div> 
                 </div>
-
               </Sidebar.Pusher>
-
         </Sidebar.Pushable>
       
       </div>
@@ -141,13 +128,7 @@ class DevenirConseiller extends Component {
   }
 }
 
-
-
 export default withTracker(() => {
-  //Meteor.subscribe('tasks');
   return {
-    /*tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
-    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
-    currentUser: Meteor.user(),*/
   };
-})(DevenirConseiller);
+})(SupprimerCompte);

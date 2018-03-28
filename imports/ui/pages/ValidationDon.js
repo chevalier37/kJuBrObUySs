@@ -76,39 +76,21 @@ class donEffectuer extends Component {
                       Merci ! Ton don a bien été envoyé.
                       </p>
                       <div className="consigne2">
-                     
-                       
                       </div>
-
                        <p></p>
-
-
-
-                      
                     </Segment>
                   </div>
-                  <ContentMenuLeft />
-                      
-                      
+                  <ContentMenuLeft />                     
                   </div> 
                 </div>
-
               </Sidebar.Pusher>
-
         </Sidebar.Pushable>
-      
       </div>
     );
   }
 }
 
-
-
 export default withTracker(() => {
-  //Meteor.subscribe('tasks');
   return {
-    /*tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
-    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
-    currentUser: Meteor.user(),*/
   };
 })(donEffectuer);

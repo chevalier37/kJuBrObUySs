@@ -21,7 +21,6 @@ class ContactChatContent extends Component {
 	    };
 	}
 
-
   handleContextRef = contextRef => this.setState({ contextRef })
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
@@ -48,14 +47,11 @@ class ContactChatContent extends Component {
 		  return shortMessage
 		}
 
-	
-
   render() {
     
     const { contextRef } = this.state
 
 	    return (
-	    	
 				<div className={"AffficheContact" + " "+this.state.message}  >
 					<Link to={'/Chat/' + this.state.toId}>	
 					<div className={this.props.currentContact + " " + this.props.read} >
@@ -79,9 +75,8 @@ class ContactChatContent extends Component {
 				       </div>
 				    </Link>
 	    		</div>
-	    	
 	    )
-	  }
+	}
 	
 }
 
@@ -107,8 +102,7 @@ authorLastMessage = contact.authorLastMessage;
 read = 'notRead' : ''
 }
 
-
-  const Handle = Meteor.subscribe('all');
+  const Handle = Meteor.subscribe('user', id);
   const loading = !Handle.ready();
   const user = Meteor.users.findOne({'_id':id});
   const reponseExists = !loading && !!user;

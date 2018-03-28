@@ -10,6 +10,9 @@ export const Posts = new Mongo.Collection('posts');
 
 if (Meteor.isServer) {
 
+Meteor.startup(function () {  
+  Posts._ensureIndex({ "post_author_id": 1});
+});
 
 Meteor.methods({
 
@@ -45,8 +48,73 @@ Meteor.methods({
         Discrimination,
         Violence,
         autre,
-
         ) {
+
+        new SimpleSchema({
+            titre: {type: String},
+            message: {type: String},
+            premierAmour: {type: Boolean},
+            trahison: {type: Boolean},
+            Friendzone: {type: Boolean},
+            amourdistance: {type: Boolean},
+            separation: {type: Boolean},
+            timidite: {type: Boolean},
+            depression: {type: Boolean},
+            suicide: {type: Boolean},
+            deces: {type: Boolean},
+            mutilation: {type: Boolean},
+            premierfois: {type: Boolean},
+            Contraception: {type: Boolean},
+            mst: {type: Boolean},
+            viol: {type: Boolean},
+            avortement: {type: Boolean},
+            orientationSex: {type: Boolean},
+            Anorexie: {type: Boolean},
+            obesite: {type: Boolean},
+            drogue: {type: Boolean},
+            alcool: {type: Boolean},
+            complexe: {type: Boolean},
+            hopital: {type: Boolean},
+            handicap: {type: Boolean},
+            Accident: {type: Boolean},
+            echecEcole: {type: Boolean},
+            Harcelement: {type: Boolean},
+            Discrimination: {type: Boolean},
+            Violence: {type: Boolean},
+            autre: {type: Boolean},
+          }).validate({
+            titre,
+            message,
+            premierAmour,
+            trahison,
+            Friendzone,
+            amourdistance,
+            separation,
+            timidite,
+            depression,
+            suicide,
+            deces,
+            mutilation,
+            premierfois,
+            Contraception,
+            mst,
+            viol,
+            avortement,
+            orientationSex,
+            Anorexie,
+            obesite,
+            drogue,
+            alcool,
+            complexe,
+            hopital,
+            handicap,
+            Accident,
+            echecEcole,
+            Harcelement,
+            Discrimination,
+            Violence,
+            autre,
+          });
 
         const user = Meteor.user();
         const username = user.username;
@@ -91,8 +159,6 @@ console.log(hopital)
                   signaler:0,
                   upvoters: [],
                   post_author_id : this.userId,
-
-
                 });
              },
 
@@ -120,6 +186,7 @@ console.log(hopital)
       },
 
       supprimerMessage: function(idMessage) {
+         check(idMessage, String);
           Posts.remove({_id:idMessage});
        },
 
@@ -134,5 +201,33 @@ Meteor.publish('AllMessages', function ( ) {
 
   return Posts.find();
 });
+
+
+Meteor.publish('SingleMessages', function (reponse) {
+new SimpleSchema({
+      reponse: {type: String},
+    }).validate({reponse});
+
+  return Posts.find({'_id':reponse}, {
+    fields: {'post_author_id':1, 'post_title':1}
+  });
+});
+
+Meteor.publish('MyMessages', function (myId) {
+new SimpleSchema({
+      myId: {type: String},
+    }).validate({myId});
+
+  return Posts.find({'post_author_id':myId});
+});
+
+Meteor.publish('Message', function (id) {
+new SimpleSchema({
+      id: {type: String},
+    }).validate({id});
+
+  return Posts.find({'_id':id});
+});
+
 
 }

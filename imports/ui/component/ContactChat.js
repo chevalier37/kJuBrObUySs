@@ -31,7 +31,6 @@ class contactChat extends Component {
 	              	}     
             	}
           	})
-
 	}
 
 	renderAllContactChat() {
@@ -50,13 +49,11 @@ class contactChat extends Component {
               />
             );
           });
-      }
+  }
   
   
 
   render() {
-    
-  		
 		
 		return (
 			
@@ -72,22 +69,18 @@ class contactChat extends Component {
   				        {this.renderAllContactChat()}
   			      </Menu>
 				    </div>
-		
-
 		);
-  	}
+  }
 }
 
 export default contactChat =  withTracker(() => {
   const from_id = Meteor.userId();
-  const Handle = Meteor.subscribe('AllContactChat');
+  const Handle = Meteor.subscribe('ContactChat', from_id);
   const loading = !Handle.ready();
   const allreponses = ContactChat.find({$or : [{from_id: from_id}, {to_id:from_id}]}, { sort: { last_message: -1 } });
   const reponseExists = !loading && !!allreponses;
 
-
   return {
-
     allContactChat: reponseExists ? allreponses.fetch() : [],
 
   };

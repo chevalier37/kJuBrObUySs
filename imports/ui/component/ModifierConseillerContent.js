@@ -4,8 +4,6 @@ import { Segment, Button, Checkbox, Form, Header, TextArea, Divider, Message, Ac
 import { Link, Redirect } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 
-
-
 export default class DevenirConseillerContent extends Component {
 
 	  state = {

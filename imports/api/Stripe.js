@@ -13,12 +13,29 @@ const stripe = require("stripe")("sk_test_JvofPcmk1InWfME0dR7HUJRK");
 
 Meteor.methods({
       Paiement: function(token, message, montant, to_id, to_name, to_gender) {
+         new SimpleSchema({
+            message: {type: String},
+            token: {type: String},
+            montant: {type: Number},
+            to_id: {type: String},
+            to_name: {type: String},
+            to_gender: {type: String},
+          }).validate({
+            token,
+            message,
+            montant,
+            to_id,
+            to_name,
+            to_gender
+          });
+
          const user = Meteor.user();
          const frais = montant * 0.2;
          const from_id = this.userId;
          const from_name = user.username;
          const montantPercu = montant * 0.8;
          const gender = user.profile.gender;
+         
          Dons.insert({
                   from_id:this.userId,
                   from_name:user.username,
@@ -59,6 +76,11 @@ Meteor.methods({
       },
 
        DonsNotif: function(message_id){
+        new SimpleSchema({
+            message_id: {type: String},
+          }).validate({
+            message_id,
+          });
         Dons.update(message_id, {$set: {read:true} })
       }
 
@@ -67,6 +89,22 @@ Meteor.methods({
 Meteor.publish('AllDons', function () {
 
   return Dons.find();
+});
+
+Meteor.publish('Dons', function (id) {
+new SimpleSchema({
+      id: {type: String},
+    }).validate({id});
+
+  return Dons.find({'to_id':id});
+});
+
+Meteor.publish('MyDons', function (id) {
+new SimpleSchema({
+      id: {type: String},
+    }).validate({id});
+
+  return Dons.find({$or : [{from_id: id}, {to_id:id}]});
 });
 
 }

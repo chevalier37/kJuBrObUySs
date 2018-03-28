@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { Comments } from '../../api/Reponses.js';
 import { withTracker } from 'meteor/react-meteor-data';
 
-
 class ListeMessagesPostes extends Component {
 	
 	constructor(props) {
@@ -248,13 +247,9 @@ class ListeMessagesPostes extends Component {
 	    }
 	}
 
-
-
-
   render() {
     
 	const colorSexe = this.state.sexe;
-
    
 		return (
 			<div className="ListeMessages">
@@ -451,10 +446,9 @@ class ListeMessagesPostes extends Component {
 
 export default ListeMessagesPostes =  withTracker(({ id }) => {
 
-  const HandleReponse = Meteor.subscribe('Allreponses');
+  const HandleReponse = Meteor.subscribe('reponsesSingleMessage', id);
 
   return {
    nbrreponse: Comments.find({postId:id}).count()
-
   };
 })(ListeMessagesPostes);

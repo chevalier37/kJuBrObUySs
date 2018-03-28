@@ -7,7 +7,6 @@ import Vote from 'react-icons/lib/fa/thumbs-up';
 
 import FaEnvelope from 'react-icons/lib/fa/envelope';
 
-
 class ReponsesNotif extends Component {
 	
 	constructor(props) {
@@ -20,9 +19,6 @@ class ReponsesNotif extends Component {
 			    Chatredirect:false,
 		    };
 		}
-
-
-
 
 	componentWillMount(){
 		const sexe = this.props.message.gender;
@@ -70,7 +66,6 @@ class ReponsesNotif extends Component {
         })
 	}
 
-	
 
 	breaklines(){
 			  let text = this.props.message.comments
@@ -86,8 +81,7 @@ class ReponsesNotif extends Component {
      if (Chatredirect==true){
       return <Redirect to={'/singleMessage/' + this.props.message.postId} />;
       } 
-
-   
+  
 		return (
 			<div className={this.props.message.read==false ? "ListeChatUnread" : "ListeChat"}>
 			  		<div onClick={this.reponse.bind(this)}>	
@@ -118,7 +112,6 @@ class ReponsesNotif extends Component {
 						"Il y a " + this.state.nbrMois +" mois" 
      				}
      				
-     				
      				</div>
      				<div className={this.props.message.gender == "fille" ? "FilledateNotifReponse" : "GarcondateNotifReponse"}>
 					  				 {this.props.message.post_author} 
@@ -132,10 +125,6 @@ class ReponsesNotif extends Component {
 }
 
 export default ReponsesNotif =  withTracker(({ id }) => {
-
-
   return {
-
-
   };
 })(ReponsesNotif);

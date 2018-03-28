@@ -26,7 +26,6 @@ class ContentMenuLeft extends Component {
            
         };
     }
-  
 
   componentWillMount(){
   	//on cherche le dernier contact
@@ -68,66 +67,59 @@ class ContentMenuLeft extends Component {
     const { activeItem } = this.state
     const { contextRef } = this.state
 
-   
-  		
-		
 		return (
 			<div className="MenuLeft">
-			<Menu vertical>
-					<div
-					 className="HeaderMenu"
-					 >
-					 Mon compte
-				 	</div>
-          <div className="espaceConseiller"></div>
-				    <div className="MenuItem">
-					    <Link to={'/Profil/'+ Meteor.userId() }>	
-					         	<FaUser /> Profil
-				        </Link>
+  			<Menu vertical>
+  					<div
+  					 className="HeaderMenu"
+  					 >
+  					 Mon compte
+  				 	</div>
+            <div className="espaceConseiller"></div>
+  				    <div className="MenuItem">
+  					    <Link to={'/Profil/'+ Meteor.userId() }>	
+  					         	<FaUser /> Profil
+  				        </Link>
+    					</div>
+    					
+    					<div className="MenuItem">
+  				        <Link to={'/Chat/' + this.state.id}>	
+  				          <FaComments /> Messagerie
+  				        </Link>
   					</div>
-  					
-  					<div className="MenuItem">
-				        <Link to={'/Chat/' + this.state.id}>	
-				          <FaComments /> Messagerie
-				        </Link>
-					</div>
-			       
-			       	<div className="MenuItem">
-			        	<Link to={'/Favoris/' }>	
-			          		<FaStar /> Favoris
-			          	</Link>
-  					</div>
+  			       
+  			       	<div className="MenuItem">
+  			        	<Link to={'/Favoris/' }>	
+  			          		<FaStar /> Favoris
+  			          	</Link>
+    					</div>
 
-			       	<div className="MenuItem">
-			        	<Link to={'/MessagesPostes/' }>	
-			          		 <FaEnvelope /> Messages postés
-			       		</Link>
-  					</div>
+  			       	<div className="MenuItem">
+  			        	<Link to={'/MessagesPostes/' }>	
+  			          		 <FaEnvelope /> Messages postés
+  			       		</Link>
+    					</div>
 
-			      	<div className="MenuItem">
-			        	<Link to={'/ListeDons/' + Meteor.userId() }>	
-			          		<FaEur /> Dons
-			    		</Link>
-  					</div>
-		   
-			</Menu>
+  			      	<div className="MenuItem">
+  			        	<Link to={'/ListeDons/' + Meteor.userId() }>	
+  			          		<FaEur /> Dons
+  			    		</Link>
+    					</div>
+  		   
+  			</Menu>
 
-
-		      	<div className="MenuLeftLastConseiller">
-				<Menu vertical>
-				<div
-				 className="HeaderMenu"
-				 >
-				 Nouveaux conseillers
-				 </div>
-         <div className="espaceConseiller"></div>
-			        {this.renderLastConseiller()}
-			       
-		      	</Menu>
-
-			</div>
+  		  <div className="MenuLeftLastConseiller">
+  				<Menu vertical>
+    				<div
+    				 className="HeaderMenu"
+    				 >
+    				 Nouveaux conseillers
+    				 </div>
+             <div className="espaceConseiller"></div>
+    			        {this.renderLastConseiller()}
+  		    </Menu>
+  			</div>
 		</div>
-
 		);
   	}
 }
@@ -139,10 +131,7 @@ export default ContentMenuLeft =  withTracker(() => {
   const allConseillers = Conseilleres.find({}, {sort:{date: -1},limit:5});
   const reponseExists = !loading && !!allConseillers;
 
-
   return {
-
     lastConseiller: reponseExists ? allConseillers.fetch() : [],
-
   };
 })(ContentMenuLeft);

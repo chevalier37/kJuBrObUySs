@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 import Vote from 'react-icons/lib/fa/thumbs-up'; 
 
-
 class ListeReponses extends Component {
 	
 	constructor(props) {
@@ -75,10 +74,9 @@ class ListeReponses extends Component {
 			  return message
 			}
 
-  render() {
+  	render() {
     
 	const colorSexe = this.state.sexe;
-
    
 		return (
 			<div className="ListeMessages">

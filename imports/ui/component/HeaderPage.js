@@ -14,7 +14,6 @@ class HeaderPage extends Component {
 
 	
   	render() {
-  
 	
 	return (
 		<div className="">
@@ -36,16 +35,12 @@ class HeaderPage extends Component {
 }
 
 export default HeaderPage =  withTracker(() => {
-  const Handle = Meteor.subscribe('all');
-  const loading = !Handle.ready();
   const userId = Meteor.userId()
+  const Handle = Meteor.subscribe('IsConseiller', userId);
+  const loading = !Handle.ready();
   const allreponses = Conseilleres.find({'user_id':userId});
   const reponseExists = !loading && !!allreponses;
-
-
   return {
-
     user: reponseExists ? allreponses.count() : [],
-
   };
 })(HeaderPage);

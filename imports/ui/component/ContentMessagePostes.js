@@ -59,15 +59,13 @@ class ContentMessagePostes extends Component {
 }
 
 export default withTracker(() => {
-  const Handle = Meteor.subscribe('AllMessages');
-  const loading = !Handle.ready();
-  const allposts = Posts.find({post_author_id:Meteor.userId()}, { sort: { post_date: -1 }});
+	const myId = Meteor.userId();
+  	const Handle = Meteor.subscribe('MyMessages', myId);
+  	const loading = !Handle.ready();
+  	const allposts = Posts.find({post_author_id:myId}, { sort: { post_date: -1 }});
+  	const postExists = !loading && !!allposts;
   
-  const postExists = !loading && !!allposts;
-  
-
   return {
     allMessages: postExists ? allposts.fetch() : []
-
   };
 })(ContentMessagePostes);

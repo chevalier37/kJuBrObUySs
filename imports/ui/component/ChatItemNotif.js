@@ -7,7 +7,6 @@ import Vote from 'react-icons/lib/fa/thumbs-up';
 
 import FaComments from 'react-icons/lib/fa/comments';
 
-
 class ChatItemNotif extends Component {
 	
 	constructor(props) {
@@ -20,9 +19,6 @@ class ChatItemNotif extends Component {
 			    Chatredirect:false,
 		    };
 		}
-
-
-
 
 	componentWillMount(){
 		const sexe = this.props.message.gender;
@@ -50,8 +46,6 @@ class ChatItemNotif extends Component {
 
 		const nbrMois = Math.round(nbrJours/30);
 		this.setState({nbrMois: nbrMois})
-
-
 	}
 
 	chat(event){
@@ -69,7 +63,6 @@ class ChatItemNotif extends Component {
             	}
         })
 	}
-
 	
 
 	breaklines(){
@@ -86,7 +79,6 @@ class ChatItemNotif extends Component {
      if (Chatredirect==true){
       return <Redirect to={'/Chat/' + this.props.message.from_id} />;
       } 
-
    
 		return (
 			<div className={this.props.message.read==false ? "ListeChatUnread" : "ListeChat"}>
@@ -107,19 +99,19 @@ class ChatItemNotif extends Component {
 		  				{this.breaklines()}
 		  			</div>
 
-     				<div className={this.props.message.gender == "fille" ? "FilledateNotifChat" : "GarcondateNotifChat"}>
-         			{	this.state.nbrSeconde<60 ? "Il y a " + this.state.nbrSeconde +" secondes": 
-         				this.state.nbrMinutes<2 ? "Il y a " + this.state.nbrMinutes +" minute": 
-         				this.state.nbrMinutes<60 ? "Il y a " + this.state.nbrMinutes +" minutes":
-         				this.state.nbrHeures<2 ? "Il y a " + this.state.nbrHeures  +" heure": 
-						this.state.nbrHeures<24 ? "Il y a " + this.state.nbrHeures  +" heures": 
-						this.state.nbrJours<2 ? "Il y a " + this.state.nbrJours  +" jour":
-						this.state.nbrJours<30 ? "Il y a " + this.state.nbrJours  +" jours":  
-						"Il y a " + this.state.nbrMois +" mois" 
-     				}
-     				
+	     				<div className={this.props.message.gender == "fille" ? "FilledateNotifChat" : "GarcondateNotifChat"}>
+	         			{	this.state.nbrSeconde<60 ? "Il y a " + this.state.nbrSeconde +" secondes": 
+	         				this.state.nbrMinutes<2 ? "Il y a " + this.state.nbrMinutes +" minute": 
+	         				this.state.nbrMinutes<60 ? "Il y a " + this.state.nbrMinutes +" minutes":
+	         				this.state.nbrHeures<2 ? "Il y a " + this.state.nbrHeures  +" heure": 
+							this.state.nbrHeures<24 ? "Il y a " + this.state.nbrHeures  +" heures": 
+							this.state.nbrJours<2 ? "Il y a " + this.state.nbrJours  +" jour":
+							this.state.nbrJours<30 ? "Il y a " + this.state.nbrJours  +" jours":  
+							"Il y a " + this.state.nbrMois +" mois" 
+	     				}
+	     				
+	     				</div>
      				</div>
-     			</div>
 			<Divider />
 			</div>
 
@@ -128,10 +120,6 @@ class ChatItemNotif extends Component {
 }
 
 export default ChatItemNotif =  withTracker(({ id }) => {
-
-
   return {
-
-
   };
 })(ChatItemNotif);

@@ -8,6 +8,10 @@ export const Conseilleres = new Mongo.Collection('conseilleres');
 
 if (Meteor.isServer) {
 
+Meteor.startup(function () {  
+  Conseilleres._ensureIndex({ "user_id": 1});
+});
+
 Meteor.methods({
 
       premierAmour: function(theme, text) {
@@ -691,13 +695,16 @@ Meteor.methods({
 
 });
 
-
-
 Meteor.publish('AllConseiller', function () {
 
   return Conseilleres.find();
 });
 
+Meteor.publish('IsConseiller', function (id) {
+  new SimpleSchema({
+      id: {type: String},
+    }).validate({id});
+  return Conseilleres.find({'user_id':id});
+});
 
 }
-

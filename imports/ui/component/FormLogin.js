@@ -6,8 +6,6 @@ import ReactDOM from 'react-dom';
 import { check } from 'meteor/check';
 import { Link } from 'react-router-dom';
 
-
-
 export default class FormLogin extends Component {
 
 	constructor(props) {
@@ -15,16 +13,14 @@ export default class FormLogin extends Component {
     this.state = {
         connnection: false,
         erreurLogin:false,
-    };
-}
-
+    	};
+	}
 
 	Submit(event) {
     	event.preventDefault();
 
 	    const username= ReactDOM.findDOMNode(this.refs.username).value.trim();
 	    const password = ReactDOM.findDOMNode(this.refs.password).value.trim();
-
 
 		Meteor.loginWithPassword(username, password, (err) => {
       	if(err){
@@ -38,8 +34,6 @@ export default class FormLogin extends Component {
       	}
     	});
   	}
-
-
   
   	render() {
 

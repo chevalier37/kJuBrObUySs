@@ -44,7 +44,6 @@ class commandeEffectuer extends Component {
             </div>
           </div>
         </header>
-
        
         <Sidebar.Pushable >
               <Sidebar
@@ -65,7 +64,6 @@ class commandeEffectuer extends Component {
                   <div className="containerIMG">
                   <div className="MainContent">
                     <Segment className="MainContent">
-                      
                         <Header>
                         Commande enregistrée
                         </Header>
@@ -75,40 +73,20 @@ class commandeEffectuer extends Component {
                       <p className="consigne">
                       Votre commande a bien été enregistrée. Vous serez livré sous 3 jours.
                       </p>
-                      <div className="consigne2">
-                     
-                       
-                      </div>
-
                        <p></p>
-
-
-
-                      
                     </Segment>
                   </div>
-                  <ContentMenuLeft />
-                      
-                      
+                  <ContentMenuLeft />                     
                   </div> 
                 </div>
-
               </Sidebar.Pusher>
-
         </Sidebar.Pushable>
-      
       </div>
     );
   }
 }
 
-
-
 export default withTracker(() => {
-  //Meteor.subscribe('tasks');
   return {
-    /*tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
-    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
-    currentUser: Meteor.user(),*/
   };
 })(commandeEffectuer);

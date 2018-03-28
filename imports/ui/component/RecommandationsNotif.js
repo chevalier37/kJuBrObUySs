@@ -7,7 +7,6 @@ import Vote from 'react-icons/lib/fa/thumbs-up';
 
 import FathumbsUp from 'react-icons/lib/fa/thumbs-up';
 
-
 class RecommandationsNotif extends Component {
 	
 	constructor(props) {
@@ -20,9 +19,6 @@ class RecommandationsNotif extends Component {
 			    Chatredirect:false,
 		    };
 		}
-
-
-
 
 	componentWillMount(){
 		const sexe = this.props.message.gender;
@@ -50,8 +46,6 @@ class RecommandationsNotif extends Component {
 
 		const nbrMois = Math.round(nbrJours/30);
 		this.setState({nbrMois: nbrMois})
-
-
 	}
 
 	reponse(event){
@@ -70,8 +64,6 @@ class RecommandationsNotif extends Component {
         })
 	}
 
-	
-
 	breaklines(){
 			  let text = this.props.message.commentaire
 			  let message = text.substring(0, 150);
@@ -86,7 +78,6 @@ class RecommandationsNotif extends Component {
      if (Chatredirect==true){
       return <Redirect to={'/Recommandations/' + Meteor.userId()} />;
       } 
-
    
 		return (
 			<div className={this.props.message.read==false ? "ListeChatUnread" : "ListeChat"}>
@@ -158,10 +149,6 @@ class RecommandationsNotif extends Component {
 }
 
 export default RecommandationsNotif =  withTracker(({ id }) => {
-
-
   return {
-
-
   };
 })(RecommandationsNotif);

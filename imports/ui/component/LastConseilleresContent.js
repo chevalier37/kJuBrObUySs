@@ -4,7 +4,6 @@ import { Segment, Button, Header, Divider, Label, Menu } from 'semantic-ui-react
 import { Link } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 
-
 class LastConseilleresContent extends Component {
 	
 	constructor(props) {
@@ -32,17 +31,14 @@ class LastConseilleresContent extends Component {
 		}
 	}
 
-
   render() {
 
     const { activeItem } = this.state
-
    
 		return (
 			<div className="LastConseilleresContent">
-	  			
-			          <div>
-				          <div className={this.sexe()=="filleConseiller" ?
+			    <div>
+				    <div className={this.sexe()=="filleConseiller" ?
 		        				  "filleMessageBackConseil" : "garconMessageBackConseil"
 		        				}>
 		        				<Link to={'/profil/' + this.props.conseiller.user_id}>
@@ -50,23 +46,17 @@ class LastConseilleresContent extends Component {
 				  			 {this.props.conseiller.username}
 				  			</span>
 				  			</Link>
-			  				</div>
-				          
-			          </div>
-			          <div className="presentationConseiller">
+			  		</div>  
+			    </div>
+			    <div className="presentationConseiller">
 			          	{this.presentation()}
-			          </div>
-			  
-
+			    </div>
 			</div>
-
 		);
   	}
 }
 
 export default LastConseilleresContent =  withTracker(() => {
-
   return {
-
   };
 })(LastConseilleresContent);

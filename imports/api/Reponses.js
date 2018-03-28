@@ -11,6 +11,9 @@ export const Comments = new Mongo.Collection('comments');
 
 if (Meteor.isServer) {
 
+Meteor.startup(function () {  
+  Comments._ensureIndex({ "postId": 1});
+});
 
 Meteor.methods({
 
@@ -18,6 +21,14 @@ Meteor.methods({
         message,
         id
         ) {
+
+        new SimpleSchema({
+            message: {type: String},
+            id: {type: String},
+          }).validate({
+            id,
+            message,
+          });
 
         const user = Meteor.user();
         const author = user.username;
@@ -96,27 +107,34 @@ Meteor.methods({
             throw new Meteor.Error('invalid', 'Already upvoted this post');
           Comments.update(Id, {
             $addToSet: {upvoters: this.userId},
-          });
-
-          
+          });         
       },
 
       ReponseChat: function(message_id){
+        check(message_id, String);
         Comments.update(message_id, {$set: {read:true} })
-      }
-
-      
-
+      } 
 
 });
-
-
-
-
 
 Meteor.publish('Allreponses', function ( ) {
 
   return Comments.find();
 });
 
+Meteor.publish('reponsesNotif', function (MyId) {
+new SimpleSchema({
+      MyId: {type: String},
+    }).validate({MyId});
+
+  return Comments.find({'post_author_id':MyId});
+});
+
+Meteor.publish('reponsesSingleMessage', function (reponse) {
+new SimpleSchema({
+      reponse: {type: String},
+    }).validate({reponse});
+
+  return Comments.find({'postId':reponse});
+});
 }

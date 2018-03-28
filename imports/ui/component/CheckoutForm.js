@@ -266,8 +266,6 @@ class CheckoutForm extends React.Component {
 					    to_name,
 			          	montantNet, 
 			          )
-
-
 			        }  
 	  		}
 	    });
@@ -281,9 +279,6 @@ class CheckoutForm extends React.Component {
     		}
 		return (
 			<div className="ListeMessages">
-
-	  			
-
 			  		<Form error onSubmit={this.handleSubmit}>
                         <Form.Field>
                         <div className="textDons">Pour remercier {this.props.username} de son aide,

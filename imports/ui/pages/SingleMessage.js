@@ -127,21 +127,20 @@ console.log(this.props.authorId)
 
 export default SingleMessage =  withTracker(({ match }) => {
   const reponse = match.params.id;
-  const Handle = Meteor.subscribe('Allreponses');
+  const Handle = Meteor.subscribe('reponsesSingleMessage',reponse );
   const loading = !Handle.ready();
   const allreponses = Comments.find({postId:reponse}, { sort: { votes:-1, submitted: -1 } });
   const reponseExists = !loading && !!allreponses;
 
-  const Handle1 = Meteor.subscribe('AllMessages');
+  const Handle1 = Meteor.subscribe('SingleMessages', reponse);
   const loading1 = !Handle1.ready();
   const authorId = Posts.findOne({_id:reponse});
   const reponseExists1 = !loading1 && !!authorId;
 
   return {
-
     allreponses: reponseExists ? allreponses.fetch() : [],
-    authorId:reponseExists ? authorId.post_author_id : '',
-    titreMessage:reponseExists ? authorId.post_title : '',
+    authorId:reponseExists1 ? authorId.post_author_id : '',
+    titreMessage:reponseExists1 ? authorId.post_title : '',
 
   };
 })(SingleMessage);

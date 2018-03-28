@@ -412,11 +412,6 @@ class FormPosterMessage extends Component {
 	    });
   	}
 
-
-
-
- 
-
   render() {
 
   		const { visible } = this.state
@@ -750,29 +745,19 @@ class FormPosterMessage extends Component {
 							       value='autre'
 							       />
 							    </Form.Field>
-
-							    
-
 							    <Header
 						    	 as='h3'>
 						    	</Header>
 						</div>
-
 					    <Button type='submit' color="green">Valider</Button>
-			  		
 			  		</Form>
 	  			</Segment>
-
 			</div>
-
 		);
   	}
 }
 
 export default withTracker(() => {
-
-  return {
-
-   
+  return { 
   };
 })(FormPosterMessage);

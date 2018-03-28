@@ -22,7 +22,6 @@ class ListeNotifications extends Component {
 		    };
 		}
 
-
 	componentWillMount(){
 		const sexe = this.props.message.gender;
 	    
@@ -49,8 +48,6 @@ class ListeNotifications extends Component {
 
 		const nbrMois = Math.round(nbrJours/30);
 		this.setState({nbrMois: nbrMois})
-
-
 
 	}
 
@@ -120,10 +117,8 @@ class ListeNotifications extends Component {
 				  			</div>
 			  			</span>
 		  		</div>
-
-
-	  			<Segment >
-		  					  			
+	  			
+	  			<Segment >  			
 		  			<p className="ContentQuestion">
 		  				{this.breaklines()}
 		  			</p>
@@ -176,80 +171,68 @@ class ListeNotifications extends Component {
 		              	 		</div>
 							</div>
 
-
-
 	         				<div className="supprimerFavoris">
-	         				
-	         				<Button
-	         					size="mini"
-								color='red'
-								onClick={this.Supprimer.bind(this)}
-							 >
-								Supprimer 	 
-							</Button>
+		         				<Button
+		         					size="mini"
+									color='red'
+									onClick={this.Supprimer.bind(this)}
+								 >
+									Supprimer 	 
+								</Button>
 
-							<div className={this.props.message.type=='chat' ? "visiblebutton" : "none"}>
-								<Link to={'/Chat/' + this.props.message.from_id}>
-									<Button
-			         					size="mini"
-										color='green'
-									 >
-										Voir 	 
-									</Button>
-								</Link>
-							</div>
+								<div className={this.props.message.type=='chat' ? "visiblebutton" : "none"}>
+									<Link to={'/Chat/' + this.props.message.from_id}>
+										<Button
+				         					size="mini"
+											color='green'
+										 >
+											Voir 	 
+										</Button>
+									</Link>
+								</div>
 
-							<div className={this.props.message.type=='reponse' ? "visiblebutton" : "none"}>
-								<Link to={'/singleMessage/' + this.props.message.postId}>
-									<Button
-			         					size="mini"
-										color='green'
-									 >
-										Voir 	 
-									</Button>
-								</Link>
-							</div>
+								<div className={this.props.message.type=='reponse' ? "visiblebutton" : "none"}>
+									<Link to={'/singleMessage/' + this.props.message.postId}>
+										<Button
+				         					size="mini"
+											color='green'
+										 >
+											Voir 	 
+										</Button>
+									</Link>
+								</div>
 
-							<div className={this.props.message.type=='recommandaton' ? "visiblebutton" : "none"}>
-								<Link to={'/Recommandations/' + myId}>
-									<Button
-			         					size="mini"
-										color='green'
-									 >
-										Voir 	 
-									</Button>
-								</Link>
-							</div>
+								<div className={this.props.message.type=='recommandaton' ? "visiblebutton" : "none"}>
+									<Link to={'/Recommandations/' + myId}>
+										<Button
+				         					size="mini"
+											color='green'
+										 >
+											Voir 	 
+										</Button>
+									</Link>
+								</div>
 
-							<div className={this.props.message.type=='don' ? "visiblebutton" : "none"}>
-								<Link to={'/ListeDons/' + myId}>
-									<Button
-			         					size="mini"
-										color='green'
-									 >
-										Voir 	 
-									</Button>
-								</Link>
-							</div>
-
-
+								<div className={this.props.message.type=='don' ? "visiblebutton" : "none"}>
+									<Link to={'/ListeDons/' + myId}>
+										<Button
+				         					size="mini"
+											color='green'
+										 >
+											Voir 	 
+										</Button>
+									</Link>
+								</div>
 							</div>
 	      				</Comment.Content>
 	    			</Comment>
-
 	  			</Segment>
-
 			</div>
-
 		);
   	}
 }
 
 export default ListeNotifications =  withTracker(({ id }) => {
-
-
   return {
-
-
   };
 })(ListeNotifications);

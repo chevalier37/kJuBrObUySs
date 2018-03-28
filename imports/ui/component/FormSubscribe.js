@@ -274,7 +274,6 @@ class FormSubscribe extends Component {
       });
 
       {
-
           this.state.pseudo === false
           &&this.state.mail === false 
           &&this.state.password === false
@@ -342,22 +341,16 @@ class FormSubscribe extends Component {
       connection: false,
     });
   }
-
   
   	render() {
 
     const connection = this.state.connection;
-    
    
     if (connection) {
       return <Redirect to="/home" />;
     }
 
 	   return (
-
-
-  
-
   		<div className="ContainerFormSubcribe">
   		<div className="sincrire">Créer un compte</div>
   		<div className="gratuit">Gratuit, pour tous.</div>	  
@@ -502,11 +495,6 @@ class FormSubscribe extends Component {
 }
 
 export default withTracker(() => {
-
   return {
-
   };
 })(FormSubscribe);
-
-
-

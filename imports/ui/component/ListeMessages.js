@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { Comments } from '../../api/Reponses.js';
 import { withTracker } from 'meteor/react-meteor-data';
 
-
 class ListeMessages extends Component {
 	
 	constructor(props) {
@@ -247,13 +246,9 @@ class ListeMessages extends Component {
 	    }
 	}
 
-
-
-
   render() {
     
 	const colorSexe = this.state.sexe;
-
    
 		return (
 			<div className="ListeMessages">
@@ -265,8 +260,7 @@ class ListeMessages extends Component {
 			  			</span>
 		  		</div>
 	  			<Segment >
-		  			
-		  			
+	  			
 		  			<p className="ContentQuestion">
 		  				{this.props.message.post_content}
 		  			</p>
@@ -284,7 +278,6 @@ class ListeMessages extends Component {
 			        				</Link>
 	        					</span>
 	        				</div>
-	         				
 	         				<div className="dateMessage">
 		         			{	this.state.nbrSeconde<60 ? "Il y a " + this.state.nbrSeconde +" secondes": 
 		         				this.state.nbrMinutes<2 ? "Il y a " + this.state.nbrMinutes +" minute": 
@@ -295,9 +288,7 @@ class ListeMessages extends Component {
 								this.state.nbrJours<30 ? "Il y a " + this.state.nbrJours  +" jours":  
 								"Il y a " + this.state.nbrMois +" mois" 
 	         				}
-	         				
 	         				</div>
-	         				
 	         				<div className="dateMessage">{this.props.nbrreponse} {this.reponse()} </div>
 	          				<div className="repondreMessage">
 	          					<Link to={'/singleMessage/' + this.props.message._id} >
@@ -306,15 +297,11 @@ class ListeMessages extends Component {
 	          						</Button>
 	          					</Link>
 	          				</div>
-							
 							<div className="repondreMessage" >
 								<Button basic size="tiny" disabled={this.state.disabled} color='red' onClick={this.signaler.bind(this)}>
 									Signaler
 								</Button>
 							</div>
-							
-
-
 							<p className="categorie">
 							
 							{ this.state.premierAmour ? 
@@ -431,35 +418,19 @@ class ListeMessages extends Component {
 
 							{ this.state.autre ? 
 							<span className="espace">{this.state.autre} </span>
- 							: "" }
-
-
-
-							
-
-							
-
-
-
-
+ 							: "" }				
 							</p>
 	      				</Comment.Content>
 	    			</Comment>
-
 	  			</Segment>
-
 			</div>
-
 		);
   	}
 }
 
 export default ListeMessages =  withTracker(({ id }) => {
-
-  const HandleReponse = Meteor.subscribe('Allreponses');
-
+  const HandleReponse = Meteor.subscribe('reponsesSingleMessage', id);
   return {
    nbrreponse: Comments.find({postId:id}).count()
-
   };
 })(ListeMessages);

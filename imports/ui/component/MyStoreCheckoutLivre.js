@@ -12,38 +12,15 @@ class MyStoreCheckoutLivre extends Component {
 	
 	constructor(props) {
 		    super(props);
-		 
-
 		}
 
-
-	componentWillMount(){
-
-
-	}
-
-
-
-  render() {
-    
-
-
-   
+  	render() {
+  
 		return (
-			<div className="ListeMessages">
-
-
-	  		
-		  					  			
-		  			
+			<div className="ListeMessages">  			
 		  			<Elements>
 				        <InjectedCheckoutFormLivre/>
 				    </Elements>
-		  	
-
-
-	  		
-
 			</div>
 
 		);
@@ -51,10 +28,6 @@ class MyStoreCheckoutLivre extends Component {
 }
 
 export default MyStoreCheckoutLivre =  withTracker(() => {
-
-
   return {
-
-
   };
 })(MyStoreCheckoutLivre);

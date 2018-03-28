@@ -8,9 +8,19 @@ export const ContactChat = new Mongo.Collection('contact_Chat');
 
 if (Meteor.isServer) {
 
+Meteor.startup(function () {  
+  ContactChat._ensureIndex({ "from_id": 1, "to_id":1});
+});
+
 Meteor.methods({
 
       addContactChat: function(to_id) {
+        new SimpleSchema({
+            to_id: {type: String},
+          }).validate({
+            to_id,
+          });
+
             const user = Meteor.user()
             const userId = Meteor.userId();
             const name = Meteor.users.findOne(to_id);
@@ -29,22 +39,18 @@ Meteor.methods({
                 })
               : ''
             }
-  
-      },
-
-      
-
-  
-
+       },
 });
-
-
 
 Meteor.publish('AllContactChat', function () {
 
   return ContactChat.find();
 });
 
-
+Meteor.publish('ContactChat', function (id) {
+  new SimpleSchema({
+      id: {type: String},
+    }).validate({id});
+  return ContactChat.find({$or : [{from_id: id}, {to_id:id}]});
+});
 }
-

@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 import Vote from 'react-icons/lib/fa/thumbs-up'; 
 
-
-
 class ListeReponses extends Component {
 	
 	constructor(props) {
@@ -18,7 +16,6 @@ class ListeReponses extends Component {
 			    disabledVote:false,
 		    };
 		}
-
 
 	componentWillMount(){
 		const sexe = this.props.message.gender;
@@ -46,9 +43,6 @@ class ListeReponses extends Component {
 
 		const nbrMois = Math.round(nbrJours/30);
 		this.setState({nbrMois: nbrMois})
-
-
-
 	}
 
 	breaklines(){
@@ -62,11 +56,10 @@ class ListeReponses extends Component {
 	     );
 	}
 
-  render() {
+  	render() {
     
-	const colorSexe = this.state.sexe;
-
-   
+		const colorSexe = this.state.sexe;
+  
 		return (
 			<div className="ListeMessages">
 	  			<div className={this.props.message.gender=="fille" ?
@@ -78,7 +71,6 @@ class ListeReponses extends Component {
 				  			</Link>
 			  			</span>
 		  		</div>
-
 
 	  			<Segment >
 		  					  			
@@ -113,20 +105,13 @@ class ListeReponses extends Component {
 							</div>
 	      				</Comment.Content>
 	    			</Comment>
-
 	  			</Segment>
-
 			</div>
-
 		);
   	}
 }
 
 export default ListeReponses =  withTracker(({ id }) => {
-
-
   return {
-
-
   };
 })(ListeReponses);

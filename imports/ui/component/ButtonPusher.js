@@ -131,8 +131,6 @@ class ButtonPusher extends Component {
           });
     }
 
-
-
   	render() {
   		let ChatCount = this.props.ChatCount;
   		let reponsesCount = this.props.reponsesCount;
@@ -141,9 +139,7 @@ class ButtonPusher extends Component {
       
       {
        	this.props.chat == "true" ?  ChatCount = 0 : ChatCount
-      }
-
-      
+      }     
 
   		let totalNotif = ChatCount + reponsesCount + recommandationsCount + DonsCount ;
   		let stringTotalNotif =totalNotif.toString() 
@@ -166,123 +162,105 @@ class ButtonPusher extends Component {
     	}
 
 		let Name = this.props.name;
-/*
-        let url = this.props.location.pathname;
-      	let splitUrl = coolVar.split('/');
-      	let searchPathname = splitUrl[1];
-*/
-
 
 		return (
 			<div>
-			<Helmet>
-                <meta charSet="utf-8" />
-                <title>({stringTotalNotif}) Kurbys</title>
-            </Helmet>
-
+		      <Helmet>
+              <meta charSet="utf-8" />
+              <title>({stringTotalNotif}) Kurbys</title>
+          </Helmet>
 				<BodyClassName className={this.state.body}>
 				</BodyClassName>
-				
 
+  				<Dropdown
+  				  trigger={trigger}
+  				   className='link item notif DropdownMenuNotif'
+  				   onClick={this.body.bind(this)}
+  				   onClose={this.Outbody.bind(this)}>
+  			    
+    			    <Dropdown.Menu className='DropdownNotif'>
+    			   		<Dropdown.Item className='AllNotif'>
+    			   		 <Edit />
+    			   		 <div className="ToutesNotif">
+    			   		  <Link to={'/Notifications/'}>  
+    			   		 Voir toutes les notifications
+    			   		 </Link>
+    			   		 </div>
+    			   		</Dropdown.Item>
+    			        <Dropdown.Divider />
+    			       
+    			        <div className={this.props.chat=='true' ? "none" : "visible"}>
+    			          {this.renderChatUnread()}
+    			        </div>	       
 
-				<Dropdown
-				  trigger={trigger}
-				   className='link item notif DropdownMenuNotif'
-				   onClick={this.body.bind(this)}
-				   onClose={this.Outbody.bind(this)}>
-			    
-			    <Dropdown.Menu className='DropdownNotif'>
-			   		<Dropdown.Item className='AllNotif'>
-			   		 <Edit />
-			   		 <div className="ToutesNotif">
-			   		  <Link to={'/Notifications/'}>  
-			   		 Voir toutes les notifications
-			   		 </Link>
-			   		 </div>
-			   		</Dropdown.Item>
-			        <Dropdown.Divider />
-			       
-			        <div className={this.props.chat=='true' ? "none" : "visible"}>
-			          {this.renderChatUnread()}
-			        </div>
-			        
-			       
+    			        <div >
+    			          {this.renderReponsesUnread()}
+    			        </div>
 
-			        <div >
-			          {this.renderReponsesUnread()}
-			        </div>
+    			        <div >
+    			          {this.renderRecommandationsUnread()}
+    			        </div>		        
 
-			       
+    			        <div >
+    			          {this.renderDons()}
+    			        </div>
+      
+    			    </Dropdown.Menu>
+  		    </Dropdown>
 
-			        <div >
-			          {this.renderRecommandationsUnread()}
-			        </div>
+    			<Dropdown text={Name}  className='link item pseudo DropdownMenu'>
+    			    <Dropdown.Menu>
+    			        <Dropdown.Item>
+    			         <Link to={'/Livre/'}>  
+    			        	<p className="colorIconBlue"><Book /></p>
+    			         	<p className="menuIcon">Le Secret de Cendrillon</p>
+    			        </Link>
+    			         </Dropdown.Item>
+    			        <Dropdown.Divider />
+    			        <Dropdown.Item>
+    			        <Link to={'/AmeliorerSite/'}> 
+    				        <p className="colorIconVert"><ThumbsUp /></p>
+    				        <p className="menuIcon"> Améliorer le site </p>
+    				    </Link>
+    			        </Dropdown.Item>
+    			        <Dropdown.Item>
+    			        <Link to={'/SignalerBug/'}> 
+    				        <p className="colorIcon"><Warning /></p>
+    				        <p className="menuIcon"> Signaler un bug </p>
+    				    </Link>
+    			        </Dropdown.Item>
+    			        <Dropdown.Item>
+    			        <Link to={'/ContactConnecte/'}> 
+    				        <p className="colorIconBlack"><Envelope /></p>
+    				        <p className="menuIcon"> Contact</p>
+    				    </Link>
+    			        </Dropdown.Item>
+    			        <Dropdown.Divider />
+    			        <Dropdown.Item>
+    			        <Link to={'/NumerosUtiles/'}> 
+    				        <p className="colorIconVert"><Phone /></p>
+    				        <p className="menuIcon"> Numéros utiles</p>
+    				    </Link>
+    			        </Dropdown.Item>
+    			        <Dropdown.Divider />
+    			        <Dropdown.Item>
+    			        <Link to={'/SupprimerCompte/'}> 
+    				        <p className="colorIcon"><Trash /></p>
+    				        <p className="menuIcon"> Supprimer mon compte</p>
+    			        </Link>
+    			        </Dropdown.Item>
+    			        <Dropdown.Divider />
+    			        <Dropdown.Item onClick={this.logout.bind(this)} >
+    			        <p className="colorIconBlack"><SignOut /></p>
+    			        <p className="menuIcon"> Se déconnecter</p>
+    			        </Dropdown.Item>
+    			    </Dropdown.Menu>
+    			</Dropdown>
 
-			        
-
-			        <div >
-			          {this.renderDons()}
-			        </div>
-  
-			    </Dropdown.Menu>
-			</Dropdown>
-    
-
-			<Dropdown text={Name}  className='link item pseudo DropdownMenu'>
-			    <Dropdown.Menu>
-			        <Dropdown.Item>
-			         <Link to={'/Livre/'}>  
-			        	<p className="colorIconBlue"><Book /></p>
-			         	<p className="menuIcon">Le Secret de Cendrillon</p>
-			        </Link>
-			         </Dropdown.Item>
-			        <Dropdown.Divider />
-			        <Dropdown.Item>
-			        <Link to={'/AmeliorerSite/'}> 
-				        <p className="colorIconVert"><ThumbsUp /></p>
-				        <p className="menuIcon"> Améliorer le site </p>
-				    </Link>
-			        </Dropdown.Item>
-			        <Dropdown.Item>
-			        <Link to={'/SignalerBug/'}> 
-				        <p className="colorIcon"><Warning /></p>
-				        <p className="menuIcon"> Signaler un bug </p>
-				    </Link>
-			        </Dropdown.Item>
-			        <Dropdown.Item>
-			        <Link to={'/ContactConnecte/'}> 
-				        <p className="colorIconBlack"><Envelope /></p>
-				        <p className="menuIcon"> Contact</p>
-				    </Link>
-			        </Dropdown.Item>
-			        <Dropdown.Divider />
-			        <Dropdown.Item>
-			        <Link to={'/NumerosUtiles/'}> 
-				        <p className="colorIconVert"><Phone /></p>
-				        <p className="menuIcon"> Numéros utiles</p>
-				    </Link>
-			        </Dropdown.Item>
-			        <Dropdown.Divider />
-			        <Dropdown.Item>
-			        <Link to={'/SupprimerCompte/'}> 
-				        <p className="colorIcon"><Trash /></p>
-				        <p className="menuIcon"> Supprimer mon compte</p>
-			        </Link>
-			        </Dropdown.Item>
-			        <Dropdown.Divider />
-			        <Dropdown.Item onClick={this.logout.bind(this)} >
-			        <p className="colorIconBlack"><SignOut /></p>
-			        <p className="menuIcon"> Se déconnecter</p>
-			        </Dropdown.Item>
-			    </Dropdown.Menu>
-			</Dropdown>
-
-			<div className={this.state.chat + " "+ "pusher"}>
-    		<Button inverted>Trouver un conseil</Button>
-    		</div>
-
-
-</div>
+			     <div className={this.state.chat + " "+ "pusher"}>
+    		   <Button inverted>Trouver un conseil</Button>
+    		  </div>
+      </div>
 		);
   	}
 }
@@ -292,28 +270,27 @@ export default withTracker(() => {
   let id = Meteor.user();
   let search = Meteor.users.findOne(id);
   {id ? name = search.username : name =''}
+
   //Chat
   const Handle = Meteor.subscribe('ChatCount', MyId );
-  const to_id = Meteor.userId();
   const loading = !Handle.ready();
-  const allreponses = Chat.find({to_id:to_id, read:false}, { sort: {post_date: -1 } });
+  const allreponses = Chat.find({to_id:MyId, read:false}, { sort: {post_date: -1 } });
   const reponseExists = !loading && !!allreponses;
 
   //réponses 
-  const Handle1 = Meteor.subscribe('Allreponses');
-  const post_author_id = Meteor.userId();
+  const Handle1 = Meteor.subscribe('reponsesNotif', MyId);
   const loading1 = !Handle1.ready();
-  const allreponses1 = Comments.find({post_author_id:post_author_id, read:false}, { sort: {submitted: -1 } });
+  const allreponses1 = Comments.find({post_author_id:MyId, read:false}, { sort: {submitted: -1 } });
   const reponseExists1 = !loading1 && !!allreponses1;
 
-  //réponses 
-  const Handle2 = Meteor.subscribe('allRecommandations');
+  //Recommandations
+  const Handle2 = Meteor.subscribe('Recommandations', MyId);
   const loading2 = !Handle2.ready();
   const allreponses2 = Recommandations.find({to_id:MyId, read:false}, { sort: {date: -1 } });
   const reponseExists2 = !loading2 && !!allreponses2;
 
   //Dons
-  const Handle3 = Meteor.subscribe('AllDons');
+  const Handle3 = Meteor.subscribe('Dons', MyId);
   const loading3 = !Handle3.ready();
   const allreponses3 = Dons.find({to_id:MyId, read:false}, { sort: {date: -1 } });
   const reponseExists3 = !loading3 && !!allreponses3;

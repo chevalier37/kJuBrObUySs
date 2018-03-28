@@ -66,31 +66,31 @@ class CheckoutFormLivre extends React.Component {
 	}
     else{
     	this.props.stripe.createToken({type: 'card'}).then(({token}) => {
-	     console.log('Received Stripe token:', token);
-	     if(!token){this.setState({errorToken: true});
-	 		this.setState({loader: false})}else{
-	     	
-	      Meteor.call('Commande',
-			  	token,
-			    nom,
-			    prenom,
-			    ville,
-			    adresse,
-			    code,
-			  	  (err) => {
-	            	if(err){
-	           		 } else {
-	              	{              		
-				        this.setState({
-					      ValidationFom: true
-					    })
-					  
-		              	}     
-	            	}
-	          	})
-	  		}
+  	     console.log('Received Stripe token:', token);
+  	     if(!token){this.setState({errorToken: true});
+  	 		this.setState({loader: false})}else{
+  	     	
+  	      Meteor.call('Commande',
+  			  	token,
+  			    nom,
+  			    prenom,
+  			    ville,
+  			    adresse,
+  			    code,
+  			  	  (err) => {
+  	            	if(err){
+  	           		 } else {
+  	              	{              		
+  				        this.setState({
+  					      ValidationFom: true
+  					    })
+  					  
+  		              	}     
+  	            	}
+  	       })
+  	  	}
 	    });
-	}
+	 }  
   }
 
   render() {
@@ -99,10 +99,7 @@ class CheckoutFormLivre extends React.Component {
       		return <Redirect to={'/ValidationCommande/'}/>;
     		}
 		return (
-			<div className="ListeMessages">
-
-	  			
-
+			<div className="ListeMessages">  			
 			  		<Form error onSubmit={this.handleSubmit}>
                         <Form.Field>
                         <div className="textDons">
@@ -175,33 +172,29 @@ class CheckoutFormLivre extends React.Component {
                             />
                         </Form.Field>
 
-			       	<CardSection />
-			       	 <Message
+			       	         <CardSection />
+			       	         <Message
                             hidden={!this.state.errorToken}
                             error={this.state.errorToken}
                             header='Erreur carte bancaire'
-                    />
+                        />
 
-			        <Button color="green">
+			                  <Button color="green">
                         Commander
-                    </Button>
-			      	</Form>
+                         </Button>
+			      </Form>
 
-			      	<Dimmer
-			      	  active={this.state.loader}
-			      	  inverted
-			      	>
-				        <Loader
-				        	active={this.state.loader}
-				         	inverted>
-				         	Validation
-				        </Loader>
-			      	</Dimmer>
-
-
-			      	
+			      <Dimmer
+		      	  active={this.state.loader}
+		      	  inverted
+			      >
+  				    <Loader
+  		        	active={this.state.loader}
+  		         	inverted>
+  		         	Validation
+  				    </Loader>
+			      </Dimmer>		      	
 			</div>
-
 		);
   	}
 }

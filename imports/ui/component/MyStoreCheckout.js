@@ -12,30 +12,12 @@ class MyStoreCheckout extends Component {
 	
 	constructor(props) {
 		    super(props);
-		 
-
 		}
 
-
-	componentWillMount(){
-
-
-	}
-
-
-
   render() {
-    
-
-
    
 		return (
 			<div className="ListeMessages">
-
-
-	  		
-		  					  			
-		  			
 		  			<Elements>
 				        <InjectedCheckoutForm
 				         username={this.props.username}
@@ -45,22 +27,12 @@ class MyStoreCheckout extends Component {
                          mail={this.props.mail}
 				         />
 				    </Elements>
-		  	
-
-
-	  		
-
 			</div>
-
 		);
   	}
 }
 
 export default MyStoreCheckout =  withTracker(() => {
-
-
   return {
-
-
   };
 })(MyStoreCheckout);

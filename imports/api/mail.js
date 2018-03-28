@@ -35,7 +35,7 @@ Meteor.methods({
       html: EmailReponse(message, name, titre),
     });
 
-   console.log(titre)
+   console.log(to)
 
   },
 

@@ -3,8 +3,6 @@ import { Meteor } from 'meteor/meteor';
 import { Segment, Button, Form, Header, Divider, TextArea } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
-
-
 export default class ChatContent extends Component {
 
 		constructor(props) {
@@ -81,7 +79,7 @@ export default class ChatContent extends Component {
 				<div className={"AffficheDiscussion" + " "+this.state.message}>
 					<div className="display-linebreak">
 					    {this.breaklines()}
-					 </div>
+					</div>
 					<div ref={el => { this.el = el; }} >
 					</div>
 		    	</div>

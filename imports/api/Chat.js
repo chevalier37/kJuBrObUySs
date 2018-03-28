@@ -9,9 +9,21 @@ import { ContactChat } from './ContactChat.js';
 
 if (Meteor.isServer) {
 
+Meteor.startup(function () {  
+  Chat._ensureIndex({ "from_id": 1, "to_id":1});
+});
+
 Meteor.methods({
 
       addMessageChat: function(message,to_id) {
+        new SimpleSchema({
+            message: {type: String},
+            to_id: {type: String},
+          }).validate({
+            to_id,
+            message,
+          });
+
             const user = Meteor.user()
             const search = Meteor.users.findOne({'_id':to_id});
 
@@ -36,6 +48,7 @@ Meteor.methods({
       },
 
       updateContact: function(to_id) {
+            check(to_id, String);
             const search = Meteor.users.findOne({'_id':to_id.to_id});
             const to_name = search.username;
             
@@ -71,13 +84,10 @@ Meteor.methods({
       },
 
       NotifChat: function(message_id){
+        check(message_id, String);
         Chat.update(message_id, {$set: {read:true} })
       }
-
-
 });
-
-
 
 Meteor.publish('Chat', function (to_id, from_id) {
   new SimpleSchema({

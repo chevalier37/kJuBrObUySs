@@ -7,9 +7,21 @@ import { Posts } from './Messages.js';
 
 if (Meteor.isServer) {
 
+Meteor.startup(function () {  
+  Notifications._ensureIndex({ "to_id":1});
+});
+
 Meteor.methods({
 
       ChatNotif: function(message,to_id) {
+          new SimpleSchema({
+            message: {type: String},
+            to_id: {type: String},
+          }).validate({
+            to_id,
+            message,
+          });
+
             const user = Meteor.user();
             const search = Meteor.users.findOne({'_id':to_id});
             const gender = user.profile.gender;
@@ -34,6 +46,7 @@ console.log('add notif chat ' + gender)
       },
 
       supprimerNotification: function(idMessage) {
+          check(idMessage, String);
           Notifications.remove({_id:idMessage});
        },
 
@@ -41,6 +54,13 @@ console.log('add notif chat ' + gender)
         message,
         id
         ) {
+         new SimpleSchema({
+            message: {type: String},
+            id: {type: String},
+          }).validate({
+            id,
+            message,
+          });
 
         const user = Meteor.user();
         const author = user.username;
@@ -70,6 +90,16 @@ console.log('add notif reponse ' + author)
       },
 
       NotifRecommandation: function(id,text,note) {
+        new SimpleSchema({
+            text: {type: String},
+            id: {type: String},
+            note: {type: String},
+          }).validate({
+            id,
+            message,
+            note,
+          });
+
           let search = Meteor.users.findOne({'_id':id});
           let name = search.username;
           let user = Meteor.user();
@@ -93,6 +123,18 @@ console.log('add notif recommandation ' + note)
        },
 
        NotifDons: function(message, to_id, to_name, montant,) {
+        new SimpleSchema({
+            message: {type: String},
+            to_id: {type: String},
+            to_name: {type: String},
+            montant: {type: String},
+          }).validate({
+            id,
+            message,
+            note,
+            montant
+          });
+
          const user = Meteor.user();
          const from_id = this.userId;
          const from_name = user.username;
@@ -114,8 +156,6 @@ console.log('add notif don ' + montant)
 
 });
 
-
-
 Meteor.publish('AllNotifications', function () {
 
   return Notifications.find();
@@ -128,9 +168,4 @@ Meteor.publish('Notifications', function (id) {
 
   return Notifications.find({'to_id':id})
 });
-
-
-
-
 }
-

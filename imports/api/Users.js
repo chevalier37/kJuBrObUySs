@@ -13,31 +13,17 @@ import { Comments } from './Reponses.js';
 
 
 if (Meteor.isServer) {
-  // This code only runs on the server
-  // Only publish tasks that are public or belong to the current user
-  /*Meteor.publish('tasks', function tasksPublication() {
-    return Tasks.find({
-      $or: [
-        { private: { $ne: true } },
-        { owner: this.userId },
-      ],
-    });
-  });*/
-/*
-const stripe = require("stripe")("sk_test_JvofPcmk1InWfME0dR7HUJRK");
 
-stripe.accounts.create({
-  type: 'standard',
-  country: 'FR',
-  email: 'editions@seconde-vie.fr'
-}, function(err, account) {
-  account
-});
-*/
 
 Meteor.methods({
 
       FormSubscribePseudo: function(pseudo) {
+                new SimpleSchema({
+                    pseudo: {type: String},
+                  }).validate({
+                    pseudo,
+                  });
+
                 let search = Meteor.users.find({'username':pseudo.pseudo}).count();
                 let IsPseudo = false;
                 {search >0 ? IsPseudo = true : IsPseudo = false}
@@ -48,6 +34,12 @@ Meteor.methods({
              },
 
       FormSubscribeMail: function(email) {
+                new SimpleSchema({
+                    email: {type: String},
+                  }).validate({
+                    email,
+                  });
+
                 let search = Meteor.users.find({'profile.mail':email.email}).count();
                 let IsMail = false;
                 {search >0 ? IsMail = true : IsMail = false}
@@ -58,6 +50,13 @@ Meteor.methods({
              },
 
       FormLogin: function(username,password) {
+                   new SimpleSchema({
+                    username: {type: String},
+                    password: {type: String},
+                  }).validate({
+                    username,
+                    password
+                  });
                 /*let search = Meteor.users.find({'profile.mail':email.email}).count();
                 let IsMail = false;
                 {search >0 ? IsMail = true : IsMail = false}*/
@@ -69,6 +68,13 @@ Meteor.methods({
              },
 
       UserExiste: function(pseudo,email) {
+                  new SimpleSchema({
+                    pseudo: {type: String},
+                    email: {type: String},
+                  }).validate({
+                    pseudo,
+                    email
+                  });
                 let search = Meteor.users.find({'profile.mail':pseudo.email, 'username':pseudo.pseudo}).count();
                 let Istrue = false;
                 {search >0 ? Istrue = true : Istrue = false}
@@ -80,6 +86,14 @@ Meteor.methods({
              },
 
       ResetPassword: function(pseudo, password) {
+                   new SimpleSchema({
+                      pseudo: {type: String},
+                      password: {type: String},
+                    }).validate({
+                      pseudo,
+                      password
+                    });
+
                 let isExiste = Meteor.users.find({'username':pseudo.pseudo}).count();
                 if (isExiste > 0 ){
                 search = Meteor.users.findOne({'username':pseudo.pseudo}),
@@ -93,12 +107,14 @@ Meteor.methods({
              },
 
       usernameRecommander: function(id) {
+                      check(id, Object);
+
                       let search = Meteor.users.findOne({'_id':id.id});
                       let IsPseudo = false;
                       {search >0 ? IsPseudo = true : IsPseudo = false}
-                      console.log(id.id)
+                      /*console.log(typeof id.id)
                       console.log(IsPseudo)
-                      console.log(search)
+                      console.log(search)*/
                       return search;
                    },
 
@@ -173,15 +189,7 @@ Meteor.publish('fetchUser', function ( ) {
   return Meteor.users.find(options);
 });
 
-
-
 Meteor.publish('all', function () {
-  // Validate the arguments to be what we expect
-
-
-
-
-  /*return Meteor.users.find({},{limit:2, fields:{_id:1}});*/
   return Meteor.users.find()
 });
 
@@ -196,7 +204,10 @@ Meteor.publish('userDon', function (id) {
   });
 });
 
-
+Meteor.publish('user', function (id) {
+  new SimpleSchema({
+      id: {type: String},
+    }).validate({id});
+  return Meteor.users.find({'_id':id});
+});
 }
-
-

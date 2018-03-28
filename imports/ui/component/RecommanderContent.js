@@ -5,7 +5,6 @@ import { Link, Redirect } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 
-
 class RecommanderContent extends Component {
 
 	  state = {
@@ -172,12 +171,7 @@ class RecommanderContent extends Component {
 					    </Form.Field>
 					    <Button type='submit' color="green">Valider</Button>
 					</Form>
-
 					 <p></p>
-
-
-
-					
 				</Segment>
 			</div>
 
@@ -186,7 +180,7 @@ class RecommanderContent extends Component {
 }
 
 export default RecommanderContent =  withTracker(({id}) => {
-	const Handle = Meteor.subscribe('all');
+	const Handle = Meteor.subscribe('user', id);
   	const loading = !Handle.ready();
   	const user = Meteor.users.findOne({'_id':id});
   	const reponseExists = !loading && !!user;

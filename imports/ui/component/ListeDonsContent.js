@@ -24,7 +24,6 @@ class ListeDonsContent extends Component {
 	    validButton:true
 	  }
 	}
-
 	  
 	  handleSort = clickedColumn => () => {
     	const { column, data, direction } = this.state
@@ -46,18 +45,11 @@ class ListeDonsContent extends Component {
 		    })
 	  }
 
-
 	  renderDonsEffectues() {
       let AllDons = this.props.DonsEffectuesResult;
-      
 
       return AllDons.map((dons) => {
-       	//let now = new Date();
-  		 //on calcul l'age en millisecondes
-  		//let diff = now - conseiller.naissance;
-  		 //on calcul l'age en années
-  		//let age = Math.round(diff / 31536000000);
-        
+       
         return (
           	<Table.Row key={dons._id}>
 				<Table.Cell>
@@ -78,15 +70,8 @@ class ListeDonsContent extends Component {
 
   	renderDonsRecus() {
       let Alldons = this.props.DonsRecusResult;
-      
 
       return Alldons.map((dons) => {
-       	//let now = new Date();
-  		 //on calcul l'age en millisecondes
-  		//let diff = now - conseiller.naissance;
-  		 //on calcul l'age en années
-  		//let age = Math.round(diff / 31536000000);
-        
         return (
           	<Table.Row key={dons._id}>
 				<Table.Cell>
@@ -137,10 +122,6 @@ class ListeDonsContent extends Component {
 	    }
 
 	}
-
-
-
-
 
   render() {
   	let montant = this.props.DonsrecuResultSum - this.props.DemandeVirement
@@ -248,41 +229,40 @@ class ListeDonsContent extends Component {
 					</Header>
 					<Divider />	
 
-				<div className="demanderPaiement">
+					<div className="demanderPaiement">
 
-					Montant disponible : <b> {this.props.DonsrecuResultSum - this.props.DemandeVirement}€ </b><br />
-					Vous devez avoir un montant disponible de 50€ minimum pour demander un paiement.
-					<br /><br />
-					Renseignez un IBAN pour effectuer un virement :
-					<Form
-					 className="formPaiement"
-					 error
-					 onSubmit={this.Submit.bind(this)}
-					 >				    
-					    <Form.Field>
-					   		 <label>IBAN</label>
-     						 <input
-     						  ref="IBAN"
-     						  placeholder='IBAN' />
-					       <Message
-				            hidden={!this.state.IBANerror}
-				            error={this.state.IBANerror}
-				            content='IBAN non valide'
-				          />
-					    </Form.Field>
+						Montant disponible : <b> {this.props.DonsrecuResultSum - this.props.DemandeVirement}€ </b><br />
+						Vous devez avoir un montant disponible de 50€ minimum pour demander un paiement.
+						<br /><br />
+						Renseignez un IBAN pour effectuer un virement :
+						<Form
+						 className="formPaiement"
+						 error
+						 onSubmit={this.Submit.bind(this)}
+						 >				    
+						    <Form.Field>
+						   		 <label>IBAN</label>
+	     						 <input
+	     						  ref="IBAN"
+	     						  placeholder='IBAN' />
+						       <Message
+					            hidden={!this.state.IBANerror}
+					            error={this.state.IBANerror}
+					            content='IBAN non valide'
+					          />
+						    </Form.Field>
 
-					    <Button
-					     disabled={montant>=50 ? false : true}
-					     type='submit'
-					     color="green"
-					     >
-					     Valider
-					    </Button>
-			  		
-			  		</Form>
-			  	</div>
+						    <Button
+						     disabled={montant>=50 ? false : true}
+						     type='submit'
+						     color="green"
+						     >
+						     Valider
+						    </Button>
+				  		
+				  		</Form>
+				  	</div>
 	    		</Segment>
-
 			</div>
 	    )
 	  }
@@ -290,46 +270,41 @@ class ListeDonsContent extends Component {
 }
 
 export default ResultatsConseillerContent = withTracker(() => {
-  	const Handle = Meteor.subscribe('AllDons');
+	const myId = Meteor.userId();
+  	const Handle = Meteor.subscribe('MyDons', myId);
   	const loading = !Handle.ready();
-
   	const Handle1 = Meteor.subscribe('AllVirement');
   	const loading1 = !Handle1.ready();
   	let DemandeVirementSum = 0;
     let search = DemandeVirement.findOne({'from_id':Meteor.userId()});
     if(!search){let DemandeVirementSum = 0}else{
-	    DemandeVirement.find({'from_id':Meteor.userId()}).map(function(doc) {
+	    DemandeVirement.find({'from_id':myId}).map(function(doc) {
 		DemandeVirementSum += doc.montant;
 	});
     }
 
-  	let DonsEffectues = Dons.find({'from_id':Meteor.userId()}, {sort: {date: -1 }});
+  	let DonsEffectues = Dons.find({'from_id':myId}, {sort: {date: -1 }});
   
 	let DonsEffectueResultSum = 0;
-	Dons.find({'from_id':Meteor.userId()}).map(function(doc) {
+	Dons.find({'from_id':myId}).map(function(doc) {
 	  DonsEffectueResultSum += doc.montantTotal;
 	});
 
 	let DonsRecusResultSum = 0;
-	Dons.find({'to_id':Meteor.userId()}).map(function(doc) {
+	Dons.find({'to_id':myId}).map(function(doc) {
 	  DonsRecusResultSum += doc.montantPercu;
 	});
 
-
-  	let DonsRecus = Dons.find({'to_id':Meteor.userId()},{sort: {date: -1 }});
-	
+  	let DonsRecus = Dons.find({'to_id':myId},{sort: {date: -1 }});
 
  	const reponseExists = !loading && !!DonsEffectues;
  	const reponseExists1 = !loading && !!DonsRecus;
-
 
   return {
     DonsEffectuesResult: reponseExists ? DonsEffectues.fetch() : [],
     DonsRecusResult: reponseExists1 ? DonsRecus.fetch() : [],
     DonsEffectueResultSum: DonsEffectueResultSum,
     DonsrecuResultSum: DonsRecusResultSum,
-    DemandeVirement:DemandeVirementSum,
-
-    
+    DemandeVirement:DemandeVirementSum,   
   };
 })(ListeDonsContent);

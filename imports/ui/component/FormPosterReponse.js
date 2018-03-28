@@ -19,8 +19,6 @@ class FormPosterReponse extends Component {
 	    };
 	}
 
-
-
 	focusMessage() {
 	     this.setState({
 	      placeholderMessage: '',
@@ -103,12 +101,10 @@ class FormPosterReponse extends Component {
 
 	}
 
-
   render() {
 
   		const { visible } = this.state
   		const { placeholderMessage } = this.state
-
 		
 		return (
 			<div className="AjouterReponse">
@@ -118,7 +114,6 @@ class FormPosterReponse extends Component {
 				    	 as='h2'>
 				    	 Ajouter une réponse
 				    	 </Header>
-					    
 					    <Form.Field>
 					      <TextArea
 					       ref="message"
@@ -134,9 +129,7 @@ class FormPosterReponse extends Component {
 				            content='Le message est vide'
 				          />
 					    </Form.Field>
-
 					    <Button type='submit' color="green">Valider</Button>
-			  		
 			  		</Form>
 	  			</Segment>
 
@@ -146,9 +139,8 @@ class FormPosterReponse extends Component {
   	}
 }
 
-
 export default FormPosterReponse =  withTracker(({ authorId }) => {
-  const Handle = Meteor.subscribe('all');
+  const Handle = Meteor.subscribe('user', authorId);
   const loading = !Handle.ready();
   const user = Meteor.users.findOne({'_id':authorId});
   const reponseExists = !loading && !!user;

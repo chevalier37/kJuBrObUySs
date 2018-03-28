@@ -9,9 +9,23 @@ export let Recommandations = new Mongo.Collection('recommandations');
 
 if (Meteor.isServer) {
 
+Meteor.startup(function () {  
+  Recommandations._ensureIndex({ "to_id":1});
+});
+
 Meteor.methods({
 
       Recommander: function(id,text,note) {
+        new SimpleSchema({
+            text: {type: String},
+            id: {type: String},
+            note: {type: String},
+          }).validate({
+            id,
+            message,
+            note
+          });
+
           let search = Meteor.users.findOne({'_id':id});
           let name = search.username;
           let user = Meteor.user();
@@ -40,10 +54,8 @@ console.log(noteActuelle)
            Meteor.users.update(id, {
                     $set: { 'profile.note': noteFuture },
             }) 
-        
 
-
-          // on met à jours la note dans la table conseiller
+         // on met à jours la note dans la table conseiller
           let IsConseiller = Conseilleres.findOne({user_id:id});
           if(IsConseiller){
             let noteActuelleConseil = IsConseiller.note;
@@ -61,16 +73,12 @@ console.log(noteActuelle)
                : ''
               } 
           }
-
-          
-          
        },
 
        RecommandationNotif: function(message_id){
+        check(message_id, String);
         Recommandations.update(message_id, {$set: {read:true} })
       }
-
-
 });
 
 
@@ -79,6 +87,7 @@ Meteor.publish('allRecommandations', function () {
   return Recommandations.find()
 });
 
+
 Meteor.publish('Recommandations', function (id) {
   new SimpleSchema({
       id: {type: String},
@@ -86,7 +95,4 @@ Meteor.publish('Recommandations', function (id) {
 
   return Recommandations.find({'to_id':id})
 });
-
-
 }
-

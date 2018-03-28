@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
-import { Sidebar, Segment, Button, Menu, Image, Icon, Header,  Message, Divider } from 'semantic-ui-react'
+import { Sidebar, Segment, Button,  Header, Divider } from 'semantic-ui-react'
 import { Route, Redirect } from 'react-router';
  
 //Component
@@ -44,7 +44,6 @@ class DevenirConseiller extends Component {
             </div>
           </div>
         </header>
-
        
         <Sidebar.Pushable >
               <Sidebar
@@ -63,9 +62,8 @@ class DevenirConseiller extends Component {
         
                 <div className="containerSite" onClick={this.toggleHidden}>
                   <div className="containerIMG">
-                  <div className="MainContent">
-                    <Segment className="MainContent">
-                      
+                    <div className="MainContent">
+                      <Segment className="MainContent">
                         <Header>
                         Recommandation enregistrée
                         </Header>
@@ -76,40 +74,20 @@ class DevenirConseiller extends Component {
                       <p className="consigne">
                       Ta recommendations a bien été enregistrée.
                       </p>
-                      <div className="consigne2">
-                     
-                       
-                      </div>
-
-                       <p></p>
-
-
-
-                      
-                    </Segment>
-                  </div>
-                  <ContentMenuLeft />
-                      
-                      
+                      <p></p>
+                      </Segment>
+                    </div>
+                    <ContentMenuLeft />
                   </div> 
                 </div>
-
               </Sidebar.Pusher>
-
         </Sidebar.Pushable>
-      
       </div>
     );
   }
 }
 
-
-
 export default withTracker(() => {
-  //Meteor.subscribe('tasks');
   return {
-    /*tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
-    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
-    currentUser: Meteor.user(),*/
   };
 })(DevenirConseiller);
