@@ -122,6 +122,7 @@ Meteor.methods({
         const gender = user.profile.gender;
 console.log(hopital)
               Posts.insert({
+                  naissance:naissance,
                   post_title: titre,
                   post_content: message,
                   premierAmour: premierAmour,

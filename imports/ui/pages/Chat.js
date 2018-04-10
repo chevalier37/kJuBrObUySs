@@ -5,7 +5,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 import { Sidebar, Segment, Button, Menu, Image, Icon, Header, Checkbox, Form,  Message } from 'semantic-ui-react'
 import { Route, Redirect } from 'react-router';
- 
+
 //Component
 import HeaderPage from '../component/HeaderPage.js';
 import ContentMenuRight from '../component/ContentMenuRight.js';
@@ -15,7 +15,6 @@ import ChatContent from '../component/ChatContent.js';
 import FormChat from '../component/FormChat.js';
 
 import { Chat } from '../../api/Chat.js';
-
 
 class chat extends Component {
 
@@ -157,7 +156,6 @@ class chat extends Component {
     );
   }
 }
-
 
 
 export default chat =  withTracker(({ match }) => {

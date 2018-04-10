@@ -21,14 +21,19 @@ class MainContent extends Component {
 					MessageEcole:'cacher',
 					MessageSante:'cacher',
 					MessageConfiance:'cacher',
-				 	
+					more:5,
+					moreAmour:5,
+					moreConfiance:5,
+					moreSexo:5,
+					moreSante:5,
+					moreEcole:5,
 			    };
 			}
 
 	renderAllMessages() {
 	    let AllMessages = this.props.allMessages;
-
-	    return AllMessages.map((message) => {
+	    let more = this.state.more;
+	    return AllMessages.slice(0, more).map((message) => {
 	     let date = Date.parse(message.post_date);
          
 	      return (
@@ -44,8 +49,8 @@ class MainContent extends Component {
 
 	renderAmour() {
 	    let MessageAmour = this.props.postsAmour;
-
-	    return MessageAmour.map((message) => {
+	    let more = this.state.moreAmour;
+	    return MessageAmour.slice(0, more).map((message) => {
 	     let date = Date.parse(message.post_date);
          
 	      return (
@@ -60,8 +65,8 @@ class MainContent extends Component {
 
 	renderSexo() {
 	    let MessageSexo = this.props.postsSexo;
-
-	    return MessageSexo.map((message) => {
+	    let more = this.state.moreSexo;
+	    return MessageSexo.slice(0, more).map((message) => {
 	     let date = Date.parse(message.post_date);
          
 	      return (
@@ -76,8 +81,8 @@ class MainContent extends Component {
 
 	renderConfiance() {
 	    let MessageConfiance = this.props.postsConfiance;
-
-	    return MessageConfiance.map((message) => {
+	    let more = this.state.moreConfiance;
+	    return MessageConfiance.slice(0, more).map((message) => {
 	     let date = Date.parse(message.post_date);
          
 	      return (
@@ -92,8 +97,8 @@ class MainContent extends Component {
 
 	renderSante() {
 	    let MessageSante = this.props.postsSante;
-
-	    return MessageSante.map((message) => {
+	    let more = this.state.moreSante;
+	    return MessageSante.slice(0, more).map((message) => {
 	     let date = Date.parse(message.post_date);
          
 	      return (
@@ -108,8 +113,8 @@ class MainContent extends Component {
 
 	renderEcole() {
 	    let MessageEcole = this.props.postsEcole;
-
-	    return MessageEcole.map((message) => {
+	    let more = this.state.moreEcole;
+	    return MessageEcole.slice(0, more).map((message) => {
 	     let date = Date.parse(message.post_date);
          
 	      return (
@@ -176,9 +181,38 @@ class MainContent extends Component {
        	this.setState({MessageAmour: 'cacher'});
 	 }
 
+	 VoirPlus() {
+	 	let plus = this.state.more + 5
+       	this.setState({more: plus});
+	 }
+
+	  VoirPlusConfiance() {
+	 	let plus = this.state.moreConfiance + 5
+       	this.setState({moreConfiance: plus});
+	 }
+
+	  VoirPlusAmour() {
+	 	let plus = this.state.moreAmour + 5
+       	this.setState({moreAmour: plus});
+	 }
+
+	  VoirPlusSexo() {
+	 	let plus = this.state.moreSexo + 5
+       	this.setState({moreSexo: plus});
+	 }
+
+	  VoirPlusSante() {
+	 	let plus = this.state.moreSante + 5
+       	this.setState({moreSante: plus});
+	 }
+
+	  VoirPlusEcole() {
+	 	let plus = this.state.moreEcole + 5
+       	this.setState({moreEcole: plus});
+	 }
 			   
   render() {
-		
+
 		return (
 			<div className="MainContent">
 				<FormPosterMessage />
@@ -231,12 +265,77 @@ class MainContent extends Component {
 				       </Button>
 	  			</Segment>
 
-	  			<div className={this.state.allMessages}>{this.renderAllMessages()}</div>
-				<div className={this.state.MessageAmour}>{this.renderAmour()}</div>
-				<div className={this.state.MessageSexo}>{this.renderSexo()}</div>
-				<div className={this.state.MessageConfiance}>{this.renderConfiance()}</div>
-				<div className={this.state.MessageSante}>{this.renderSante()}</div>
-				<div className={this.state.MessageEcole}>{this.renderEcole()}</div>
+	  			<div className={this.state.allMessages}>
+	  				{this.renderAllMessages()}
+	  				<div className={this.state.more > this.props.countAllMessages ? "none" : "voirPlus" }>
+						<Button
+							fluid
+					        color="green"
+					        onClick={this.VoirPlus.bind(this)}>
+					        Voir plus
+						</Button>
+					</div>
+	  			</div>
+
+				<div className={this.state.MessageAmour}>
+					{this.renderAmour()}
+					<div className={this.state.moreAmour > this.props.countPostsAmour ? "none" : "voirPlus" }>
+						<Button
+							fluid
+					        color="green"
+					        onClick={this.VoirPlusAmour.bind(this)}>
+					        Voir plus
+						</Button>
+					</div>
+				</div>
+
+				<div className={this.state.MessageSexo}>
+					{this.renderSexo()}
+					<div className={this.state.moreSexo > this.props.countpostsSexo ? "none" : "voirPlus" }>
+						<Button
+							fluid
+					        color="green"
+					        onClick={this.VoirPlusSexo.bind(this)}>
+					        Voir plus
+						</Button>
+					</div>
+				</div>
+
+				<div className={this.state.MessageConfiance}>
+					{this.renderConfiance()}
+					<div className={this.state.moreConfiance > this.props.countPostsConfiance ? "none" : "voirPlus" }>
+						<Button
+							fluid
+					        color="green"
+					        onClick={this.VoirPlusConfiance.bind(this)}>
+					        Voir plus
+						</Button>
+					</div>
+				</div>
+
+				<div className={this.state.MessageSante}>
+					{this.renderSante()}
+					<div className={this.state.moreSante > this.props.countpostsSante ? "none" : "voirPlus" }>
+						<Button
+							fluid
+					        color="green"
+					        onClick={this.VoirPlusSante.bind(this)}>
+					        Voir plus
+						</Button>
+					</div>
+				</div>
+
+				<div className={this.state.MessageEcole}>
+					{this.renderEcole()}
+					<div className={this.state.moreEcole > this.props.countpostsEcole ? "none" : "voirPlus" }>
+						<Button
+							fluid
+					        color="green"
+					        onClick={this.VoirPlusEcole.bind(this)}>
+					        Voir plus
+						</Button>
+					</div>
+				</div>
 
 			</div>
 
@@ -245,9 +344,10 @@ class MainContent extends Component {
 }
 
 export default withTracker(() => {
+  
   const Handle = Meteor.subscribe('AllMessages');
   const loading = !Handle.ready();
-  const allposts = Posts.find({}, { sort: { post_date: -1 } });
+  const allposts = Posts.find({}, { sort: { post_date: -1 }, limit:30});
   const amour = Posts.find({$or:
   	[{premierAmour:true},
   	{trahison:true},
@@ -255,7 +355,7 @@ export default withTracker(() => {
     {amourdistance:true},
     {separation:true},
     {autre:true}]},
-    { sort: { post_date: -1 } });
+    { sort: { post_date: -1 }, limit:30 });
 
   const confiance = Posts.find({$or:
   	[{timidite:true},
@@ -264,7 +364,7 @@ export default withTracker(() => {
     {deces:true},
     {mutilation:true},
     {autre:true}]},
-    { sort: { post_date: -1 } });
+    { sort: { post_date: -1 }, limit:30 });
 
   const sexo = Posts.find({$or:
   	[{premierfois:true},
@@ -274,7 +374,7 @@ export default withTracker(() => {
     {avortement:true},
     {orientationSex:true},
     {autre:true}]},
-    { sort: { post_date: -1 } });
+    { sort: { post_date: -1 }, limit:30 });
 
   const sante = Posts.find({$or:
   	[{Anorexie:true},
@@ -286,7 +386,7 @@ export default withTracker(() => {
     {handicap:true},
     {Accident:true},
     {autre:true}]},
-    { sort: { post_date: -1 } });
+    { sort: { post_date: -1 }, limit:30 });
 
   const ecole = Posts.find({$or:
   	[{echecEcole:true},
@@ -294,7 +394,7 @@ export default withTracker(() => {
     {Discrimination:true},
     {Violence:true},
     {autre:true}]},
-    { sort: { post_date: -1 } });
+    { sort: { post_date: -1 }, limit:30 });
 
 
    const postExists = !loading && !!allposts;
@@ -306,11 +406,22 @@ export default withTracker(() => {
 
   return {
     allMessages: postExists ? allposts.fetch() : [],
+    countAllMessages: postExists ? allposts.count() : '',
+    
     postsAmour: postExists ? amour.fetch() : [],
+    countPostsAmour: postExists ? amour.count() : "",
+    
     postsConfiance: postExists ? confiance.fetch() : [],
+    countPostsConfiance: postExists ? confiance.count() : "",
+
     postsSexo: postExists ? sexo.fetch() : [],
+    countpostsSexo: postExists ? sexo.count() : "",
+   
     postsSante: postExists ? sante.fetch() : [],
+    countpostsSante: postExists ? sante.count() : "",
+    
     postsEcole: postExists ? ecole.fetch() : [],
+    countpostsEcole: postExists ? ecole.count() : "",
 
   };
 })(MainContent);

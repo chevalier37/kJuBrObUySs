@@ -226,7 +226,7 @@ class FormSubscribe extends Component {
   		 //on calcul l'age en années
   		 let age = diff / 31536000000;
 
-		 {age <13 ?
+		  {age <13 ?
 	     this.setState({age: true,}) :
 	     this.setState({age: false,
     	})}

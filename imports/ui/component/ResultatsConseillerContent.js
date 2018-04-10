@@ -80,18 +80,17 @@ class ResultatsConseillerContent extends Component {
 				<div className={conseiller.gender}>
 					<Link to={'/Chat/' + conseiller.user_id}>
 						{conseiller.username}
-					</Link>
+						<br />
+						{age} ans<br />
+						<Rating icon='heart'
+	          			defaultRating={conseiller.note}
+	          			maxRating={4}
+	          			disabled
+	          			size='mini'
+	          	 		/>
+          	 		</Link>
 				</div>
 				</Table.Cell>
-	            <Table.Cell>{age}</Table.Cell>
-              	<Table.Cell>
-              		<Rating icon='heart'
-              			defaultRating={conseiller.note}
-              			maxRating={4}
-              			disabled
-              			size='mini'
-              	 	/>
-              	</Table.Cell>
               	<Table.Cell className={this.props.premierAmourText}>{conseiller.premierAmourText}</Table.Cell>
               	<Table.Cell className={this.props.trahisonText}>{conseiller.trahisonText}</Table.Cell>
               	<Table.Cell className={this.props.FriendzoneText}>{conseiller.FriendzoneText}</Table.Cell>
@@ -143,18 +142,17 @@ class ResultatsConseillerContent extends Component {
 				<div className={conseiller.gender}>
 					<Link to={'/Chat/' + conseiller.user_id}>
 						{conseiller.username}
-					</Link>
+						<br />
+						{age} ans<br />
+						<Rating icon='heart'
+	          			defaultRating={conseiller.note}
+	          			maxRating={4}
+	          			disabled
+	          			size='mini'
+	          	 		/>
+          	 		</Link>
 				</div>
 				</Table.Cell>
-	            <Table.Cell>{age}</Table.Cell>
-              	<Table.Cell>
-              	<Rating icon='heart'
-              			defaultRating={conseiller.note}
-              			maxRating={4}
-              			disabled
-              			size='mini'
-              	 />
-              	</Table.Cell>
               	<Table.Cell>{conseiller.presentation}</Table.Cell>
 			</Table.Row>
         );
@@ -167,7 +165,6 @@ class ResultatsConseillerContent extends Component {
 
   render() {
     const { column, data, data1, direction } = this.state
-    
 
 	    return (
 	    	<div className="MainContent">
@@ -186,18 +183,6 @@ class ResultatsConseillerContent extends Component {
 					             sorted={column === 'username' ? direction : null}
 					             onClick={this.handleSort('username')}>
 					              Pseudo
-					            </Table.HeaderCell>
-					            <Table.HeaderCell 
-					            width={2} 
-					            sorted={column === 'age' ? direction : null} 
-					            onClick={this.handleSort('age')}>
-					              Age
-					            </Table.HeaderCell>
-					            <Table.HeaderCell 
-					            width={2}
-					            sorted={column === 'etoile' ? direction : null}
-					            onClick={this.handleSort('etoile')}>
-					              Note
 					            </Table.HeaderCell>
 					            <Table.HeaderCell
 					             sorted={column === 'message' ? direction : null} 
@@ -232,18 +217,6 @@ class ResultatsConseillerContent extends Component {
 				             sorted={column === 'name1' ? direction : null}
 				             onClick={this.handleSortConseilleres('name1')}>
 				              Pseudo
-				            </Table.HeaderCell>
-				            <Table.HeaderCell
-				             width={2} 
-				             sorted={column === 'age1' ? direction : null}
-				             onClick={this.handleSortConseilleres('age1')}>
-				              Age
-				            </Table.HeaderCell>
-				            <Table.HeaderCell
-				             width={2}
-				             sorted={column === 'etoile1' ? direction : null}
-				             onClick={this.handleSortConseilleres('etoile1')}>
-				              Note
 				            </Table.HeaderCell>
 				            <Table.HeaderCell
 				             sorted={column === 'message1' ? direction : null}

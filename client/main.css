@@ -647,9 +647,6 @@ header {
 	color: white;
 }
 
-.authorMessage{
-
-}
 
 .filleMessageBackground{
 	background-color: #fd9fd4;
@@ -1407,6 +1404,27 @@ header {
 	font-size: 16px;
 }
 
+.ageAuthor{
+	display: inline-block;
+	margin-left: 5px;
+}
+
+.voirPlus{
+	margin-top: 20px;
+}
+
+.TitreNaissance{
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.TextNaissance{
+	font-size: 14px;
+	text-align: center;
+	margin-bottom: 10px;
+}
 
 @media only screen and (max-width: 1800px) {
 

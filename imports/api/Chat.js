@@ -48,7 +48,7 @@ Meteor.methods({
       },
 
       updateContact: function(to_id) {
-            check(to_id, String);
+            check(to_id, Object);
             const search = Meteor.users.findOne({'_id':to_id.to_id});
             const to_name = search.username;
             

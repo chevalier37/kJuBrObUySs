@@ -26,6 +26,13 @@ class Home extends Component {
     if (!Meteor.loggingIn() && !Meteor.userId()){
       return <Redirect to="/" />;
     }
+    const naissance = this.props.naissance;
+    const typeNaissance = typeof naissance;
+    console.log(typeNaissance)
+     if (typeNaissance == 'string'){
+     }else if (typeNaissance !== 'object'){
+      return <Redirect to="/MiseAjourNaissance" />;
+    }
     
     return (
       <div className="container">
@@ -75,6 +82,13 @@ class Home extends Component {
 }
 
 export default withTracker(() => {
-  return {   
+  const id = Meteor.userId();
+  const Handle = Meteor.subscribe('user', id);
+  const loading = !Handle.ready();
+  const allreponses = Meteor.users.find({_id:id});
+  const reponseExists = !loading && !!allreponses;
+
+  return {
+    naissance: reponseExists ? allreponses.fetch() : '',
   };
 })(Home);

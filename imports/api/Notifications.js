@@ -7,9 +7,9 @@ import { Posts } from './Messages.js';
 
 if (Meteor.isServer) {
 
-Meteor.startup(function () {  
+
   Notifications._ensureIndex({ "to_id":1});
-});
+
 
 Meteor.methods({
 

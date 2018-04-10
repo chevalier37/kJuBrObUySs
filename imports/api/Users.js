@@ -86,7 +86,7 @@ Meteor.methods({
              },
 
       ResetPassword: function(pseudo, password) {
-                   new SimpleSchema({
+                    new SimpleSchema({
                       pseudo: {type: String},
                       password: {type: String},
                     }).validate({
@@ -94,16 +94,21 @@ Meteor.methods({
                       password
                     });
 
-                let isExiste = Meteor.users.find({'username':pseudo.pseudo}).count();
-                if (isExiste > 0 ){
-                search = Meteor.users.findOne({'username':pseudo.pseudo}),
-                newPassword = pseudo.password,
-                //console.log(search._id)
-                //console.log(newPassword)
-                Accounts.setPassword(search._id, newPassword);
-                return search;
-               
+                    let isExiste = Meteor.users.find({'username':pseudo.pseudo}).count();
+                    if (isExiste > 0 ){
+                    search = Meteor.users.findOne({'username':pseudo.pseudo}),
+                    newPassword = pseudo.password,
+                    //console.log(search._id)
+                    //console.log(newPassword)
+                    Accounts.setPassword(search._id, newPassword);
+                    return search;
               } 
+             },
+
+      MiseAjourNaissance: function(date) {
+                    Meteor.users.update({_id:this.userId}, {
+                    $set: { "profile.naissance": date},
+                    })
              },
 
       usernameRecommander: function(id) {
@@ -198,7 +203,6 @@ Meteor.publish('userDon', function (id) {
   new SimpleSchema({
       id: {type: String},
     }).validate({id});
-
   return Meteor.users.find({'_id':id}, {
     fields: {'status.online':1, 'profile.mail':1}
   });
@@ -210,4 +214,5 @@ Meteor.publish('user', function (id) {
     }).validate({id});
   return Meteor.users.find({'_id':id});
 });
+
 }

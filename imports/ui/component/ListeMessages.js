@@ -249,7 +249,10 @@ class ListeMessages extends Component {
   render() {
     
 	const colorSexe = this.state.sexe;
-   
+	let now = new Date();
+	let diff = now - this.props.message.naissance;
+	let age = Math.round(diff / 31536000000);
+
 		return (
 			<div className="ListeMessages">
 				<div className={colorSexe=="pink" ?
@@ -276,7 +279,11 @@ class ListeMessages extends Component {
 			        				 <Link to={'/profil/' + this.props.message.post_author_id}>
 			        				{this.props.message.post_author}
 			        				</Link>
+
 	        					</span>
+	        				</div>
+	        				<div className="ageAuthor">
+	        				{age} ans
 	        				</div>
 	         				<div className="dateMessage">
 		         			{	this.state.nbrSeconde<60 ? "Il y a " + this.state.nbrSeconde +" secondes": 

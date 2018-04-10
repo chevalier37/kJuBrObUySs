@@ -34,9 +34,10 @@ import CommandeLivre from '../../../imports/ui/pages/CommandeLivre.js';
 import ValidationCommande from '../../../imports/ui/pages/ValidationCommande.js';
 import Notifications from '../../../imports/ui/pages/Notifications.js';
 import NotFound from '../../../imports/ui/pages/NotFound.js';
+import MiseAjourNaissance from '../../../imports/ui/pages/MiseAjourNaissance.js';
 
 const requireAuth = (nextState, replace) => {
-	alert('ok')
+
   if (!Meteor.loggingIn() && !Meteor.userId()) {
     replace({
       pathname: '/',
@@ -79,11 +80,8 @@ export const renderRoutes = () => (
       <Route path="/CommandeLivre/" component={CommandeLivre}/>
       <Route path="/ValidationCommande/" component={ValidationCommande}/>
       <Route path="/Notifications/" component={Notifications}/>
-      
+      <Route path="/MiseAjourNaissance/" component={MiseAjourNaissance}/>
       
     </div>
   </Router>
 );
-
-
-

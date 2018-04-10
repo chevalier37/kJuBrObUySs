@@ -1111,8 +1111,7 @@ class ProfilContent extends Component {
 			let nbrHeures = Math.round(nbrMinutes/60);
 			let nbrJours = Math.round(nbrHeures/24);
 			let nbrMois = Math.round(nbrJours/30);
-	  		 
-}
+			}
 
 			{this.props.conseiller.premierAmour !== true ? premierAmour = 'none' : premierAmour = 'n'}
 			{this.props.conseiller.trahison !== true ? trahison = 'none' : trahison = 'n'}
