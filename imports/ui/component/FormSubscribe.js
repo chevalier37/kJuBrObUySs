@@ -161,10 +161,10 @@ class FormSubscribe extends Component {
     	sexeVerif:false,
     	CGU:false,
     	checkCGU:false,
-      connnection: false,
+      connection: false,
       usernameExiste: false,
       mailExiste:false,
-      
+      error:'t',
     };
 
     this.jours = this.jours.bind(this);
@@ -176,46 +176,57 @@ class FormSubscribe extends Component {
 
 	Submit(event) {
     	event.preventDefault();
-	    
+
+      this.setState({pseudo: false,}) 
+      this.setState({mail: false,})
+      this.setState({password: false,})
+      this.setState({naissance: false,}) 
+      this.setState({age: false,}) 
+      this.setState({sexeVerif: false,})
+      this.setState({CGU: false,})
+      this.setState({usernameExiste: false,})
+      this.setState({mailExiste: false,})
+      this.setState({error: false,})
+
     	let jours= parseInt(this.state.jours);
     	let mois = this.state.mois;
     	let année = parseInt(this.state.année) 
 
 	    const pseudo = ReactDOM.findDOMNode(this.refs.pseudo).value.trim();
 	    const email = ReactDOM.findDOMNode(this.refs.email).value.trim();
-	    const password1 = ReactDOM.findDOMNode(this.refs.password1).value.trim();
+	    //const password1 = ReactDOM.findDOMNode(this.refs.password1).value.trim();
 	    const password = ReactDOM.findDOMNode(this.refs.password2).value.trim();
 	    const naissance = new Date(''+mois +jours+','+année+'');
 	    const sexe = this.state.sexe;
       const createdAt = new Date();
 
 	    //On verifie que le pseudo n'est pas vide
-	    {!pseudo ?
-	     this.setState({pseudo: true,}) :
+	    {pseudo=='' ?
+	     this.setState({pseudo: true,error:true}) :
 	     this.setState({pseudo: false,
     	})}
 
 	    //On verifie que le mail n'est pas vide
 	    {!email ?
-	     this.setState({mail: true,}) :
+	     this.setState({mail: true, error:true}) :
 	     this.setState({mail: false,
     	})}
 
 	     //On verifie que les mots de passe correspondent
-	    {password1 !== password ?
+	    /*{password1 !== password ?
 	     this.setState({password: true,}) :
 	     this.setState({password: false,
-    	})}
+    	})}*/
 
 	     //Les password ne doivent pas être vide
-	     {!password1 || !password ?
-	     this.setState({password: true,}) :
+	     {!password ?
+	     this.setState({password: true,error:true}) :
 	     this.setState({password: false,
     	})}
 
 	      //On verifie que la date de naissance n'est pas vide
 	    {naissance =='Invalid Date' ?
-	     this.setState({naissance: true,}) :
+	     this.setState({naissance: true,error:true}) :
 	     this.setState({naissance: false,
     	})}
 
@@ -227,19 +238,19 @@ class FormSubscribe extends Component {
   		 let age = diff / 31536000000;
 
 		  {age <13 ?
-	     this.setState({age: true,}) :
-	     this.setState({age: false,
-    	})}
+	     this.setState({age: true,error:true}) :
+	     ''
+    	}
 
 	     //Le sexe est obligatoire
 	    {!sexe ?
-	     this.setState({sexeVerif: true,}) :
+	     this.setState({sexeVerif: true,error:true}) :
 	     this.setState({sexeVerif: false,
     	})}
 
 	     //Les CGU sont obligatoire
 	      {this.state.checkCGU ==false ?
-	     this.setState({CGU: true,}) :
+	     this.setState({CGU: true,error:true}) :
 	     this.setState({CGU: false,
     	})}
 
@@ -257,7 +268,7 @@ class FormSubscribe extends Component {
           onResultReceived: (error, response) => {
             if (error) console.warn(error.reason);
             {response ?
-             this.setState({usernameExiste: true,}) :
+             this.setState({usernameExiste: true,error:true}) :
              this.setState({usernameExiste: false})}
           },
       });
@@ -268,42 +279,31 @@ class FormSubscribe extends Component {
           onResultReceived: (error, response) => {
             if (error) console.warn(error.reason);
             {response ?
-             this.setState({mailExiste: true,}) :
+             this.setState({mailExiste: true,error:true}) :
              this.setState({mailExiste: false})}
           },
       });
 
-      {
-          this.state.pseudo === false
-          &&this.state.mail === false 
-          &&this.state.password === false
-          &&this.state.naissance === false
-          &&this.state.age === false
-          &&this.state.sexeVerif === false
-          &&this.state.CGU === false
-          &&this.state.usernameExiste === false
-          &&this.state.mailExiste === false
-          
-          ?
-
-          Accounts.createUser({
-            username: pseudo,
-            mail:email,
-            password:password,
-            naissance:naissance,
-            sexe:sexe,
-            createdAt:createdAt,
-          }, (err) => {
-            if(err){
-              
-            } else {
-              {
-                  Meteor.userId() ? 
-                 this.setState({connection: true,}) : ""
-              }     
-            }
-          }) : ""
-      }
+      let erreur = this.state.error 
+      if(erreur == false) {
+           Accounts.createUser({
+              username: pseudo,
+              mail:email,
+              password:password,
+              naissance:naissance,
+              sexe:sexe,
+              createdAt:createdAt,
+            }, (err) => {
+              if(err){
+                
+              } else {
+                {
+                    Meteor.userId() ? 
+                   this.setState({connection: true,}) : ""
+                }     
+              }
+            })   
+        }
   	}
    
 	  jours(value) {
@@ -336,7 +336,7 @@ class FormSubscribe extends Component {
     });
   }
 
-  ChangeInput(event){
+    ChangeInput(event){
     this.setState({
       connection: false,
     });
@@ -399,24 +399,16 @@ class FormSubscribe extends Component {
 			    </Form.Field>
 
 			    <Form.Field required error={this.state.password}>
-			     <input
-			       ref="password1"
-			       type='password'
-			       placeholder='Mot de passe'
-			      />
-			    </Form.Field>
-
-			    <Form.Field required error={this.state.password}>
 			      <input
 			       ref="password2"
 			       type='password'
-			       placeholder='Confirmer mot de passe'
+			       placeholder='Mot de passe'
 			      />
 			     <Message
 			      error={this.state.password}
 			      hidden={!this.state.password}
 			      header='Erreur mot de passe'
-			      content="Les mots de passe ne correspondent pas"
+			      content="Le mot de passe est obligatoire"
 			    />
 			    </Form.Field>
 			    

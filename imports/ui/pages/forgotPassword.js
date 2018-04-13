@@ -20,16 +20,21 @@ class forgotPassword extends Component {
       pseudo:false,
       mail:false,
       password:false,
-      connection:false,     
+      connection:false,
+      errorPassword:false,     
     };   
   }
 
   Submit(event) {
       event.preventDefault();
-      
+
+      this.setState({errorLogin: false, })
+      this.setState({pseudo: false, })
+      this.setState({mail: false, })
+
       const pseudo = ReactDOM.findDOMNode(this.refs.pseudo).value.trim();
       const email = ReactDOM.findDOMNode(this.refs.email).value.trim();
-      const password1 = ReactDOM.findDOMNode(this.refs.password1).value.trim();
+      //const password1 = ReactDOM.findDOMNode(this.refs.password1).value.trim();
       const password = ReactDOM.findDOMNode(this.refs.password2).value.trim();
 
       //On verifie que le pseudo n'est pas vide
@@ -45,20 +50,20 @@ class forgotPassword extends Component {
       })}
 
        //On verifie que les mots de passe correspondent
-      {password1 !== password ?
-       this.setState({password: true,}) :
-       this.setState({password: false,
-      })}
+      /*{password1 !== password ?
+       this.setState({errorLogin: true,}) :
+       ''
+      }*/
 
        //Les password ne doivent pas être vide
-       {!password1 || !password ?
-       this.setState({password: true,}) :
-       this.setState({password: false,
-      })}
+       {password == '' ?
+       this.setState({errorPassword: true,}) :
+       ''
+      }
 
-      check(pseudo, String);
+      /*check(pseudo, String);
       check(email, String);
-      check(password, String);
+      check(password, String);*/
 
      //on vérifie que le pseudo et le mail existe
       Meteor.apply('UserExiste', [{
@@ -94,8 +99,9 @@ class forgotPassword extends Component {
       }
         
       const errorLogin = this.state.errorLogin;
+      const errorPassword = this.state.errorPassword;
 
-      if (errorLogin == false) {
+      if (errorLogin == false && errorPassword == false) {
           Meteor.loginWithPassword(pseudo, password, (err) => {
             if(err){
              console.log(err.reason)
@@ -143,7 +149,7 @@ class forgotPassword extends Component {
                           hidden={!this.state.errorLogin}
                           error={this.state.errorLogin}
                           header='Erreur'
-                          content='Utilisateur non trouvé'
+                          content='Erreur identifiant'
                         />
                         <Form.Field required error={this.state.pseudo}>
                           <input
@@ -174,19 +180,12 @@ class forgotPassword extends Component {
                          />
                         </Form.Field>
 
-                        <Form.Field required error={this.state.password}>
-                         <input
-                           ref="password1"
-                           type='password'
-                           placeholder='Nouveau mot de passe'
-                          />
-                        </Form.Field>
-
+                        
                         <Form.Field required error={this.state.password}>
                           <input
                            ref="password2"
                            type='password'
-                           placeholder='Confirmer mot de passe'
+                           placeholder='Mot de passe'
                           />
                          <Message
                           error={this.state.password}

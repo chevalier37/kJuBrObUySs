@@ -71,7 +71,7 @@ class RecommanderContent extends Component {
 			  	presentation,
 			  	note,
 			  	  (err) => {
-	            	if(err){
+	            	if(err){console.log(err)
 	           		 } else {
 	              	{
 				        this.setState({
@@ -121,11 +121,7 @@ class RecommanderContent extends Component {
    
 		}
 
-
-
-	   
-
-  render() {
+  	render() {
 		const { activeIndex } = this.state;
 		const myId = Meteor.userId();
 		    if (!Meteor.loggingIn() && !Meteor.userId()){

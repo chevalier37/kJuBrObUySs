@@ -160,6 +160,7 @@ header {
 	position: fixed;
     top: 0px;
     width: 100%;
+    max-height: 60px;
 }
 
 .containerHeader{
@@ -1207,7 +1208,7 @@ header {
 .buttonMontant{
     color: #fff;
     text-shadow: none;
-    background-image: none;
+    /*background-color: #2185d0;*/
     font-size: .85714286rem;
     margin: 0 .25em 0 0;
     padding: .78571429em 1.5em .78571429em;
@@ -1226,13 +1227,15 @@ header {
 	background-color:#db2828;
 }
 
+.red{
+	/*background-color:#db2828;*/
+	color: #fff;
+}
+
 .blue{
 	background-color: #2185d0;
 }
 
-.red{
-	/*background-color: #db2828;*/
-}
 
 .TotalDonEffectué{
 	display: inline-block;
@@ -1424,6 +1427,15 @@ header {
 	font-size: 14px;
 	text-align: center;
 	margin-bottom: 10px;
+}
+
+.titreAide{
+	text-align: center;
+}
+
+.ContainerPresentation{
+	margin-top: 0px;
+	font-size: 15px;
 }
 
 @media only screen and (max-width: 1800px) {

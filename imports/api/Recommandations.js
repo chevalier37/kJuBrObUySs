@@ -19,10 +19,10 @@ Meteor.methods({
         new SimpleSchema({
             text: {type: String},
             id: {type: String},
-            note: {type: String},
+            note: {type: Number},
           }).validate({
             id,
-            message,
+            text,
             note
           });
 

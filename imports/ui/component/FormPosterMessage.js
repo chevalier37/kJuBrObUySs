@@ -412,13 +412,12 @@ class FormPosterMessage extends Component {
 	    });
   	}
 
-  render() {
+  	render() {
 
   		const { visible } = this.state
   		const { categorie } = this.state
   		const { placeholderTitre } = this.state
   		const { placeholderMessage } = this.state
-
 		
 		return (
 			<div >
@@ -478,7 +477,7 @@ class FormPosterMessage extends Component {
 						<div className={categorie}>
 						    	 <Header
 						    	 as='h5'
-						    	 color="red">
+						    	 >
 						    	 Amour
 						    	 </Header>
 						    

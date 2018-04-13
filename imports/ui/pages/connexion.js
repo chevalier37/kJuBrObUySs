@@ -10,7 +10,9 @@ import Img from 'react-image'
 import FormSubscribe from '../component/FormSubscribe.js';
 import Header from '../component/Header.js';
 import Footer from '../component/Footer.js';
-import Drapeaux from '../component/Drapeaux.js';
+import FaComments from 'react-icons/lib/fa/comments';
+import FaExpeditedssl from 'react-icons/lib/fa/Expeditedssl';
+import FaTrashO from 'react-icons/lib/fa/trash-o';
 
 class Connexion extends Component {
 
@@ -41,7 +43,17 @@ class Connexion extends Component {
                 </div>
                 <div className="ContainerDrapeaux">
                   <Message floating color='green'>
-                    <Message.Header>Trouvez de l'aide</Message.Header>
+                    <Message.Header>
+                    <div className="titreAide"> Trouvez de l'aide </div>
+                    </Message.Header>
+                  </Message>
+                </div>
+
+                <div className="ContainerPresentation">
+                  <Message floating >
+                      <FaComments /> Kurbys est un espace de discussion intime où tout le monde peut donner et recevoir de l'aide.<br /><br />
+                      <FaExpeditedssl /> Tous les échanges sont anonymes afin de respecter la confidentialité des messages. Cela vous permet de laisser parler votre coeur afin de dire la vérité silencieuse en vous.<br /><br />
+                      <FaTrashO /> Vous pouvez supprimer votre compte à tout moment. Tous vos messages seront définitivement supprimés.<br />
                   </Message>
                 </div>
             </div>

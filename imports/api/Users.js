@@ -18,11 +18,7 @@ if (Meteor.isServer) {
 Meteor.methods({
 
       FormSubscribePseudo: function(pseudo) {
-                new SimpleSchema({
-                    pseudo: {type: String},
-                  }).validate({
-                    pseudo,
-                  });
+                
 
                 let search = Meteor.users.find({'username':pseudo.pseudo}).count();
                 let IsPseudo = false;
@@ -34,11 +30,7 @@ Meteor.methods({
              },
 
       FormSubscribeMail: function(email) {
-                new SimpleSchema({
-                    email: {type: String},
-                  }).validate({
-                    email,
-                  });
+                
 
                 let search = Meteor.users.find({'profile.mail':email.email}).count();
                 let IsMail = false;
@@ -68,13 +60,7 @@ Meteor.methods({
              },
 
       UserExiste: function(pseudo,email) {
-                  new SimpleSchema({
-                    pseudo: {type: String},
-                    email: {type: String},
-                  }).validate({
-                    pseudo,
-                    email
-                  });
+                 
                 let search = Meteor.users.find({'profile.mail':pseudo.email, 'username':pseudo.pseudo}).count();
                 let Istrue = false;
                 {search >0 ? Istrue = true : Istrue = false}
@@ -86,14 +72,7 @@ Meteor.methods({
              },
 
       ResetPassword: function(pseudo, password) {
-                    new SimpleSchema({
-                      pseudo: {type: String},
-                      password: {type: String},
-                    }).validate({
-                      pseudo,
-                      password
-                    });
-
+                    
                     let isExiste = Meteor.users.find({'username':pseudo.pseudo}).count();
                     if (isExiste > 0 ){
                     search = Meteor.users.findOne({'username':pseudo.pseudo}),
