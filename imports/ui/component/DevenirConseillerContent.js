@@ -38,6 +38,7 @@ export default class DevenirConseillerContent extends Component {
 	      Violence:false,
 	      ValidationConseiller:false,
 	      errorConseiller:false,
+	      IsConseiller:false,
 
 	      ValidePremierAmour: false,
 	      Validetrahison:false,
@@ -68,6 +69,18 @@ export default class DevenirConseillerContent extends Component {
 	      ValideDiscrimination:false,
 	      ValideViolence:false,
 	   }
+
+	   componentWillMount(){
+	   	Meteor.apply('IsConseillerHeader', [{
+	          }], {
+	          onResultReceived: (error, response) => {
+	            if (error) console.warn(error.reason);
+	            {response ?  
+	             this.setState({IsConseiller:true}) :
+	             this.setState({usernameExiste: 'visible'})}
+		          },
+	      	})
+	    }
 
 	  handleChange = (e, { value }) => this.setState({ value })
 
@@ -806,7 +819,7 @@ export default class DevenirConseillerContent extends Component {
 
 	   }
 
-  render() {
+  	render() {
 		const { activeIndex } = this.state;
 		const myId = Meteor.userId();
 		    if (!Meteor.loggingIn() && !Meteor.userId()){
@@ -818,6 +831,12 @@ export default class DevenirConseillerContent extends Component {
 
 		return (
 			<div className="MainContent">
+				<div className={this.state.IsConseiller ? '' : 'none'}>
+					<Segment>
+						Tu es déjà conseiller.
+					</Segment>
+				</div>
+			<div className={this.state.IsConseiller ? 'none' : ''}>
 				<Segment className="MainContent">
 					<Header>
 					Devenir conseiller
@@ -840,7 +859,14 @@ export default class DevenirConseillerContent extends Component {
 					</div>
 					<Form error onSubmit={this.Submit.bind(this)}>
 					    <Form.Field >
-					      <label ><p className="consigne1">Quelques mots pour te présenter</p></label>
+					      <label >
+					      	<div className="consigne1">
+					      		Quelques mots pour te présenter 
+					      	</div>
+					      	<div className="consigne3">
+					      		*Obligatoire
+					      	</div>
+					      </label>
 					      <TextArea autoHeight ref="presentation" rows={5} />
 					       <Message
 						            hidden={!this.state.errorConseiller}
@@ -898,8 +924,17 @@ export default class DevenirConseillerContent extends Component {
 							      onClick={this.submitPremierAmour.bind(this)}
 							      color="green"
 							      size='tiny'>
-							      Enregister
+							      Valider
 							    </Button>
+							    <div className={this.state.ValidePremierAmour ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.ValidePremierAmour ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.ValidePremierAmour ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				        </Accordion.Content>
 
@@ -951,6 +986,15 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							    <div className={this.state.Validetrahison ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.Validetrahison ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.Validetrahison ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				        </Accordion.Content>
 
@@ -1000,6 +1044,15 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							    <div className={this.state.ValideFriendzone ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.ValideFriendzone ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.ValideFriendzone ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				         </Accordion.Content>
 
@@ -1049,6 +1102,15 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							     <div className={this.state.Valideamourdistance ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.Valideamourdistance ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.Valideamourdistance ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				         </Accordion.Content>
 
@@ -1098,6 +1160,15 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							    <div className={this.state.Valideseparation ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.Valideseparation ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.Valideseparation ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				         </Accordion.Content>
 
@@ -1147,6 +1218,15 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							    <div className={this.state.Validetimidite ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.Validetimidite ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.Validetimidite ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				         </Accordion.Content>
 
@@ -1196,6 +1276,15 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							    <div className={this.state.Validedepression ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.Validedepression ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.Validedepression ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				         </Accordion.Content>
 
@@ -1245,6 +1334,15 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							     <div className={this.state.Validemutilation ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.Validemutilation ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.Validemutilation ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				         </Accordion.Content>
 
@@ -1294,6 +1392,15 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							     <div className={this.state.Validesuicide ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.Validesuicide ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.Validesuicide ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				         </Accordion.Content>
 
@@ -1343,6 +1450,15 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							    <div className={this.state.Validedeces ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.Validedeces ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.Validedeces ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				         </Accordion.Content>
 
@@ -1392,6 +1508,15 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							    <div className={this.state.Validepremierfois ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.Validepremierfois ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.Validepremierfois ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				         </Accordion.Content>
 
@@ -1441,6 +1566,15 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							     <div className={this.state.ValideContraception ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.ValideContraception ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.ValideContraception ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				         </Accordion.Content>
 
@@ -1490,6 +1624,15 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							    <div className={this.state.Validemst ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.Validemst ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.Validemst ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				         </Accordion.Content>
 
@@ -1538,6 +1681,15 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							     <div className={this.state.Valideviol ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.Valideviol ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.Valideviol ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				         </Accordion.Content>
 
@@ -1587,6 +1739,15 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							    <div className={this.state.Valideavortement ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.Valideavortement ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.Valideavortement ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				         </Accordion.Content>
 
@@ -1636,6 +1797,15 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							     <div className={this.state.ValideorientationSex ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.ValideorientationSex ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.ValideorientationSex ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				         </Accordion.Content>
 
@@ -1685,6 +1855,15 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							    <div className={this.state.ValideAnorexie ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.ValideAnorexie ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.ValideAnorexie ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				         </Accordion.Content>
 
@@ -1734,6 +1913,15 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							    <div className={this.state.Valideobesite ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.Valideobesite ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.Valideobesite ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				         </Accordion.Content>
 
@@ -1783,6 +1971,15 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							    <div className={this.state.Validedrogue ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.Validedrogue ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.Validedrogue ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				         </Accordion.Content>
 
@@ -1832,6 +2029,15 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							    <div className={this.state.Validealcool ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.Validealcool ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.Validealcool ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				         </Accordion.Content>
 
@@ -1881,6 +2087,15 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							    <div className={this.state.Validecomplexe ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.Validecomplexe ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.Validecomplexe ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				         </Accordion.Content>
 
@@ -1930,6 +2145,15 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							    <div className={this.state.Validehopital ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.Validehopital ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.Validehopital ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				         </Accordion.Content>
 
@@ -1979,6 +2203,15 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							    <div className={this.state.Validehandicap ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.Validehandicap ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.Validehandicap ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				         </Accordion.Content>
 
@@ -2028,6 +2261,15 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							    <div className={this.state.ValideAccident ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.ValideAccident ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.ValideAccident ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				         </Accordion.Content>
 
@@ -2077,6 +2319,15 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							    <div className={this.state.ValideechecEcole ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.ValideechecEcole ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.ValideechecEcole ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				         </Accordion.Content>
 
@@ -2126,6 +2377,15 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							    <div className={this.state.ValideHarcelement ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.ValideHarcelement ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.ValideHarcelement ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				         </Accordion.Content>
 
@@ -2176,6 +2436,15 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							    <div className={this.state.ValideDiscrimination ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.ValideDiscrimination ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.ValideDiscrimination ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				         </Accordion.Content>
 
@@ -2227,11 +2496,21 @@ export default class DevenirConseillerContent extends Component {
 							     size='tiny'>
 							     Enregister
 							     </Button>
+							    <div className={this.state.ValideViolence ? 'none' : 'ConfirmationForm'}>
+							        <Button
+								      color={this.state.ValideViolence ? "green" : "red"}
+								      size='tiny'
+								      disabled
+								      >
+								      {this.state.ValideViolence ? "Enregitré" : "Non enregistré"}
+								    </Button>
+								</div>
 							 </Form>
 				         </Accordion.Content>
 				      </Accordion>
 				</div>	
 				</Segment>
+			   </div>
 			</div>
 
 		);

@@ -47,12 +47,9 @@ class FormPosterReponse extends Component {
 	    }
 
 	  	{ //on verifie qu'il n'y à pas d'erreur avant d'envoyer le formulaire
-
 		    
 			this.state.messageVide == false 
-
 			?
-
 		  	Meteor.call('addReponse',
 		  	  message,
 		  	  this.props.id,
@@ -65,11 +62,8 @@ class FormPosterReponse extends Component {
               	}     
             	}
           	})
-
-
 	        : ''
 	    }
-
 
           	{
           		!this.props.isOnline && this.state.messageVide == false  ?
@@ -85,19 +79,18 @@ class FormPosterReponse extends Component {
 		          )  
 
 		          : ''
-
           	}
 
-          	{
-          		!this.props.isOnline ?
+          	//{
+          		//!this.props.isOnline ?
 
 		          Meteor.call(
 		          'ReponseNotif',
 		           message,
 		  	  	   this.props.id,
 		          )
-		          : ''
-          	}
+		          //: ''
+          	//}
 
 	}
 

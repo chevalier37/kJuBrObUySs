@@ -187,9 +187,8 @@ class ButtonPusher extends Component {
     			   		 </Link>
     			   		 </div>
     			   		</Dropdown.Item>
-    			        <Dropdown.Divider />
     			       
-    			        <div className={this.props.chat=='true' ? "none" : "visible"}>
+    			        <div className={this.props.chat=='true' ? "none" : ""}>
     			          {this.renderChatUnread()}
     			        </div>	       
 

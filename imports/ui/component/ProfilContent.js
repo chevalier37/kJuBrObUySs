@@ -31,6 +31,7 @@ class ProfilContent extends Component {
 			myId: '',
 			notMyId:'',
 			conseillerExiste:'',
+			IsConseiller:false,
 
 			premierAmourReadOnly:'',
 			premierAmourInput:'none',
@@ -222,7 +223,7 @@ class ProfilContent extends Component {
 	          onResultReceived: (error, response) => {
 	            if (error) console.warn(error.reason);
 	            {response ?  
-	             this.setState({conseillerExiste: 'cacher',}) :
+	             this.setState({conseillerExiste: 'cacher', IsConseiller:true}) :
 	             this.setState({usernameExiste: 'visible'})}
 		          },
 	      	})
@@ -1254,50 +1255,58 @@ class ProfilContent extends Component {
 						</Header>
 					</Segment >
 					<Divider />
+				<div className={!this.state.IsConseiller ? 'none' : 'VisibleAjouter'}>
+					<Segment >
+			  			<Label attached='top'  basic color='blue' className="headerProfil">
+			  			<div className="titreProfil">Présentation</div>
+						       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
+						    		<div className={this.state.Modifierpresentation} >
+							    		<Button color='red' size='mini' onClick={this.presentation.bind(this)}>
+								    		<div className="modifierFormButton">
+								    		 	modifier
+								    		</div>
+							    		</Button>
+						    		</div>
 
-				<Segment >
-		  			<Label attached='top'  basic color='blue' className="headerProfil">
-		  			<div className="titreProfil">Présentation</div>
-					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
-					    		<div className={this.state.Modifierpresentation} >
-						    		<Button color='red' size='mini' onClick={this.presentation.bind(this)}>
-							    		<div className="modifierFormButton">
-							    		 	modifier
-							    		</div>
-						    		</Button>
-					    		</div>
-
-					    		<div className={this.state.Validerpresentation} >
-						    		<Button color='green' size='mini' onClick={this.presentationValider.bind(this)}>
-							    		<div className="modifierFormButton" >
-							    		 	Valider
-							    		</div>
-						    		</Button>
-					    		</div>
-					    	</div>
-		  			 </Label>
-				<div className={this.state.presentationReadOnly + " " + "textProfil" + " "+ "display-linebreak"}	>  			 
-				{this.props.conseiller.presentation}
+						    		<div className={this.state.Validerpresentation} >
+							    		<Button color='green' size='mini' onClick={this.presentationValider.bind(this)}>
+								    		<div className="modifierFormButton" >
+								    		 	Valider
+								    		</div>
+							    		</Button>
+						    		</div>
+						    	</div>
+			  			 </Label>
+						<div className={this.state.presentationReadOnly + " " + "textProfil" + " "+ "display-linebreak"}	>  			 
+						{this.props.conseiller.presentation}
+						</div>
+						<div className={this.state.presentationInput + " " + "inputprofil"}>
+							<Form >
+							    <Form.Field >
+										<Input as='TextArea'  ref="presentation">
+											{this.props.conseiller.presentation}
+										</Input>
+									
+							    </Form.Field>
+							</Form>
+						 </div>
+					</Segment>
 				</div>
-				<div className={this.state.presentationInput + " " + "inputprofil"}>
-					<Form >
-					    <Form.Field >
-								<Input as='TextArea'  ref="presentation">
-									{this.props.conseiller.presentation}
-								</Input>
-							
-					    </Form.Field>
-					</Form>
-					 </div>
-				</Segment>
-
-					<div className={"visibleProfil" + " " +this.props.IdProfile}>
-							 <Button color="green" fluid >
-								 <Link to="/ModifierConseiller" >
-								 	Ajouter une experience
-								 </Link>
-							 </Button>
-					</div>
+				<div className={"visibleProfil" + " " +this.props.IdProfile}>
+					<Button
+					  color="green"
+					  fluid
+					  disabled={!this.state.IsConseiller} >
+						 <Link to="/ModifierConseiller" >
+						 	Ajouter une experience
+						 </Link>
+					</Button>
+					<Message
+				    	hidden={this.state.IsConseiller}
+				      	header="Tu n'es pas conseiller"
+				      	content='Seuls les conseillers peuvent ajouter des expériences'
+				    />
+				</div>
 
 				<Segment className={premierAmour} >
 

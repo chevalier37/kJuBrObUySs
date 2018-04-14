@@ -127,11 +127,11 @@ console.log('add notif recommandation ' + note)
             message: {type: String},
             to_id: {type: String},
             to_name: {type: String},
-            montant: {type: String},
+            montant: {type: Number},
           }).validate({
-            id,
+            to_id,
             message,
-            note,
+            to_name,
             montant
           });
 

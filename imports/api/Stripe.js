@@ -13,22 +13,8 @@ const stripe = require("stripe")("sk_test_JvofPcmk1InWfME0dR7HUJRK");
 
 Meteor.methods({
       Paiement: function(token, message, montant, to_id, to_name, to_gender) {
-         new SimpleSchema({
-            message: {type: String},
-            token: {type: String},
-            montant: {type: Number},
-            to_id: {type: String},
-            to_name: {type: String},
-            to_gender: {type: String},
-          }).validate({
-            token,
-            message,
-            montant,
-            to_id,
-            to_name,
-            to_gender
-          });
-
+         
+console.log(montant)
          const user = Meteor.user();
          const frais = montant * 0.2;
          const from_id = this.userId;

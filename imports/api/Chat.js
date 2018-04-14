@@ -5,7 +5,7 @@ import { check } from 'meteor/check';
 export const Chat = new Mongo.Collection('chat');
 
 import { ContactChat } from './ContactChat.js';
-
+import { Notifications } from './Notifications.js';
 
 if (Meteor.isServer) {
 
@@ -59,7 +59,11 @@ Meteor.methods({
               ContactChat.update(searchContact._id, {$set: {read:true} }) : ''}
 
             const searchMessage = Chat.find({$or : [{from_id: to_id.to_id, to_id:this.userId}]});
-            ContactChat.update(searchMessage._id, {$set: {read:true} })
+            ContactChat.update(searchMessage._id, {$set: {read:true}})
+            
+            Chat.update({'to_id':this.userId, 'from_id':to_id.to_id},{$set: {read:true}}, {multi: true})
+            
+            Notifications.update({'to_id':this.userId, 'type':'message'},{$set: {read:true}}, {multi: true})
             
             console.log(to_name)
             return search
@@ -106,7 +110,7 @@ Meteor.publish('ChatCount', function (id) {
     }).validate({id});
 
   return Chat.find({$or : [{from_id: id}, {to_id:id}]}, {
-    fields: {'to_id':1, 'read':1, 'post_date':1, 'message':1, 'from_id':1}
+    fields: {'to_id':1, 'read':1, 'post_date':1, 'message':1, 'from_id':1, 'from_name':1}
   });
 });
 

@@ -112,9 +112,10 @@ class ListeNotifications extends Component {
 				  			<Link to={'/profil/' + this.props.message.from_id}>
 				  			Nouveau don de {this.props.message.from_name} 
 				  			</Link>
-				  			<div className="iconNotif">
-				  				<FaEur />
-				  			</div>
+				  			<div className='montantDonNotif'>
+				  				{this.props.message.montant}€
+				  			</div> 
+				  			
 			  			</span>
 		  		</div>
 	  			

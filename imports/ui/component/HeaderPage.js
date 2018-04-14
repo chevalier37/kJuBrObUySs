@@ -11,25 +11,23 @@ class HeaderPage extends Component {
  	state = {
  			
 	   }
-
 	
   	render() {
 	
 	return (
 		<div className="">
-			
 			<div className="titreKURBYSpage"><Link to="/home" >KURBYS</Link></div>
-			<div className="DevenirConseiller">
-				<p>
-				<Link to="/DevenirConseiller" >
-					<Button color="blue">
-					Devenir conseiller
-					</Button>
-				</Link>
-				</p>
+			
+				<div className="DevenirConseiller">
+					<p>
+					<Link to="/DevenirConseiller" >
+						<Button color="blue">
+						Devenir conseiller
+						</Button>
+					</Link>
+					</p>
+				</div>
 			</div>
-
-		</div>
 	);
   }
 }

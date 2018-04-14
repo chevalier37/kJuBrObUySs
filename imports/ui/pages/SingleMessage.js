@@ -76,7 +76,6 @@ console.log(this.props.authorId)
             </div>
           </div>
         </header>
-
        
         <Sidebar.Pushable >
               <Sidebar
@@ -100,9 +99,6 @@ console.log(this.props.authorId)
 
                   <SingleMessagePost id={this.props.match.params.id}/>
 
-
-
-
                    <FormPosterReponse
                     id={this.props.match.params.id}
                     authorId={this.props.authorId}
@@ -122,8 +118,6 @@ console.log(this.props.authorId)
     );
   }
 }
-
-
 
 export default SingleMessage =  withTracker(({ match }) => {
   const reponse = match.params.id;

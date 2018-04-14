@@ -80,7 +80,7 @@ class RecommandationsNotif extends Component {
       } 
    
 		return (
-			<div className={this.props.message.read==false ? "ListeChatUnread" : "ListeChat"}>
+			<div className={this.props.message.read==false ? "NotifUnread" : "ListeChat"}>
 			  		<div onClick={this.reponse.bind(this)}>	
 			  			<div className="NotifChatContent">
 				  			

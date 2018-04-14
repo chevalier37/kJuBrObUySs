@@ -44,8 +44,11 @@ Meteor.methods({
 
           // on met à jours la note dans la table user
           let noteActuelle = search.profile.note;
-
+          if(noteActuelle == 0){
+            noteFuture = note;
+          }else{
             noteFuture = (noteActuelle + note )*0.5
+          }
             
 
 console.log(noteActuelle)

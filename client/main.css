@@ -791,11 +791,19 @@ header {
 
 .consigne1{
 	font-size: 14px;
+	display: inline-block;
 }
 
 .consigne2{
 	font-size: 16px;
 	margin-bottom: 15px;
+}
+
+.consigne3{
+	font-size: 14px;
+	color: red;
+	display: inline-block;
+	margin-left: 3px;
 }
 
 .filleConseiller{
@@ -1232,6 +1240,11 @@ header {
 	color: #fff;
 }
 
+.red1{
+	background-color:#db2828;
+	color: #fff;
+}
+
 .blue{
 	background-color: #2185d0;
 }
@@ -1436,6 +1449,26 @@ header {
 .ContainerPresentation{
 	margin-top: 0px;
 	font-size: 15px;
+}
+
+.NotifUnread{
+	background-color: #f5f5f5db;
+}
+
+.VisibleAjouter{
+	margin-bottom: 20px;
+}
+
+.ConfirmationForm{
+	float: right;
+	margin-top: 0px;
+	display: inline-block;
+}
+
+.montantDonNotif{
+	float: right;
+	color: grey;
+	margin-right: 10px;
 }
 
 @media only screen and (max-width: 1800px) {

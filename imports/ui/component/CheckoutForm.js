@@ -38,7 +38,7 @@ class CheckoutForm extends React.Component {
 
 	montant1(){
 		this.setState({
-			button1: "red",
+			button1: "red1",
 			button2:"blue",
 	        button3:"blue",
 	        button4:"blue",
@@ -55,7 +55,7 @@ class CheckoutForm extends React.Component {
 	montant2(){
 		this.setState({
 			button1: "blue",
-			button2:"red",
+			button2:"red1",
 	        button3:"blue",
 	        button4:"blue",
 	        button5:"blue",
@@ -72,7 +72,7 @@ class CheckoutForm extends React.Component {
 		this.setState({
 			button1: "blue",
 			button2:"blue",
-	        button3:"red",
+	        button3:"red1",
 	        button4:"blue",
 	        button5:"blue",
 	        button6:"blue",
@@ -89,7 +89,7 @@ class CheckoutForm extends React.Component {
 			button1: "blue",
 			button2:"blue",
 	        button3:"blue",
-	        button4:"red",
+	        button4:"red1",
 	        button5:"blue",
 	        button6:"blue",
 	        button7:"blue",
@@ -106,7 +106,7 @@ class CheckoutForm extends React.Component {
 			button2:"blue",
 	        button3:"blue",
 	        button4:"blue",
-	        button5:"red",
+	        button5:"red1",
 	        button6:"blue",
 	        button7:"blue",
 	        button8:"blue",
@@ -123,7 +123,7 @@ class CheckoutForm extends React.Component {
 	        button3:"blue",
 	        button4:"blue",
 	        button5:"blue",
-	        button6:"red",
+	        button6:"red1",
 	        button7:"blue",
 	        button8:"blue",
 	        button9:"blue",
@@ -140,7 +140,7 @@ class CheckoutForm extends React.Component {
 	        button4:"blue",
 	        button5:"blue",
 	        button6:"blue",
-	        button7:"red",
+	        button7:"red1",
 	        button8:"blue",
 	        button9:"blue",
 	        button10:"blue",
@@ -157,7 +157,7 @@ class CheckoutForm extends React.Component {
 	        button5:"blue",
 	        button6:"blue",
 	        button7:"blue",
-	        button8:"red",
+	        button8:"red1",
 	        button9:"blue",
 	        button10:"blue",
 	        montant: 80,
@@ -174,7 +174,7 @@ class CheckoutForm extends React.Component {
 	        button6:"blue",
 	        button7:"blue",
 	        button8:"blue",
-	        button9:"red",
+	        button9:"red1",
 	        button10:"blue",
 	        montant: 90,
 		}) 
@@ -191,7 +191,7 @@ class CheckoutForm extends React.Component {
 	        button7:"blue",
 	        button8:"blue",
 	        button9:"blue",
-	        button10:"red",
+	        button10:"red1",
 	        montant: 100,
 		}) 
 	}
@@ -227,7 +227,7 @@ class CheckoutForm extends React.Component {
     	this.props.stripe.createToken({type: 'card'}).then(({token}) => {
 	     console.log('Received Stripe token:', token);
 	     if(!token){this.setState({errorToken: true});
-	 		this.setState({loader: false})}else{
+	 		/*this.setState({loader: false})*/}else{
 	     	
 	      Meteor.call('Paiement',
 			  	token,
@@ -241,7 +241,7 @@ class CheckoutForm extends React.Component {
 	           		 } else {
 	              	{              		
 				        this.setState({
-					      ValidationFom: true
+					      ValidationFom: true,
 					    })
 					  
 		              	}     
@@ -392,19 +392,10 @@ class CheckoutForm extends React.Component {
                         color="green"
                         size='tiny'>
                         Valider
-                      </Button>
+                    </Button>
 			      	</Form>
 
-			      	 <Dimmer
-			      	  active={this.state.loader}
-			      	  inverted
-			      	>
-				        <Loader
-				        	active={this.state.loader}
-				         	inverted>
-				         	Validation
-				        </Loader>
-			      	</Dimmer>
+			      	
 			</div>
 
 		);
