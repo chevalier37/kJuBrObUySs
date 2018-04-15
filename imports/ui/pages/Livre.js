@@ -22,6 +22,18 @@ class Livre extends Component {
     toggleVisibility = () => this.setState({ visible: !this.state.visible })
     toggleHidden = () => this.setState({ visible: false })
 
+    componentDidMount() {
+        this.scrollToTop();
+    }
+
+    componentDidUpdate() {
+        this.scrollToTop();
+    }
+
+    scrollToTop() {
+        this.el.scrollIntoView();
+    }
+
     render() {
     const { visible } = this.state
     if (!Meteor.loggingIn() && !Meteor.userId()){
@@ -30,6 +42,7 @@ class Livre extends Component {
 
     return (
       <div className="container">
+      <div ref={el => { this.el = el; }} ></div>
         <header>
           <div className="containerSupHeader">
             <div className="containerHeader">

@@ -32,6 +32,18 @@ class allNotifications extends Component {
     toggleVisibility = () => this.setState({ visible: !this.state.visible })
     toggleHidden = () => this.setState({ visible: false })
 
+    componentDidMount() {
+        this.scrollToTop();
+    }
+
+    componentDidUpdate() {
+        this.scrollToTop();
+    }
+
+    scrollToTop() {
+        this.el.scrollIntoView();
+    }
+
     componentWillMount(){
       let id = this.props.match.params.id
       Meteor.apply('usernameRecommander', [{
@@ -80,6 +92,7 @@ class allNotifications extends Component {
     
     return (
       <div className="container">
+      <div ref={el => { this.el = el; }} ></div>
         <header>
           <div className="containerSupHeader">
             <div className="containerHeader">

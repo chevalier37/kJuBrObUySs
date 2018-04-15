@@ -29,6 +29,18 @@ class SingleMessage extends Component {
         }
     }
 
+    componentDidMount() {
+        this.scrollToTop();
+    }
+
+    componentDidUpdate() {
+        this.scrollToTop();
+    }
+
+    scrollToTop() {
+        this.el.scrollIntoView();
+    }
+
     toggleVisibility = () => this.setState({ visible: !this.state.visible })
     toggleHidden = () => this.setState({ visible: false })
 
@@ -61,6 +73,7 @@ console.log(this.props.authorId)
     
     return (
       <div className="container">
+      <div ref={el => { this.el = el; }} ></div>
         <header>
           <div className="containerSupHeader">
             <div className="containerHeader">

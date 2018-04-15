@@ -10,11 +10,24 @@ import Header1 from '../component/Header.js';
 import Footer from '../component/Footer.js';
 
 class contactHorsConnexion extends Component {
+
+  componentDidMount() {
+        this.scrollToTop();
+    }
+
+    componentDidUpdate() {
+        this.scrollToTop();
+    }
+
+    scrollToTop() {
+        this.el.scrollIntoView();
+    }
    
   render() {
    
     return (
       <div className="container">
+      <div ref={el => { this.el = el; }} ></div>
         <header>
           <div className="containerSupHeader">
             <div className="containerHeader">

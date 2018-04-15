@@ -52,7 +52,7 @@ class Connexion extends Component {
                 <div className="ContainerPresentation">
                   <Message floating >
                       <FaComments /> Kurbys est un espace de discussion intime où tout le monde peut donner et recevoir de l'aide.<br /><br />
-                      <FaExpeditedssl /> Tous les échanges sont anonymes afin de respecter la confidentialité des messages. Cela vous permet de laisser parler votre coeur afin de dire la vérité silencieuse en vous.<br /><br />
+                      <FaExpeditedssl /> Tous les échanges sont anonymes afin de respecter la confidentialité des messages. Cela vous permet de laisser parler votre coeur afin de dire la vérité silencieuse qui est en vous.<br /><br />
                       <FaTrashO /> Vous pouvez supprimer votre compte à tout moment. Tous vos messages seront définitivement supprimés.<br />
                   </Message>
                 </div>
