@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import {  Input, Label, Menu, Header, Image, Divider, Segment, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
+import AdSense from 'react-adsense';
 
 import { Conseilleres } from '../../api/Conseilleres.js';
 
@@ -119,6 +120,13 @@ class ContentMenuLeft extends Component {
     			        {this.renderLastConseiller()}
   		    </Menu>
   			</div>
+        <div className="espacePub" ></div>
+        <AdSense.Google
+          client='ca-pub-6112176939320267'
+          slot='5421106747'
+          style={{ display: 'inline-block',width:'160px', height:'600px'}}
+        />
+
 		</div>
 		);
   	}

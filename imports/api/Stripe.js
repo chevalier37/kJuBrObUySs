@@ -8,8 +8,8 @@ export const Dons = new Mongo.Collection('dons');
 if (Meteor.isServer) {
 SSL('/Users/roussatjean-claude/Desktop/Kurbys/private/server.key','/Users/roussatjean-claude/Desktop/Kurbys/private/server.crt', 443);
 
-const stripe = require("stripe")("sk_test_JvofPcmk1InWfME0dR7HUJRK");
-
+//const stripe = require("stripe")("sk_test_JvofPcmk1InWfME0dR7HUJRK");
+const stripe = require("stripe")("pk_live_Cq60qm92b2AkPUxpWFdr48ud");
 
 Meteor.methods({
       Paiement: function(token, message, montant, to_id, to_name, to_gender) {
@@ -44,8 +44,8 @@ console.log(montant)
             amount: montantStripe,
             currency: "eur",
             description: "Don",
-            //source: token, production
-            source: "tok_visa", // test
+            source: token,// production
+            //source: "tok_visa", // test
             metadata:
             {
               from_id:this.userId,

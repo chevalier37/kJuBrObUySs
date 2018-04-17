@@ -6,10 +6,12 @@ import { Link } from 'react-router-dom';
 import { Button, Checkbox, Form,  Message, Segment, Header} from 'semantic-ui-react'
 import { check } from 'meteor/check';
 import { Route, Redirect } from 'react-router';
- 
+
 //Component
 import Header1 from '../component/Header.js';
 import Footer from '../component/Footer.js';
+import HeaderPage from '../component/HeaderPage.js';
+import ButtonPusher from '../component/ButtonPusher.js';
 
 const Jours = [
   { key: '1', text: '01', value: '1' },
@@ -238,7 +240,15 @@ class MiseAjourNaissance extends Component {
         <header>
           <div className="containerSupHeader">
             <div className="containerHeader">
-              <Header1 />
+            <div className="headerPage">
+              <HeaderPage />
+              <span
+               className="buttonPush"
+               onClick={this.toggleVisibility}>
+
+               <ButtonPusher />
+               </span>
+            </div>
             </div>
           </div>
         </header>

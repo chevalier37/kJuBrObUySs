@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
-import { Sidebar, Segment, Button, Divider} from 'semantic-ui-react'
+import { Sidebar, Segment, Button, Divider, Header} from 'semantic-ui-react'
 import { Route, Redirect } from 'react-router';
  
 //Component
@@ -80,7 +80,7 @@ class DevenirConseiller extends Component {
                       <Divider />
                       <div className="corpsText">
                       Vous avez remarqué un bug ? <br />
-                      Merci de contacter Caroline afin de lui faire part de vos remarques.
+                      Merci de contacter <Link to={'/Chat/oANNC3P9SpQ5Fw8Qg'}>Caroline</Link> afin de lui faire part de vos remarques.
                       </div>
                     </Segment>
                   </div>

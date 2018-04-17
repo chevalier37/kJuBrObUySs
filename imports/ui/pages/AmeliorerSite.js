@@ -83,7 +83,7 @@ class AmelioreSite extends Component {
                         <Divider />
                         <div className="corpsText">
                           Vous avez une idée pour améliorer le site ? <br />
-                          Vous pouvez contacter Caroline afin de lui faire part de votre idée.
+                          Vous pouvez contacter <Link to={'/Chat/oANNC3P9SpQ5Fw8Qg'}>Caroline</Link> afin de lui faire part de votre idée.
                         </div>
                       </Segment>
                     </div>

@@ -120,7 +120,7 @@ class ListeReponses extends Component {
 	        				
 	         				
 	         				<div className="dateMessage">
-		         			{	this.state.nbrSeconde<60 ? "Il y a " + this.state.nbrSeconde +" secondes": 
+		         			{	this.state.nbrSeconde<60 ? "Il y a 30 secondes": 
 		         				this.state.nbrMinutes<2 ? "Il y a " + this.state.nbrMinutes +" minute": 
 		         				this.state.nbrMinutes<60 ? "Il y a " + this.state.nbrMinutes +" minutes":
 		         				this.state.nbrHeures<2 ? "Il y a " + this.state.nbrHeures  +" heure": 

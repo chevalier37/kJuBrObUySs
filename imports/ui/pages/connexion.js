@@ -5,18 +5,22 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 import { Button, Checkbox, Form,  Message } from 'semantic-ui-react'
 import Img from 'react-image'
- 
+import { Route, Redirect } from 'react-router';
+
 //Component
 import FormSubscribe from '../component/FormSubscribe.js';
 import Header from '../component/Header.js';
 import Footer from '../component/Footer.js';
 import FaComments from 'react-icons/lib/fa/comments';
-import FaExpeditedssl from 'react-icons/lib/fa/Expeditedssl';
+//import FaExpeditedssl from 'react-icons/lib/fa/Expeditedssl';
 import FaTrashO from 'react-icons/lib/fa/trash-o';
 
 class Connexion extends Component {
 
   render() {
+    if (Meteor.loggingIn() && Meteor.userId()){
+      return <Redirect to="/home" />;
+    }
     return (
       <div className="container">
         <header>
@@ -52,7 +56,7 @@ class Connexion extends Component {
                 <div className="ContainerPresentation">
                   <Message floating >
                       <FaComments /> Kurbys est un espace de discussion intime où tout le monde peut donner et recevoir de l'aide.<br /><br />
-                      <FaExpeditedssl /> Tous les échanges sont anonymes afin de respecter la confidentialité des messages. Cela vous permet de laisser parler votre coeur afin de dire la vérité silencieuse qui est en vous.<br /><br />
+                       Tous les échanges sont anonymes afin de respecter la confidentialité des messages. Cela vous permet de laisser parler votre coeur afin de dire la vérité silencieuse qui est en vous.<br /><br />
                       <FaTrashO /> Vous pouvez supprimer votre compte à tout moment. Tous vos messages seront définitivement supprimés.<br />
                   </Message>
                 </div>

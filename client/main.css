@@ -1471,6 +1471,15 @@ header {
 	margin-right: 10px;
 }
 
+.espacePub{
+	margin-top: 15px;
+}
+
+.UpdateNaissance{
+	float: right;
+	margin-top: -50px;
+}
+
 @media only screen and (max-width: 1800px) {
 
 	/*.ContentDiscussion{

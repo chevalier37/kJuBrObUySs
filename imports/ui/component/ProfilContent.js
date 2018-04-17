@@ -1078,7 +1078,7 @@ class ProfilContent extends Component {
 
 
 			if(this.props.online.online == true){ return "Connecté" }
-            if(this.props.online.online !== true && nbrSeconde<60){ return "Dernière connection il y a " + nbrSeconde + " secondes"} 
+            if(this.props.online.online !== true && nbrSeconde<60){ return "Dernière connection il y a 30 secondes"} 
 		    else if(this.props.online.online !== true && nbrMinutes<2){ return "Dernière connection il y a " + nbrMinutes +" minute"}
 		    else if(this.props.online.online !== true && nbrMinutes<60){ return "Dernière connection il y a " + nbrMinutes +" minutes"}
 		    else if(this.props.online.online !== true && nbrHeures<2){ return "Dernière connection il y a " + nbrHeures +" heure"} 
@@ -1163,7 +1163,13 @@ class ProfilContent extends Component {
 		              			disabled
               	 			/>
               	 		</div>
-              	 	
+
+	              	 	<div className={this.props.id == Meteor.userId() ? "UpdateNaissance" : 'none'}>
+		              	 	<Link to={'/MiseAjourNaissance/'}>
+		              	 		<Button>Date de naissance</Button>
+		              	 	</Link>
+	              	 	</div>
+
               	 		<div className={this.props.profile.note>=1 && this.props.profile.note<2 ? "visiblenote" : "none"}>
 							<Rating icon='heart'
 		              			defaultRating={1}

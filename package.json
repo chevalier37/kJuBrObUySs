@@ -15,6 +15,7 @@
     "prop-type": "^0.0.1",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
+    "react-adsense": "^0.0.5",
     "react-background-image-loader": "^0.0.5",
     "react-body-classname": "^1.2.0",
     "react-dom": "^16.2.0",
