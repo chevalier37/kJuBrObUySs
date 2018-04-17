@@ -11,15 +11,15 @@ import Footer from '../component/Footer.js';
 
 class contactHorsConnexion extends Component {
 
-  componentDidMount() {
-        this.scrollToTop();
+    componentDidMount() {
+        this.scrollToBottom();
     }
 
     componentDidUpdate() {
-        this.scrollToTop();
+        this.scrollToBottom();
     }
 
-    scrollToTop() {
+    scrollToBottom() {
         this.el.scrollIntoView();
     }
    
@@ -40,7 +40,7 @@ class contactHorsConnexion extends Component {
           <div className="containerIMG">
             <div className="contactMargin">
               <Segment>
-                <div className="contact">
+                <div className="contactHeader">
                   <Header>
                     Contact
                   </Header>

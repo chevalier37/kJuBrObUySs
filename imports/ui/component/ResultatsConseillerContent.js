@@ -91,34 +91,34 @@ class ResultatsConseillerContent extends Component {
           	 		</Link>
 				</div>
 				</Table.Cell>
-              	<Table.Cell className={this.props.premierAmourText}>{conseiller.premierAmourText}</Table.Cell>
-              	<Table.Cell className={this.props.trahisonText}>{conseiller.trahisonText}</Table.Cell>
-              	<Table.Cell className={this.props.FriendzoneText}>{conseiller.FriendzoneText}</Table.Cell>
-              	<Table.Cell className={this.props.amourdistanceText}>{conseiller.amourdistanceText}</Table.Cell>
-              	<Table.Cell className={this.props.separationText}>{conseiller.separationText}</Table.Cell>
-              	<Table.Cell className={this.props.timiditeText}>{conseiller.timiditeText}</Table.Cell>
-              	<Table.Cell className={this.props.depressionText}>{conseiller.depressionText}</Table.Cell>
-              	<Table.Cell className={this.props.mutilationText}>{conseiller.mutilationText}</Table.Cell>
-              	<Table.Cell className={this.props.suicideText}>{conseiller.suicideText}</Table.Cell>
-              	<Table.Cell className={this.props.decesText}>{conseiller.decesText}</Table.Cell>
-              	<Table.Cell className={this.props.premierfoisText}>{conseiller.premierfoisText}</Table.Cell>
-              	<Table.Cell className={this.props.contraceptionText}>{conseiller.contraceptionText}</Table.Cell>
-              	<Table.Cell className={this.props.mstText}>{conseiller.mstText}</Table.Cell>
-              	<Table.Cell className={this.props.violText}>{conseiller.violText}</Table.Cell>
-              	<Table.Cell className={this.props.avortementText}>{conseiller.avortementText}</Table.Cell>
-              	<Table.Cell className={this.props.orientationSexText}>{conseiller.orientationSexText}</Table.Cell>
-              	<Table.Cell className={this.props.AnorexieText}>{conseiller.AnorexieText}</Table.Cell>
-              	<Table.Cell className={this.props.obesiteText}>{conseiller.obesiteText}</Table.Cell>
-              	<Table.Cell className={this.props.drogueText}>{conseiller.drogueText}</Table.Cell>
-              	<Table.Cell className={this.props.alcoolText}>{conseiller.alcoolText}</Table.Cell>
-              	<Table.Cell className={this.props.complexeText}>{conseiller.complexeText}</Table.Cell>
-              	<Table.Cell className={this.props.hopitalText}>{conseiller.hopitalText}</Table.Cell>
-              	<Table.Cell className={this.props.accidentText}>{conseiller.accidentText}</Table.Cell>
-              	<Table.Cell className={this.props.handicapText}>{conseiller.handicapText}</Table.Cell>
-              	<Table.Cell className={this.props.echecEcoleText}>{conseiller.echecEcoleText}</Table.Cell>
-              	<Table.Cell className={this.props.HarcelementText}>{conseiller.HarcelementText}</Table.Cell>
-              	<Table.Cell className={this.props.discriminationText}>{conseiller.discriminationText}</Table.Cell>
-              	<Table.Cell className={this.props.ViolenceText}>{conseiller.ViolenceText}</Table.Cell>
+              	<Table.Cell className={this.props.premierAmourText}><div className="display-linebreak textConseillere">{conseiller.premierAmourText}</div></Table.Cell>
+              	<Table.Cell className={this.props.trahisonText}><div className="display-linebreak textConseillere">{conseiller.trahisonText}</div></Table.Cell>
+              	<Table.Cell className={this.props.FriendzoneText}><div className="display-linebreak textConseillere">{conseiller.FriendzoneText}</div></Table.Cell>
+              	<Table.Cell className={this.props.amourdistanceText}><div className="display-linebreak textConseillere">{conseiller.amourdistanceText}</div></Table.Cell>
+              	<Table.Cell className={this.props.separationText}><div className="display-linebreak textConseillere">{conseiller.separationText}</div></Table.Cell>
+              	<Table.Cell className={this.props.timiditeText}><div className="display-linebreak textConseillere">{conseiller.timiditeText}</div></Table.Cell>
+              	<Table.Cell className={this.props.depressionText}><div className="display-linebreak textConseillere">{conseiller.depressionText}</div></Table.Cell>
+              	<Table.Cell className={this.props.mutilationText}><div className="display-linebreak textConseillere">{conseiller.mutilationText}</div></Table.Cell>
+              	<Table.Cell className={this.props.suicideText}><div className="display-linebreak textConseillere">{conseiller.suicideText}</div></Table.Cell>
+              	<Table.Cell className={this.props.decesText}><div className="display-linebreak textConseillere">{conseiller.decesText}</div></Table.Cell>
+              	<Table.Cell className={this.props.premierfoisText}><div className="display-linebreak textConseillere">{conseiller.premierfoisText}</div></Table.Cell>
+              	<Table.Cell className={this.props.contraceptionText}><div className="display-linebreak textConseillere">{conseiller.contraceptionText}</div></Table.Cell>
+              	<Table.Cell className={this.props.mstText}><div className="display-linebreak textConseillere">{conseiller.mstText}</div></Table.Cell>
+              	<Table.Cell className={this.props.violText}><div className="display-linebreak textConseillere">{conseiller.violText}</div></Table.Cell>
+              	<Table.Cell className={this.props.avortementText}><div className="display-linebreak textConseillere">{conseiller.avortementText}</div></Table.Cell>
+              	<Table.Cell className={this.props.orientationSexText}><div className="display-linebreak textConseillere">{conseiller.orientationSexText}</div></Table.Cell>
+              	<Table.Cell className={this.props.AnorexieText}><div className="display-linebreak textConseillere">{conseiller.AnorexieText}</div></Table.Cell>
+              	<Table.Cell className={this.props.obesiteText}><div className="display-linebreak textConseillere">{conseiller.obesiteText}</div></Table.Cell>
+              	<Table.Cell className={this.props.drogueText}><div className="display-linebreak textConseillere">{conseiller.drogueText}</div></Table.Cell>
+              	<Table.Cell className={this.props.alcoolText}><div className="display-linebreak textConseillere">{conseiller.alcoolText}</div></Table.Cell>
+              	<Table.Cell className={this.props.complexeText}><div className="display-linebreak textConseillere">{conseiller.complexeText}</div></Table.Cell>
+              	<Table.Cell className={this.props.hopitalText}><div className="display-linebreak textConseillere">{conseiller.hopitalText}</div></Table.Cell>
+              	<Table.Cell className={this.props.accidentText}><div className="display-linebreak textConseillere">{conseiller.accidentText}</div></Table.Cell>
+              	<Table.Cell className={this.props.handicapText}><div className="display-linebreak textConseillere">{conseiller.handicapText}</div></Table.Cell>
+              	<Table.Cell className={this.props.echecEcoleText}><div className="display-linebreak textConseillere">{conseiller.echecEcoleText}</div></Table.Cell>
+              	<Table.Cell className={this.props.HarcelementText}><div className="display-linebreak textConseillere">{conseiller.HarcelementText}</div></Table.Cell>
+              	<Table.Cell className={this.props.discriminationText}><div className="display-linebreak textConseillere">{conseiller.discriminationText}</div></Table.Cell>
+              	<Table.Cell className={this.props.ViolenceText}><div className="display-linebreak textConseillere">{conseiller.ViolenceText}</div></Table.Cell>
 
 			</Table.Row>
         );
@@ -153,7 +153,11 @@ class ResultatsConseillerContent extends Component {
           	 		</Link>
 				</div>
 				</Table.Cell>
-              	<Table.Cell>{conseiller.presentation}</Table.Cell>
+              	<Table.Cell>
+	              	<div className="display-linebreak textConseillere">
+	              		{conseiller.presentation}
+	              	</div>
+              	</Table.Cell>
 			</Table.Row>
         );
       });
@@ -309,7 +313,7 @@ export default ResultatsConseillerContent = withTracker(({theme}) => {
     {allreponsesCount ==0 ? pasDeResultat = 'visible' : pasDeResultat = 'cacher' }
     {allreponsesCount ==0 ? pasDeResultatTableau = 'cacher' : pasDeResultatTableau = 'visible' }
 
-  	autresConseilleres = Conseilleres.find();
+  	autresConseilleres = Conseilleres.find({}, { sort: {note: -1 } });
   	let premierAmourText ='none';
   	let trahisonText ='none';
   	let FriendzoneText ='none';
@@ -340,34 +344,34 @@ export default ResultatsConseillerContent = withTracker(({theme}) => {
 	let ViolenceText ='none';
 
 
-  	if (theme == 'premierAmour'){premierAmourText = "ok"; allreponses = Conseilleres.find({premierAmour:true});}
-	if (theme == 'trahison') {trahisonText = "ok"; allreponses = Conseilleres.find({trahison:true});}
-	if (theme == 'Friendzone') {FriendzoneText = "ok"; allreponses = Conseilleres.find({Friendzone:true}); }
-	if (theme == 'amourdistance'){amourdistanceText = "ok"; allreponses = Conseilleres.find({amourdistance:true}); }
-	if (theme == 'separation') {separationText = "ok"; allreponses = Conseilleres.find({separation:true}) ; }
-	if (theme == 'timidite') {timiditeText = "ok"; allreponses = Conseilleres.find({timidite:true}) ; }
-	if (theme == 'depression') {depressionText = "ok"; allreponses = Conseilleres.find({depression:true});}
-	if (theme == 'mutilation') {mutilationText = "ok"; allreponses = Conseilleres.find({mutilation:true}); }
-	if (theme == 'suicide') {suicideText = "ok"; allreponses = Conseilleres.find({suicide:true}); }
-	if (theme == 'deces') {decesText = "ok"; allreponses = Conseilleres.find({deces:true}); }
-	if (theme == 'premierfois') {premierfoisText = "ok"; allreponses = Conseilleres.find({premierfois:true}); }
-	if (theme == 'contraception') {contraceptionText = "ok"; allreponses = Conseilleres.find({contraception:true}); }
-	if (theme == 'mst') {mstText = "ok"; allreponses = Conseilleres.find({mst:true}); }
-	if (theme == 'viol') {violText = "ok"; allreponses = Conseilleres.find({viol:true}) ; }
-	if (theme == 'avortement') {avortementText = "ok"; allreponses = Conseilleres.find({avortement:true}) ; }
-	if (theme == 'orientationSex') {orientationSexText = "ok"; allreponses = Conseilleres.find({orientationSex:true}); }
-	if (theme == 'Anorexie') {AnorexieText = "ok"; allreponses = Conseilleres.find({Anorexie:true}); }
-	if (theme == 'obesite') {obesiteText = "ok"; allreponses = Conseilleres.find({obesite:true}) ; }
-	if (theme == 'drogue') {drogueText = "ok"; allreponses = Conseilleres.find({drogue:true}); }
-	if (theme == 'alcool') {alcoolText = "ok"; allreponses = Conseilleres.find({alcool:true}); }
-	if (theme == 'complexe') {complexeText = "ok"; allreponses = Conseilleres.find({complexe:true});}
-	if (theme == 'hopital') {hopitalText = "ok"; allreponses = Conseilleres.find({hopital:true}) ;}
-	if (theme == 'accident') {accidentText = "ok"; allreponses = Conseilleres.find({accident:true}); }
-	if (theme == 'handicap') {handicapText = "ok"; allreponses = Conseilleres.find({handicap:true}) ; }
-	if (theme == 'echecEcole') {echecEcoleText = "ok"; allreponses = Conseilleres.find({echecEcole:true}) ; }
-	if (theme == 'Harcelement') {HarcelementText = "ok"; allreponses = Conseilleres.find({Harcelement:true}) ; }
-	if (theme == 'discrimination') {discriminationText = "ok"; allreponses = Conseilleres.find({discrimination:true}); }
-	if (theme == 'Violence') {ViolenceText = "ok"; allreponses = Conseilleres.find({Violence:true}); }
+  	if (theme == 'premierAmour'){premierAmourText = "ok"; allreponses = Conseilleres.find({premierAmour:true}, {sort: {note: -1}});}
+	if (theme == 'trahison') {trahisonText = "ok"; allreponses = Conseilleres.find({trahison:true}, {sort: {note: -1}});}
+	if (theme == 'Friendzone') {FriendzoneText = "ok"; allreponses = Conseilleres.find({Friendzone:true}, {sort: {note: -1}});}
+	if (theme == 'amourdistance'){amourdistanceText = "ok"; allreponses = Conseilleres.find({amourdistance:true}, {sort: {note: -1}});}
+	if (theme == 'separation') {separationText = "ok"; allreponses = Conseilleres.find({separation:true}, {sort: {note: -1}});}
+	if (theme == 'timidite') {timiditeText = "ok"; allreponses = Conseilleres.find({timidite:true}, {sort: {note: -1}});}
+	if (theme == 'depression') {depressionText = "ok"; allreponses = Conseilleres.find({depression:true}, {sort: {note: -1}});}
+	if (theme == 'mutilation') {mutilationText = "ok"; allreponses = Conseilleres.find({mutilation:true}, {sort: {note: -1}});}
+	if (theme == 'suicide') {suicideText = "ok"; allreponses = Conseilleres.find({suicide:true}, {sort: {note: -1}});}
+	if (theme == 'deces') {decesText = "ok"; allreponses = Conseilleres.find({deces:true}, {sort: {note: -1}});}
+	if (theme == 'premierfois') {premierfoisText = "ok"; allreponses = Conseilleres.find({premierfois:true}, {sort: {note: -1}});}
+	if (theme == 'contraception') {contraceptionText = "ok"; allreponses = Conseilleres.find({contraception:true}, {sort: {note: -1}});}
+	if (theme == 'mst') {mstText = "ok"; allreponses = Conseilleres.find({mst:true}, {sort: {note: -1}});}
+	if (theme == 'viol') {violText = "ok"; allreponses = Conseilleres.find({viol:true}, {sort: {note: -1}});}
+	if (theme == 'avortement') {avortementText = "ok"; allreponses = Conseilleres.find({avortement:true}, {sort: {note: -1}});}
+	if (theme == 'orientationSex') {orientationSexText = "ok"; allreponses = Conseilleres.find({orientationSex:true}, {sort: {note: -1}});}
+	if (theme == 'Anorexie') {AnorexieText = "ok"; allreponses = Conseilleres.find({Anorexie:true}, {sort: {note: -1}});}
+	if (theme == 'obesite') {obesiteText = "ok"; allreponses = Conseilleres.find({obesite:true}, {sort: {note: -1}});}
+	if (theme == 'drogue') {drogueText = "ok"; allreponses = Conseilleres.find({drogue:true}, {sort: {note: -1}});}
+	if (theme == 'alcool') {alcoolText = "ok"; allreponses = Conseilleres.find({alcool:true}, {sort: {note: -1}});}
+	if (theme == 'complexe') {complexeText = "ok"; allreponses = Conseilleres.find({complexe:true}, {sort: {note: -1}});}
+	if (theme == 'hopital') {hopitalText = "ok"; allreponses = Conseilleres.find({hopital:true}, {sort: {note: -1}});}
+	if (theme == 'accident') {accidentText = "ok"; allreponses = Conseilleres.find({accident:true}, {sort: {note: -1}});}
+	if (theme == 'handicap') {handicapText = "ok"; allreponses = Conseilleres.find({handicap:true}, {sort: {note: -1}});}
+	if (theme == 'echecEcole') {echecEcoleText = "ok"; allreponses = Conseilleres.find({echecEcole:true}, {sort: {note: -1}});}
+	if (theme == 'Harcelement') {HarcelementText = "ok"; allreponses = Conseilleres.find({Harcelement:true}, {sort: {note: -1}});}
+	if (theme == 'discrimination') {discriminationText = "ok"; allreponses = Conseilleres.find({discrimination:true}, {sort: {note: -1}});}
+	if (theme == 'Violence') {ViolenceText = "ok"; allreponses = Conseilleres.find({Violence:true}, {sort: {note: -1}});}
 
   const reponseExists = !loading && !!allreponses;
   return {

@@ -74,7 +74,7 @@ class ListeReponses extends Component {
 
 	  			<Segment >
 		  					  			
-		  			<p className="ContentQuestion">
+		  			<p className={"ContentQuestion" + " " + "display-linebreak"}>
 		  				{this.breaklines()}
 		  			</p>
 		  			

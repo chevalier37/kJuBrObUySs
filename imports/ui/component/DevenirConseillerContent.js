@@ -39,6 +39,7 @@ export default class DevenirConseillerContent extends Component {
 	      ValidationConseiller:false,
 	      errorConseiller:false,
 	      IsConseiller:false,
+	      continuer:false,
 
 	      ValidePremierAmour: false,
 	      Validetrahison:false,
@@ -935,6 +936,12 @@ export default class DevenirConseillerContent extends Component {
   		}
   	}
 
+  	continuer(){
+          
+  		this.setState({continuer:true})
+
+  	}
+
 	  Submit(event) {
         event.preventDefault();
         const presentation = ReactDOM.findDOMNode(this.refs.presentation).value.trim();
@@ -1014,13 +1021,27 @@ export default class DevenirConseillerContent extends Component {
 						            header='La présentation est obligatoire'
 						         />
 					    </Form.Field>
-					    <Button type='submit' color="green">Valider mon inscription</Button>
+
+					    <Button
+					      onClick={this.continuer.bind(this)}
+					      color="green"
+					      >
+					      Continuer
+						</Button>
+
+					    <Button
+					     type='submit'
+					     color="green"
+					     disabled={!this.state.continuer}
+					     >
+					     Valider mon inscription
+					     </Button>
 					</Form>
 
 					 <p></p>
 
 
-				<div className="accordeon">	 
+				<div className={this.state.continuer==false ? "none" : "Accordeonvisible"}>	 
 					<Accordion styled>
 				        <Accordion.Title active={activeIndex === 0} index={0} onClick={this.handleClick}>
 				          <Icon name='dropdown' />

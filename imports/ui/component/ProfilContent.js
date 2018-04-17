@@ -194,6 +194,7 @@ class ProfilContent extends Component {
 
 	   componentWillMount(){
 	   	let id = this.props.id;
+	   	console.log(id)
 			Meteor.apply('usernameRecommander', [{
 		          id,
 		          }], {
@@ -223,24 +224,31 @@ class ProfilContent extends Component {
 	          onResultReceived: (error, response) => {
 	            if (error) console.warn(error.reason);
 	            {response ?  
-	             this.setState({conseillerExiste: 'cacher', IsConseiller:true}) :
+	             this.setState({conseillerExiste: 'cacher'}) :
 	             this.setState({usernameExiste: 'visible'})}
 		          },
 	      	})
 
+	      	 Meteor.apply('IsConseiller', [{
+		    	id,
+	          }], {
+	          onResultReceived: (error, response) => {
+	            if (error) console.warn(error.reason);
+	            {response ?  
+	             this.setState({IsConseiller:true}) : ''}
+		          },
+	      	})
 		    //on verifie si id == myId
 			{
 				this.props.id == Meteor.userId() ?
 				this.setState({myId: 'visible'}):
 				this.setState({myId: 'none'}) 
-							
 			}
 
 			{
 				this.props.id !== Meteor.userId() ?
 				this.setState({notMyId: 'visible'}):
-				this.setState({notMyId: 'none'}) 
-							
+				this.setState({notMyId: 'none'}) 			
 			}
 
 		}
@@ -1261,7 +1269,7 @@ class ProfilContent extends Component {
 						</Header>
 					</Segment >
 					<Divider />
-				<div className={!this.state.IsConseiller ? 'none' : 'VisibleAjouter'}>
+				<div className={this.state.IsConseiller ? 'VisibleAjouter' : 'none'}>
 					<Segment >
 			  			<Label attached='top'  basic color='blue' className="headerProfil">
 			  			<div className="titreProfil">Présentation</div>

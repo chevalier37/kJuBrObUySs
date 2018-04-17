@@ -17,6 +17,8 @@ import Trash from 'react-icons/lib/fa/trash';
 import SignOut from 'react-icons/lib/fa/sign-out';
 import Bell from 'react-icons/lib/fa/bell';
 import Edit from 'react-icons/lib/fa/edit';
+import Search from 'react-icons/lib/fa/search';
+
 
 import ChatItemNotif from './ChatItemNotif.js';
 import ReponsesNotif from './ReponsesNotif.js';
@@ -257,7 +259,15 @@ class ButtonPusher extends Component {
     			</Dropdown>
 
 			     <div className={this.state.chat + " "+ "pusher"}>
-    		   <Button inverted>Trouver un conseil</Button>
+
+    		   <Button 
+           color="blue"
+           >
+          <div className="buttonSearch">
+            <Search />
+          </div>
+           Trouver un conseil
+           </Button>
     		  </div>
       </div>
 		);

@@ -264,7 +264,7 @@ class ListeMessages extends Component {
 		  		</div>
 	  			<Segment >
 	  			
-		  			<p className="ContentQuestion">
+		  			<p className={"ContentQuestion" + " " + "display-linebreak"}>
 		  				{this.props.message.post_content}
 		  			</p>
 		  			

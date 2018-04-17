@@ -33,9 +33,6 @@ class SingleMessage extends Component {
         this.scrollToTop();
     }
 
-    componentDidUpdate() {
-        this.scrollToTop();
-    }
 
     scrollToTop() {
         this.el.scrollIntoView();
@@ -136,7 +133,7 @@ export default SingleMessage =  withTracker(({ match }) => {
   const reponse = match.params.id;
   const Handle = Meteor.subscribe('reponsesSingleMessage',reponse );
   const loading = !Handle.ready();
-  const allreponses = Comments.find({postId:reponse}, { sort: { votes:-1, submitted: -1 } });
+  const allreponses = Comments.find({postId:reponse}, { sort: {submitted: -1 } });
   const reponseExists = !loading && !!allreponses;
 
   const Handle1 = Meteor.subscribe('SingleMessages', reponse);

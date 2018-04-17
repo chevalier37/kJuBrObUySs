@@ -12,8 +12,8 @@ export default class Header extends Component {
 
 	return (
 		<div className="headerSite">
-			<Link to="/home" ><Img className="logo" src="/logo_site.png"/></Link>
-			<Link to="/home" ><div className="titreKURBYS">KURBYS</div></Link>
+			<Link to="/" ><Img className="logo" src="/logo_site.png"/></Link>
+			<Link to="/" ><div className="titreKURBYS">KURBYS</div></Link>
 			<div className="formLogin">
 				<FormLogin />
 			</div>

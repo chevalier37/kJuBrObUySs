@@ -16,6 +16,7 @@ class HeaderPage extends Component {
 	
 	return (
 		<div className="">
+			<Link to="/home" ><Img className="logoPage" src="/logo_site.png"/></Link>
 			<div className="titreKURBYSpage"><Link to="/home" >KURBYS</Link></div>
 			
 				<div className="DevenirConseiller">

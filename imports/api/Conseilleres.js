@@ -681,13 +681,16 @@ Meteor.methods({
             } 
       },
 
-      IsConseillerHeader: function(id) {
+      IsConseillerHeader: function() {
                 const IsConseiller = Conseilleres.findOne({user_id:this.userId});
                 {IsConseiller ? Istrue = true : Istrue = false}
-                /*console.log(pseudo.pseudo)
-                console.log(pseudo.email)
-                console.log(Istrue)
-                console.log(search)*/
+                return Istrue;
+             }, 
+
+      IsConseiller: function(id) {
+                const IsConseiller = Conseilleres.find({'user_id':id}).count();
+                {IsConseiller==0 ? Istrue = true : Istrue = false}
+                console.log(IsConseiller)
                 return Istrue;
              },    
 
