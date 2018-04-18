@@ -104,7 +104,7 @@ class forgotPassword extends Component {
       if (errorLogin == false && errorPassword == false) {
           Meteor.loginWithPassword(pseudo, password, (err) => {
             if(err){
-             console.log(err.reason)
+             
               this.setState({erreurLogin: true,})
             } else {
               {

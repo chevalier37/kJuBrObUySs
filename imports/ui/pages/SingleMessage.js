@@ -63,7 +63,6 @@ renderAllreponses() {
 
     render() {
     const { visible } = this.state  
-console.log(this.props.authorId)
     if (!Meteor.loggingIn() && !Meteor.userId()){
       return <Redirect to="/" />;
     }

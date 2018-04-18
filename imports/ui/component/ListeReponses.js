@@ -92,17 +92,23 @@ class ListeReponses extends Component {
   render() {
     
 	const colorSexe = this.state.sexe;
-   
+   	let now = new Date();
+	let diff = now - this.props.message.naissance;
+	let age = Math.round(diff / 31536000000);
+
 		return (
 			<div className="ListeMessages">
 	  			<div className={colorSexe=="pink" ?
 	        				  "filleMessageBackground" : "garconMessageBackground"
 	        				}>
 			  			<span className="titreMessage">
-			  			<Link to={'/profil/' + this.props.message.userId}>
-			  			{this.props.message.post_author}
-			  			</Link>
+				  			<Link to={'/profil/' + this.props.message.userId}>
+				  			{this.props.message.post_author}
+				  			</Link>
 			  			</span>
+			  			<div className="ageAuthorReponse">
+	        				{age} ans
+	        			</div>
 		  		</div>
 
 
@@ -169,17 +175,11 @@ class ListeReponses extends Component {
 								 onClick={this.addFavoris.bind(this)}>
 									Ajouter au favoris
 								</Button>
-
-								
 							</div>
-							
 	      				</Comment.Content>
 	    			</Comment>
-
 	  			</Segment>
-
 			</div>
-
 		);
   	}
 }

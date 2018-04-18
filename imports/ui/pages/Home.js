@@ -28,7 +28,6 @@ class Home extends Component {
     }
     const naissance = this.props.naissance;
     const typeNaissance = typeof naissance;
-    console.log(typeNaissance)
      if (typeNaissance == 'string'){
      }else if (typeNaissance !== 'object'){
       return <Redirect to="/MiseAjourNaissance" />;

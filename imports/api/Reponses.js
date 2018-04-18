@@ -5,10 +5,6 @@ import { Posts } from './Messages.js';
 
 export const Comments = new Mongo.Collection('comments');
 
-
-
-
-
 if (Meteor.isServer) {
 
 Meteor.startup(function () {  
@@ -33,6 +29,7 @@ Meteor.methods({
         const user = Meteor.user();
         const author = user.username;
         const gender = user.profile.gender;
+        const naissance = user.profile.naissance;
         const userId = this.userId;
         const postId = id;
 
@@ -56,6 +53,7 @@ Meteor.methods({
                   postId:postId,
                   post_title:post_title,
                   read:false,
+                  naissance:naissance,
                 });
 
               /*console.log(

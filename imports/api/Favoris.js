@@ -42,8 +42,6 @@ Meteor.methods({
                   text:text,
                   idMessage:idMessage,
                 });
-          console.log(idMessage)
-
        },
 
        supprimerFavoris: function(idMessage) {

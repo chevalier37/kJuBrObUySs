@@ -42,7 +42,7 @@ Meteor.methods({
                   gender:gender,
                 })
              : ''}
-console.log('add notif chat ' + gender)
+
       },
 
       supprimerNotification: function(idMessage) {
@@ -86,7 +86,7 @@ console.log('add notif chat ' + gender)
                   read:false,
                   type:'reponse'
                 });
-console.log('add notif reponse ' + author)
+
       },
 
       NotifRecommandation: function(id,text,note) {
@@ -115,11 +115,7 @@ console.log('add notif reponse ' + author)
                   message: text,
                   read:false,
                   type:'recommandaton'
-                });
-
-console.log('add notif recommandation ' + note)
-         
-          
+                });       
        },
 
        NotifDons: function(message, to_id, to_name, montant,) {
@@ -151,7 +147,7 @@ console.log('add notif recommandation ' + note)
                   read:false,
                   type:'don'
                 });
-console.log('add notif don ' + montant)
+
      },
 
 });

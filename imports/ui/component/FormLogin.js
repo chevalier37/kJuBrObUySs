@@ -24,7 +24,6 @@ export default class FormLogin extends Component {
 
 		Meteor.loginWithPassword(username, password, (err) => {
       	if(err){
-         console.log(err.reason)
           this.setState({erreurLogin: true,})
       	} else {
         	{

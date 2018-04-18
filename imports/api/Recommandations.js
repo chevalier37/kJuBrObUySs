@@ -49,11 +49,7 @@ Meteor.methods({
           }else{
             noteFuture = (noteActuelle + note )*0.5
           }
-            
-
-console.log(noteActuelle)
-         
-           
+                   
            Meteor.users.update(id, {
                     $set: { 'profile.note': noteFuture },
             }) 

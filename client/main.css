@@ -115,12 +115,12 @@ header {
 }
 
 .FormSubscribe{
-	float: right;
-	width: 300px;
-	margin-top: 90px;
-	margin-right: 20px;
-	z-index: 10;
-	display: inline-block;
+	position: fixed;
+    width: 500px;
+    margin-top: 90px;
+    margin-left: 40px;
+    z-index: 10;
+    display: inline-block;
 }
 
 .footer{
@@ -1502,6 +1502,21 @@ header {
 
 }
 
+.ageAuthorReponse{
+	display: inline-block;
+	margin-left: 10px;
+	color: white;
+}
+
+.deleteContact{
+	color: red;
+	float: right;
+	width: 20px;
+	height: 20px;
+	padding-left: 3px;
+	padding-top: 1px;
+}
+
 @media only screen and (max-width: 1800px) {
 
 	/*.ContentDiscussion{
@@ -1521,7 +1536,6 @@ header {
 
 @media only screen and (max-width: 1180px) {
 
-
 	.valideChatForm {
     	padding-right: 20%;
 	}
@@ -1529,22 +1543,14 @@ header {
 	.headerChat{
 		width: 800px;
 	}
-
-
-
 }
+
 
 @media only screen and (max-width: 1080px) {
 
 	.ContentDiscussion{
 		padding-right: 9%;
 	}
-
-	.valideChatForm {
-    	padding-right: 23%;
-	}
-
-
 }
 
 @media only screen and (max-width: 980px) {
@@ -1552,8 +1558,6 @@ header {
 	.valideChatForm {
     	padding-right: 25%;
 	}
-
-
 }
 
 @media only screen and (max-width: 850px) {

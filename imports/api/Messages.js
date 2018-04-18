@@ -120,7 +120,7 @@ Meteor.methods({
         const username = user.username;
         const naissance = user.profile.naissance;
         const gender = user.profile.gender;
-console.log(hopital)
+
               Posts.insert({
                   naissance:naissance,
                   post_title: titre,

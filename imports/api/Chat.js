@@ -26,7 +26,7 @@ Meteor.methods({
 
             const user = Meteor.user()
             const search = Meteor.users.findOne({'_id':to_id});
-
+            const date = new Date();
             const to_name = search.username;
             const from_name = user.username;
             
@@ -41,9 +41,10 @@ Meteor.methods({
                   read:false,
                 })
              : ''}
+
             const request = ContactChat.findOne({$or : [{from_id: this.userId, to_id:to_id}, {from_id: to_id, to_id:this.userId}]});
              {to_id != this.userId ? 
-            ContactChat.update(request._id, {$set: {last_message:message, read:false, authorLastMessage:this.userId} })
+            ContactChat.update(request._id, {$set: {last_message:message, read:false, authorLastMessage:this.userId, date} })
              : ''}
       },
 
@@ -65,7 +66,6 @@ Meteor.methods({
             
             Notifications.update({'to_id':this.userId, 'type':'message'},{$set: {read:true}}, {multi: true})
             
-            console.log(to_name)
             return search
   
       },

@@ -23,8 +23,6 @@ Meteor.methods({
       html: GetContactEmail(message, name),
     });
 
-   console.log(message)
-
   },
 
   NouvelleReponse: function(to, from, subject, name, message, titre){
@@ -34,8 +32,6 @@ Meteor.methods({
       subject: subject + titre,
       html: EmailReponse(message, name, titre),
     });
-
-   console.log(to)
 
   },
 
@@ -47,8 +43,6 @@ Meteor.methods({
       html: EmailRecommandation(message, name),
     });
 
-   console.log(message)
-
   },
 
   NouveauDons: function(to, from, subject, name, message, montant){
@@ -58,8 +52,6 @@ Meteor.methods({
       subject: subject + montant + "€",
       html: EmailDons(message, name, montant),
     });
-
-   console.log(montant)
 
   },
 

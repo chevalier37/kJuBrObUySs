@@ -1074,7 +1074,7 @@ export default class DevenirConseillerContent extends Component {
 						        </Form.Field>
 							    <Form.Field>
 							      <label>Si oui, explique brièvement les conseils que tu pourrais apporter en partageant ton expérience.</label>
-							      <TextArea ref="textPremierAmour" autoHeight  rows={8} />
+							      <TextArea ref="textPremierAmour" rows={8} />
 							    </Form.Field>
 							    <Message
 						            hidden={!this.state.ValidePremierAmour}

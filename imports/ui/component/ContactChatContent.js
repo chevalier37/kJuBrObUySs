@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 
 import FaCircle from 'react-icons/lib/fa/circle';
+import FaClose from 'react-icons/lib/fa/close';
 
 class ContactChatContent extends Component {
 
@@ -43,8 +44,20 @@ class ContactChatContent extends Component {
 		breaklines(){
 		  let message = this.props.contact.last_message
 		  let shortMessage = message.substring(0, 100);
-
 		  return shortMessage
+		}
+
+		delete(){
+			const id = this.props.contact._id;
+		  	Meteor.call('deleteContact',
+		  	  id,
+		  	  (err) => {
+            	if(err){
+           		 } else {
+              	{
+	              	}     
+            	}
+          	})
 		}
 
   render() {
@@ -53,6 +66,7 @@ class ContactChatContent extends Component {
 
 	    return (
 				<div className={"AffficheContact" + " "+this.state.message}  >
+					
 					<Link to={'/Chat/' + this.state.toId}>	
 					<div className={this.props.currentContact + " " + this.props.read} >
 						<Menu.Item
@@ -60,12 +74,15 @@ class ContactChatContent extends Component {
 				         as='div'
 				         >
 				          <Menu.Header>
-				          <div className={this.props.currentContact + " " + this.props.read}>
-				          {this.state.toName}
-				          <div className={this.props.isOnline == true ? "onlineChat" : "none"} >
-				         	<FaCircle />
-				          </div>
-				          </div>
+					          <div className="deleteContact" onClick={this.delete.bind(this)} >
+						<FaClose />
+					</div>
+					          <div className={this.props.currentContact + " " + this.props.read}>
+					          {this.state.toName}
+						          <div className={this.props.isOnline == true ? "onlineChat" : "none"} >
+						         	<FaCircle />
+						          </div>
+					          </div>
 				          </Menu.Header>
 					          <div className={this.props.currentContact + " " + this.props.read + " " +"display-linebreak"}>
 					          	{this.breaklines()}

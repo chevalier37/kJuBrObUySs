@@ -23,9 +23,6 @@ Meteor.methods({
                 let search = Meteor.users.find({'username':pseudo.pseudo}).count();
                 let IsPseudo = false;
                 {search >0 ? IsPseudo = true : IsPseudo = false}
-                console.log(pseudo.pseudo)
-                console.log(IsPseudo)
-                console.log(search)
                 return IsPseudo;
              },
 
@@ -35,9 +32,6 @@ Meteor.methods({
                 let search = Meteor.users.find({'profile.mail':email.email}).count();
                 let IsMail = false;
                 {search >0 ? IsMail = true : IsMail = false}
-                console.log(email.email)
-                console.log(IsMail)
-                console.log(search)
                 return IsMail;
              },
 
@@ -52,8 +46,6 @@ Meteor.methods({
                 /*let search = Meteor.users.find({'profile.mail':email.email}).count();
                 let IsMail = false;
                 {search >0 ? IsMail = true : IsMail = false}*/
-                console.log(username.username)
-                console.log(password)
                 //console.log(IsMail)
                 //console.log(search)
                 return username;
@@ -87,6 +79,9 @@ Meteor.methods({
       MiseAjourNaissance: function(date) {
                     Meteor.users.update({_id:this.userId}, {
                     $set: { "profile.naissance": date},
+                    })
+                    Conseilleres.update({user_id:this.userId}, {
+                    $set: { "naissance": date},
                     })
              },
 

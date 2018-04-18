@@ -46,8 +46,6 @@ Meteor.methods({
             }
 
           }, function(err, charge) {
-            console.log(token)
-            console.log(nom)
           });
 
 

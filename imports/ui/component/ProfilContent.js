@@ -194,7 +194,6 @@ class ProfilContent extends Component {
 
 	   componentWillMount(){
 	   	let id = this.props.id;
-	   	console.log(id)
 			Meteor.apply('usernameRecommander', [{
 		          id,
 		          }], {

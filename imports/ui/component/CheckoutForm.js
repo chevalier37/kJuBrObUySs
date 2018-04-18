@@ -225,7 +225,6 @@ class CheckoutForm extends React.Component {
 	}
     else{
     	this.props.stripe.createToken({type: 'card'}).then(({token}) => {
-	     console.log('Received Stripe token:', token);
 	     if(!token){this.setState({errorToken: true});
 	 		/*this.setState({loader: false})*/}else{
 	     	

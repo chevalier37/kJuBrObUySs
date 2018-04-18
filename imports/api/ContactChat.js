@@ -40,7 +40,17 @@ Meteor.methods({
               : ''
             }
        },
+
+       deleteContact: function(id) {
+        new SimpleSchema({
+            id: {type: String},
+          }).validate({
+            id,
+          });
+              ContactChat.remove(id)
+       },
 });
+
 
 Meteor.publish('AllContactChat', function () {
 
