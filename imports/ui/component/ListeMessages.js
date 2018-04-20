@@ -258,11 +258,14 @@ class ListeMessages extends Component {
 				<div className={colorSexe=="pink" ?
 	        				  "filleMessageBackground" : "garconMessageBackground"
 	        				}>
-			  			<span className="titreMessage">
+			  			<div className={colorSexe=="pink" ?
+	        				  "titreMessageFille" : "titreMessageGarcon"
+	        				}>
 			  			{this.props.message.post_title}
-			  			</span>
+			  			</div>
 		  		</div>
-	  			<Segment >
+	  			<Segment color={colorSexe=="pink" ?
+	        				  "pink" : "blue" }>
 	  			
 		  			<p className={"ContentQuestion" + " " + "display-linebreak"}>
 		  				{this.props.message.post_content}
@@ -304,7 +307,7 @@ class ListeMessages extends Component {
 	          						</Button>
 	          					</Link>
 	          				</div>
-							<div className="repondreMessage" >
+							<div className="Signaler" >
 								<Button basic size="tiny" disabled={this.state.disabled} color='red' onClick={this.signaler.bind(this)}>
 									Signaler
 								</Button>

@@ -49,7 +49,8 @@ class FormPosterMessage extends Component {
 	      titreVide:false,
 	      messageVide:false,
 	      CatObligatoire:false,
-	      TropCat:false
+	      TropCat:false,
+	      poster:false,
 
 	    };
 	}
@@ -226,6 +227,10 @@ class FormPosterMessage extends Component {
 			        this.setState({
 				      categorie: 'cacherCategorie'
 				    })
+
+				    this.setState({
+				      poster: !this.state.poster,
+				    });
 			    
 				  	// Clear form
 			        ReactDOM.findDOMNode(this.refs.titre).value = '';
@@ -412,6 +417,12 @@ class FormPosterMessage extends Component {
 	    });
   	}
 
+  	poster() {
+	    this.setState({
+	      poster: !this.state.poster,
+	    });
+  	}
+
   	render() {
 
   		const { visible } = this.state
@@ -424,10 +435,13 @@ class FormPosterMessage extends Component {
 				<Segment>
 				    <Form error onSubmit={this.Submit.bind(this)}>
 				    	<Header
-				    	 as='h2'>
+				    	 as='h2'
+				    	 onClick={this.poster.bind(this)}
+				    	 >
 				    	 Demander un conseil
 				    	 </Header>
 
+				    <div className={this.state.poster ? '' : "none"}>
 					    <Form.Field>
 					      <label>Titre du message</label>
 					      <input
@@ -449,7 +463,6 @@ class FormPosterMessage extends Component {
 					       ref="message"
 					       onFocus={this.focusMessage.bind(this)}
 					       onBlur={this.focusMessageOut.bind(this)}
-					       autoHeight
 					       placeholder={placeholderMessage}
 					       rows={6}
 					       />
@@ -749,6 +762,7 @@ class FormPosterMessage extends Component {
 						    	</Header>
 						</div>
 					    <Button type='submit' color="green">Valider</Button>
+					</div>
 			  		</Form>
 	  			</Segment>
 			</div>

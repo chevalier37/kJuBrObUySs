@@ -15,7 +15,7 @@ class MainContent extends Component {
 			    super(props);
 			 
 			    this.state = {
-			      	allMessages: 'visible',
+			      	allMessages: 'visibleMessage',
 					MessageAmour :'cacher',
 					MessageSexo:'cacher',
 					MessageEcole:'cacher',
@@ -27,6 +27,7 @@ class MainContent extends Component {
 					moreSexo:5,
 					moreSante:5,
 					moreEcole:5,
+					poster:false,
 			    };
 			}
 
@@ -57,7 +58,8 @@ class MainContent extends Component {
 	        <ListeMessages
 	          key={message._id}
 	          message={message}
-	          date={date}         
+	          date={date}
+	          id={message._id}           
 	        />
 	      );
 	    });
@@ -73,7 +75,8 @@ class MainContent extends Component {
 	        <ListeMessages
 	          key={message._id}
 	          message={message}
-	          date={date}         
+	          date={date}
+	          id={message._id}           
 	        />
 	      );
 	    });
@@ -89,7 +92,8 @@ class MainContent extends Component {
 	        <ListeMessages
 	          key={message._id}
 	          message={message}
-	          date={date}         
+	          date={date}
+	          id={message._id}           
 	        />
 	      );
 	    });
@@ -105,7 +109,8 @@ class MainContent extends Component {
 	        <ListeMessages
 	          key={message._id}
 	          message={message}
-	          date={date}         
+	          date={date} 
+	          id={message._id}          
 	        />
 	      );
 	    });
@@ -121,14 +126,15 @@ class MainContent extends Component {
 	        <ListeMessages
 	          key={message._id}
 	          message={message}
-	          date={date}         
+	          date={date} 
+	          id={message._id}          
 	        />
 	      );
 	    });
 	}
 
 	showAll() {
-       	this.setState({allMessages: 'visible'});
+       	this.setState({allMessages: 'visibleMessage'});
        	this.setState({MessageEcole: 'cacher'});
        	this.setState({MessageSante: 'cacher'});
        	this.setState({MessageConfiance: 'cacher'});
@@ -142,14 +148,14 @@ class MainContent extends Component {
        	this.setState({MessageSante: 'cacher'});
        	this.setState({MessageConfiance: 'cacher'});
        	this.setState({MessageSexo: 'cacher'});
-       	this.setState({MessageAmour: 'visible'});
+       	this.setState({MessageAmour: 'visibleMessage'});
 	 }
 
 	 showConfiance() {
        	this.setState({allMessages: 'cacher'});
        	this.setState({MessageEcole: 'cacher'});
        	this.setState({MessageSante: 'cacher'});
-       	this.setState({MessageConfiance: 'visible'});
+       	this.setState({MessageConfiance: 'visibleMessage'});
        	this.setState({MessageSexo: 'cacher'});
        	this.setState({MessageAmour: 'cacher'});
 	 }
@@ -159,13 +165,13 @@ class MainContent extends Component {
        	this.setState({MessageEcole: 'cacher'});
        	this.setState({MessageSante: 'cacher'});
        	this.setState({MessageConfiance: 'cacher'});
-       	this.setState({MessageSexo: 'visible'});
+       	this.setState({MessageSexo: 'visibleMessage'});
        	this.setState({MessageAmour: 'cacher'});
 	 }
 
 	 showEcole() {
        	this.setState({allMessages: 'cacher'});
-       	this.setState({MessageEcole: 'visible'});
+       	this.setState({MessageEcole: 'visibleMessage'});
        	this.setState({MessageSante: 'cacher'});
        	this.setState({MessageConfiance: 'cacher'});
        	this.setState({MessageSexo: 'cacher'});
@@ -175,7 +181,7 @@ class MainContent extends Component {
 	 showSante() {
        	this.setState({allMessages: 'cacher'});
        	this.setState({MessageEcole: 'cacher'});
-       	this.setState({MessageSante: 'visible'});
+       	this.setState({MessageSante: 'visibleMessage'});
        	this.setState({MessageConfiance: 'cacher'});
        	this.setState({MessageSexo: 'cacher'});
        	this.setState({MessageAmour: 'cacher'});
@@ -210,6 +216,12 @@ class MainContent extends Component {
 	 	let plus = this.state.moreEcole + 5
        	this.setState({moreEcole: plus});
 	 }
+
+	 poster() {
+	    this.setState({
+	      poster: !this.state.poster,
+	    });
+  	}
 			   
   render() {
 
@@ -218,10 +230,12 @@ class MainContent extends Component {
 				<FormPosterMessage />
 				<Segment>
 			    	<Header
-			    	 as='h2'>
+			    	 as='h2'
+			    	 onClick={this.poster.bind(this)}
+			    	 >
 			    	 Trier les messages
 			    	 </Header>
-			
+				<div className={this.state.poster ? '' : "none"}>
 				      <Button
 				        size="small"
 				        inverted color="red"
@@ -263,6 +277,7 @@ class MainContent extends Component {
 				        onClick={this.showEcole.bind(this)}>
 				        Scolaire
 				       </Button>
+				    </div>
 	  			</Segment>
 
 	  			<div className={this.state.allMessages}>

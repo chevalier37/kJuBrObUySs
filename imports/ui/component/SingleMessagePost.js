@@ -58,8 +58,6 @@ class ListeMessagePost extends Component {
 	}
 
 
-
-
   render() {
 
 	const colorSexe = this.state.sexe;
@@ -69,14 +67,15 @@ class ListeMessagePost extends Component {
 			<div className="ListeMessagesSingle">
 	  			
     					<div className={this.sexe()=="pink" ?
-    				  			"filleMessageBackground" : "garconMessageBackground"
-    					}>
-		        				<span className="titreMessage">
+    				  			"filleMessageBackground" : "garconMessageBackground"}>
+		        				<div className={this.sexe()=="pink" ?
+	        				  	"titreMessageFille" : "titreMessageGarcon"}>
 					  				{this.props.message.post_title}
-					  			</span>
+					  			</div>
     					</div>
 	        	
-	  			<Segment >
+	  			<Segment color={this.sexe()=="pink" ?
+	        				  "pink" : "blue" }>
 		  			<p className={"ContentQuestion" + " " + "display-linebreak"}>
 		  				{this.props.message.post_content}
 		  			</p>

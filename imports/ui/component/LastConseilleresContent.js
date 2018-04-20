@@ -37,20 +37,25 @@ class LastConseilleresContent extends Component {
    
 		return (
 			<div className="LastConseilleresContent">
-			    <div>
+			    <Segment color={this.sexe()=="pink" ?
+	        				  "pink" : "blue" }>
+
 				    <div className={this.sexe()=="filleConseiller" ?
-		        				  "filleMessageBackConseil" : "garconMessageBackConseil"
+		        				  "filleMessageBackground" : "garconMessageBackground"
 		        				}>
-		        				<Link to={'/profil/' + this.props.conseiller.user_id}>
-				  			<span className="titreMessage">
-				  			 {this.props.conseiller.username}
-				  			</span>
+		        			<Link to={'/profil/' + this.props.conseiller.user_id}>
+					  			<div className={this.sexe()=="filleConseiller" ?
+		        				  "titreMessageFille" : "titreMessageGarcon"
+		        				}>
+					  			 {this.props.conseiller.username}
+					  			</div>
 				  			</Link>
 			  		</div>  
-			    </div>
-			    <div className="presentationConseiller">
-			          	{this.presentation()}
-			    </div>
+			   
+				    <div className="presentationConseiller">
+				          	{this.presentation()}
+				    </div>
+			    </Segment>
 			</div>
 		);
   	}

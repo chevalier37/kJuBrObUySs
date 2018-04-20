@@ -106,11 +106,9 @@ class ContentMenuLeft extends Component {
   			          		<FaEur /> Dons
   			    		</Link>
     					</div>
-  		   
   			</Menu>
 
   		  <div className="MenuLeftLastConseiller">
-  				<Menu vertical>
     				<div
     				 className="HeaderMenu"
     				 >
@@ -118,7 +116,7 @@ class ContentMenuLeft extends Component {
     				 </div>
              <div className="espaceConseiller"></div>
     			        {this.renderLastConseiller()}
-  		    </Menu>
+  		   
   			</div>
         <div className="espacePub" ></div>
         <AdSense.Google

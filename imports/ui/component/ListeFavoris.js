@@ -65,14 +65,16 @@ class ListeReponses extends Component {
 	  			<div className={this.props.message.gender=="fille" ?
 	        				  "filleMessageBackground" : "garconMessageBackground"
 	        				}>
-			  			<span className="titreMessage">
+			  			<div className={this.props.message.gender=="fille" ?
+	        				  	"titreMessageFille" : "titreMessageGarcon"}>
 				  			<Link to={'/profil/' + this.props.message.authorId}>
 				  			{this.props.message.authorName} 
 				  			</Link>
-			  			</span>
+			  			</div>
 		  		</div>
 
-	  			<Segment >
+	  			<Segment color={this.props.message.gender=="fille" ?
+	        				  "pink" : "blue" }>
 		  					  			
 		  			<p className={"ContentQuestion" + " " + "display-linebreak"}>
 		  				{this.breaklines()}

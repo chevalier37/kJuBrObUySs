@@ -257,12 +257,14 @@ class ListeMessagesPostes extends Component {
 	  			<div className={colorSexe=="pink" ?
 	        				  "filleMessageBackground" : "garconMessageBackground"
 	        				}>
-			  			<span className="titreMessage">
+			  			<div className={colorSexe=="pink" ?
+	        				  "titreMessageFille" : "titreMessageGarcon"
+	        				}>
 			  			{this.props.message.post_title}
-			  			</span>
+			  			</div>
 		  		</div>
-
-	  			<Segment >
+	  			<Segment color={colorSexe=="pink" ?
+	        				  "pink" : "blue" }>
 		  					  			
 		  			<p className={"ContentQuestion" + " " + "display-linebreak"}>
 		  				{this.props.message.post_content}

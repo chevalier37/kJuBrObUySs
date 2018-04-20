@@ -70,7 +70,7 @@ class ListeNotifications extends Component {
 		return (
 			<div className="ListeMessages">
 	  			<div className={this.props.message.gender=="fille" ?
-	        				  "filleMessageBackground" : "garconMessageBackground"
+	        				    "filleMessageBackground" : "garconMessageBackground"
 	        				}>
 
 			  			<span className={this.props.message.type=='chat' ?
@@ -119,7 +119,8 @@ class ListeNotifications extends Component {
 			  			</span>
 		  		</div>
 	  			
-	  			<Segment >  			
+	  			<Segment color={this.props.message.gender=="fille" ?
+	        				  "pink" : "blue" }>			
 		  			<p className="ContentQuestion">
 		  				{this.breaklines()}
 		  			</p>
