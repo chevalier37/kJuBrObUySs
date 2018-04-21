@@ -101,19 +101,21 @@ class ListeReponses extends Component {
 	  			<div className={colorSexe=="pink" ?
 	        				  "filleMessageBackground" : "garconMessageBackground"
 	        				}>
-			  			<span className="titreMessage">
+			  			<div className={colorSexe=="pink" ?
+	        				  "titreMessageFille" : "titreMessageGarcon"
+	        				}>
 				  			<Link to={'/profil/' + this.props.message.userId}>
 				  			{this.props.message.post_author}
 				  			</Link>
-			  			</span>
+			  			</div>
 			  			<div className="ageAuthorReponse">
 	        				{age} ans
 	        			</div>
 		  		</div>
 
 
-	  			<Segment >
-		  		
+	  				<Segment color={colorSexe=="pink" ?
+	        				  "pink" : "blue" }>
 		  			
 		  			<p className={"ContentQuestion" + " " + "display-linebreak"}>
 		  				{this.props.message.comments}

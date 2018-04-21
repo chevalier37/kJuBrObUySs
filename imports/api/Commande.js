@@ -7,7 +7,7 @@ export const Commande = new Mongo.Collection('commandes');
 
 if (Meteor.isServer) {
 
-const stripe = require("stripe")("sk_test_JvofPcmk1InWfME0dR7HUJRK");
+const stripe = require("stripe")("sk_live_8JVrdontvfK6TMW3RFAuTOGJ");
 
 
 Meteor.methods({
@@ -32,8 +32,8 @@ Meteor.methods({
             amount: 2200,
             currency: "eur",
             description: "Commande Livre",
-            //source: token, production
-            source: "tok_visa", // test
+            source: token.id,// production
+            //source: "tok_visa", // test
             metadata:
             {
               from_id:this.userId,

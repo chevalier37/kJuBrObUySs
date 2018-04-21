@@ -291,6 +291,7 @@ header {
     margin-bottom: 5px;
     display: block;
     position: fixed;
+    z-index: 10;
 }
 
 .MainContent {
@@ -1024,6 +1025,8 @@ header {
 
 .LastConseilleresContent{
 	margin-bottom: 10px;
+	z-index: -1;
+	width: 210px;
 
 }
 
@@ -1159,6 +1162,7 @@ header {
 .MenuLeftLastConseiller{
 	height: 600px;
 	overflow: auto;
+	width: 210px;
 }
 
 .espaceConseiller{

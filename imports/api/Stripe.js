@@ -9,7 +9,7 @@ if (Meteor.isServer) {
 //SSL('/Users/roussatjean-claude/Desktop/Kurbys/private/server.key','/Users/roussatjean-claude/Desktop/Kurbys/private/server.crt', 443);
 
 //const stripe = require("stripe")("sk_test_JvofPcmk1InWfME0dR7HUJRK");
-const stripe = require("stripe")("pk_live_Cq60qm92b2AkPUxpWFdr48ud");
+const stripe = require("stripe")("sk_live_8JVrdontvfK6TMW3RFAuTOGJ");
 
 Meteor.methods({
       Paiement: function(token, message, montant, to_id, to_name, to_gender) {
@@ -43,7 +43,7 @@ Meteor.methods({
             amount: montantStripe,
             currency: "eur",
             description: "Don",
-            source: token,// production
+            source: token.id,// production
             //source: "tok_visa", // test
             metadata:
             {

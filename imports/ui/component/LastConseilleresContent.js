@@ -37,7 +37,7 @@ class LastConseilleresContent extends Component {
    
 		return (
 			<div className="LastConseilleresContent">
-			    <Segment color={this.sexe()=="pink" ?
+			    <Segment color={this.sexe()=="filleConseiller" ?
 	        				  "pink" : "blue" }>
 
 				    <div className={this.sexe()=="filleConseiller" ?
