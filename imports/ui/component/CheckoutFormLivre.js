@@ -107,7 +107,7 @@ class CheckoutFormLivre extends React.Component {
                     	</Form.Field>
 
                         <Form.Field>
-                          <label>Nom</label>
+                           <div className="labelLivre">Nom</div>
                           <input
                            ref="nom"
                            placeholder="Nom"
@@ -120,7 +120,7 @@ class CheckoutFormLivre extends React.Component {
                         </Form.Field>
 
                         <Form.Field>
-                          <label>Prénom</label>
+                          <div className="labelLivre">Prénom</div>
                           <input
                            ref="prenom"
                            placeholder="Prénom"
@@ -133,7 +133,7 @@ class CheckoutFormLivre extends React.Component {
                         </Form.Field>
 
                         <Form.Field>
-                          <label>Adresse de Livraison</label>
+                           <div className="labelLivre">Adresse de Livraison</div>
                           <input
                            ref="adresse"
                            placeholder="Adresse"
@@ -146,7 +146,7 @@ class CheckoutFormLivre extends React.Component {
                         </Form.Field>
 
                         <Form.Field>
-                          <label>Code postal</label>
+                           <div className="labelLivre">Code postal</div>
                           <input
                            ref="code"
                            placeholder="Code postal"
@@ -159,7 +159,7 @@ class CheckoutFormLivre extends React.Component {
                         </Form.Field>
 
                         <Form.Field>
-                          <label>Ville</label>
+                           <div className="labelLivre">Ville</div>
                           <input
                            ref="ville"
                            placeholder="Ville"

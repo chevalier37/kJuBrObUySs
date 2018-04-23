@@ -1240,7 +1240,7 @@ header {
 	margin-top: 10px;
 	margin-bottom: 10px;
 	font-weight: normal;
-
+	padding-top: 10px;
 }
 
 .buttonMontant{
@@ -1544,6 +1544,23 @@ header {
 .visibleMessage{
 	display: inline-block;
     margin-top: -20px;
+}
+
+.star {
+	color:#236fa9;
+	display: inline-block;
+}
+
+.headerForm h2.ui.header{
+	color:#236fa9;
+	display: inline-block;
+	margin-bottom: 15px;
+}
+
+.labelLivre{
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 5px;
 }
 
 @media only screen and (max-width: 1800px) {

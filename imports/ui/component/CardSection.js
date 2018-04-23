@@ -11,10 +11,11 @@ class CardSection extends React.Component {
   render() {
   	const style = {
   base: {
-    color: '#32325d',
-    
-    fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+    color: '#424770',
+    letterSpacing: '0.025em',
+    fontFamily: 'Source Code Pro, Menlo, monospace',
     fontSmoothing: 'antialiased',
+    backgroundColor:'red',
     fontSize: '16px',
     '::placeholder': {
       color: '#aab7c4'
@@ -26,23 +27,29 @@ class CardSection extends React.Component {
   }
 };
     return (
-      <label>
       <div className="cardSection">
-        Carte bancaire :
-        <div className="cardblock">
-        	Numéro de carte :
-        	<CardNumberElement style={style}  />
-		</div>
-		<div className="cardblock">
-			Date d'expiration :
-        	<CardExpiryElement style={style} />
+              Carte bancaire :
+          <div className="cardblock">
+              Numéro de carte :<br />
+              <Segment>
+              	<CardNumberElement style={style}  />
+              </Segment> 
+      		</div>
+         
+    		<div className="cardblock">
+    			Date d'expiration :<br />
+          <Segment>
+            	<CardExpiryElement style={style} />
+          </Segment> 
         </div>
-		<div className="cardblock">
-			Code CVC :
-        	<CardCVCElement style={style} />
+
+    		<div className="cardblock">
+    			Code CVC :<br />
+          <Segment>
+            	<CardCVCElement style={style} />
+          </Segment> 
         </div>
-       </div>
-      </label>
+      </div>
     );
   }
 };

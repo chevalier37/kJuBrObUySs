@@ -229,12 +229,14 @@ class MainContent extends Component {
 			<div className="MainContent">
 				<FormPosterMessage />
 				<Segment>
+				<div className="headerForm">	
 			    	<Header
 			    	 as='h2'
 			    	 onClick={this.poster.bind(this)}
 			    	 >
 			    	 Trier les messages
-			    	 </Header>
+			    	</Header>
+			    </div>
 				<div className={this.state.poster ? '' : "none"}>
 				      <Button
 				        size="small"

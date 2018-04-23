@@ -434,13 +434,14 @@ class FormPosterMessage extends Component {
 			<div >
 				<Segment>
 				    <Form error onSubmit={this.Submit.bind(this)}>
+				    <div className="headerForm">	
 				    	<Header
 				    	 as='h2'
 				    	 onClick={this.poster.bind(this)}
 				    	 >
 				    	 Demander un conseil
 				    	 </Header>
-
+				   	</div>
 				    <div className={this.state.poster ? '' : "none"}>
 					    <Form.Field>
 					      <label>Titre du message</label>

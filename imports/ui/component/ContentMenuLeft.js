@@ -13,6 +13,7 @@ import FaComments from 'react-icons/lib/fa/comments';
 import FaStar from 'react-icons/lib/fa/star';
 import FaEnvelope from 'react-icons/lib/fa/envelope-o';
 import FaEur from 'react-icons/lib/fa/eur';
+import FaBook from 'react-icons/lib/fa/book';
 
 import LastConseilleresContent from '../component/LastConseilleresContent.js';
 
@@ -78,34 +79,52 @@ class ContentMenuLeft extends Component {
   				 	</div>
             <div className="espaceConseiller"></div>
   				    <div className="MenuItem">
-  					    <Link to={'/Profil/'+ Meteor.userId() }>	
-  					         	<FaUser /> Profil
+  					    <Link to={'/Profil/'+ Meteor.userId() }>
+                <div className="star">  	
+  					         	<FaUser /> 
+                </div>Profil
   				        </Link>
     					</div>
     					
     					<div className="MenuItem">
-  				        <Link to={'/Chat/' + this.state.id}>	
-  				          <FaComments /> Messagerie
+  				        <Link to={'/Chat/' + this.state.id}>
+                  <div className="star">  	
+  				          <FaComments /> 
+                  </div> Messagerie
   				        </Link>
   					</div>
   			       
   			       	<div className="MenuItem">
-  			        	<Link to={'/Favoris/' }>	
-  			          		<FaStar /> Favoris
-  			          	</Link>
+  			        	<Link to={'/Favoris/' }>
+                    <div className="star">	
+  			          		<FaStar />
+                    </div>
+                       Favoris
+  			          </Link>
     					</div>
 
   			       	<div className="MenuItem">
-  			        	<Link to={'/MessagesPostes/' }>	
-  			          		 <FaEnvelope /> Messages postés
+  			        	<Link to={'/MessagesPostes/' }>
+                    <div className="star">  	
+    			          		 <FaEnvelope />
+                    </div> Messages postés
   			       		</Link>
     					</div>
 
   			      	<div className="MenuItem">
-  			        	<Link to={'/ListeDons/' + Meteor.userId() }>	
-  			          		<FaEur /> Dons
+  			        	<Link to={'/ListeDons/' + Meteor.userId() }>
+                    <div className="star">  	
+  			          		<FaEur /> 
+                    </div>  Dons
   			    		</Link>
     					</div>
+              <div className="MenuItem">
+                <Link to={'/Livre/'}> 
+                  <div className="star">     
+                      <FaBook/>
+                  </div> Le Secret de Cendrillon
+                </Link>
+              </div>
   			</Menu>
 
   		  <div className="MenuLeftLastConseiller">

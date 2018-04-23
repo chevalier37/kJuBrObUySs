@@ -80,16 +80,18 @@ class ListeReponses extends Component {
    
 		return (
 			<div className="ListeMessages">
-	  			
 	  				<div className={this.props.message.gender == "fille" ? "filleMessageBackground" : "garconMessageBackground"} >
-			  			<span className="titreMessageRecommandation">
+			  			<div className={this.props.message.gender == "fille" ?
+	        				  "titreMessageFille" : "titreMessageGarcon"
+	        				}>
 				  			<Link to={'/profil/' + this.props.message.from_id}>
 				  				{this.props.message.from_name} 
 				  			</Link>
-			  			</span>
-		  			 </div>
+			  			</div>
+		  			</div>
 
-		  		<Segment >	
+		  		<Segment color={this.props.message.gender == "fille" ?
+	        				  "pink" : "blue" }>
 		  			<p className="ContentQuestion">
 		  				{this.breaklines()}
 		  			</p>

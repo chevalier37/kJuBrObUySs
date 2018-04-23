@@ -389,7 +389,7 @@ class CheckoutForm extends React.Component {
 
 			        <Button
                         color="green"
-                        size='tiny'>
+                    >
                         Valider
                     </Button>
 			      	</Form>
