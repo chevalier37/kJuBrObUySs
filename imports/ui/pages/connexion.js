@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
-import { Button, Checkbox, Form,  Message } from 'semantic-ui-react'
+import { Button, Checkbox, Form,  Message, Modal } from 'semantic-ui-react'
 import Img from 'react-image'
 import { Route, Redirect } from 'react-router';
 
@@ -17,10 +17,34 @@ import FaTrashO from 'react-icons/lib/fa/trash-o';
 
 class Connexion extends Component {
 
+    state = { 
+      visible: false,
+      open:false,
+      delete:false,
+    }
+
+    open(){
+      this.setState({open: true})
+    }
+
+    non(){
+      this.setState({open: false})
+    }
+
+    componentWillMount(){
+      let width = window.innerWidth;
+      if(width <900){
+         this.setState({open: true})
+      }else{
+         this.setState({open: false})
+      }
+    }
+
   render() {
     if (Meteor.loggingIn() && Meteor.userId()){
       return <Redirect to="/home" />;
     }
+
     return (
       <div className="container">
         <header>
@@ -58,14 +82,36 @@ class Connexion extends Component {
                       <FaComments /> Kurbys est un espace de discussion intime où tout le monde peut donner et recevoir de l'aide.<br /><br />
                        Tous les échanges sont anonymes afin de respecter la confidentialité des messages. Cela vous permet de laisser parler votre coeur afin de dire la vérité silencieuse qui est en vous.<br /><br />
                       <FaTrashO /> Vous pouvez supprimer votre compte à tout moment. Tous vos messages seront définitivement supprimés.<br />
+                      <a href={"https://play.google.com/store/apps/details?id=com.idb9qf011pqj13l1a3vqwl&hl=fr"}><Img className="application" src="/android.png"/></a>
+                      <a href={"https://itunes.apple.com/us/app/kurbys/id1295881140?mt=8"}><Img className="application" src="/apple.png"/></a>
                   </Message>
                 </div>
+
             </div>
             <div className="FormSubscribe">
               <FormSubscribe />
             </div>
-          </div> 
+          </div>
+            <Modal basic size='small' open={this.state.open}>
+                        <Modal.Content>
+                           <p className="deleteCount">Télécharger l'application :</p>
+                            <a href={"https://play.google.com/store/apps/details?id=com.idb9qf011pqj13l1a3vqwl&hl=fr"}><Img className="application" src="/android.png"/></a>
+                            <a href={"https://itunes.apple.com/us/app/kurbys/id1295881140?mt=8"}><Img className="application" src="/apple.png"/></a>
+                        </Modal.Content>
+                        <Modal.Actions>
+                            <Button
+                             basic 
+                             color='red'
+                             inverted
+                             onClick={this.non.bind(this)}
+                             >
+                              Annuler
+                            </Button>
+                        </Modal.Actions>
+            </Modal> 
         </div>
+
+
           <div className="containerFooter">    
             <Footer />
           </div>

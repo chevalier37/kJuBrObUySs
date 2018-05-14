@@ -17,6 +17,7 @@ class ListeReponses extends Component {
 			    disabled:false,
 			    disabledVote:false,
 			    disabledFavoris:false,
+			    color:true,
 		    };
 		}
 
@@ -38,6 +39,7 @@ class ListeReponses extends Component {
 	 vote() {
 	    Meteor.call('vote', this.props.message._id);
        	this.setState({disabledVote: true});
+        this.setState({color: false});
 	 }
 
 	componentWillMount(){
@@ -68,9 +70,8 @@ class ListeReponses extends Component {
 		this.setState({nbrMois: nbrMois})
 
 
-		{
-		Meteor.userId() && _.include(this.props.message.upvoters, Meteor.userId()) ?
-       	this.setState({disabledVote: true}) :
+		if(Meteor.userId() && _.include(this.props.message.upvoters, Meteor.userId())){
+       	this.setState({disabledVote: true}); this.setState({color: false})}else{
        	this.setState({disabledVote: false})
    		}
 
@@ -149,7 +150,7 @@ class ListeReponses extends Component {
 
 								<span className="vote">
 								<Button
-								 basic
+								 basic={this.state.color}
 								 size="tiny"
 								 disabled={this.state.disabledVote}
 								 color='green'
@@ -166,6 +167,14 @@ class ListeReponses extends Component {
 								 onClick={this.signalerReponse.bind(this)}>
 									Signaler
 								</Button>
+
+								<div className="contacter" >
+									<Button basic size="tiny" color='blue'>
+										<Link to={'/Chat/' + this.props.message.userId }>
+										Message privé
+										</Link>
+									</Button>
+								</div>
 
 								<Button
 								 basic size="tiny"

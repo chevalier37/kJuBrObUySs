@@ -55,13 +55,10 @@ class ChatItemNotif extends Component {
 		  	  message_id,
 		  	  (err) => {
             	if(err){
-              
-           		 } else {
-              	{	
-              		this.setState({Chatredirect: true})	        
-	             }     
+           		 }  
             	}
-        })
+        ),
+        this.setState({Chatredirect: true})	    
 	}
 	
 

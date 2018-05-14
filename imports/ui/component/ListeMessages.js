@@ -307,6 +307,13 @@ class ListeMessages extends Component {
 	          						</Button>
 	          					</Link>
 	          				</div>
+	          				<div className="Signaler" >
+								<Button basic size="tiny"  color='blue'>
+									<Link to={'/Chat/' + this.props.message.post_author_id }>
+									Message privé
+									</Link>
+								</Button>
+							</div>
 							<div className="Signaler" >
 								<Button basic size="tiny" disabled={this.state.disabled} color='red' onClick={this.signaler.bind(this)}>
 									Signaler

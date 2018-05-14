@@ -367,6 +367,13 @@ header {
 	color: red;
 }
 
+.contacter{
+	display: inline-block;
+	margin-top: 0px;
+	margin-right: 10px;
+	color: red;
+}
+
 .categorie{
 	display: inline-block;
 	margin-left: 10px;
@@ -1561,6 +1568,13 @@ header {
 	font-size: 16px;
 	font-weight: bold;
 	margin-bottom: 5px;
+}
+
+.application{
+    display: inline-block;
+    width: 150px;
+    margin-right: 20px;
+    height: 55px;
 }
 
 @media only screen and (max-width: 1800px) {

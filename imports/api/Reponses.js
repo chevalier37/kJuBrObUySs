@@ -37,6 +37,7 @@ Meteor.methods({
         const post_author_id = search.post_author_id;
         const post_author_name= search.post_author;
         const post_title= search.post_title;
+        const post_gender= search.gender;
 
               Comments.insert({
                   comments: message,
@@ -54,6 +55,7 @@ Meteor.methods({
                   post_title:post_title,
                   read:false,
                   naissance:naissance,
+                  Post_gender:post_gender,
                 });
 
               /*console.log(
@@ -111,7 +113,12 @@ Meteor.methods({
       ReponseChat: function(message_id){
         check(message_id, String);
         Comments.update(message_id, {$set: {read:true} })
-      } 
+      },
+
+      supprimerReponse: function(idMessage) {
+         check(idMessage, String);
+          Comments.remove({_id:idMessage});
+       }, 
 
 });
 
@@ -126,6 +133,14 @@ new SimpleSchema({
     }).validate({MyId});
 
   return Comments.find({'post_author_id':MyId});
+});
+
+Meteor.publish('MyReponses', function (myId) {
+new SimpleSchema({
+      myId: {type: String},
+    }).validate({myId});
+
+  return Comments.find({'userId':myId});
 });
 
 Meteor.publish('reponsesSingleMessage', function (reponse) {

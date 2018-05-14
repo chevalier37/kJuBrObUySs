@@ -58,12 +58,9 @@ class ReponsesNotif extends Component {
 		  	  (err) => {
             	if(err){
               
-           		 } else {
-              	{	
-              		this.setState({Chatredirect: true})	        
-	             }     
-            	}
-        })
+           		 } 
+        }),
+        this.setState({Chatredirect: true})	        
 	}
 
 

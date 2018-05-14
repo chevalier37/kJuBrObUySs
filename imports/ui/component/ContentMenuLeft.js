@@ -14,6 +14,7 @@ import FaStar from 'react-icons/lib/fa/star';
 import FaEnvelope from 'react-icons/lib/fa/envelope-o';
 import FaEur from 'react-icons/lib/fa/eur';
 import FaBook from 'react-icons/lib/fa/book';
+import FaCalendarCheckO from 'react-icons/lib/fa/calendar-check-o';
 
 import LastConseilleresContent from '../component/LastConseilleresContent.js';
 
@@ -102,6 +103,14 @@ class ContentMenuLeft extends Component {
                        Favoris
   			          </Link>
     					</div>
+
+              <div className="MenuItem">
+                  <Link to={'/SuiviConseil/' }>
+                    <div className="star">    
+                         <FaCalendarCheckO />
+                    </div> Suivi des conseils
+                  </Link>
+              </div>
 
   			       	<div className="MenuItem">
   			        	<Link to={'/MessagesPostes/' }>

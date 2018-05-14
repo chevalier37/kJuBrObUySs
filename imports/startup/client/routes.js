@@ -35,6 +35,7 @@ import ValidationCommande from '../../../imports/ui/pages/ValidationCommande.js'
 import Notifications from '../../../imports/ui/pages/Notifications.js';
 import NotFound from '../../../imports/ui/pages/NotFound.js';
 import MiseAjourNaissance from '../../../imports/ui/pages/MiseAjourNaissance.js';
+import SuiviConseil from '../../../imports/ui/pages/SuiviConseil.js';
 
 const requireAuth = (nextState, replace) => {
 
@@ -81,6 +82,7 @@ export const renderRoutes = () => (
       <Route path="/ValidationCommande/" component={ValidationCommande}/>
       <Route path="/Notifications/" component={Notifications}/>
       <Route path="/MiseAjourNaissance/" component={MiseAjourNaissance}/>
+      <Route path="/SuiviConseil/" component={SuiviConseil}/>
       
     </div>
   </Router>
