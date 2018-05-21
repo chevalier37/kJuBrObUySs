@@ -47,6 +47,7 @@ class ListeMessages extends Component {
 			    Violence:'',
 			    autre:'',
 			    disabled:false,
+			    author_id:false,
 		    };
 		}
 
@@ -57,11 +58,19 @@ class ListeMessages extends Component {
 
 	componentWillMount(){
 		const sexe = this.props.message.gender;
-	    
+	    const author_id = this.props.message.post_author_id;
+
 	    {sexe == 'fille' ? 
 	         this.setState({sexe: 'pink'}):
 		  	 this.setState({sexe: 'blue'})
 		}
+
+		{author_id == Meteor.userId() ? 
+	         this.setState({author_id: true}):
+		  	 this.setState({author_id: false})
+		}
+
+
 
 		//on calcul la date du post
 		const today = new Date();
@@ -307,7 +316,7 @@ class ListeMessages extends Component {
 	          						</Button>
 	          					</Link>
 	          				</div>
-	          				<div className="Signaler" >
+	          				<div className="Signaler1" >
 								<Button basic size="tiny"  color='blue'>
 									<Link to={'/Chat/' + this.props.message.post_author_id }>
 									Message privé
@@ -319,6 +328,16 @@ class ListeMessages extends Component {
 									Signaler
 								</Button>
 							</div>
+							<div className={this.state.author_id ?
+	        				  			"Signaler" : "none"}
+	        				 >
+								<Button size="tiny"  color='orange'>
+									<Link to={'/ModifierMessage/' + this.props.message._id }>
+									Modifier
+									</Link>
+								</Button>
+							</div>
+
 							<p className="categorie">
 							
 							{ this.state.premierAmour ? 

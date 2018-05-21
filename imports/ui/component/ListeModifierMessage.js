@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Segment, Button, Checkbox, Form, Header, Divider, Label, Comment } from 'semantic-ui-react'
+import { Segment, Button, Checkbox, Form, Header, Divider, Label, Comment, Input } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 import { Comments } from '../../api/Reponses.js';
 import { withTracker } from 'meteor/react-meteor-data';
+import ReactDOM from 'react-dom';
+import { Route, Redirect } from 'react-router';
 
-class ListeMessagesPostes extends Component {
+class ListeModifierMessage extends Component {
 	
 	constructor(props) {
 		    super(props);
@@ -47,13 +49,39 @@ class ListeMessagesPostes extends Component {
 			    Violence:'',
 			    autre:'',
 			    disabled:false,
+			    redirect:false,
 		    };
 		}
 
 	Supprimer(){
 		Meteor.call('supprimerMessage',
 	    this.props.message._id,
-	     );
+		  	  (err) => {
+            	if(err){
+              
+           		 } else {
+              	{
+			        this.setState({ redirect: true})
+	              	}     
+            	}
+          	})
+	}
+
+	Modifier_Message(){
+			const text = ReactDOM.findDOMNode(this.refs.presentation).value.trim();
+			const idMessage = this.props.message._id;
+			Meteor.call('ModifierMessage',
+			  idMessage,
+		  	  text,
+		  	  (err) => {
+            	if(err){
+              
+           		 } else {
+              	{
+			        this.setState({ redirect: true})
+	              	}     
+            	}
+          	})
 	}
 
 	componentWillMount(){
@@ -250,7 +278,9 @@ class ListeMessagesPostes extends Component {
   render() {
     
 	const colorSexe = this.state.sexe;
-   
+   	if (this.state.redirect){
+      return <Redirect to="/home" />;
+    }
 		return (
 			<div className="ListeMessages">
 	  			
@@ -266,9 +296,15 @@ class ListeMessagesPostes extends Component {
 	  			<Segment color={colorSexe=="pink" ?
 	        				  "pink" : "blue" }>
 		  					  			
-		  			<p className={"ContentQuestion" + " " + "display-linebreak"}>
-		  				{this.props.message.post_content}
-		  			</p>
+		  			<div className={"ContentQuestion" + " " + "display-linebreak"}>
+		  				<Form >
+							    <Form.Field >
+										<Input as='TextArea' ref="presentation">
+											{this.props.message.post_content}
+										</Input>
+							    </Form.Field>
+						</Form>
+		  			</div>
 		  			
 		  			<Divider />
 		  	
@@ -299,11 +335,9 @@ class ListeMessagesPostes extends Component {
 	         				
 	         				<div className="dateMessage">{this.props.nbrreponse} {this.reponse()} </div>
 	          				<div className="repondreMessage">
-	          					<Link to={'/singleMessage/' + this.props.message._id} >
-	          						<Button  size="tiny" color="green">
-	          							Les réponses
+	          						<Button  size="tiny" color="green" onClick={this.Modifier_Message.bind(this)}>
+	          							Valider
 	          						</Button>
-	          					</Link>
 	          				</div>
 							
 							<div className="repondreMessage" >
@@ -314,14 +348,7 @@ class ListeMessagesPostes extends Component {
 									Supprimer
 								</Button>
 							</div>
-
-							<div className="repondreMessage1" >
-								<Button size="tiny"  color='orange'>
-										<Link to={'/ModifierMessage/' + this.props.message._id }>
-										Modifier
-										</Link>
-								</Button>
-							</div>
+							
 
 
 							<p className="categorie">
@@ -453,11 +480,11 @@ class ListeMessagesPostes extends Component {
   	}
 }
 
-export default ListeMessagesPostes =  withTracker(({ id }) => {
+export default ListeModifierMessage =  withTracker(({ id }) => {
 
   const HandleReponse = Meteor.subscribe('reponsesSingleMessage', id);
 
   return {
    nbrreponse: Comments.find({postId:id}).count()
   };
-})(ListeMessagesPostes);
+})(ListeModifierMessage);

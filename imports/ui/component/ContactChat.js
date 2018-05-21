@@ -4,6 +4,7 @@ import {  Input, Label, Menu, Grid, Header, Image, Rail, Segment, Sticky, Icon  
 import { Link } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 import ContactChatContent from '../component/ContactChatContent.js';
+import AdSense from 'react-adsense';
 
 //Icons
 import FaUser from 'react-icons/lib/fa/user';
@@ -58,7 +59,12 @@ class contactChat extends Component {
 		return (
 			
 		      	<div className="ChatContactLeft">
-  					 <Menu vertical>
+            {/* <AdSense.Google
+              client='ca-pub-6112176939320267'
+              slot='6737349349'
+              style={{ display: 'inline-block',width:'200px', height:'200px'}}
+            />*/}
+  					  <Menu vertical>
       					<div
       					 className="HeaderLastConseiller"
       					 >

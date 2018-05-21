@@ -163,7 +163,7 @@ export default chat =  withTracker(({ match }) => {
   const from_id = Meteor.userId();
   const Handle = Meteor.subscribe('Chat', to_id, from_id);
   const loading = !Handle.ready();
-  const allreponses = Chat.find({$or : [{from_id: from_id, to_id:to_id}, {from_id: to_id, to_id:from_id}]});
+  const allreponses = Chat.find({$or : [{from_id: from_id, to_id:to_id}, {from_id: to_id, to_id:from_id}]}, { sort: { post_date: 1 }});
   const reponseExists = !loading && !!allreponses;
   let username = '';
 

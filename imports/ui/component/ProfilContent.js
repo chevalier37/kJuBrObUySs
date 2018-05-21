@@ -186,9 +186,18 @@ class ProfilContent extends Component {
 	   nbrRecommandations(){
 			const nbrRecommandations = this.props.Recommandations;
 		    if(nbrRecommandations < 2){
-		    	return 'Recommandation'
+		    	return 'Recommandation reçue'
 		    }else {
-		    	return 'Recommandations'
+		    	return 'Recommandations reçues'
+		    }
+		}
+
+		nbrRecommandationsDonné(){
+			const nbrRecommandations = this.props.RecommandationsDonné;
+		    if(nbrRecommandations < 2){
+		    	return 'Recommandation donnée'
+		    }else {
+		    	return 'Recommandations données'
 		    }
 		}
 
@@ -1219,6 +1228,20 @@ class ProfilContent extends Component {
 									 <Link to={'/Recommandations/'+ this.props.id }>	
 									 	{this.props.Recommandations + " "}
 									 	 <p className="recommandationsInline">{this.nbrRecommandations()}</p>
+									 </Link>
+							</Button>
+						</div>
+
+						<div className={"recommandationsListe" +
+										 " " +
+										this.props.MyIdProfile
+										} >
+	              	 		<Button
+	              	 			 inverted
+								 color='blue'>
+									 <Link to={'/RecommandationsDonner/'+ this.props.id }>	
+									 	{this.props.RecommandationsDonné + " "}
+									 	 <p className="recommandationsInline">{this.nbrRecommandationsDonné()}</p>
 									 </Link>
 							</Button>
 						</div>
@@ -2352,19 +2375,23 @@ export default ProfilContent =  withTracker(({id}) => {
  	let Conseiller = Conseilleres.findOne({'user_id':id});
  	let user = Meteor.users.findOne({'_id':id});
  	let Recommandation = Recommandations.find({'to_id':id});
+ 	let RecommandationDonner = Recommandations.find({'from_id':id});
  	const reponseExists = !loading && !!Conseiller;
- 	const reponseExists1 = !loading1 && !!Recommandations;
+ 	const reponseExists1 = !loading1 && !!Recommandation;
+ 	const reponseExists3 = !loading1 && !!RecommandationDonner;
  	const reponseExists2 = !loading2 && !!user;
 
   return {
   	lastConnection:reponseExists2 ? user.status.lastLogin.date : '',
   	conseiller:reponseExists ? Conseiller : '',
   	Recommandations:reponseExists1 ? Recommandation.count() : '',
+  	RecommandationsDonné:reponseExists3 ? RecommandationDonner.count() : '',
   	user:reponseExists2 ? user : '',
   	profile:reponseExists2 ? user.profile : '',
   	online:reponseExists2 ? user.status : '',
   	IdProfile:id==Meteor.userId() ? "visiblenote" : "none",
   	NotIdProfile:id!==Meteor.userId() ? "visiblenote" : "none",
+  	MyIdProfile:id==Meteor.userId() ? "visiblenote" : "none",
   	isConseiller:reponseExists ? "active" : "disabled",
   };
 })(ProfilContent);

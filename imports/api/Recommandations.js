@@ -36,6 +36,7 @@ Meteor.methods({
                   from_name: user.username,
                   to_name: search.username,
                   gender :user.profile.gender,
+                  to_gender: search.profile.gender,
                   date: new Date(),
                   note: note,
                   commentaire: text,
@@ -77,7 +78,19 @@ Meteor.methods({
        RecommandationNotif: function(message_id){
         check(message_id, String);
         Recommandations.update(message_id, {$set: {read:true} })
-      }
+      },
+
+       supprimerRecommandation: function(idMessage) {
+         check(idMessage, String);
+          Recommandations.remove({_id:idMessage});
+       },
+
+        ModifierRecommandation: function(idMessage, text) {
+         check(idMessage, String);
+          Recommandations.update({_id:idMessage}, {
+              $set: { commentaire: text},
+              })
+       },
 });
 
 

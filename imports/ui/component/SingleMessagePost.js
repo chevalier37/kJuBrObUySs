@@ -61,7 +61,9 @@ class ListeMessagePost extends Component {
   render() {
 
 	const colorSexe = this.state.sexe;
-
+	let now = new Date();
+	let diff = now - this.props.message.naissance;
+	let age = Math.round(diff / 31536000000);
    
 		return (
 			<div className="ListeMessagesSingle">
@@ -72,6 +74,9 @@ class ListeMessagePost extends Component {
 	        				  	"titreMessageFille" : "titreMessageGarcon"}>
 					  				{this.props.message.post_title}
 					  			</div>
+					  			<div className="ageAuthorReponse">
+			        				{age} ans
+			        			</div>
     					</div>
 	        	
 	  			<Segment color={this.sexe()=="pink" ?

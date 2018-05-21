@@ -3,6 +3,9 @@ import { Meteor } from 'meteor/meteor';
 import { Segment, Button, Form, Header, Divider, TextArea } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
+import FaCheck from 'react-icons/lib/fa/check';
+import FaClose from 'react-icons/lib/fa/close';
+
 export default class ChatContent extends Component {
 
 		constructor(props) {
@@ -11,13 +14,15 @@ export default class ChatContent extends Component {
 		      message:'',
 		      date:'',
 		      messageDate:'',
+		      read:false,
+		      gauche:''
 		    };
 		}
 	
 		componentWillMount(){
 			const to_id = this.props.to_id;
 			const myId = Meteor.userId();
-			
+
 			{
 				myId==this.props.message.from_id ?
 			 	this.setState({
@@ -27,11 +32,27 @@ export default class ChatContent extends Component {
 			}
 
 			{
+				this.props.message.read ?
+			 	this.setState({
+		      	read: true}) :
+			 	this.setState({
+		     	read: false})
+			}
+
+			{
 				myId==this.props.message.from_id ?
 			 	this.setState({
 		      	messageDate: 'message_droite_date'}) :
 			 	this.setState({
 		      	messageDate: 'message_gauche_date'})
+	    	}
+
+	    	{
+				myId==this.props.message.to_id ?
+			 	this.setState({
+		      	gauche: 'none'}) :
+			 	this.setState({
+		      	gauche: 'message_droite_date'})
 	    	}
 
 		    const date = this.props.date;
@@ -64,13 +85,14 @@ export default class ChatContent extends Component {
 		    this.el.scrollIntoView();
 		}
 
+
 		breaklines(){
 			let message = this.props.message.message
 			return message
 		}
 		
   render() {
-    
+
 	    return (
 	    	<div>
 		    	<div className={"AffficheDiscussion" + " "+this.state.messageDate}>
@@ -82,6 +104,15 @@ export default class ChatContent extends Component {
 					</div>
 					<div ref={el => { this.el = el; }} >
 					</div>
+
+		    	</div>
+		    	<div className={"MessageLu" + " "+this.state.gauche}>
+		    		<div className={this.props.message.read ? "visible" : "none"}>
+		    			<FaCheck /> message lu
+		    		</div>
+		    		<div className={!this.props.message.read? "visible" : "none"}>
+		    			<FaClose />message non lu
+		    		</div>
 		    	</div>
 	    	</div>
 	    )

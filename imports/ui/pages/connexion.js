@@ -12,6 +12,7 @@ import FormSubscribe from '../component/FormSubscribe.js';
 import Header from '../component/Header.js';
 import Footer from '../component/Footer.js';
 import FaComments from 'react-icons/lib/fa/comments';
+
 //import FaExpeditedssl from 'react-icons/lib/fa/Expeditedssl';
 import FaTrashO from 'react-icons/lib/fa/trash-o';
 
@@ -61,6 +62,8 @@ class Connexion extends Component {
                 Vous ne marcherez jamais seul
                 <div className="consigneSite">
                   <Message floating>
+                      <a href={"https://play.google.com/store/apps/details?id=com.idb9qf011pqj13l1a3vqwl&hl=fr"}><Img className="application" src="/android.png"/></a>
+                      <a href={"https://itunes.apple.com/us/app/kurbys/id1295881140?mt=8"}><Img className="application" src="/apple.png"/></a>
                     <Message.Header>Avec Kurbys vous pouvez :</Message.Header>
                     <Message.List>
                       <Message.Item>Contacter un conseiller pour obtenir de l'aide</Message.Item>
@@ -82,8 +85,6 @@ class Connexion extends Component {
                       <FaComments /> Kurbys est un espace de discussion intime où tout le monde peut donner et recevoir de l'aide.<br /><br />
                        Tous les échanges sont anonymes afin de respecter la confidentialité des messages. Cela vous permet de laisser parler votre coeur afin de dire la vérité silencieuse qui est en vous.<br /><br />
                       <FaTrashO /> Vous pouvez supprimer votre compte à tout moment. Tous vos messages seront définitivement supprimés.<br />
-                      <a href={"https://play.google.com/store/apps/details?id=com.idb9qf011pqj13l1a3vqwl&hl=fr"}><Img className="application" src="/android.png"/></a>
-                      <a href={"https://itunes.apple.com/us/app/kurbys/id1295881140?mt=8"}><Img className="application" src="/apple.png"/></a>
                   </Message>
                 </div>
 
@@ -94,9 +95,11 @@ class Connexion extends Component {
           </div>
             <Modal basic size='small' open={this.state.open}>
                         <Modal.Content>
+                          <div className="telechargerMobile">
                            <p className="deleteCount">Télécharger l'application :</p>
                             <a href={"https://play.google.com/store/apps/details?id=com.idb9qf011pqj13l1a3vqwl&hl=fr"}><Img className="application" src="/android.png"/></a>
                             <a href={"https://itunes.apple.com/us/app/kurbys/id1295881140?mt=8"}><Img className="application" src="/apple.png"/></a>
+                          </div>
                         </Modal.Content>
                         <Modal.Actions>
                             <Button

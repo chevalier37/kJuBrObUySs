@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 
+import { Chat } from '../../api/Chat.js';
 //Icons
 import Send from 'react-icons/lib/fa/paper-plane-o';
 
@@ -52,6 +53,19 @@ class FormChat extends Component {
 	              	}     
             	}
           	})
+
+          	  Meteor.call('updateContactOnline',
+		    		this.props.to_id,
+			  	  (err) => {
+	            	if(err){
+	              
+	           		 } else {
+	              	{
+				        //this.setState({ redirect: true})
+		              	}     
+	            	}
+	          	})
+
           	{
           		!this.props.isOnline ?
 

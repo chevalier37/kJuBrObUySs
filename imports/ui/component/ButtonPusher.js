@@ -18,7 +18,7 @@ import SignOut from 'react-icons/lib/fa/sign-out';
 import Bell from 'react-icons/lib/fa/bell';
 import Edit from 'react-icons/lib/fa/edit';
 import Search from 'react-icons/lib/fa/search';
-
+import Key from 'react-icons/lib/fa/key';
 
 import ChatItemNotif from './ChatItemNotif.js';
 import ReponsesNotif from './ReponsesNotif.js';
@@ -214,10 +214,17 @@ class ButtonPusher extends Component {
     			        <Dropdown.Item>
     			         <Link to={'/Livre/'}>  
     			        	<p className="colorIconBlue"><Book /></p>
-    			         	<p className="menuIcon">Le Secret de Cendrillon</p>
+    			         	<p className="menuIcon">Le Livre</p>
     			        </Link>
     			         </Dropdown.Item>
-    			        <Dropdown.Divider />
+    			       {/* <Dropdown.Divider />
+                  <Dropdown.Item>
+                   <Link to={'/ChangerMotDePasse/'}>  
+                    <p className="colorIconBlue"><Key/></p>
+                    <p className="menuIcon">Changer mot de passe</p>
+                  </Link>
+                   </Dropdown.Item> */}
+                  <Dropdown.Divider />
     			        <Dropdown.Item>
     			        <Link to={'/AmeliorerSite/'}> 
     				        <p className="colorIconVert"><ThumbsUp /></p>

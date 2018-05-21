@@ -36,6 +36,12 @@ import Notifications from '../../../imports/ui/pages/Notifications.js';
 import NotFound from '../../../imports/ui/pages/NotFound.js';
 import MiseAjourNaissance from '../../../imports/ui/pages/MiseAjourNaissance.js';
 import SuiviConseil from '../../../imports/ui/pages/SuiviConseil.js';
+import ModifierMessage from '../../../imports/ui/pages/ModifierMessage.js';
+import RecommandationsDonner from '../../../imports/ui/pages/RecommandationsDonner.js';
+import ModifierRecommandation from '../../../imports/ui/pages/ModifierRecommandation.js';
+import ChangerMotDePasse from '../../../imports/ui/pages/ChangerMotDePasse.js';
+import ValiderNouveauPassword from '../../../imports/ui/pages/ValiderNouveauPassword.js';
+
 
 const requireAuth = (nextState, replace) => {
 
@@ -83,7 +89,12 @@ export const renderRoutes = () => (
       <Route path="/Notifications/" component={Notifications}/>
       <Route path="/MiseAjourNaissance/" component={MiseAjourNaissance}/>
       <Route path="/SuiviConseil/" component={SuiviConseil}/>
-      
+      <Route path="/ModifierMessage/:id" component={ModifierMessage}/>
+      <Route path="/RecommandationsDonner/:id" component={RecommandationsDonner}/>
+      <Route path="/ModifierRecommandation/:id" component={ModifierRecommandation}/>
+      <Route path="/ChangerMotDePasse/" component={ChangerMotDePasse}/>
+      <Route path="/ValiderNouveauPassword/" component={ValiderNouveauPassword}/>
+
     </div>
   </Router>
 );

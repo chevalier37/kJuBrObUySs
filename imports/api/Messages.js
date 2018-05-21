@@ -191,6 +191,15 @@ Meteor.methods({
           Posts.remove({_id:idMessage});
        },
 
+       ModifierMessage: function(idMessage, text) {
+         check(idMessage, String);
+          Posts.update({_id:idMessage}, {
+              $set: { post_content: text},
+              })
+       },
+
+
+
 
 });
 

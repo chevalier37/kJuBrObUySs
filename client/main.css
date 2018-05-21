@@ -360,6 +360,25 @@ header {
 	margin-top: -10px;
 }
 
+.repondreMessage1{
+	float: right;
+	margin-top: -10px;
+}
+
+.repondreMessage1 a{
+	color: white;
+}
+
+.repondreMessage1 a:hover{
+	color: white;
+}
+
+.repondreMessage2{
+	float: right;
+	margin-top: -10px;
+	margin-right: 10px;
+}
+
 .signaler{
 	float: right;
 	margin-top: 0px;
@@ -1108,8 +1127,22 @@ header {
     margin-top: -10px;
 }
 
+.recommandationsListe{
+	float: right;
+	margin-top: 10px;
+}
+
+.recommandationsListe a{
+	color: #4183c4;
+}
+
+.recommandationsListe a:hover{
+	color: white;
+}
+
 .recommandations{
 	margin-top: 10px;
+	display: inline-block;
 }
 
 .recommandations a{
@@ -1524,13 +1557,12 @@ header {
 
 .textConseillere{
 	font-size: 16px;
-
 }
 
 .ageAuthorReponse{
-	display: inline-block;
-	margin-left: 10px;
-	color: white;
+    margin-top: -20px;
+    float: right;
+    margin-right: 20px;
 }
 
 .deleteContact{
@@ -1542,10 +1574,22 @@ header {
 	padding-top: 1px;
 }
 
+.Signaler1{
+	float: right;
+	margin-top: -10px;
+}
+
 .Signaler{
 	float: right;
 	margin-top: -10px;
-	margin-right: 20px;
+}
+
+.Signaler a{
+	color: white;
+}
+
+.Signaler a:hover{
+	color: white;
 }
 
 .visibleMessage{
@@ -1575,6 +1619,14 @@ header {
     width: 150px;
     margin-right: 20px;
     height: 55px;
+}
+
+.MessageLu{
+	margin-top: -10px;
+}
+
+.telechargerMobile{
+	margin-top: 100px;
 }
 
 @media only screen and (max-width: 1800px) {

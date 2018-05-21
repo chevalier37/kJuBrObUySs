@@ -5,12 +5,11 @@ import { Link } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 
 import FormPosterMessage from './FormPosterMessage.js';
-import ListeSuiviConseil from './ListeSuiviConseil.js';
+import ListeModifierMessage from './ListeModifierMessage.js';
 
 import { Posts } from '../../api/Messages.js';
-import { Comments } from '../../api/Reponses.js';
 
-class ContentMessagePostes extends Component {
+class ContentModifierMessage extends Component {
 
 	constructor(props) {
 			    super(props);
@@ -25,10 +24,10 @@ class ContentMessagePostes extends Component {
 	    let AllMessages = this.props.allMessages;
 
 	    return AllMessages.map((message) => {
-	     let date = Date.parse(message.submitted);
+	     let date = Date.parse(message.post_date);
          
 	      return (
-	        <ListeSuiviConseil
+	        <ListeModifierMessage
 	          key={message._id}
 	          message={message}
 	          date={date}
@@ -44,7 +43,7 @@ class ContentMessagePostes extends Component {
 			<div className="MainContent">
 				<Segment>
 					<Header>
-					Les conseils que j'ai donné
+					Modifier mon message
 					</Header>
 				</Segment>
 	  			<div className="ListeMesMessages">
@@ -56,14 +55,14 @@ class ContentMessagePostes extends Component {
   	}
 }
 
-export default withTracker(() => {
+export default withTracker(({post_id}) => {
 	const myId = Meteor.userId();
-  	const Handle = Meteor.subscribe('MyReponses', myId);
+  	const Handle = Meteor.subscribe('MyMessages', myId);
   	const loading = !Handle.ready();
-  	const allposts = Comments.find({userId:myId}, { sort: { submitted: -1 }});
+  	const allposts = Posts.find({_id:post_id});
   	const postExists = !loading && !!allposts;
   
   return {
     allMessages: postExists ? allposts.fetch() : []
   };
-})(ContentMessagePostes);
+})(ContentModifierMessage);

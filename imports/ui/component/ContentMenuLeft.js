@@ -6,6 +6,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import AdSense from 'react-adsense';
 
 import { Conseilleres } from '../../api/Conseilleres.js';
+import { Recommandations } from '../../api/Recommandations.js';
 
 //Icons
 import FaUser from 'react-icons/lib/fa/user';
@@ -17,6 +18,7 @@ import FaBook from 'react-icons/lib/fa/book';
 import FaCalendarCheckO from 'react-icons/lib/fa/calendar-check-o';
 
 import LastConseilleresContent from '../component/LastConseilleresContent.js';
+import LastRecommandationsContent from '../component/LastRecommandationsContent.js';
 
 class ContentMenuLeft extends Component {
 
@@ -59,6 +61,20 @@ class ContentMenuLeft extends Component {
         
         return (
           <LastConseilleresContent
+            key={conseiller._id}
+            conseiller={conseiller}      
+          />
+        );
+      });
+  }
+
+  renderLastRecommandations() {
+      let Allrecommandations = this.props.Lastrecommandation;
+
+      return Allrecommandations.map((conseiller) => {
+        
+        return (
+          <LastRecommandationsContent
             key={conseiller._id}
             conseiller={conseiller}      
           />
@@ -131,27 +147,42 @@ class ContentMenuLeft extends Component {
                 <Link to={'/Livre/'}> 
                   <div className="star">     
                       <FaBook/>
-                  </div> Le Secret de Cendrillon
+                  </div> Le livre
                 </Link>
               </div>
   			</Menu>
+
+        <div className="espacePub" ></div>
+        {/*
+        <AdSense.Google
+          client='ca-pub-6112176939320267'
+          slot='6737349349'
+          style={{ display: 'inline-block',width:'200px', height:'200px'}}
+        />*/}
+
 
   		  <div className="MenuLeftLastConseiller">
     				<div
     				 className="HeaderMenu"
     				 >
-    				 Nouveaux conseillers
+    				 Dernières recommandations
     				 </div>
              <div className="espaceConseiller"></div>
-    			        {this.renderLastConseiller()}
-  		   
+    			        {this.renderLastRecommandations()}
   			</div>
+
         <div className="espacePub" ></div>
-        <AdSense.Google
-          client='ca-pub-6112176939320267'
-          slot='5421106747'
-          style={{ display: 'inline-block',width:'160px', height:'600px'}}
-        />
+
+        <div className="MenuLeftLastConseiller">
+            <div
+             className="HeaderMenu"
+             >
+             Nouveaux conseillers
+             </div>
+             <div className="espaceConseiller"></div>
+                  {this.renderLastConseiller()}
+        </div>
+        
 
 		</div>
 		);
@@ -165,7 +196,13 @@ export default ContentMenuLeft =  withTracker(() => {
   const allConseillers = Conseilleres.find({}, {sort:{date: -1},limit:5});
   const reponseExists = !loading && !!allConseillers;
 
+  const Handle1 = Meteor.subscribe('allRecommandations');
+  const loading1 = !Handle1.ready();
+  const Lastrecommandation = Recommandations.find({}, {sort:{date: -1},limit:5});
+  const reponseExists1 = !loading1 && !!Lastrecommandation;
+
   return {
     lastConseiller: reponseExists ? allConseillers.fetch() : [],
+    Lastrecommandation: reponseExists1 ? Lastrecommandation.fetch() : [],
   };
 })(ContentMenuLeft);
