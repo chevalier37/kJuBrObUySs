@@ -160,6 +160,7 @@ Meteor.methods({
                   signaler:0,
                   upvoters: [],
                   post_author_id : this.userId,
+                  nbrReponse:0,
                 });
              },
 

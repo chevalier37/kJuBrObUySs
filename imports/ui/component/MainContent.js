@@ -21,7 +21,11 @@ class MainContent extends Component {
 					MessageEcole:'cacher',
 					MessageSante:'cacher',
 					MessageConfiance:'cacher',
+					MessageNonLu:'cacher',
+					MessageAutre:'cacher',
 					more:5,
+					moreNonLu:5,
+					moreAutre:5,
 					moreAmour:5,
 					moreConfiance:5,
 					moreSexo:5,
@@ -35,6 +39,40 @@ class MainContent extends Component {
 	    let AllMessages = this.props.allMessages;
 	    let more = this.state.more;
 	    return AllMessages.slice(0, more).map((message) => {
+	     let date = Date.parse(message.post_date);
+         
+	      return (
+	        <ListeMessages
+	          key={message._id}
+	          message={message}
+	          date={date}
+	          id={message._id}         
+	        />
+	      );
+	    });
+	}
+
+	renderNonLu() {
+	    let nonLu = this.props.postNonLu;
+	    let more = this.state.moreNonLu;
+	    return nonLu.slice(0, more).map((message) => {
+	     let date = Date.parse(message.post_date);
+         
+	      return (
+	        <ListeMessages
+	          key={message._id}
+	          message={message}
+	          date={date}
+	          id={message._id}         
+	        />
+	      );
+	    });
+	}
+
+	renderAutre() {
+	    let autre = this.props.postAutre;
+	    let more = this.state.moreAutre;
+	    return autre.slice(0, more).map((message) => {
 	     let date = Date.parse(message.post_date);
          
 	      return (
@@ -140,6 +178,30 @@ class MainContent extends Component {
        	this.setState({MessageConfiance: 'cacher'});
        	this.setState({MessageSexo: 'cacher'});
        	this.setState({MessageAmour: 'cacher'});
+       	this.setState({MessageNonLu: 'cacher'});
+       	this.setState({MessageAutre: 'cacher'});
+	 }
+
+	 nonLu() {
+       	this.setState({allMessages: 'cacher'});
+       	this.setState({MessageEcole: 'cacher'});
+       	this.setState({MessageSante: 'cacher'});
+       	this.setState({MessageConfiance: 'cacher'});
+       	this.setState({MessageSexo: 'cacher'});
+       	this.setState({MessageAmour: 'cacher'});
+       	this.setState({MessageNonLu: 'visibleMessage'});
+       	this.setState({MessageAutre: 'cacher'});
+	 }
+
+	 ShowAutre() {
+       	this.setState({allMessages: 'cacher'});
+       	this.setState({MessageEcole: 'cacher'});
+       	this.setState({MessageSante: 'cacher'});
+       	this.setState({MessageConfiance: 'cacher'});
+       	this.setState({MessageSexo: 'cacher'});
+       	this.setState({MessageAmour: 'cacher'});
+       	this.setState({MessageNonLu: 'cacher'});
+       	this.setState({MessageAutre: 'visibleMessage'});
 	 }
 
 	 shawAmour() {
@@ -149,6 +211,9 @@ class MainContent extends Component {
        	this.setState({MessageConfiance: 'cacher'});
        	this.setState({MessageSexo: 'cacher'});
        	this.setState({MessageAmour: 'visibleMessage'});
+       	this.setState({MessageNonLu: 'cacher'});
+       	this.setState({MessageAutre: 'cacher'});
+
 	 }
 
 	 showConfiance() {
@@ -158,6 +223,8 @@ class MainContent extends Component {
        	this.setState({MessageConfiance: 'visibleMessage'});
        	this.setState({MessageSexo: 'cacher'});
        	this.setState({MessageAmour: 'cacher'});
+       	this.setState({MessageNonLu: 'cacher'});
+       	this.setState({MessageAutre: 'cacher'});
 	 }
 
 	 showSexo() {
@@ -167,6 +234,8 @@ class MainContent extends Component {
        	this.setState({MessageConfiance: 'cacher'});
        	this.setState({MessageSexo: 'visibleMessage'});
        	this.setState({MessageAmour: 'cacher'});
+       	this.setState({MessageNonLu: 'cacher'});
+       	this.setState({MessageAutre: 'cacher'});
 	 }
 
 	 showEcole() {
@@ -176,6 +245,8 @@ class MainContent extends Component {
        	this.setState({MessageConfiance: 'cacher'});
        	this.setState({MessageSexo: 'cacher'});
        	this.setState({MessageAmour: 'cacher'});
+       	this.setState({MessageNonLu: 'cacher'});
+       	this.setState({MessageAutre: 'cacher'});
 	 }
 
 	 showSante() {
@@ -185,11 +256,23 @@ class MainContent extends Component {
        	this.setState({MessageConfiance: 'cacher'});
        	this.setState({MessageSexo: 'cacher'});
        	this.setState({MessageAmour: 'cacher'});
+       	this.setState({MessageNonLu: 'cacher'});
+       	this.setState({MessageAutre: 'cacher'});
 	 }
 
 	 VoirPlus() {
 	 	let plus = this.state.more + 5
        	this.setState({more: plus});
+	 }
+
+	 VoirNonLu() {
+	 	let plus = this.state.moreNonLu + 5
+       	this.setState({moreNonLu: plus});
+	 }
+
+	 VoirAutre() {
+	 	let plus = this.state.moreAutre + 5
+       	this.setState({moreAutre: plus});
 	 }
 
 	  VoirPlusConfiance() {
@@ -245,6 +328,13 @@ class MainContent extends Component {
 				        Tous
 				       </Button>
 
+				       <Button
+				        size="small"
+				        inverted color="blue"
+				        onClick={this.nonLu.bind(this)}>
+				        Non répondus
+				       </Button>
+
 				      <Button
 				        size="small"
 				         inverted color="red"
@@ -279,6 +369,14 @@ class MainContent extends Component {
 				        onClick={this.showEcole.bind(this)}>
 				        Scolaire
 				       </Button>
+
+				       <Button
+				        size="small"
+				        inverted color="red"
+				        onClick={this.ShowAutre.bind(this)}>
+				        Autre
+				       </Button>
+
 				    </div>
 	  			</Segment>
 
@@ -289,6 +387,18 @@ class MainContent extends Component {
 							fluid
 					        color="green"
 					        onClick={this.VoirPlus.bind(this)}>
+					        Voir plus
+						</Button>
+					</div>
+	  			</div>
+
+	  			<div className={this.state.MessageNonLu}>
+	  				{this.renderNonLu()}
+	  				<div className={this.state.moreNonLu > this.props.countNonLu ? "none" : "voirPlus" }>
+						<Button
+							fluid
+					        color="green"
+					        onClick={this.VoirNonLu.bind(this)}>
 					        Voir plus
 						</Button>
 					</div>
@@ -354,6 +464,18 @@ class MainContent extends Component {
 					</div>
 				</div>
 
+				<div className={this.state.MessageAutre}>
+					{this.renderAutre()}
+					<div className={this.state.moreAutre > this.props.countAutre ? "none" : "voirPlus" }>
+						<Button
+							fluid
+					        color="green"
+					        onClick={this.VoirAutre.bind(this)}>
+					        Voir plus
+						</Button>
+					</div>
+				</div>
+
 			</div>
 
 		);
@@ -370,8 +492,13 @@ export default withTracker(() => {
   	{trahison:true},
     {Friendzone:true},
     {amourdistance:true},
-    {separation:true},
-    {autre:true}]},
+    {separation:true}]},
+    { sort: { post_date: -1 }, limit:30 });
+
+  const autre = Posts.find({autre:true},
+    { sort: { post_date: -1 }, limit:30 });
+
+  const nonLu = Posts.find({nbrReponse:0},
     { sort: { post_date: -1 }, limit:30 });
 
   const confiance = Posts.find({$or:
@@ -379,8 +506,7 @@ export default withTracker(() => {
   	{depression:true},
     {suicide:true},
     {deces:true},
-    {mutilation:true},
-    {autre:true}]},
+    {mutilation:true}]},
     { sort: { post_date: -1 }, limit:30 });
 
   const sexo = Posts.find({$or:
@@ -389,8 +515,7 @@ export default withTracker(() => {
     {mst:true},
     {viol:true},
     {avortement:true},
-    {orientationSex:true},
-    {autre:true}]},
+    {orientationSex:true}]},
     { sort: { post_date: -1 }, limit:30 });
 
   const sante = Posts.find({$or:
@@ -401,18 +526,15 @@ export default withTracker(() => {
     {complexe:true},
     {hopital:true},
     {handicap:true},
-    {Accident:true},
-    {autre:true}]},
+    {Accident:true}]},
     { sort: { post_date: -1 }, limit:30 });
 
   const ecole = Posts.find({$or:
   	[{echecEcole:true},
   	{Harcelement:true},
     {Discrimination:true},
-    {Violence:true},
-    {autre:true}]},
+    {Violence:true}]},
     { sort: { post_date: -1 }, limit:30 });
-
 
    const postExists = !loading && !!allposts;
    const postAmourExists = !loading && !!amour;
@@ -420,10 +542,18 @@ export default withTracker(() => {
    const postSexoExists = !loading && !!sexo;
    const postSanteExists = !loading && !!sante;
    const postEcoleExists = !loading && !!ecole;
+   const postNonLuExists = !loading && !!nonLu;
+   const postautreExists = !loading && !!autre;
 
   return {
     allMessages: postExists ? allposts.fetch() : [],
     countAllMessages: postExists ? allposts.count() : '',
+
+    postNonLu: postExists ? nonLu.fetch() : [],
+    countNonLu: postExists ? nonLu.count() : "",
+
+    postAutre: postExists ? autre.fetch() : [],
+    countAutre: postExists ? autre.count() : "",
     
     postsAmour: postExists ? amour.fetch() : [],
     countPostsAmour: postExists ? amour.count() : "",

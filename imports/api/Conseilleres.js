@@ -37,6 +37,21 @@ Meteor.methods({
             } 
       },
 
+      SupprimerpremierAmour: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { premierAmour: false, premierAmourText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
+            } 
+      },
+
       trahison: function(theme, text) {
             const user = Meteor.user()
             const IsConseiller = Conseilleres.findOne({user_id:this.userId});
@@ -57,6 +72,21 @@ Meteor.methods({
                   date: new Date(),
                   naissance:user.profile.naissance,
                 });
+            } 
+      },
+
+      Supprimertrahison: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { trahison: false, trahisonText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
             } 
       },
 
@@ -83,6 +113,21 @@ Meteor.methods({
             } 
       },
 
+      SupprimerFriendzone: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { Friendzone: false, FriendzoneText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
+            } 
+      },
+
       amourdistance: function(theme, text) {
             const user = Meteor.user()
             const IsConseiller = Conseilleres.findOne({user_id:this.userId});
@@ -103,6 +148,21 @@ Meteor.methods({
                   date: new Date(),
                   naissance:user.profile.naissance,
                 });
+            } 
+      },
+
+      Supprimeramourdistance: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { amourdistance: false, amourdistanceText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
             } 
       },
 
@@ -129,6 +189,21 @@ Meteor.methods({
             } 
       },
 
+      Supprimerseparation: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { separation: false, separationText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
+            } 
+      },
+
       timidite: function(theme, text) {
             const user = Meteor.user()
             const IsConseiller = Conseilleres.findOne({user_id:this.userId});
@@ -149,6 +224,21 @@ Meteor.methods({
                   date: new Date(),
                   naissance:user.profile.naissance,
                 });
+            } 
+      },
+
+      Supprimertimidite: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { timidite: false, timiditeText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
             } 
       },
 
@@ -175,6 +265,21 @@ Meteor.methods({
             } 
       },
 
+      Supprimerdepression: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { depression: false, depressionText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
+            } 
+      },
+
       mutilation: function(theme, text) {
             const user = Meteor.user()
             const IsConseiller = Conseilleres.findOne({user_id:this.userId});
@@ -195,6 +300,21 @@ Meteor.methods({
                   date: new Date(),
                   naissance:user.profile.naissance,
                 });
+            } 
+      },
+
+      Supprimermutilation: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { mutilation: false, mutilationText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
             } 
       },
 
@@ -221,6 +341,21 @@ Meteor.methods({
             } 
       },
 
+      Supprimersuicide: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { suicide: false, suicideText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
+            } 
+      },
+
       deces: function(theme, text) {
             const user = Meteor.user()
             const IsConseiller = Conseilleres.findOne({user_id:this.userId});
@@ -241,6 +376,21 @@ Meteor.methods({
                   date: new Date(),
                   naissance:user.profile.naissance,
                 });
+            } 
+      },
+
+      Supprimerdeces: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { deces: false, decesText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
             } 
       },
 
@@ -268,6 +418,21 @@ Meteor.methods({
             } 
       },
 
+      Supprimerpremierfois: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { premierfois: false, premierfoisText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
+            } 
+      },
+
       contraception: function(theme, text) {
             const user = Meteor.user()
             const IsConseiller = Conseilleres.findOne({user_id:this.userId});
@@ -288,6 +453,21 @@ Meteor.methods({
                   date: new Date(),
                   naissance:user.profile.naissance,
                 });
+            } 
+      },
+
+      Supprimercontraception: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { contraception: false, contraceptionText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
             } 
       },
 
@@ -314,6 +494,21 @@ Meteor.methods({
             } 
       },
 
+      Supprimermst: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { mst: false, mstText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
+            } 
+      },
+
       viol: function(theme, text) {
             const user = Meteor.user()
             const IsConseiller = Conseilleres.findOne({user_id:this.userId});
@@ -334,6 +529,21 @@ Meteor.methods({
                   date: new Date(),
                   naissance:user.profile.naissance,
                 });
+            } 
+      },
+
+      Supprimerviol: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { viol: false, violText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
             } 
       },
 
@@ -360,6 +570,21 @@ Meteor.methods({
             } 
       },
 
+       Supprimeravortement: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { avortement: false, avortementText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
+            } 
+      },
+
       orientationSex: function(theme, text) {
             const user = Meteor.user()
             const IsConseiller = Conseilleres.findOne({user_id:this.userId});
@@ -380,6 +605,21 @@ Meteor.methods({
                   date: new Date(),
                   naissance:user.profile.naissance,
                 });
+            } 
+      },
+
+      SupprimerorientationSex: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { orientationSex: false, orientationSexText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
             } 
       },
 
@@ -406,6 +646,21 @@ Meteor.methods({
             } 
       },
 
+      SupprimerAnorexie: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { Anorexie: false, AnorexieText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
+            } 
+      },
+
       obesite: function(theme, text) {
             const user = Meteor.user()
             const IsConseiller = Conseilleres.findOne({user_id:this.userId});
@@ -426,6 +681,21 @@ Meteor.methods({
                   date: new Date(),
                   naissance:user.profile.naissance,
                 });
+            } 
+      },
+
+      Supprimerobesite: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { obesite: false, obesiteText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
             } 
       },
 
@@ -452,6 +722,21 @@ Meteor.methods({
             } 
       },
 
+      Supprimerdrogue: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { drogue: false, drogueText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
+            } 
+      },
+
       alcool: function(theme, text) {
             const user = Meteor.user()
             const IsConseiller = Conseilleres.findOne({user_id:this.userId});
@@ -472,6 +757,21 @@ Meteor.methods({
                   date: new Date(),
                   naissance:user.profile.naissance,
                 });
+            } 
+      },
+
+      Supprimeralcool: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { alcool: false, alcoolText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
             } 
       },
 
@@ -498,6 +798,21 @@ Meteor.methods({
             } 
       },
 
+      Supprimercomplexe: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { complexe: false, complexeText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
+            } 
+      },
+
       hopital: function(theme, text) {
             const user = Meteor.user()
             const IsConseiller = Conseilleres.findOne({user_id:this.userId});
@@ -518,6 +833,21 @@ Meteor.methods({
                   date: new Date(),
                   naissance:user.profile.naissance,
                 });
+            } 
+      },
+
+      Supprimerhopital: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { hopital: false, hopitalText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
             } 
       },
 
@@ -544,6 +874,21 @@ Meteor.methods({
             } 
       },
 
+      Supprimeraccident: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { accident: false, accidentText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
+            } 
+      },
+
       handicap: function(theme, text) {
             const user = Meteor.user()
             const IsConseiller = Conseilleres.findOne({user_id:this.userId});
@@ -564,6 +909,21 @@ Meteor.methods({
                   date: new Date(),
                   naissance:user.profile.naissance,
                 });
+            } 
+      },
+
+      Supprimerhandicap: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { handicap: false, handicapText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
             } 
       },
 
@@ -590,6 +950,21 @@ Meteor.methods({
             } 
       },
 
+      SupprimerechecEcole: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { handicap: false, handicapText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
+            } 
+      },
+
       Harcelement: function(theme, text) {
             const user = Meteor.user()
             const IsConseiller = Conseilleres.findOne({user_id:this.userId});
@@ -610,6 +985,21 @@ Meteor.methods({
                   date: new Date(),
                   naissance:user.profile.naissance,
                 });
+            } 
+      },
+
+       SupprimerHarcelement: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { Harcelement: false, HarcelementText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
             } 
       },
 
@@ -636,6 +1026,21 @@ Meteor.methods({
             } 
       },
 
+       Supprimerdiscrimination: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { discrimination: false, discriminationText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
+            } 
+      },
+
       Violence: function(theme, text) {
             const user = Meteor.user()
             const IsConseiller = Conseilleres.findOne({user_id:this.userId});
@@ -656,6 +1061,21 @@ Meteor.methods({
                   date: new Date(),
                   naissance:user.profile.naissance,
                 });
+            } 
+      },
+
+      SupprimerViolence: function() {
+            const user = Meteor.user()
+            const IsConseiller = Conseilleres.findOne({user_id:this.userId});
+            
+            {
+              IsConseiller
+             ?
+             Conseilleres.update({user_id:this.userId}, {
+              $set: { Violence: false, ViolenceText:" ", },
+              }) && console.log(IsConseiller)
+             :
+             ""
             } 
       },
 

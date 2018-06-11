@@ -2,16 +2,12 @@
 # yarn lockfile v1
 
 
-"@babel/runtime@^7.0.0-beta.36":
-  version "7.0.0-beta.39"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0-beta.39.tgz#e4b763b78d31a2c209165bae2772f103594a8972"
+"@babel/runtime@^7.0.0-beta.49":
+  version "7.0.0-beta.49"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0-beta.49.tgz#03b3bf07eb982072c8e851dd2ddd5110282e61bf"
   dependencies:
-    core-js "^2.5.3"
+    core-js "^2.5.6"
     regenerator-runtime "^0.11.1"
-
-Base64@~0.2.0:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/Base64/-/Base64-0.2.1.tgz#ba3a4230708e186705065e66babdd4c35cf60028"
 
 JSONStream@~1.3.1:
   version "1.3.2"
@@ -275,6 +271,10 @@ builtin-modules@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/builtin-modules/-/builtin-modules-1.1.1.tgz#270f076c5a72c02f5b65a47df94c5fe3a278892f"
 
+builtin-status-codes@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
+
 builtins@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/builtins/-/builtins-1.0.3.tgz#cb94faeb61c8696451db36534e1422f94f0aee88"
@@ -470,9 +470,13 @@ core-js@^1.0.0:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
 
-core-js@^2.4.0, core-js@^2.5.3:
+core-js@^2.4.0:
   version "2.5.3"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.5.3.tgz#8acc38345824f16d8365b7c9b4259168e8ed603e"
+
+core-js@^2.5.6:
+  version "2.5.7"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.5.7.tgz#f972608ff0cead68b841a16a932d0b183791814e"
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -769,6 +773,10 @@ extsprintf@^1.2.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
 
+faker@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/faker/-/faker-4.1.0.tgz#1e45bbbecc6774b3c195fad2835109c6d748cc3f"
+
 fast-deep-equal@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-1.0.0.tgz#96256a3bc975595eb36d82e9929d060d893439ff"
@@ -1034,13 +1042,6 @@ hoist-non-react-statics@^2.3.0:
 hosted-git-info@^2.1.4, hosted-git-info@^2.4.2, hosted-git-info@^2.5.0, hosted-git-info@~2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.5.0.tgz#6d60e34b3abbc8313062c3b798ef8d901a07af3c"
-
-http-browserify@^1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/http-browserify/-/http-browserify-1.7.0.tgz#33795ade72df88acfbfd36773cefeda764735b20"
-  dependencies:
-    Base64 "~0.2.0"
-    inherits "~2.0.1"
 
 http-cache-semantics@^3.8.0:
   version "3.8.1"
@@ -1397,6 +1398,10 @@ lodash@^3.10.1:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
+lodash@^4.17.10:
+  version "4.17.10"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
+
 lodash@^4.17.4:
   version "4.17.5"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
@@ -1457,9 +1462,9 @@ mem@^1.1.0:
   dependencies:
     mimic-fn "^1.0.0"
 
-meteor-node-stubs@^0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/meteor-node-stubs/-/meteor-node-stubs-0.3.2.tgz#2c9224a911b1e66c141c6a17b1a3dc92dc387795"
+meteor-node-stubs@^0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/meteor-node-stubs/-/meteor-node-stubs-0.3.3.tgz#4037ec464573642b0efee3961a649a4818f796db"
   dependencies:
     assert "^1.4.1"
     browserify-zlib "^0.1.4"
@@ -1469,7 +1474,6 @@ meteor-node-stubs@^0.3.2:
     crypto-browserify "^3.11.0"
     domain-browser "^1.1.7"
     events "^1.1.1"
-    http-browserify "^1.7.0"
     https-browserify "0.0.1"
     os-browserify "^0.2.1"
     path-browserify "0.0.0"
@@ -1478,7 +1482,8 @@ meteor-node-stubs@^0.3.2:
     querystring-es3 "^0.2.1"
     readable-stream "git+https://github.com/meteor/readable-stream.git"
     stream-browserify "^2.0.1"
-    string_decoder "^1.0.1"
+    stream-http "^2.8.0"
+    string_decoder "^1.1.0"
     timers-browserify "^1.4.2"
     tty-browserify "0.0.0"
     url "^0.11.0"
@@ -2219,7 +2224,7 @@ rc@^1.0.1, rc@^1.1.6:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-adsense@^0.0.5:
+react-adsense@0.0.5:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/react-adsense/-/react-adsense-0.0.5.tgz#875582f706042c163f03aee99fe955a084762418"
 
@@ -2237,9 +2242,9 @@ react-body-classname@^1.2.0:
     prop-types "^15.5.6"
     react-side-effect "^1.1.0"
 
-react-dom@^16.2.0:
-  version "16.2.0"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.2.0.tgz#69003178601c0ca19b709b33a83369fe6124c044"
+react-dom@^16.4.0:
+  version "16.4.0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.4.0.tgz#099f067dd5827ce36a29eaf9a6cdc7cbf6216b1e"
   dependencies:
     fbjs "^0.8.16"
     loose-envify "^1.1.0"
@@ -2346,7 +2351,7 @@ react-stubber@^1.0.0:
   dependencies:
     babel-runtime "^6.5.0"
 
-react-world-flags@^0.0.3:
+react-world-flags@0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/react-world-flags/-/react-world-flags-0.0.3.tgz#cb5c834fca5b0957c4e5d4c2ea1f3916e47b6e0b"
   dependencies:
@@ -2363,9 +2368,9 @@ react@^15.5.4:
     object-assign "^4.1.0"
     prop-types "^15.5.10"
 
-react@^16.2.0:
-  version "16.2.0"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.2.0.tgz#a31bd2dab89bff65d42134fa187f24d054c273ba"
+react@^16.4.0:
+  version "16.4.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.4.0.tgz#402c2db83335336fba1962c08b98c6272617d585"
   dependencies:
     fbjs "^0.8.16"
     loose-envify "^1.1.0"
@@ -2443,6 +2448,18 @@ read@1, read@~1.0.1, read@~1.0.7:
     process-nextick-args "~2.0.0"
     safe-buffer "~5.1.1"
     string_decoder "~1.0.3"
+    util-deprecate "~1.0.1"
+
+readable-stream@^2.3.6:
+  version "2.3.6"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.3.6.tgz#b11c27d88b8ff1fbe070643cf94b0c79ae1b0aaf"
+  dependencies:
+    core-util-is "~1.0.0"
+    inherits "~2.0.3"
+    isarray "~1.0.0"
+    process-nextick-args "~2.0.0"
+    safe-buffer "~5.1.1"
+    string_decoder "~1.1.1"
     util-deprecate "~1.0.1"
 
 "readable-stream@git+https://github.com/meteor/readable-stream.git":
@@ -2561,9 +2578,9 @@ safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@^5.1.1, safe-buffer@~5.1.0, 
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.1.tgz#893312af69b2123def71f57889001671eeb2c853"
 
-semantic-ui-css@^2.2.14:
-  version "2.2.14"
-  resolved "https://registry.yarnpkg.com/semantic-ui-css/-/semantic-ui-css-2.2.14.tgz#1888c386c74e5c0abfa00508a94940e93a55465b"
+semantic-ui-css@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/semantic-ui-css/-/semantic-ui-css-2.3.1.tgz#a5485c640c98cce29d8ddde3eff3434566a068e0"
   dependencies:
     jquery x.*
 
@@ -2748,6 +2765,16 @@ stream-each@^1.1.0:
     end-of-stream "^1.1.0"
     stream-shift "^1.0.0"
 
+stream-http@^2.8.0:
+  version "2.8.3"
+  resolved "https://registry.yarnpkg.com/stream-http/-/stream-http-2.8.3.tgz#b2d242469288a5a27ec4fe8933acf623de6514fc"
+  dependencies:
+    builtin-status-codes "^3.0.0"
+    inherits "^2.0.1"
+    readable-stream "^2.3.6"
+    to-arraybuffer "^1.0.0"
+    xtend "^4.0.0"
+
 stream-iterate@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/stream-iterate/-/stream-iterate-1.2.0.tgz#2bd7c77296c1702a46488b8ad41f79865eecd4e1"
@@ -2778,15 +2805,21 @@ string-width@^2.0.0, string-width@^2.1.1:
     is-fullwidth-code-point "^2.0.0"
     strip-ansi "^4.0.0"
 
-string_decoder@^1.0.1, string_decoder@~1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-1.0.3.tgz#0fc67d7c141825de94282dd536bec6b9bce860ab"
+string_decoder@^1.1.0, string_decoder@~1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-1.1.1.tgz#9cf1611ba62685d7030ae9e4ba34149c3af03fc8"
   dependencies:
     safe-buffer "~5.1.0"
 
 string_decoder@~0.10.x:
   version "0.10.31"
   resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-0.10.31.tgz#62e203bc41766c6c28c9fc84301dab1c5310fa94"
+
+string_decoder@~1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-1.0.3.tgz#0fc67d7c141825de94282dd536bec6b9bce860ab"
+  dependencies:
+    safe-buffer "~5.1.0"
 
 stringstream@~0.0.5:
   version "0.0.5"
@@ -2816,11 +2849,10 @@ strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
-stripe@^5.5.0:
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/stripe/-/stripe-5.5.0.tgz#df5fefae440531ae2a0051f91c7837457ba06717"
+stripe@^5.10.0:
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/stripe/-/stripe-5.10.0.tgz#76fffdfc01fec3aef7ec2d1af058dec99b587421"
   dependencies:
-    bluebird "^3.5.0"
     lodash.isplainobject "^4.0.6"
     qs "~6.5.1"
     safe-buffer "^5.1.1"
@@ -2884,6 +2916,10 @@ timers-browserify@^1.4.2:
   resolved "https://registry.yarnpkg.com/timers-browserify/-/timers-browserify-1.4.2.tgz#c9c58b575be8407375cb5e2462dacee74359f41d"
   dependencies:
     process "~0.11.0"
+
+to-arraybuffer@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/to-arraybuffer/-/to-arraybuffer-1.0.1.tgz#7d229b1fcc637e466ca081180836a7aabff83f43"
 
 tough-cookie@~2.3.3:
   version "2.3.3"
@@ -3107,7 +3143,7 @@ xdg-basedir@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/xdg-basedir/-/xdg-basedir-3.0.0.tgz#496b2cc109eca8dbacfe2dc72b603c17c5870ad4"
 
-xtend@^4.0.1, xtend@~4.0.1:
+xtend@^4.0.0, xtend@^4.0.1, xtend@~4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"
 

@@ -85,7 +85,7 @@ class DevenirConseiller extends Component {
 
                       <p className="consigne">Merci !</p>
                       <p className="consigne">
-                      Ta recommendations a bien été enregistrée.
+                      Ta recommandation a bien été enregistrée.
                       </p>
                       <p></p>
                       </Segment>

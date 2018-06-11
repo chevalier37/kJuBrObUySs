@@ -143,11 +143,11 @@ class ContentMenuLeft extends Component {
                     </div>  Dons
   			    		</Link>
     					</div>
-              <div className="MenuItem">
+              <div className="MenuItem lesFilles">
                 <Link to={'/Livre/'}> 
                   <div className="star">     
                       <FaBook/>
-                  </div> Le livre
+                  </div> Pour les filles
                 </Link>
               </div>
   			</Menu>
@@ -182,6 +182,15 @@ class ContentMenuLeft extends Component {
              <div className="espaceConseiller"></div>
                   {this.renderLastConseiller()}
         </div>
+
+
+        <div className="espacePub" ></div>
+      
+        <AdSense.Google
+          client='ca-pub-6112176939320267'
+          slot='6737349349'
+          style={{ display: 'inline-block',width:'200px', height:'200px'}}
+        />
         
 
 		</div>

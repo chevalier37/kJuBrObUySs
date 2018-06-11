@@ -443,6 +443,7 @@ class FormPosterMessage extends Component {
 				    	 </Header>
 				   	</div>
 				    <div className={this.state.poster ? '' : "none"}>
+				     <div className="consigneMessage">Attention : Pas de faute d'orthographe sinon ton message sera supprimé !</div>
 					    <Form.Field>
 					      <label>Titre du message</label>
 					      <input

@@ -297,6 +297,15 @@ class ProfilContent extends Component {
 
 		}
 
+		SupprimerpremierAmour(){
+			Meteor.call('SupprimerpremierAmour',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
+		}
+
 		premierAmourValider(){
 			const text = ReactDOM.findDOMNode(this.refs.premierAmour).value.trim();
 			const theme = true;
@@ -323,6 +332,15 @@ class ProfilContent extends Component {
 			this.setState({ Validertrahison: 'visible'})
 			this.setState({ Modifiertrahison: 'none'})
 
+		}
+
+		Supprimertrahison(){
+			Meteor.call('Supprimertrahison',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
 		}
 
 		trahisonValider(){
@@ -353,6 +371,15 @@ class ProfilContent extends Component {
 
 		}
 
+		Supprimerfriendzone(){
+			Meteor.call('Supprimerfriendzone',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
+		}
+
 		friendzoneValider(){
 			const text = ReactDOM.findDOMNode(this.refs.friendzone).value.trim();
 			const theme = true;
@@ -378,7 +405,15 @@ class ProfilContent extends Component {
 			this.setState({ amourDistanceInput: 'visibleProfil'})
 			this.setState({ ValideramourDistance: 'visible'})
 			this.setState({ ModifieramourDistance: 'none'})
+		}
 
+		SupprimeramourDistance(){
+			Meteor.call('SupprimerDistance',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
 		}
 
 		amourDistanceValider(){
@@ -406,7 +441,15 @@ class ProfilContent extends Component {
 			this.setState({ separationInput: 'visibleProfil'})
 			this.setState({ Validerseparation: 'visible'})
 			this.setState({ Modifierseparation: 'none'})
+		}
 
+		Supprimerseparation(){
+			Meteor.call('Supprimerseparation',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
 		}
 
 		separationValider(){
@@ -434,7 +477,15 @@ class ProfilContent extends Component {
 			this.setState({ TimiditeInput: 'visibleProfil'})
 			this.setState({ ValiderTimidite: 'visible'})
 			this.setState({ ModifierTimidite: 'none'})
+		}
 
+		Supprimertimidite(){
+			Meteor.call('Supprimertimidite',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
 		}
 
 		timiditeValider(){
@@ -462,7 +513,15 @@ class ProfilContent extends Component {
 			this.setState({ depressionInput: 'visibleProfil'})
 			this.setState({ Validerdepression: 'visible'})
 			this.setState({ Modifierdepression: 'none'})
+		}
 
+		Supprimerdepression(){
+			Meteor.call('Supprimerdepression',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
 		}
 
 		depressionValider(){
@@ -490,7 +549,15 @@ class ProfilContent extends Component {
 			this.setState({ suicideInput: 'visibleProfil'})
 			this.setState({ Validersuicide: 'visible'})
 			this.setState({ Modifiersuicide: 'none'})
+		}
 
+		Supprimersuicide(){
+			Meteor.call('Supprimersuicide',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
 		}
 
 		suicideValider(){
@@ -518,7 +585,15 @@ class ProfilContent extends Component {
 			this.setState({ decesInput: 'visibleProfil'})
 			this.setState({ Validerdeces: 'visible'})
 			this.setState({ Modifierdeces: 'none'})
+		}
 
+		Supprimerdeces(){
+			Meteor.call('Supprimerdeces',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
 		}
 
 		decesValider(){
@@ -546,7 +621,15 @@ class ProfilContent extends Component {
 			this.setState({ mutilationInput: 'visibleProfil'})
 			this.setState({ Validermutilation: 'visible'})
 			this.setState({ Modifiermutilation: 'none'})
+		}
 
+		Supprimermutilation(){
+			Meteor.call('Supprimermutilation',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
 		}
 
 		mutilationValider(){
@@ -574,7 +657,15 @@ class ProfilContent extends Component {
 			this.setState({ premiereFoisInput: 'visibleProfil'})
 			this.setState({ ValiderpremiereFois: 'visible'})
 			this.setState({ ModifierpremiereFois: 'none'})
+		}
 
+		SupprimerpremiereFois(){
+			Meteor.call('SupprimerpremiereFois',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
 		}
 
 		premiereFoisValider(){
@@ -602,7 +693,15 @@ class ProfilContent extends Component {
 			this.setState({ contracepionInput: 'visibleProfil'})
 			this.setState({ Validercontracepion: 'visible'})
 			this.setState({ Modifiercontracepion: 'none'})
+		}
 
+		Supprimercontraception(){
+			Meteor.call('Supprimercontraception',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
 		}
 
 		contraceptionValider(){
@@ -630,7 +729,15 @@ class ProfilContent extends Component {
 			this.setState({ mstInput: 'visibleProfil'})
 			this.setState({ Validermst: 'visible'})
 			this.setState({ Modifiermst: 'none'})
+		}
 
+		Supprimermst(){
+			Meteor.call('Supprimermst',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
 		}
 
 		mstValider(){
@@ -658,7 +765,15 @@ class ProfilContent extends Component {
 			this.setState({ violInput: 'visibleProfil'})
 			this.setState({ Validerviol: 'visible'})
 			this.setState({ Modifierviol: 'none'})
+		}
 
+		Supprimerviol(){
+			Meteor.call('Supprimerviol',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
 		}
 
 		violValider(){
@@ -686,7 +801,15 @@ class ProfilContent extends Component {
 			this.setState({ avortementInput: 'visibleProfil'})
 			this.setState({ Valideravortement: 'visible'})
 			this.setState({ Modifieravortement: 'none'})
+		}
 
+		Supprimeravortement(){
+			Meteor.call('Supprimeravortement',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
 		}
 
 		avortementValider(){
@@ -714,7 +837,15 @@ class ProfilContent extends Component {
 			this.setState({ orientationSexInput: 'visibleProfil'})
 			this.setState({ ValiderorientationSex: 'visible'})
 			this.setState({ ModifierorientationSex: 'none'})
+		}
 
+		SupprimerorientationSex(){
+			Meteor.call('SupprimerorientationSex',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
 		}
 
 		orientationSexValider(){
@@ -742,7 +873,15 @@ class ProfilContent extends Component {
 			this.setState({ anorexieInput: 'visibleProfil'})
 			this.setState({ Valideranorexie: 'visible'})
 			this.setState({ Modifieranorexie: 'none'})
+		}
 
+		Supprimeranorexie(){
+			Meteor.call('Supprimeranorexie',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
 		}
 
 		anorexieValider(){
@@ -770,7 +909,15 @@ class ProfilContent extends Component {
 			this.setState({ obesiteInput: 'visibleProfil'})
 			this.setState({ Validerobesite: 'visible'})
 			this.setState({ Modifierobesite: 'none'})
+		}
 
+		Supprimerobesite(){
+			Meteor.call('Supprimerobesite',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
 		}
 
 		obesiteValider(){
@@ -798,7 +945,15 @@ class ProfilContent extends Component {
 			this.setState({ drogueInput: 'visibleProfil'})
 			this.setState({ Validerdrogue: 'visible'})
 			this.setState({ Modifierdrogue: 'none'})
+		}
 
+		Supprimerdrogue(){
+			Meteor.call('Supprimerdrogue',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
 		}
 
 		drogueValider(){
@@ -826,7 +981,15 @@ class ProfilContent extends Component {
 			this.setState({ alcoolInput: 'visibleProfil'})
 			this.setState({ Valideralcool: 'visible'})
 			this.setState({ Modifieralcool: 'none'})
+		}
 
+		Supprimeralcool(){
+			Meteor.call('Supprimeralcool',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
 		}
 
 		alcoolValider(){
@@ -854,7 +1017,15 @@ class ProfilContent extends Component {
 			this.setState({ complexeInput: 'visibleProfil'})
 			this.setState({ Validercomplexe: 'visible'})
 			this.setState({ Modifiercomplexe: 'none'})
+		}
 
+		Supprimercomplexe(){
+			Meteor.call('Supprimercomplexe',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
 		}
 
 		complexeValider(){
@@ -882,7 +1053,15 @@ class ProfilContent extends Component {
 			this.setState({ hospitalisationInput: 'visibleProfil'})
 			this.setState({ Validerhospitalisation: 'visible'})
 			this.setState({ Modifierhospitalisation: 'none'})
+		}
 
+		Supprimerhopital(){
+			Meteor.call('Supprimerhopital',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
 		}
 
 		hopitalValider(){
@@ -910,7 +1089,15 @@ class ProfilContent extends Component {
 			this.setState({ handicapInput: 'visibleProfil'})
 			this.setState({ Validerhandicap: 'visible'})
 			this.setState({ Modifierhandicap: 'none'})
+		}
 
+		Supprimerhandicap(){
+			Meteor.call('Supprimerhandicap',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
 		}
 
 		handicapValider(){
@@ -938,7 +1125,15 @@ class ProfilContent extends Component {
 			this.setState({ accidentInput: 'visibleProfil'})
 			this.setState({ Valideraccident: 'visible'})
 			this.setState({ Modifieraccident: 'none'})
+		}
 
+		Supprimeraccident(){
+			Meteor.call('Supprimeraccident',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
 		}
 
 		accidentValider(){
@@ -966,7 +1161,15 @@ class ProfilContent extends Component {
 			this.setState({ echecEcoleInput: 'visibleProfil'})
 			this.setState({ ValiderechecEcole: 'visible'})
 			this.setState({ ModifierechecEcole: 'none'})
+		}
 
+		SupprimerechecEcole(){
+			Meteor.call('SupprimerechecEcole',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
 		}
 
 		echechEcoleValider(){
@@ -994,7 +1197,15 @@ class ProfilContent extends Component {
 			this.setState({ harcelementInput: 'visibleProfil'})
 			this.setState({ Validerharcelement: 'visible'})
 			this.setState({ Modifierharcelement: 'none'})
+		}
 
+		SupprimerHarcelement(){
+			Meteor.call('SupprimerHarcelement',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
 		}
 
 		HarcelementValider(){
@@ -1022,7 +1233,15 @@ class ProfilContent extends Component {
 			this.setState({ discriminationInput: 'visibleProfil'})
 			this.setState({ Validerdiscrimination: 'visible'})
 			this.setState({ Modifierdiscrimination: 'none'})
+		}
 
+		Supprimerdiscrimination(){
+			Meteor.call('Supprimerdiscrimination',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
 		}
 
 		discriminationValider(){
@@ -1050,7 +1269,15 @@ class ProfilContent extends Component {
 			this.setState({ violenceInput: 'visibleProfil'})
 			this.setState({ Validerviolence: 'visible'})
 			this.setState({ Modifierviolence: 'none'})
+		}
 
+		Supprimerviolence(){
+			Meteor.call('Supprimerviolence',
+		  	  (err) => {
+            	if(err){
+           		 } else {
+            	}
+          	})
 		}
 
 		violenceValider(){
@@ -1297,7 +1524,7 @@ class ProfilContent extends Component {
 			  			<div className="titreProfil">Présentation</div>
 						       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 						    		<div className={this.state.Modifierpresentation} >
-							    		<Button color='red' size='mini' onClick={this.presentation.bind(this)}>
+							    		<Button color='green' size='mini' onClick={this.presentation.bind(this)}>
 								    		<div className="modifierFormButton">
 								    		 	modifier
 								    		</div>
@@ -1345,12 +1572,16 @@ class ProfilContent extends Component {
 				</div>
 
 				<Segment className={premierAmour} >
-
 		  			<Label attached='top'  basic color='red' className="headerProfil">
 		  			<div className="titreProfil">Premier amour</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.ModifierPremierAmour} >
-						    		<Button color='red' size='mini' onClick={this.premierAmour.bind(this)}>
+						    		<Button color='red' size='mini' onClick={this.SupprimerpremierAmour.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button>
+						    		<Button color='green' size='mini' onClick={this.premierAmour.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -1386,7 +1617,12 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Trahison amoureuse</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.Modifiertrahison} >
-						    		<Button color='red' size='mini' onClick={this.trahison.bind(this)}>
+						    		<Button color='red' size='mini' onClick={this.Supprimertrahison.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button>
+						    		<Button color='green' size='mini' onClick={this.trahison.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -1422,7 +1658,12 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Friendzone</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.Modifierfriendzone} >
-						    		<Button color='red' size='mini' onClick={this.friendzone.bind(this)}>
+						    		<Button color='red' size='mini' onClick={this.Supprimerfriendzone.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button>
+						    		<Button color='green' size='mini' onClick={this.friendzone.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -1459,7 +1700,11 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Amour à distance</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.ModifieramourDistance} >
-						    		<Button color='red' size='mini' onClick={this.amourDistance.bind(this)}>
+						    		<Button color='red' size='mini' onClick={this.SupprimeramourDistance.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button><Button color='green' size='mini' onClick={this.amourDistance.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -1495,7 +1740,12 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Séparation</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.Modifierseparation} >
-						    		<Button color='red' size='mini' onClick={this.separation.bind(this)}>
+						    		<Button color='red' size='mini' onClick={this.Supprimerseparation.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button>
+						    		<Button color='green' size='mini' onClick={this.separation.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -1531,7 +1781,12 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Timidité</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.ModifierTimidite} >
-						    		<Button color='red' size='mini' onClick={this.timidite.bind(this)}>
+						    		<Button color='red' size='mini' onClick={this.Supprimertimidite.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button>
+						    		<Button color='green' size='mini' onClick={this.timidite.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -1567,7 +1822,12 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Dépression</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.Modifierdepression} >
-						    		<Button color='red' size='mini' onClick={this.depression.bind(this)}>
+					    		<Button color='red' size='mini' onClick={this.Supprimerdepression.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button>
+						    		<Button color='green' size='mini' onClick={this.depression.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -1603,7 +1863,12 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Suicide</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.Modifiersuicide} >
-						    		<Button color='red' size='mini' onClick={this.suicide.bind(this)}>
+						    		<Button color='red' size='mini' onClick={this.Supprimersuicide.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button>
+						    		<Button color='green' size='mini' onClick={this.suicide.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -1639,7 +1904,11 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Décès</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.Modifierdeces} >
-						    		<Button color='red' size='mini' onClick={this.deces.bind(this)}>
+						    		<Button color='red' size='mini' onClick={this.Supprimerdeces.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button><Button color='green' size='mini' onClick={this.deces.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -1675,7 +1944,12 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Mutilation</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.Modifiermutilation} >
-						    		<Button color='red' size='mini' onClick={this.mutilation.bind(this)}>
+					    		<Button color='red' size='mini' onClick={this.Supprimermutilation.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button>
+						    		<Button color='green' size='mini' onClick={this.mutilation.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -1711,7 +1985,12 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Première fois</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.ModifierpremiereFois} >
-						    		<Button color='red' size='mini' onClick={this.premiereFois.bind(this)}>
+						    		<Button color='red' size='mini' onClick={this.SupprimerpremiereFois.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button>
+						    		<Button color='green' size='mini' onClick={this.premiereFois.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -1747,7 +2026,12 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Contraception</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.Modifiercontracepion} >
-						    		<Button color='red' size='mini' onClick={this.contraception.bind(this)}>
+					    			<Button color='red' size='mini' onClick={this.Supprimercontraception.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button>
+						    		<Button color='green' size='mini' onClick={this.contraception.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -1783,7 +2067,12 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Maladie, MST</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.Modifiermst} >
-						    		<Button color='red' size='mini' onClick={this.mst.bind(this)}>
+					    			<Button color='red' size='mini' onClick={this.Supprimermst.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button>
+						    		<Button color='green' size='mini' onClick={this.mst.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -1819,7 +2108,12 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Viol</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.Modifierviol} >
-						    		<Button color='red' size='mini' onClick={this.viol.bind(this)}>
+						    		<Button color='red' size='mini' onClick={this.Supprimerviol.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button>
+						    		<Button color='green' size='mini' onClick={this.viol.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -1855,7 +2149,12 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Avortement</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.Modifieravortement} >
-						    		<Button color='red' size='mini' onClick={this.avortement.bind(this)}>
+						    		<Button color='red' size='mini' onClick={this.Supprimeravortement.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button>
+						    		<Button color='green' size='mini' onClick={this.avortement.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -1891,7 +2190,12 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Orientation sexuelle</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.ModifierorientationSex} >
-						    		<Button color='red' size='mini' onClick={this.orientationSex.bind(this)}>
+					    			<Button color='red' size='mini' onClick={this.SupprimerorientationSex.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button>
+						    		<Button color='green' size='mini' onClick={this.orientationSex.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -1927,7 +2231,12 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Anorexie</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.Modifieranorexie} >
-						    		<Button color='red' size='mini' onClick={this.anorexie.bind(this)}>
+					    			<Button color='red' size='mini' onClick={this.Supprimeranorexie.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button>
+						    		<Button color='green' size='mini' onClick={this.anorexie.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -1963,7 +2272,12 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Obésité</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.Modifierobesite} >
-						    		<Button color='red' size='mini' onClick={this.obesite.bind(this)}>
+						    		<Button color='red' size='mini' onClick={this.Supprimerobesite.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button>
+						    		<Button color='green' size='mini' onClick={this.obesite.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -2001,7 +2315,12 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Drogue</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.Modifierdrogue} >
-						    		<Button color='red' size='mini' onClick={this.drogue.bind(this)}>
+						    		<Button color='red' size='mini' onClick={this.Supprimerdrogue.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button>
+						    		<Button color='green' size='mini' onClick={this.drogue.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -2037,7 +2356,12 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Alcool</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.Modifieralcool} >
-						    		<Button color='red' size='mini' onClick={this.alcool.bind(this)}>
+						    		<Button color='red' size='mini' onClick={this.Supprimeralcool.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button>
+						    		<Button color='green' size='mini' onClick={this.alcool.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -2073,7 +2397,12 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Complexe</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.Modifiercomplexe} >
-						    		<Button color='red' size='mini' onClick={this.complexe.bind(this)}>
+						    		<Button color='red' size='mini' onClick={this.Supprimercomplexe.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button>
+						    		<Button color='green' size='mini' onClick={this.complexe.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -2109,7 +2438,12 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Hospitalisation</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.Modifierhospitalisation} >
-						    		<Button color='red' size='mini' onClick={this.hopital.bind(this)}>
+						    		<Button color='red' size='mini' onClick={this.Supprimerhopital.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button>
+						    		<Button color='green' size='mini' onClick={this.hopital.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -2145,7 +2479,12 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Handicap</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.Modifierhandicap} >
-						    		<Button color='red' size='mini' onClick={this.handicap.bind(this)}>
+						    		<Button color='red' size='mini' onClick={this.Supprimerhandicap.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button>
+						    		<Button color='green' size='mini' onClick={this.handicap.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -2181,7 +2520,12 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Accident</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.Modifieraccident} >
-						    		<Button color='red' size='mini' onClick={this.accident.bind(this)}>
+						    		<Button color='red' size='mini' onClick={this.Supprimeraccident.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button>
+						    		<Button color='green' size='mini' onClick={this.accident.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -2217,7 +2561,12 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Echec scolaire</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.ModifierechecEcole} >
-						    		<Button color='red' size='mini' onClick={this.echecEcole.bind(this)}>
+						    		<Button color='red' size='mini' onClick={this.SupprimerechecEcole.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button>
+						    		<Button color='green' size='mini' onClick={this.echecEcole.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -2253,7 +2602,12 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Harcèlement</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.Modifierharcelement} >
-						    		<Button color='red' size='mini' onClick={this.Harcelement.bind(this)}>
+						    		<Button color='red' size='mini' onClick={this.SupprimerHarcelement.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button>
+						    		<Button color='green' size='mini' onClick={this.Harcelement.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -2289,7 +2643,12 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Discrimination</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.Modifierdiscrimination} >
-						    		<Button color='red' size='mini' onClick={this.discrimination.bind(this)}>
+						    		<Button color='red' size='mini' onClick={this.Supprimerdiscrimination.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button>
+						    		<Button color='green' size='mini' onClick={this.discrimination.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>
@@ -2325,7 +2684,12 @@ class ProfilContent extends Component {
 		  			<div className="titreProfil">Violence</div>
 					       <div className={"modifierFormProfil" + " "+this.props.IdProfile}>
 					    		<div className={this.state.Modifierviolence} >
-						    		<Button color='red' size='mini' onClick={this.violence.bind(this)}>
+						    		<Button color='red' size='mini' onClick={this.Supprimerviolence.bind(this)}>
+							    		<div className="modifierFormButton">
+							    		 	Supprimer
+							    		</div>
+						    		</Button>
+						    		<Button color='green' size='mini' onClick={this.violence.bind(this)}>
 							    		<div className="modifierFormButton">
 							    		 	modifier
 							    		</div>

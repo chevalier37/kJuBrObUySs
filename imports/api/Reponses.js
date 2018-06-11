@@ -5,6 +5,7 @@ import { Posts } from './Messages.js';
 
 export const Comments = new Mongo.Collection('comments');
 
+
 if (Meteor.isServer) {
 
 Meteor.startup(function () {  
@@ -38,6 +39,12 @@ Meteor.methods({
         const post_author_name= search.post_author;
         const post_title= search.post_title;
         const post_gender= search.gender;
+        const nbrReponse = search.nbrReponse;
+        const updateNbrReponse = nbrReponse + 1;
+
+              Posts.update(id, {
+                $set: { nbrReponse: updateNbrReponse },
+                });
 
               Comments.insert({
                   comments: message,

@@ -26,7 +26,7 @@ class DevenirConseiller extends Component {
     }
 
     componentDidUpdate() {
-        this.scrollToTop();
+        /*this.scrollToTop();*/
     }
 
     scrollToTop() {

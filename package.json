@@ -5,20 +5,22 @@
     "start": "meteor run"
   },
   "dependencies": {
-    "@babel/runtime": "^7.0.0-beta.36",
+    "@babel/runtime": "^7.0.0-beta.49",
     "classnames": "^2.2.5",
+    "faker": "^4.1.0",
     "flag-icon-css": "^2.9.0",
     "history": "^4.7.2",
     "install": "^0.10.4",
-    "meteor-node-stubs": "^0.3.2",
+    "lodash": "^4.17.10",
+    "meteor-node-stubs": "^0.3.3",
     "npm": "^5.6.0",
     "prop-type": "^0.0.1",
     "prop-types": "^15.6.1",
-    "react": "^16.2.0",
-    "react-adsense": "^0.0.5",
+    "react": "^16.4.0",
+    "react-adsense": "0.0.5",
     "react-background-image-loader": "^0.0.5",
     "react-body-classname": "^1.2.0",
-    "react-dom": "^16.2.0",
+    "react-dom": "^16.4.0",
     "react-fontawesome": "^1.6.1",
     "react-helmet": "^5.2.0",
     "react-html-email": "^3.0.0",
@@ -30,10 +32,10 @@
     "react-router-dom": "^4.2.2",
     "react-sticky": "^6.0.1",
     "react-stripe-elements": "^1.6.0",
-    "react-world-flags": "^0.0.3",
-    "semantic-ui-css": "^2.2.14",
+    "react-world-flags": "0.0.3",
+    "semantic-ui-css": "^2.3.1",
     "semantic-ui-icon": "^2.2.14",
     "semantic-ui-react": "^0.78.2",
-    "stripe": "^5.5.0"
+    "stripe": "^5.10.0"
   }
 }
