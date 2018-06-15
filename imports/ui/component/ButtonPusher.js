@@ -269,11 +269,12 @@ class ButtonPusher extends Component {
 
     		   <Button 
            color="blue"
+           size="small"
            >
-          <div className="buttonSearch">
-            <Search />
-          </div>
-           Trouver un conseil
+              <div className="buttonSearch">
+                <Search />
+              </div>
+               Trouver un conseil
            </Button>
     		  </div>
       </div>

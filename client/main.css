@@ -44,17 +44,17 @@ header {
 .headerSite{
 	height: 60px;
 	width: 100%;
-	background-color: #e9ebee;
-	background-image: linear-gradient(#8e0505, #b90202 100%);
+	background-color: #2185d0;
+	/*background-image: linear-gradient(#6c96f5, #1c3c84 100%);*/
 	/*background-color: #3b5998;
 	background-image: linear-gradient(#7ba0ef, #3a5182 100%);*/
 }
 
 .headerPage{
-	height: 50px;
+	height: 40px;
 	width: 100%;
-	background-color: #e9ebee;
-	background-image: linear-gradient(#8e0505, #b90202 100%);
+	background-color: #2185d0;
+	/*background-image: linear-gradient(#6c96f5, #1c3c84 100%);*/
 	/*background-color: #3b5998;
 	background-image: linear-gradient(#7ba0ef, #3a5182 100%);*/
 }
@@ -87,11 +87,23 @@ header {
 }
 
 .logoPage{
-	width: 45px;
-	height: 45px;
-	float: left;
-	margin-left: 15px;
-	margin-top: 5px;
+	width: 35px;
+    height: 35px;
+    float: left;
+    margin-left: -65px;
+    margin-top: 2px;
+}
+
+.iconMenu{
+	width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.TextMenu{
+	display: inline-block;
+	position: relative;
+    top: -5px;
 }
 
 .titreKURBYS{
@@ -131,10 +143,7 @@ header {
 	width: 100%;
 	height: 50px;
 	background-color: white;
-	
 }
-
-
 
 .ContainerFormSubcribe{
 	/*background-color: #278aaf94;*/
@@ -167,7 +176,8 @@ header {
 }
 
 .containerSupHeader{
-	background-image: linear-gradient(#8e0505, #b90202 100%);
+	background-color: #2185d0;
+	/*background-image: linear-gradient(#6c96f5, #1c3c84 100%);*/
 	/*background-image: linear-gradient(#7ba0ef, #3a5182 100%);*/
 	display: block;
 	position: fixed;
@@ -217,7 +227,7 @@ header {
 
 .buttonPush{
 	float: right;
-	margin-top: 5px;
+	/*margin-top: 5px;*/
 
 }
 
@@ -256,7 +266,7 @@ header {
 
 
 .MenuLeft {
-    margin-top: 55px;
+    margin-top: 45px;
     position: fixed;
     margin-left: 20px;
     
@@ -271,7 +281,7 @@ header {
 }
 
 .HeaderLastConseiller{
-	background-image: linear-gradient(#8e0505, #b90202 100%);
+	background-image: linear-gradient(#6c96f5, #1c3c84 100%);
 	/*background-image: linear-gradient(#7ba0ef, #3a5182 100%);*/
     width: 208px;
     color: white;
@@ -287,7 +297,7 @@ header {
 }
 
 .HeaderMenu{
-	background-image: linear-gradient(#8e0505, #b90202 100%);
+	background-image: linear-gradient(#6c96f5, #1c3c84 100%);
 	/*background-image: linear-gradient(#7ba0ef, #3a5182 100%);*/
     width: 208px;
     color: white;
@@ -304,7 +314,7 @@ header {
 .MainContent {
     float: right;
     min-width: 670px;
-    margin-top: 55px;
+    margin-top: 45px;
     min-height: 800px;
     font-size: 14px;
     margin-left: 240px;
@@ -526,6 +536,11 @@ header {
 	margin-top: 20px;
 }
 
+.visibleConseiller{
+	display: block;
+	
+}
+
 .visibleCategorie{
 	display: block;
 	margin-top: 20px;
@@ -557,7 +572,7 @@ header {
 .DevenirConseiller{
 	float: left;
 	margin-left: 20px;
-	margin-top: 5px;
+	margin-top: 3px;
 }
 
 .containerChat{
@@ -705,6 +720,28 @@ header {
 .reponseMessage a:hover{
 	font-size: 14px;
 	color: white;
+}
+
+.Fromfille{
+	background-color: white;
+    height: 30px;
+    margin-bottom: -15px;
+    padding-left: 3px;
+    padding-top: 4px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: inline-block;
+}
+
+.Fromgarcon{
+	background-color: white;
+    height: 30px;
+    margin-bottom: -15px;
+    padding-left: 3px;
+    padding-top: 4px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: inline-block;
 }
 
 
@@ -1068,26 +1105,35 @@ header {
 	margin-top: 10px;
 }
 
+.TitreMenuItem{
+	font-weight: bold;
+	color: black;
+	padding-left: 10px;
+	
+}
+
 .MenuItem{
-	padding-left: 20px;
-	height: 35px;
+	padding-left: 10px;
+	height: 30px;
 	color: black;
 	padding-top: 5px;
 }
 
+
 .MenuItem a{
 	color: black;
+	width: 250px;
 }
 
 .MenuItem a:hover{
 	color: black;
 }
 
-
 .MenuItem:hover{
 	color: black;
-	background-color: #e9ebee;
+	background-color: #dadada;
 }
+
 
 .none{
 	display: none;
@@ -1107,7 +1153,12 @@ header {
 .PointOnline{
 	color: green;
 	margin-right: 5px;
+}
 
+.PointOnlineConseiller{
+    color: green;
+	display: inline-block;
+	margin-right: 5px;
 }
 
 .ButtonProfil{
@@ -1198,8 +1249,6 @@ header {
 	font-size: 16px;
 	height: 10px;
 	float: left;
-
-
 }
 
 .headerProfil{
@@ -1213,7 +1262,7 @@ header {
 }
 
 .espaceConseiller{
-	height: 35px;
+	height: 5px;
 }
 
 .supprimerFavoris{
@@ -1637,13 +1686,49 @@ header {
 }
 
 .lesFilles{
-	color: white;
-	background-color: #ffdadd;
+	/*color: #ffdadd;*/
 }
 
 .consigneMessage{
 	color: red;
 }
+
+.ButtonHeader{
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.NoteConseiller{
+	display: inline-block;
+}
+
+.competence{
+	display: inline-block;
+	font-weight: bold;
+	margin-right: 5px;
+}
+
+.Blockcompetence{
+	width: 70%;
+}
+
+.search{
+	display: inline-block;
+	/*width: 50px;*/
+	float: left;
+	margin-top: 2px;
+	margin-left: -10px;
+}
+
+.searchValide{
+	display: inline-block;
+	margin-top: 2px;
+}
+
+
+
+
+
 
 @media only screen and (max-width: 1800px) {
 

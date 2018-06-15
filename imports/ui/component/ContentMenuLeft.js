@@ -4,6 +4,7 @@ import {  Input, Label, Menu, Header, Image, Divider, Segment, Icon } from 'sema
 import { Link } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 import AdSense from 'react-adsense';
+import Img from 'react-image'
 
 import { Conseilleres } from '../../api/Conseilleres.js';
 import { Recommandations } from '../../api/Recommandations.js';
@@ -16,6 +17,9 @@ import FaEnvelope from 'react-icons/lib/fa/envelope-o';
 import FaEur from 'react-icons/lib/fa/eur';
 import FaBook from 'react-icons/lib/fa/book';
 import FaCalendarCheckO from 'react-icons/lib/fa/calendar-check-o';
+import FaHandRight from 'react-icons/lib/fa/hand-o-right';
+import FaHandLeft from 'react-icons/lib/fa/hand-o-left';
+
 
 import LastConseilleresContent from '../component/LastConseilleresContent.js';
 import LastRecommandationsContent from '../component/LastRecommandationsContent.js';
@@ -54,134 +58,172 @@ class ContentMenuLeft extends Component {
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
-  renderLastConseiller() {
-      let Allconseilleres = this.props.lastConseiller;
-
-      return Allconseilleres.map((conseiller) => {
-        
-        return (
-          <LastConseilleresContent
-            key={conseiller._id}
-            conseiller={conseiller}      
-          />
-        );
-      });
-  }
-
-  renderLastRecommandations() {
-      let Allrecommandations = this.props.Lastrecommandation;
-
-      return Allrecommandations.map((conseiller) => {
-        
-        return (
-          <LastRecommandationsContent
-            key={conseiller._id}
-            conseiller={conseiller}      
-          />
-        );
-      });
-  }
-
   render() {
     const { activeItem } = this.state
     const { contextRef } = this.state
 
 		return (
 			<div className="MenuLeft">
-  			<Menu vertical>
-  					<div
-  					 className="HeaderMenu"
-  					 >
-  					 Mon compte
-  				 	</div>
             <div className="espaceConseiller"></div>
+            <div className="TitreMenuItem">
+             Mon compte
+            </div>
   				    <div className="MenuItem">
   					    <Link to={'/Profil/'+ Meteor.userId() }>
-                <div className="star">  	
-  					         	<FaUser /> 
-                </div>Profil
-  				        </Link>
+                    <div className="star">  	
+      					         	<Img className="iconMenu" src="/user.svg"/>
+                    </div>
+                    <div className="TextMenu">
+                      Profil
+                    </div>
+  				      </Link>
     					</div>
+
+              <div className="MenuItem">
+                <Link to={'/Livre/'} >   
+                    <div className="star">   
+                          <Img className="iconMenu" src="/notebook.svg"/>
+                    </div>
+                    <div className="TextMenu">
+                      Pour les filles
+                    </div>
+                </Link>
+              </div>
     					
     					<div className="MenuItem">
   				        <Link to={'/Chat/' + this.state.id}>
-                  <div className="star">  	
-  				          <FaComments /> 
-                  </div> Messagerie
+                  <div className="star">   
+                          <Img className="iconMenu" src="/chat.svg"/>
+                    </div>
+                    <div className="TextMenu">
+                      Messagerie
+                    </div>
   				        </Link>
   					</div>
   			       
   			       	<div className="MenuItem">
   			        	<Link to={'/Favoris/' }>
-                    <div className="star">	
-  			          		<FaStar />
+                     <div className="star">   
+                          <Img className="iconMenu" src="/star.svg"/>
                     </div>
-                       Favoris
+                    <div className="TextMenu">
+                      Favoris
+                    </div>
   			          </Link>
     					</div>
 
               <div className="MenuItem">
                   <Link to={'/SuiviConseil/' }>
-                    <div className="star">    
-                         <FaCalendarCheckO />
-                    </div> Suivi des conseils
+                    <div className="star">   
+                          <Img className="iconMenu" src="/calendar.svg"/>
+                    </div>
+                    <div className="TextMenu">
+                      Suivis des conseils
+                    </div>
                   </Link>
               </div>
 
-  			       	<div className="MenuItem">
+  			      <div className="MenuItem">
   			        	<Link to={'/MessagesPostes/' }>
-                    <div className="star">  	
-    			          		 <FaEnvelope />
-                    </div> Messages postés
+                    <div className="star">   
+                          <Img className="iconMenu" src="/email.svg"/>
+                    </div>
+                    <div className="TextMenu">
+                      Messages postés
+                    </div>
   			       		</Link>
     					</div>
 
+              <div className="MenuItem">
+                  <Link to={'/Recommandations/' + Meteor.userId() }>
+                    <div className="star">   
+                          <Img className="iconMenu" src="/heart.svg"/>
+                    </div>
+                    <div className="TextMenu">
+                      Recommandations reçues
+                    </div>
+                  </Link>
+              </div>
+
+              <div className="MenuItem">
+                  <Link to={'/RecommandationsDonner/' + Meteor.userId()}>
+                    <div className="star">   
+                          <Img className="iconMenu" src="/gift.svg"/>
+                    </div>
+                    <div className="TextMenu">
+                      Recommandations données
+                    </div>
+                  </Link>
+              </div>
+
   			      	<div className="MenuItem">
   			        	<Link to={'/ListeDons/' + Meteor.userId() }>
-                    <div className="star">  	
-  			          		<FaEur /> 
-                    </div>  Dons
+                    <div className="star">   
+                          <Img className="iconMenu" src="/euro.svg"/>
+                    </div>
+                    <div className="TextMenu">
+                      Dons
+                    </div>
   			    		</Link>
     					</div>
-              <div className="MenuItem lesFilles">
-                <Link to={'/Livre/'}> 
-                  <div className="star">     
-                      <FaBook/>
-                  </div> Pour les filles
-                </Link>
-              </div>
-  			</Menu>
 
-        <div className="espacePub" ></div>
+           <div className="espacePub" ></div>
+
+          <div className="espaceConseiller"></div>
+            <div className="TitreMenuItem">
+             Conseillers
+          </div>
+
+           <div className="MenuItem">
+                  <Link to="/ConseillerConnecter" >
+                    <div className="star">   
+                          <Img className="iconMenu" src="/users.svg"/>
+                    </div>
+                    <div className="TextMenu">
+                      Conseillers en ligne
+                    </div>
+                  </Link>
+              </div>
+
+                <div className="MenuItem">
+                  <Link to={'/NouveauxConseillers/' }>
+                    <div className="star">   
+                          <Img className="iconMenu" src="/team.svg"/>
+                    </div>
+                    <div className="TextMenu">
+                      Nouveaux conseillers
+                    </div>
+                </Link>
+            </div>
+
+            <div className="MenuItem">
+                  <Link to={'/DerniereRecommandations/'}>
+                    <div className="star">   
+                          <Img className="iconMenu" src="/bulb.svg"/>
+                    </div>
+                    <div className="TextMenu">
+                      Dernière recommandations
+                    </div>
+                  </Link>
+              </div>
+
+                <div className="MenuItem">
+                  <Link to={'/DevenirConseiller/'}>
+                    <div className="star">   
+                          <Img className="iconMenu" src="/aid.svg"/>
+                    </div>
+                    <div className="TextMenu">
+                      Devenir conseillers
+                    </div>
+                </Link>
+            </div>
+       
         {/*
         <AdSense.Google
           client='ca-pub-6112176939320267'
           slot='6737349349'
           style={{ display: 'inline-block',width:'200px', height:'200px'}}
         />*/}
-
-
-  		  <div className="MenuLeftLastConseiller">
-    				<div
-    				 className="HeaderMenu"
-    				 >
-    				 Dernières recommandations
-    				 </div>
-             <div className="espaceConseiller"></div>
-    			        {this.renderLastRecommandations()}
-  			</div>
-
-        <div className="espacePub" ></div>
-
-        <div className="MenuLeftLastConseiller">
-            <div
-             className="HeaderMenu"
-             >
-             Nouveaux conseillers
-             </div>
-             <div className="espaceConseiller"></div>
-                  {this.renderLastConseiller()}
-        </div>
 
 
         <div className="espacePub" ></div>

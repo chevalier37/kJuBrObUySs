@@ -1407,11 +1407,11 @@ class ProfilContent extends Component {
               	 			/>
               	 		</div>
 
-	              	 	<div className={this.props.id == Meteor.userId() ? "UpdateNaissance" : 'none'}>
+	              	 	{/*<div className={this.props.id == Meteor.userId() ? "UpdateNaissance" : 'none'}>
 		              	 	<Link to={'/MiseAjourNaissance/'}>
 		              	 		<Button>Date de naissance</Button>
 		              	 	</Link>
-	              	 	</div>
+	              	 	</div>*/}
 
               	 		<div className={this.props.profile.note>=1 && this.props.profile.note<2 ? "visiblenote" : "none"}>
 							<Rating icon='heart'
@@ -1459,7 +1459,7 @@ class ProfilContent extends Component {
 							</Button>
 						</div>
 
-						<div className={"recommandationsListe" +
+						{/*<div className={"recommandationsListe" +
 										 " " +
 										this.props.MyIdProfile
 										} >
@@ -1471,7 +1471,7 @@ class ProfilContent extends Component {
 									 	 <p className="recommandationsInline">{this.nbrRecommandationsDonné()}</p>
 									 </Link>
 							</Button>
-						</div>
+						</div>*/}
 
 						<div className={"ButtonProfil" +
 										 " " +

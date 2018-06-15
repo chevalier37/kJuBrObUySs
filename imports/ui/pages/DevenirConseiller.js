@@ -25,7 +25,6 @@ class DevenirConseiller extends Component {
         this.scrollToTop();
     }
 
-
     scrollToTop() {
         this.el.scrollIntoView();
     }

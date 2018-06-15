@@ -113,7 +113,7 @@ Meteor.methods({
             } 
       },
 
-      SupprimerFriendzone: function() {
+      Supprimerfriendzone: function() {
             const user = Meteor.user()
             const IsConseiller = Conseilleres.findOne({user_id:this.userId});
             
@@ -151,7 +151,7 @@ Meteor.methods({
             } 
       },
 
-      Supprimeramourdistance: function() {
+      SupprimerDistance: function() {
             const user = Meteor.user()
             const IsConseiller = Conseilleres.findOne({user_id:this.userId});
             
@@ -418,7 +418,7 @@ Meteor.methods({
             } 
       },
 
-      Supprimerpremierfois: function() {
+      SupprimerpremiereFois: function() {
             const user = Meteor.user()
             const IsConseiller = Conseilleres.findOne({user_id:this.userId});
             
@@ -646,7 +646,7 @@ Meteor.methods({
             } 
       },
 
-      SupprimerAnorexie: function() {
+      Supprimeranorexie: function() {
             const user = Meteor.user()
             const IsConseiller = Conseilleres.findOne({user_id:this.userId});
             
@@ -958,7 +958,7 @@ Meteor.methods({
               IsConseiller
              ?
              Conseilleres.update({user_id:this.userId}, {
-              $set: { handicap: false, handicapText:" ", },
+              $set: { echecEcole: false, echecEcoleText:" ", },
               }) && console.log(IsConseiller)
              :
              ""
@@ -1064,7 +1064,8 @@ Meteor.methods({
             } 
       },
 
-      SupprimerViolence: function() {
+
+      Supprimerviolence: function() {
             const user = Meteor.user()
             const IsConseiller = Conseilleres.findOne({user_id:this.userId});
             

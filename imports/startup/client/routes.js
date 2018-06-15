@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import { Router, Route } from 'react-router';
 import createBrowserHistory from 'history/createBrowserHistory';
 
-
 // route components
 import Connexion from '../../../imports/ui/pages/connexion.js';
 import Home from '../../../imports/ui/pages/Home.js';
@@ -41,6 +40,10 @@ import RecommandationsDonner from '../../../imports/ui/pages/RecommandationsDonn
 import ModifierRecommandation from '../../../imports/ui/pages/ModifierRecommandation.js';
 import ChangerMotDePasse from '../../../imports/ui/pages/ChangerMotDePasse.js';
 import ValiderNouveauPassword from '../../../imports/ui/pages/ValiderNouveauPassword.js';
+import ConseillerConnecter from '../../../imports/ui/pages/ConseillerConnecter.js';
+import RechercherConseillerConnecte from '../../../imports/ui/pages/RechercherConseillerConnecte.js';
+import DerniereRecommandations from '../../../imports/ui/pages/DerniereRecommandations.js';
+import NouveauxConseillers from '../../../imports/ui/pages/NouveauxConseillers.js';
 
 
 const requireAuth = (nextState, replace) => {
@@ -94,6 +97,10 @@ export const renderRoutes = () => (
       <Route path="/ModifierRecommandation/:id" component={ModifierRecommandation}/>
       <Route path="/ChangerMotDePasse/" component={ChangerMotDePasse}/>
       <Route path="/ValiderNouveauPassword/" component={ValiderNouveauPassword}/>
+      <Route path="/ConseillerConnecter/" component={ConseillerConnecter}/>
+      <Route path="/RechercherConseillerConnecte/:theme" component={RechercherConseillerConnecte}/>
+      <Route path="/DerniereRecommandations/" component={DerniereRecommandations}/>
+      <Route path="/NouveauxConseillers/" component={NouveauxConseillers}/>
 
     </div>
   </Router>
