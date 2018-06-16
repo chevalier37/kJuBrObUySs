@@ -26,7 +26,14 @@ class SingleMessage extends Component {
         super(props);
         this.state = {
           visible: false,
+          visibleForm:false,
         }
+    }
+
+    visible(){
+      this.setState({
+        visibleForm: !this.state.visibleForm,
+      });
     }
 
     componentDidMount() {
@@ -105,14 +112,17 @@ renderAllreponses() {
                   <div className="containerIMG">
                   <ContentMenuLeft />
                   <div className="MainContent">
+                    <div onClick={this.visible.bind(this)}>
+                      <SingleMessagePost id={this.props.match.params.id} />
+                    </div>
+                  <div className={this.state.visibleForm ? "visibleForm" : "none"}>
+                     <FormPosterReponse
+                      id={this.props.match.params.id}
+                      authorId={this.props.authorId}
+                      titreMessage={this.props.titreMessage}
+                      />
+                  </div>
 
-                  <SingleMessagePost id={this.props.match.params.id}/>
-
-                   <FormPosterReponse
-                    id={this.props.match.params.id}
-                    authorId={this.props.authorId}
-                    titreMessage={this.props.titreMessage}
-                    />
                    {this.renderAllreponses()}
                   </div>    
                       

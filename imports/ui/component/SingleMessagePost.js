@@ -98,6 +98,9 @@ class ListeMessagePost extends Component {
 	        				</span>
 	        				</div>
 	         				<div className="dateMessage">{this.props.nbrreponse} {this.reponse()} </div>
+	         				<div className="ButtonAjouter">
+	         					<Button color="green" size="small">Ajouter une réponse</Button>
+	         				</div>
 	      				</Comment.Content>
 	    			</Comment>
 

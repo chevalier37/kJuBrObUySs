@@ -32,6 +32,7 @@ class MainContent extends Component {
 					moreSante:5,
 					moreEcole:5,
 					poster:false,
+					posterConseil:false,
 			    };
 			}
 
@@ -305,22 +306,44 @@ class MainContent extends Component {
 	      poster: !this.state.poster,
 	    });
   	}
+
+  	posterConseil() {
+	    this.setState({
+	      posterConseil: !this.state.posterConseil,
+	    });
+  	}
 			   
   render() {
 
 		return (
 			<div className="MainContent">
-				<FormPosterMessage />
-				<Segment>
-				<div className="headerForm">	
-			    	<Header
-			    	 as='h2'
-			    	 onClick={this.poster.bind(this)}
-			    	 >
-			    	 Trier les messages
-			    	</Header>
+				<div className='inlinePoster'>
+					<Button
+					    fluid
+						color='blue'
+				    	onClick={this.posterConseil.bind(this)}
+				    	 >
+				    	 Demander un conseil
+				    </Button>
 			    </div>
+			    
+			    <div className='inlinePoster'>
+				    <Button
+					    fluid
+						color='teal'
+				    	onClick={this.poster.bind(this)}
+				    	 >
+				    	 Trier les messages
+				    </Button>
+				</div>
+
+				<div className={this.state.posterConseil ? '' : "none"}>
+			    <FormPosterMessage />
+			    </div>
+				
+				
 				<div className={this.state.poster ? '' : "none"}>
+				<Segment>
 				      <Button
 				        size="small"
 				        inverted color="red"
@@ -376,10 +399,9 @@ class MainContent extends Component {
 				        onClick={this.ShowAutre.bind(this)}>
 				        Autre
 				       </Button>
-
+				       </Segment>
 				    </div>
-	  			</Segment>
-
+	  			
 	  			<div className={this.state.allMessages}>
 	  				{this.renderAllMessages()}
 	  				<div className={this.state.more > this.props.countAllMessages ? "none" : "voirPlus" }>

@@ -105,6 +105,7 @@ class ConseillerConnecter extends Component {
       theme: value,
     });
     }
+
     renderAllreponses() {
           let Allreponses = this.props.Conseiller;
 
@@ -653,15 +654,11 @@ class ConseillerConnecter extends Component {
                     <div className="containerIMG">
                       <ContentMenuLeft />
                       <div className="MainContent">
-                        <Segment>
-                          <Header>
-                            <div className="titreRecomandation"> Tous les conseillers connectés </div>
-                          </Header>
-                        </Segment>
-                        <Segment>
+                         <Segment>
                           <Header>
                             <div className="titreRecomandation">
                              Rechercher par compétences: 
+                             <div className="compétences">
                                <Form>
                                   <Form.Group widths='equal' error>
                                           <Form.Select
@@ -672,7 +669,7 @@ class ConseillerConnecter extends Component {
                                            />
                                   </Form.Group>
                                 </Form>
-
+                              </div>
                             </div>
                           </Header>
                         </Segment>

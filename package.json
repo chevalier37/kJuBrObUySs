@@ -18,6 +18,7 @@
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
     "react-adsense": "0.0.5",
+    "react-autocomplete": "^1.8.1",
     "react-background-image-loader": "^0.0.5",
     "react-body-classname": "^1.2.0",
     "react-dom": "^16.4.0",

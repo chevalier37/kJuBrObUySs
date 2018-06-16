@@ -3,97 +3,97 @@ import { Meteor } from 'meteor/meteor';
 import Img from 'react-image'
 import { Dropdown, Menu, Button,Search, Grid, Header, Form, Input } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
+import Autocomplete  from 'react-autocomplete';
 import { withTracker } from 'meteor/react-meteor-data';
-//import _ from 'lodash'
-//import faker from 'faker'
+import ResultSearch from './ResultSearch.js';
 import Faheart from 'react-icons/lib/fa/heart-o';
 import FaConseiller from 'react-icons/lib/fa/user-md';
 import FaSearch from 'react-icons/lib/fa/search';
 
 import { Conseilleres } from '../../api/Conseilleres.js';
-/*
-const source = _.times(5, () => ({
-  title: Meteor.users.find().fetch(),
-  description: faker.company.catchPhrase(),
-  image: faker.internet.avatar(),
-  price: faker.finance.amount(0, 100, 2, '$'),
-}))*/
 
 class HeaderPage extends Component {
- 	/*state = {
- 			
-	   }
-	   componentWillMount() {
-    this.resetComponent()
-  }
+ 	state = {
+ 	 name: '',
+ 	 hidden:false,
+ 	 placeholder:'Rechercher un pseudo',
+ 	 }
 
-  resetComponent = () => this.setState({ isLoading: false, results: [], value: '' })
+  handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
-  handleResultSelect = (e, { result }) => this.setState({ value: result.title })
 
-  handleSearchChange = (e, { value }) => {
-    this.setState({ isLoading: true, value })
 
-    setTimeout(() => {
-      if (this.state.value.length < 1) return this.resetComponent()
+	renderAllreponses() {
+          let Allreponses = this.props.Conseiller;
+          const { name, email } = this.state
+          return Allreponses.map((message) => {
+           let date = Date.parse(message.date);
+             
+            return (
+              <ResultSearch
+                key={message._id}
+                conseiller={message}
+                date={date}
+                search={name} 
+                sexe={message.profile}        
+              />
+            );
+          });
+      }
 
-      const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
-      const isMatch = result => re.test(result.title)
+    hidden(){
+      this.setState({hidden: true})
+      this.setState({name: ''})
+    }
 
-      this.setState({
-        isLoading: false,
-        results: _.filter(source, isMatch),
-      })
-    }, 300)
-  }*/
-	
+    visible(){
+      this.setState({hidden: false})
+      this.setState({placeholder: ''})
+    }
+
+    visiblePlaceholder(){
+      this.setState({placeholder: 'Rechercher un pseudo',})
+    }
+
   	render() {
-	//const { isLoading, value, results } = this.state
+	 const { name} = this.state
+
 	return (
 		<div className="">
 			<Link to="/home" ><Img className="logoPage" src="/logo_site.png"/></Link>
 			{/*<div className="titreKURBYSpage"><Link to="/home" >KURBYS</Link></div>*/}
-			{/* <Grid>
-        <Grid.Column width={8}>
-          <Search
-            loading={isLoading}
-            onResultSelect={this.handleResultSelect}
-            onSearchChange={_.debounce(this.handleSearchChange, 500, { leading: true })}
-            results={results}
-            value={value}
-            {...this.props}
-          />
-        </Grid.Column>
-        
-      </Grid>*/}
+
 			    <div className="search">
-					<Form size='mini'>
+					<Form size='mini' autoComplete="off">
 						<div className="search">
-						    <Form.Field>
-						      <input placeholder='Rechercher un pseudo' />
-						    </Form.Field>
-						</div>
-						<div className="searchValide">
-						    <Button
-						     type='submit'
-						     size='small'
-						     color='blue'
-						    >
-						     	Go!
-						     </Button>
-						    
+						    <Form.Group>
+						      <Form.Input
+						       placeholder={this.state.placeholder}
+						       name='name'
+						       value={name}
+						       onChange={this.handleChange}
+						       onFocus={this.visible.bind(this)}
+						       onBlur={this.visiblePlaceholder.bind(this)}
+						        />
+						    </Form.Group>
 						</div>
 					</Form>
+					<div className={this.state.hidden==false ? "containerResult" : "none"}  onClick={this.hidden.bind(this)}>	
+					 
+					 {this.renderAllreponses()}
+
+					 </div>
 				</div>
 				
 				<div className="DevenirConseiller">
+
 					<div className="ButtonHeader">
 						<Link to="/DevenirConseiller" >
 							<Button color="blue" size="small">
 								<div className="buttonSearch">
 									<Faheart />
 								</div>
-							 Devenir conseiller
+							 Devenir conseiller 
 							</Button>
 						</Link>
 					</div>
@@ -105,6 +105,7 @@ class HeaderPage extends Component {
 								</div>
 							 Conseillers en ligne
 							</Button>
+							
 						</Link>
 					</div>
 				</div>
@@ -119,7 +120,13 @@ export default HeaderPage =  withTracker(() => {
   const loading = !Handle.ready();
   const allreponses = Conseilleres.find({'user_id':userId});
   const reponseExists = !loading && !!allreponses;
+
+  const Handle1 = Meteor.subscribe('all');
+  const loading1 = !Handle1.ready();
+  const allConseillers = Meteor.users.find({}, {sort:{createdAt: -1}});
+  const reponseExists1 = !loading1 && !!allConseillers;
   return {
     user: reponseExists ? allreponses.count() : [],
+    Conseiller: reponseExists ? allConseillers.fetch() : [],
   };
 })(HeaderPage);

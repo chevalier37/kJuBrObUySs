@@ -434,15 +434,7 @@ class FormPosterMessage extends Component {
 			<div >
 				<Segment>
 				    <Form error onSubmit={this.Submit.bind(this)}>
-				    <div className="headerForm">	
-				    	<Header
-				    	 as='h2'
-				    	 onClick={this.poster.bind(this)}
-				    	 >
-				    	 Demander un conseil
-				    	 </Header>
-				   	</div>
-				    <div className={this.state.poster ? '' : "none"}>
+				
 				     <div className="consigneMessage">Attention : Pas de faute d'orthographe sinon ton message sera supprimé !</div>
 					    <Form.Field>
 					      <label>Titre du message</label>
@@ -764,7 +756,7 @@ class FormPosterMessage extends Component {
 						    	</Header>
 						</div>
 					    <Button type='submit' color="green">Valider</Button>
-					</div>
+			
 			  		</Form>
 	  			</Segment>
 			</div>

@@ -169,7 +169,9 @@ Meteor.publish('fetchUser', function ( ) {
 });
 
 Meteor.publish('all', function () {
-  return Meteor.users.find()
+   return Meteor.users.find({}, {
+    fields: {'username':1, 'profile.gender':1}
+  });
 });
 
 

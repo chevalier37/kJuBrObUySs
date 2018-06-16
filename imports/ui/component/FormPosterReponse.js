@@ -112,7 +112,6 @@ class FormPosterReponse extends Component {
 					       ref="message"
 					       onFocus={this.focusMessage.bind(this)}
 					       onBlur={this.focusMessageOut.bind(this)}
-					       autoHeight
 					       placeholder={placeholderMessage}
 					       rows={6}
 					       />

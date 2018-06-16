@@ -37,22 +37,19 @@ header {
 	background-color: #e9ebee;
 	display: block;
 	min-height: 1750px;
-
 }
 
 
 .headerSite{
 	height: 60px;
-	width: 100%;
-	background-color: #2185d0;
-	/*background-image: linear-gradient(#6c96f5, #1c3c84 100%);*/
-	/*background-color: #3b5998;
-	background-image: linear-gradient(#7ba0ef, #3a5182 100%);*/
+    width: 100%;
+    /* background-color: #2185d0; */
+    /* background-image: linear-gradient(#6c96f5, #1c3c84 100%); */
 }
 
 .headerPage{
 	height: 40px;
-	width: 100%;
+	min-width: 914px;
 	background-color: #2185d0;
 	/*background-image: linear-gradient(#6c96f5, #1c3c84 100%);*/
 	/*background-color: #3b5998;
@@ -90,7 +87,7 @@ header {
 	width: 35px;
     height: 35px;
     float: left;
-    margin-left: -65px;
+    margin-left: 15px;
     margin-top: 2px;
 }
 
@@ -183,11 +180,22 @@ header {
 	position: fixed;
     top: 0px;
     width: 100%;
-    max-height: 60px;
+    height: 40px;
+}
+
+.containerConnexion{
+	 /* background-color: #2185d0; */
+    background-image: linear-gradient(#6c96f5, #1c3c84 100%);
+    /* background-image: linear-gradient(#7ba0ef, #3a5182 100%); */
+    display: block;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 60px;
 }
 
 .containerHeader{
-	width: 900px;
+	/*width: 900px;*/
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -269,6 +277,8 @@ header {
     margin-top: 45px;
     position: fixed;
     margin-left: 20px;
+    overflow: auto;
+    height: 450px;
     
 }
 
@@ -765,6 +775,34 @@ header {
     border-top-right-radius: 5px;
 }
 
+.filleSearch{
+	background-color: white;
+    height: 30px;
+    margin-bottom: -15px;
+    padding-left: 15px;
+    padding-top: 4px;
+    /*border-top-left-radius: 5px;
+    border-top-right-radius: 5px;*/
+}
+
+.garconSearch{
+	background-color: white;
+    height: 30px;
+    margin-bottom: -15px;
+    padding-left: 15px;
+    padding-top: 4px;
+    /*border-top-left-radius: 5px;
+    border-top-right-radius: 5px;*/
+}
+
+.garconSearch:hover{
+	background-color: #dadada;
+}
+
+.filleSearch:hover{
+	background-color: #dadada;
+}
+
 .garconMessageBackConseil {
     background-color: #79c6ff;
     margin-bottom: -15px;
@@ -1097,7 +1135,16 @@ header {
 	margin-bottom: 10px;
 	z-index: -1;
 	width: 210px;
+}
 
+.SearchContent{
+	margin-left: -10px;
+}
+
+
+.visibleSearch{
+	display: inline-block;
+	width: 158px;
 }
 
 .presentationConseiller{
@@ -1134,9 +1181,12 @@ header {
 	background-color: #dadada;
 }
 
-
 .none{
 	display: none;
+}
+
+.invisible{
+	visibility: hidden;
 }
 
 .AgeProfil{
@@ -1163,7 +1213,7 @@ header {
 
 .ButtonProfil{
 	float: right;
-	margin-top: -70px;
+	/*margin-top: -70px;*/
 }
 
 .ButtonProfil a{
@@ -1650,7 +1700,7 @@ header {
 
 .visibleMessage{
 	display: inline-block;
-    margin-top: -20px;
+    /*margin-top: -20px;*/
 }
 
 .star {
@@ -1717,7 +1767,7 @@ header {
 	/*width: 50px;*/
 	float: left;
 	margin-top: 2px;
-	margin-left: -10px;
+	/*margin-left: -10px;*/
 }
 
 .searchValide{
@@ -1726,7 +1776,33 @@ header {
 }
 
 
+.containerResult{
+	height: 200px;
+    overflow-y: auto;
+    position: fixed;
+    margin-top: 35px;
+    
+}
 
+.inlinePoster{
+	display: inline-block;
+	width: 50%;
+}
+
+.compétences{
+	display: inline-block;
+	width: 200px;
+	margin-left: 10px;
+}
+
+.visibleForm{
+	display: block;
+}
+
+.ButtonAjouter{
+	float: right;
+	margin-top: -10px;
+}
 
 
 
