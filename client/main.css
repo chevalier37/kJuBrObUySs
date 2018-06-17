@@ -291,10 +291,10 @@ header {
 }
 
 .HeaderLastConseiller{
-	background-image: linear-gradient(#6c96f5, #1c3c84 100%);
+	/*background-image: linear-gradient(#6c96f5, #1c3c84 100%);*/
 	/*background-image: linear-gradient(#7ba0ef, #3a5182 100%);*/
     width: 208px;
-    color: white;
+    color: black;
     text-align: center;
     height: 30px;
     padding-top: 5px;
@@ -302,7 +302,10 @@ header {
     position: fixed;
     margin-bottom: 10px;
     display: block;
-    z-index: 2;
+    font-weight: bold;
+    background-color: #e9ebee;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
 
 }
 
@@ -605,7 +608,7 @@ header {
 .MainContentChat{
     height: 100%;
     margin-left: 210px;
-    margin-top: 50px;
+    margin-top: 40px;
     position: fixed;
     left: 0px;
 }
@@ -614,7 +617,7 @@ header {
 	float: left;
     /* width: 150px; */
     height: 500px;
-    margin-top: 50px;
+    margin-top: 40px;
     overflow: auto;
 }
 
@@ -655,6 +658,7 @@ header {
     padding-right: 4%;
     width: 85%;
     padding-bottom: 350px;
+    margin-top: -10px;
     
 }
 
@@ -1120,6 +1124,13 @@ header {
 .FaireDon{
 	display: inline-block;
 	margin-right: 10px;
+}
+
+.bloquerRed{
+	display: inline-block;
+	margin-right: 10px;
+	color:red;
+	margin-top: 10px;
 }
 
 .menuFixe{
@@ -1804,6 +1815,20 @@ header {
 	margin-top: -10px;
 }
 
+.iconWriting{
+	width: 15px;
+    height: 15px;
+    margin-right: 3px;
+}
+
+.NameWriting{
+ 	display: inline-block;
+ 	margin-right: 3px;
+}
+
+.TextWriting{
+	display: inline-block;
+}
 
 
 @media only screen and (max-width: 1800px) {

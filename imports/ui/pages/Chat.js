@@ -15,6 +15,8 @@ import ChatContent from '../component/ChatContent.js';
 import FormChat from '../component/FormChat.js';
 
 import { Chat } from '../../api/Chat.js';
+import { BloquerChat } from '../../api/BloquerChat.js';
+
 
 class chat extends Component {
 
@@ -25,8 +27,24 @@ class chat extends Component {
           username:'',
           naissance:'',
           update:false,
-          gender:''
+          gender:'',
+          bloquer:false,
         };
+    }
+
+    componentWillMount(){
+       const from_id = this.props.match.params.id
+        Meteor.apply('isContactBloquer', [{
+            from_id
+            }], {
+            onResultReceived: (error, response) => {
+              if (error) console.warn(error.reason);
+              {response ?  
+               this.setState({bloquer: true}) :
+               this.setState({bloquer: false})}
+              },
+
+        })
     }
 
     renderAllChat() {
@@ -47,6 +65,46 @@ class chat extends Component {
 
     componentWillReceiveProps(){
          this.setState({update: false})
+         const from_id = this.props.match.params.id
+          Meteor.apply('isContactBloquer', [{
+            from_id
+            }], {
+            onResultReceived: (error, response) => {
+              if (error) console.warn(error.reason);
+              {response ?  
+               this.setState({bloquer: true}) :
+               this.setState({bloquer: false})}
+              },
+
+        })
+    }
+
+    bloquer(){
+       const to_id = this.props.match.params.id
+       this.setState({bloquer: !this.state.bloquer})
+       
+       if(this.state.bloquer == false){
+       Meteor.call('bloquerChat',
+          to_id,
+          (err) => {
+              if(err){
+               } else {
+                {}     
+              }
+            })
+        }
+
+        if(this.state.bloquer == true){
+       Meteor.call('supprimerBloquer',
+          to_id,
+          (err) => {
+              if(err){
+               } else {
+                {}     
+              }
+            })
+        }
+
     }
       
     render() {
@@ -133,20 +191,45 @@ class chat extends Component {
                   <div className="ChatAge">  
                       {this.state.naissance} ans
                   </div>
-                  <div className="recommmander">
+                  <div className={this.state.bloquer ? "none" : "recommmander"}>
                       <Link to={'/Recommander/' + this.props.match.params.id}>    
-                        <Button inverted color='green' > Recommander</Button>
+                        <Button
+                         basic
+                         color='violet'
+                         size='tiny'
+                           > 
+                           Recommander
+                        </Button>
                       </Link>
                   </div>
-                  <div className="FaireDon">
+                  <div className={this.state.bloquer ? "none" :"FaireDon"}>
                     <Link to={'/Dons/' + this.props.match.params.id}>  
-                        <Button inverted color='red' > Faire un don</Button>
+                        <Button
+                         basic
+                         color='red'
+                         size='tiny'
+                          >
+                           Faire un don
+                        </Button>
                     </Link>
+                  </div>
+                  <div className={this.state.bloquer ? "bloquerRed" :"none"}>
+                    Utilisateur bloqué !
+                  </div>
+                  <div className="FaireDon">
+                        <Button 
+                          basic
+                          size='tiny'
+                          color={this.state.bloquer ? 'green' : 'red'}
+                          onClick={this.bloquer.bind(this)}
+                          >
+                          {this.state.bloquer ? "Débloquer" : "Bloquer"}
+                        </Button>
                   </div>
                 </div>
                 <div className="ContentDiscussion">
                    {this.renderAllChat()}
-                  <FormChat to_id = {this.props.match.params.id} />
+                  <FormChat to_id = {this.props.match.params.id} username={this.state.username} gender={this.state.gender} />
                 </div>
               </div>
             </div>

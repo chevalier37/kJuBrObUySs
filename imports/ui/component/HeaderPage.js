@@ -3,7 +3,6 @@ import { Meteor } from 'meteor/meteor';
 import Img from 'react-image'
 import { Dropdown, Menu, Button,Search, Grid, Header, Form, Input } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
-import Autocomplete  from 'react-autocomplete';
 import { withTracker } from 'meteor/react-meteor-data';
 import ResultSearch from './ResultSearch.js';
 import Faheart from 'react-icons/lib/fa/heart-o';
