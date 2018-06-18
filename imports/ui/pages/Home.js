@@ -37,6 +37,7 @@ class Home extends Component {
       <div className="container">
         <header>
           <div className="containerSupHeader">
+          <ContentMenuLeft />
             <div className="containerHeader">
             <div className="headerPage">
               <HeaderPage />
@@ -65,10 +66,8 @@ class Home extends Component {
               </Sidebar>
               
               <Sidebar.Pusher>
-        
                 <div className="containerSite" onClick={this.toggleHidden}>
                   <div className="containerIMG">
-                    <ContentMenuLeft />
                     <MainContent  />  
                   </div> 
                 </div>

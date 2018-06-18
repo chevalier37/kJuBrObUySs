@@ -44,6 +44,8 @@ import ConseillerConnecter from '../../../imports/ui/pages/ConseillerConnecter.j
 import RechercherConseillerConnecte from '../../../imports/ui/pages/RechercherConseillerConnecte.js';
 import DerniereRecommandations from '../../../imports/ui/pages/DerniereRecommandations.js';
 import NouveauxConseillers from '../../../imports/ui/pages/NouveauxConseillers.js';
+import RecherchePseudo from '../../../imports/ui/pages/RecherchePseudo.js';
+import NousRejoindre from '../../../imports/ui/pages/NousRejoindre.js';
 
 
 const requireAuth = (nextState, replace) => {
@@ -101,6 +103,8 @@ export const renderRoutes = () => (
       <Route path="/RechercherConseillerConnecte/:theme" component={RechercherConseillerConnecte}/>
       <Route path="/DerniereRecommandations/" component={DerniereRecommandations}/>
       <Route path="/NouveauxConseillers/" component={NouveauxConseillers}/>
+      <Route path="/RecherchePseudo/" component={RecherchePseudo}/>
+      <Route path="/NousRejoindre/" component={NousRejoindre}/>
 
     </div>
   </Router>

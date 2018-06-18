@@ -79,6 +79,7 @@ renderAllreponses() {
       <div ref={el => { this.el = el; }} ></div>
         <header>
           <div className="containerSupHeader">
+          <ContentMenuLeft />
             <div className="containerHeader">
             <div className="headerPage">
               <HeaderPage />
@@ -110,7 +111,6 @@ renderAllreponses() {
         
                 <div className="containerSite" onClick={this.toggleHidden}>
                   <div className="containerIMG">
-                  <ContentMenuLeft />
                   <div className="MainContent">
                     <div onClick={this.visible.bind(this)}>
                       <SingleMessagePost id={this.props.match.params.id} />

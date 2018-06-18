@@ -32,6 +32,7 @@ class ValiderNouveauPassword extends Component {
       <div className="container">
         <header>
           <div className="containerSupHeader">
+          <ContentMenuLeft />
             <div className="containerHeader">
             <div className="headerPage">
               <HeaderPage />
@@ -80,8 +81,7 @@ class ValiderNouveauPassword extends Component {
                       </div>
                        <p></p>
                     </Segment>
-                  </div>
-                  <ContentMenuLeft />                     
+                  </div>                  
                   </div> 
                 </div>
               </Sidebar.Pusher>

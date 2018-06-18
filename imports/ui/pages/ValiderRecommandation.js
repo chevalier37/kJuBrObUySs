@@ -44,6 +44,7 @@ class DevenirConseiller extends Component {
       <div ref={el => { this.el = el; }} ></div>
         <header>
           <div className="containerSupHeader">
+          <ContentMenuLeft />
             <div className="containerHeader">
             <div className="headerPage">
               <HeaderPage />
@@ -90,7 +91,6 @@ class DevenirConseiller extends Component {
                       <p></p>
                       </Segment>
                     </div>
-                    <ContentMenuLeft />
                   </div> 
                 </div>
               </Sidebar.Pusher>

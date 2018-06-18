@@ -621,6 +621,7 @@ class ConseillerConnecter extends Component {
       <div ref={el => { this.el = el; }} ></div>
         <header>
           <div className="containerSupHeader">
+          <ContentMenuLeft />
             <div className="containerHeader">
             <div className="headerPage">
               <HeaderPage />
@@ -651,7 +652,6 @@ class ConseillerConnecter extends Component {
         
                 <div className="containerSite" onClick={this.toggleHidden}>
                     <div className="containerIMG">
-                      <ContentMenuLeft />
                       <div className="MainContent">
                          <Segment>
                           <Header>
@@ -672,11 +672,11 @@ class ConseillerConnecter extends Component {
                             </div>
                           </Header>
                         </Segment>
-                        <div className={this.state.theme=="" ? "visibleConseiller" : "none"}>
                         {/*loader au chargement de la page*/}
                           <div className={this.props.loading ? "visibleLoader" : "none"}>
-                                <Loader active>Chargement des messages</Loader>
+                                <Loader active>Chargement des conseillers</Loader>
                           </div>
+                        <div className={this.state.theme=="" ? "visibleConseiller" : "none"}>
                          {this.renderAllreponses()}
                          </div>
                          <div className={this.state.theme=="premierAmour" ? "visibleConseiller" : "none"}>

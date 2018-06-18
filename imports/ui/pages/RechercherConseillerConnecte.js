@@ -144,6 +144,7 @@ class RecommandationsDonné extends Component {
       <div ref={el => { this.el = el; }} ></div>
         <header>
           <div className="containerSupHeader">
+          <ContentMenuLeft />
             <div className="containerHeader">
             <div className="headerPage">
               <HeaderPage />
@@ -175,7 +176,6 @@ class RecommandationsDonné extends Component {
         
                 <div className="containerSite" onClick={this.toggleHidden}>
                     <div className="containerIMG">
-                      <ContentMenuLeft />
                       <div className="MainContent">
                         <Segment>
                           <Header>

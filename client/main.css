@@ -11,7 +11,7 @@ header {
 }
 
 .container{
-	min-height: 600px;
+	/*min-height: 600px;*/
 	width: 100%;
 }
 
@@ -36,7 +36,7 @@ header {
 .containerSite{
 	background-color: #e9ebee;
 	display: block;
-	min-height: 1750px;
+	height: 100%;
 }
 
 
@@ -278,7 +278,7 @@ header {
     position: fixed;
     margin-left: 20px;
     overflow: auto;
-    height: 450px;
+    height: 100%;
     
 }
 
@@ -328,7 +328,7 @@ header {
     float: right;
     min-width: 670px;
     margin-top: 45px;
-    min-height: 800px;
+    /*min-height: 800px;*/
     font-size: 14px;
     margin-left: 240px;
     margin-right: 20px;
@@ -977,6 +977,10 @@ header {
 	text-align: center;
 }
 
+.ContentText{
+	font-size: 16px;
+}
+
 .ResultatConseiller{
 	font-weight: bold;
 	font-size: 15px;
@@ -1155,7 +1159,7 @@ header {
 
 .visibleSearch{
 	display: inline-block;
-	width: 158px;
+	width: 100%;
 }
 
 .presentationConseiller{
@@ -1659,7 +1663,7 @@ header {
 }
 
 .espacePub{
-	margin-top: 15px;
+	margin-top: 8px;
 }
 
 .UpdateNaissance{
@@ -1788,10 +1792,11 @@ header {
 
 
 .containerResult{
-	height: 200px;
+	height: 300px;
     overflow-y: auto;
     position: fixed;
-    margin-top: 35px;
+    width: 666px;
+    margin-left: 2px;
     
 }
 

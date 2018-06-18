@@ -400,13 +400,14 @@ class MainContent extends Component {
 				        Autre
 				       </Button>
 				       </Segment>
-				    </div>
-	  			
-	  			<div className={this.state.allMessages}>
-					{/*loader au chargement de la page*/}
+				</div>
+
+	  			{/*loader au chargement de la page*/}
 	  				<div className={this.props.loading ? "visibleLoader" : "none"}>
 				        	<Loader active>Chargement des messages</Loader>
 	  				</div>
+	  			<div className={this.state.allMessages}>
+					
 
 
 	  				{this.renderAllMessages()}

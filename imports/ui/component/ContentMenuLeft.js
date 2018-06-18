@@ -167,7 +167,7 @@ class ContentMenuLeft extends Component {
   			    		</Link>
     					</div>
 
-           <div className="espacePub" ></div>
+          <div className="espacePub" ></div>
 
           <div className="espaceConseiller"></div>
             <div className="TitreMenuItem">
@@ -202,7 +202,7 @@ class ContentMenuLeft extends Component {
                           <Img className="iconMenu" src="/bulb.svg"/>
                     </div>
                     <div className="TextMenu">
-                      Dernière recommandations
+                      Dernières recommandations
                     </div>
                   </Link>
               </div>
@@ -217,6 +217,24 @@ class ContentMenuLeft extends Component {
                     </div>
                 </Link>
             </div>
+
+          <div className="espacePub" ></div>
+
+          <div className="espaceConseiller"></div>
+            <div className="TitreMenuItem">
+             L'équipe
+          </div>
+
+          <div className="MenuItem">
+                <Link to={'/NousRejoindre/'}>
+                  <div className="star">   
+                        <Img className="iconMenu" src="/join.svg"/>
+                  </div>
+                  <div className="TextMenu">
+                    Nous rejoindre
+                  </div>
+                </Link>
+          </div>
        
         {/*
         <AdSense.Google

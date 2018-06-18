@@ -44,6 +44,7 @@ class commandeEffectuer extends Component {
       <div ref={el => { this.el = el; }} ></div>
         <header>
           <div className="containerSupHeader">
+          <ContentMenuLeft />
             <div className="containerHeader">
             <div className="headerPage">
               <HeaderPage />
@@ -88,8 +89,7 @@ class commandeEffectuer extends Component {
                       </p>
                        <p></p>
                     </Segment>
-                  </div>
-                  <ContentMenuLeft />                     
+                  </div>                 
                   </div> 
                 </div>
               </Sidebar.Pusher>

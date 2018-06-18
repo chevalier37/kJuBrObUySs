@@ -41,6 +41,7 @@ class DevenirConseiller extends Component {
       <div ref={el => { this.el = el; }} ></div>
         <header>
           <div className="containerSupHeader">
+          <ContentMenuLeft />
             <div className="containerHeader">
             <div className="headerPage">
               <HeaderPage />
@@ -71,7 +72,6 @@ class DevenirConseiller extends Component {
               <Sidebar.Pusher>
                 <div className="containerSite" onClick={this.toggleHidden}>
                   <div className="containerIMG">
-                    <ContentMenuLeft />
                     <div className="MainContent">
                       <Segment className="MainContentPage">
                         <Header>

@@ -6,7 +6,7 @@ import { check } from 'meteor/check';
 export const Dons = new Mongo.Collection('dons');
 
 if (Meteor.isServer) {
-//SSL('/Users/roussatjean-claude/Desktop/Kurbys/private/server.key','/Users/roussatjean-claude/Desktop/Kurbys/private/server.crt', 443);
+SSL('/Users/roussatjean-claude/Desktop/Kurbys/private/server.key','/Users/roussatjean-claude/Desktop/Kurbys/private/server.crt', 443);
 
 //const stripe = require("stripe")("sk_test_JvofPcmk1InWfME0dR7HUJRK");
 const stripe = require("stripe")("sk_live_8JVrdontvfK6TMW3RFAuTOGJ");

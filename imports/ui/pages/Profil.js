@@ -44,6 +44,7 @@ class Profil extends Component {
         <div ref={el => { this.el = el; }} ></div>
           <header>
           <div className="containerSupHeader">
+          <ContentMenuLeft />
             <div className="containerHeader">
             <div className="headerPage">
               <HeaderPage />
@@ -72,10 +73,7 @@ class Profil extends Component {
               <Sidebar.Pusher>
                 <div className="containerSite" onClick={this.toggleHidden}>
                   <div className="containerIMG">
-                  <ProfilContent id={this.props.match.params.id} /> 
-                  <ContentMenuLeft />
-                  
-                      
+                  <ProfilContent id={this.props.match.params.id} />                  
                   </div> 
                 </div>
               </Sidebar.Pusher>

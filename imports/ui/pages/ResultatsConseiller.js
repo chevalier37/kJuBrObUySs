@@ -44,6 +44,7 @@ class ResultatsConseiller extends Component {
       <div ref={el => { this.el = el; }} ></div>
         <header>
           <div className="containerSupHeader">
+          <ContentMenuLeft />
             <div className="containerHeader">
             <div className="headerPage">
               <HeaderPage />
@@ -73,7 +74,6 @@ class ResultatsConseiller extends Component {
               <Sidebar.Pusher>
                 <div className="containerSite" onClick={this.toggleHidden}>
                   <div className="containerIMG">
-                  <ContentMenuLeft />
                   <ResultatsConseillerContent theme={this.props.match.params.theme}/> 
                   </div> 
                 </div>

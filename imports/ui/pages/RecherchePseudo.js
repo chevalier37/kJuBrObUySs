@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
-import { Sidebar, Segment, Button, Header} from 'semantic-ui-react'
+import { Sidebar, Segment, Button, Header, Form, Input } from 'semantic-ui-react'
 import Img from 'react-image'
 import { Route, Redirect } from 'react-router';
-
 
 //Component
 import HeaderPage from '../component/HeaderPage.js';
@@ -15,20 +14,24 @@ import ButtonPusher from '../component/ButtonPusher.js';
 import ContentMenuLeft from '../component/ContentMenuLeft.js';
 import FormPosterReponse from '../component/FormPosterReponse.js';
 import SingleMessagePost from '../component/SingleMessagePost.js';
-import ListeLastRecommandations from '../component/ListeLastRecommandations.js';
+import ListeFavoris from '../component/ListeFavoris.js';
+import ResultSearch from '../component/ResultSearch.js';
 
-import { Recommandations } from '../../api/Recommandations.js';
+import { Conseilleres } from '../../api/Conseilleres.js';
 
-class DerniereRecommandations extends Component {
+class RecherchePseudo extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-          visible: false,
-          username:'',
-          gender:'',
+            name: '',
+            hidden:false,
+            placeholder:'Rechercher un pseudo',
+            visible:''
         }
     }
+
+  handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
     componentDidMount() {
         this.scrollToTop();
@@ -45,45 +48,43 @@ class DerniereRecommandations extends Component {
     toggleVisibility = () => this.setState({ visible: !this.state.visible })
     toggleHidden = () => this.setState({ visible: false })
 
-    componentWillMount(){
-      let id = this.props.match.params.id
-      Meteor.apply('usernameRecommander', [{
-              id,
-              }], {
-              onResultReceived: (error, response) => {
-                if (error) console.warn(error.reason);
-                                 
-                 {response ?
-                 this.setState({username: response.username}) 
-                 :
-                 ''}
+    
+    hidden(){
+      this.setState({hidden: true})
+      this.setState({name: ''})
+    }
 
-                  {response ?
-                 this.setState({gender: response.profile.gender}) 
-                 :
-                 ''}
-                },
-        })
+    visible(){
+      this.setState({hidden: false})
+      this.setState({placeholder: ''})
+    }
+
+    visiblePlaceholder(){
+      this.setState({placeholder: 'Rechercher un pseudo',})
     }
 
     renderAllreponses() {
-          let Allreponses = this.props.Lastrecommandation;
-
+          let Allreponses = this.props.Conseiller;
+          const { name, email } = this.state
           return Allreponses.map((message) => {
            let date = Date.parse(message.date);
              
             return (
-              <ListeLastRecommandations
+              <ResultSearch
                 key={message._id}
-                message={message}
-                date={date}         
+                conseiller={message}
+                date={date}
+                search={name} 
+                sexe={message.profile}        
               />
             );
           });
       }
 
     render() {
-    const { visible } = this.state  
+   
+    const { visible } = this.state
+    const { name} = this.state  
 
     if (!Meteor.loggingIn() && !Meteor.userId()){
       return <Redirect to="/" />;
@@ -101,12 +102,14 @@ class DerniereRecommandations extends Component {
               <span
                className="buttonPush"
                onClick={this.toggleVisibility}>
+
                <ButtonPusher />
                </span>
             </div>
             </div>
           </div>
         </header>
+
        
         <Sidebar.Pushable >
               <Sidebar
@@ -122,21 +125,43 @@ class DerniereRecommandations extends Component {
               </Sidebar>
               
               <Sidebar.Pusher>
-        
+
                 <div className="containerSite" onClick={this.toggleHidden}>
                   <div className="containerIMG">
+                  
                   <div className="MainContent">
-                  <Segment>
-                  <Header>
-                    <div className="titreRecomandation"> Les dernières recommandations </div>
-                    </Header>
-                  </Segment>
+                  <div className="">
+                    <Form size='large' autoComplete="off">
+                      <div className="">
+                            <Form.Field>
+                              <Input
+                               placeholder={this.state.placeholder}
+                               name='name'
+                               value={name}
+                               onChange={this.handleChange}
+                               onFocus={this.visible.bind(this)}
+                               onBlur={this.visiblePlaceholder.bind(this)}
+                               fluid
+                                />
+                              </Form.Field>
+                      </div>
+                    </Form>
+                  <div
+                    className={this.state.hidden==false ? "containerResult" : "none"}
+                    onClick={this.hidden.bind(this)}> 
+                   
                    {this.renderAllreponses()}
+
+                  </div>
+                </div>
+
                   </div>    
                       
                   </div> 
                 </div>
+
               </Sidebar.Pusher>
+
         </Sidebar.Pushable>
       
       </div>
@@ -144,13 +169,20 @@ class DerniereRecommandations extends Component {
   }
 }
 
-export default DerniereRecommandations =  withTracker(() => {
-  const Handle1 = Meteor.subscribe('allRecommandations');
+export default RecherchePseudo =  withTracker(() => {
+  const userId = Meteor.userId()
+  const Handle = Meteor.subscribe('IsConseiller', userId);
+  const loading = !Handle.ready();
+  const allreponses = Conseilleres.find({'user_id':userId});
+  const reponseExists = !loading && !!allreponses;
+
+  const Handle1 = Meteor.subscribe('all');
   const loading1 = !Handle1.ready();
-  const Lastrecommandation = Recommandations.find({}, {sort:{date: -1},limit:5});
-  const reponseExists1 = !loading1 && !!Lastrecommandation;
+  const allConseillers = Meteor.users.find({}, {sort:{createdAt: -1}});
+  const reponseExists1 = !loading1 && !!allConseillers;
 
   return {
-    Lastrecommandation: reponseExists1 ? Lastrecommandation.fetch() : [],
+    user: reponseExists ? allreponses.count() : [],
+    Conseiller: reponseExists ? allConseillers.fetch() : [],
   };
-})(DerniereRecommandations);
+})(RecherchePseudo);

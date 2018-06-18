@@ -45,6 +45,7 @@ class ConfirmationVirement extends Component {
         <header>
           <div className="containerSupHeader">
             <div className="containerHeader">
+            <ContentMenuLeft />
             <div className="headerPage">
               <HeaderPage />
               <span
@@ -91,7 +92,6 @@ class ConfirmationVirement extends Component {
 
                       </Segment>
                     </div>
-                    <ContentMenuLeft /> 
                   </div> 
                 </div>
 

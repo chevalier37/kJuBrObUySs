@@ -94,13 +94,13 @@ class allRecommandations extends Component {
       <div ref={el => { this.el = el; }} ></div>
         <header>
           <div className="containerSupHeader">
+          <ContentMenuLeft />
             <div className="containerHeader">
             <div className="headerPage">
               <HeaderPage />
               <span
                className="buttonPush"
                onClick={this.toggleVisibility}>
-
                <ButtonPusher />
                </span>
             </div>
@@ -125,7 +125,6 @@ class allRecommandations extends Component {
         
                 <div className="containerSite" onClick={this.toggleHidden}>
                   <div className="containerIMG">
-                  <ContentMenuLeft />
                   <div className="MainContent">
                   <Segment>
                   <Header>
@@ -137,7 +136,6 @@ class allRecommandations extends Component {
                   </Segment>
                    {this.renderAllreponses()}
                   </div>    
-                      
                   </div> 
                 </div>
               </Sidebar.Pusher>

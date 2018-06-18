@@ -44,6 +44,7 @@ class donEffectuer extends Component {
       <div ref={el => { this.el = el; }} ></div>
         <header>
           <div className="containerSupHeader">
+          <ContentMenuLeft />
             <div className="containerHeader">
             <div className="headerPage">
               <HeaderPage />
@@ -92,8 +93,7 @@ class donEffectuer extends Component {
                       </div>
                        <p></p>
                     </Segment>
-                  </div>
-                  <ContentMenuLeft />                     
+                  </div>                  
                   </div> 
                 </div>
               </Sidebar.Pusher>
