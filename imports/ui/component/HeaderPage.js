@@ -62,7 +62,7 @@ class HeaderPage extends Component {
 			<Link to="/home" ><Img className="logoPage" src="/logo_site.png"/></Link>
 			{/*<div className="titreKURBYSpage"><Link to="/home" >KURBYS</Link></div>*/}
 
-			    <div className="search">
+			   {/* <div className="search">
 					<Form size='mini' autoComplete="off">
 						<div className="search">
 						    <Form.Group>
@@ -82,7 +82,7 @@ class HeaderPage extends Component {
 					 {this.renderAllreponses()}
 
 					 </div>
-				</div>
+				</div>*/}
 				
 				<div className="DevenirConseiller">
 
@@ -120,12 +120,12 @@ export default HeaderPage =  withTracker(() => {
   const allreponses = Conseilleres.find({'user_id':userId});
   const reponseExists = !loading && !!allreponses;
 
-  const Handle1 = Meteor.subscribe('all');
+  /*const Handle1 = Meteor.subscribe('all');
   const loading1 = !Handle1.ready();
   const allConseillers = Meteor.users.find({}, {sort:{createdAt: -1}});
-  const reponseExists1 = !loading1 && !!allConseillers;
+  const reponseExists1 = !loading1 && !!allConseillers;*/
   return {
     user: reponseExists ? allreponses.count() : [],
-    Conseiller: reponseExists ? allConseillers.fetch() : [],
+    /*Conseiller: reponseExists ? allConseillers.fetch() : [],*/
   };
 })(HeaderPage);
