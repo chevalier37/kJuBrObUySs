@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
-import { Sidebar, Segment, Button, Header, Form, Select, Input, Message} from 'semantic-ui-react'
+import { Sidebar, Segment, Button, Header, Form, Select, Input, Message, Loader} from 'semantic-ui-react'
 import Img from 'react-image'
 import { Route, Redirect } from 'react-router';
 
@@ -627,7 +627,6 @@ class ConseillerConnecter extends Component {
               <span
                className="buttonPush"
                onClick={this.toggleVisibility}>
-
                <ButtonPusher />
                </span>
             </div>
@@ -674,6 +673,10 @@ class ConseillerConnecter extends Component {
                           </Header>
                         </Segment>
                         <div className={this.state.theme=="" ? "visibleConseiller" : "none"}>
+                        {/*loader au chargement de la page*/}
+                          <div className={this.props.loading ? "visibleLoader" : "none"}>
+                                <Loader active>Chargement des messages</Loader>
+                          </div>
                          {this.renderAllreponses()}
                          </div>
                          <div className={this.state.theme=="premierAmour" ? "visibleConseiller" : "none"}>

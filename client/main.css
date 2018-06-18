@@ -1834,7 +1834,8 @@ header {
     display: block;
     position: fixed;
     margin-top: 60px;
-    margin-left: 300px;
+    width: 500px;
+    z-index: 100;
 }
 
 
