@@ -540,7 +540,7 @@ header {
 
 .NotifCircle{
 	float: right;
-	background-color: teal;
+	background-color: red;
 	padding: 3px;
 	border-radius: 5px;
 }
@@ -1828,6 +1828,13 @@ header {
 
 .TextWriting{
 	display: inline-block;
+}
+
+.visibleLoader{
+    display: block;
+    position: fixed;
+    margin-top: 60px;
+    margin-left: 300px;
 }
 
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Segment, Button, Checkbox, Form, Header, TextArea } from 'semantic-ui-react'
+import { Segment, Button, Checkbox, Form, Header, TextArea, Dimmer, Loader } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 
@@ -403,6 +403,12 @@ class MainContent extends Component {
 				    </div>
 	  			
 	  			<div className={this.state.allMessages}>
+					{/*loader au chargement de la page*/}
+	  				<div className={this.props.loading ? "visibleLoader" : "none"}>
+				        	<Loader active>Chargement des messages</Loader>
+	  				</div>
+
+
 	  				{this.renderAllMessages()}
 	  				<div className={this.state.more > this.props.countAllMessages ? "none" : "voirPlus" }>
 						<Button
@@ -508,6 +514,7 @@ export default withTracker(() => {
   
   const Handle = Meteor.subscribe('AllMessages');
   const loading = !Handle.ready();
+
   const allposts = Posts.find({}, { sort: { post_date: -1 }, limit:30});
   const amour = Posts.find({$or:
   	[{premierAmour:true},
@@ -591,6 +598,8 @@ export default withTracker(() => {
     
     postsEcole: postExists ? ecole.fetch() : [],
     countpostsEcole: postExists ? ecole.count() : "",
+
+    loading:loading,
 
   };
 })(MainContent);
