@@ -4,6 +4,9 @@ import { Segment, Button, Checkbox, Form, Header, Divider, Label, Comment } from
 import { Link } from 'react-router-dom';
 import { Comments } from '../../api/Reponses.js';
 import { withTracker } from 'meteor/react-meteor-data';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
+import { hot } from 'react-hot-loader'
 
 class ListeMessages extends Component {
 	
@@ -48,6 +51,8 @@ class ListeMessages extends Component {
 			    autre:'',
 			    disabled:false,
 			    author_id:false,
+			    open:false,
+			    moderateur:false,
 		    };
 		}
 
@@ -57,6 +62,12 @@ class ListeMessages extends Component {
 	 }
 
 	componentWillMount(){
+		if(Meteor.userId() == "QXf4Th7ghBzLZjpWo" ||
+		   Meteor.userId() == "oANNC3P9SpQ5Fw8Qg" ||
+		   Meteor.userId() == "3zwe2xG8SyHvMZaub"){
+			this.setState({moderateur: true})
+		}
+
 		const sexe = this.props.message.gender;
 	    const author_id = this.props.message.post_author_id;
 
@@ -69,8 +80,6 @@ class ListeMessages extends Component {
 	         this.setState({author_id: true}):
 		  	 this.setState({author_id: false})
 		}
-
-
 
 		//on calcul la date du post
 		const today = new Date();
@@ -242,8 +251,6 @@ class ListeMessages extends Component {
        	this.setState({disabled: true}) :
        	this.setState({disabled: false})
    		}
-
-		
 	}
 
 	reponse(){
@@ -254,10 +261,35 @@ class ListeMessages extends Component {
 	    	return 'réponses'
 	    }
 	}
+	
+	show(){
+		confirmAlert({
+      title: 'Supprimer',
+      message: 'Confirmer la suppression du message ?',
+      buttons: [
+        {
+          label: 'Oui',
+          onClick: () => {
+          	this.Supprimer()
+          }
+        },
+        {
+          label: 'Non',
+        }
+      ]
+    })
+	}
+
+	Supprimer(){
+		Meteor.call('supprimerMessage',
+	    this.props.message._id,
+	     );
+	}
 
   render() {
     
 	const colorSexe = this.state.sexe;
+	const { open } = this.state
 	let now = new Date();
 	let diff = now - this.props.message.naissance;
 	let age = Math.round(diff / 31536000000);
@@ -309,6 +341,7 @@ class ListeMessages extends Component {
 	         				}
 	         				</div>
 	         				<div className="dateMessage">{this.props.nbrreponse} {this.reponse()} </div>
+	          				
 	          				<div className="repondreMessage">
 	          					<Link to={'/singleMessage/' + this.props.message._id} >
 	          						<Button  size="tiny" color="green">
@@ -337,6 +370,16 @@ class ListeMessages extends Component {
 									</Link>
 								</Button>
 							</div>
+							<div className={this.state.moderateur ? "repondreMessage" : "none"}>
+	          						<Button 
+	          						 size="mini"
+	          						 color="red"
+	          						 onClick={this.show.bind(this)}
+	          						 >
+	          							Supprimer
+	          						</Button>
+	          						
+	          				</div>
 
 							<p className="categorie">
 							

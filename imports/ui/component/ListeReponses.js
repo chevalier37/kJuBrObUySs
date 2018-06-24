@@ -3,6 +3,9 @@ import { Meteor } from 'meteor/meteor';
 import { Segment, Button, Checkbox, Form, Header, Divider, Label, Comment } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
+import { hot } from 'react-hot-loader'
 import Vote from 'react-icons/lib/fa/thumbs-up'; 
 
 import { Favoris } from '../../api/Favoris.js';
@@ -18,6 +21,7 @@ class ListeReponses extends Component {
 			    disabledVote:false,
 			    disabledFavoris:false,
 			    color:true,
+			    moderateur:false,
 		    };
 		}
 
@@ -43,8 +47,13 @@ class ListeReponses extends Component {
 	 }
 
 	componentWillMount(){
+		if(Meteor.userId() == "QXf4Th7ghBzLZjpWo" ||
+		   Meteor.userId() == "oANNC3P9SpQ5Fw8Qg" ||
+		   Meteor.userId() == "3zwe2xG8SyHvMZaub"){
+			this.setState({moderateur: true})
+		}
+
 		const sexe = this.props.message.gender;
-	    
 	    {sexe == 'fille' ? 
 	         this.setState({sexe: 'pink'}):
 		  	 this.setState({sexe: 'blue'})
@@ -88,6 +97,30 @@ class ListeReponses extends Component {
 
    		}
 
+	}
+
+	show(){
+		confirmAlert({
+	      title: 'Supprimer',
+	      message: 'Confirmer la suppression du message ?',
+	      buttons: [
+	        {
+	          label: 'Oui',
+	          onClick: () => {
+	          	this.Supprimer()
+	          }
+	        },
+	        {
+	          label: 'Non',
+	        }
+	      ]
+	    })
+	}
+
+	Supprimer(){
+		Meteor.call('supprimerReponse',
+	    this.props.message._id,
+	     );
 	}
 
   render() {
@@ -159,6 +192,16 @@ class ListeReponses extends Component {
 									<Vote />
 							    </Button>
 								</span>
+
+								<div className={this.state.moderateur ? "contacter" : "none"}>
+	          						<Button 
+	          						 size="mini"
+	          						 color="red"
+	          						 onClick={this.show.bind(this)}
+	          						 >
+	          							Supprimer
+	          						</Button>
+	          					</div>
 
 								<Button
 								 basic size="tiny"
