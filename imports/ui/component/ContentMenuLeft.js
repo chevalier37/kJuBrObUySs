@@ -65,6 +65,17 @@ class ContentMenuLeft extends Component {
 		return (
 			<div className="MenuLeft">
             <div className="espaceConseiller"></div>
+            <div className="MenuItem">
+                  <Link to={'/Chat/' + this.state.id}>
+                  <div className="star">   
+                          <Img className="iconMenu" src="/chat.svg"/>
+                    </div>
+                    <div className="TextMenu">
+                      Messagerie
+                    </div>
+                  </Link>
+            </div>
+            <div className="espaceConseiller"></div>
             <div className="TitreMenuItem">
              Mon compte
             </div>
@@ -79,6 +90,28 @@ class ContentMenuLeft extends Component {
   				      </Link>
     					</div>
 
+                  <div className="MenuItem">
+                  <Link to={'/Favoris/' }>
+                     <div className="star">   
+                          <Img className="iconMenu" src="/star.svg"/>
+                    </div>
+                    <div className="TextMenu">
+                      Favoris
+                    </div>
+                  </Link>
+              </div>
+
+                <div className="MenuItem">
+                  <Link to={'/ListeDons/' + Meteor.userId() }>
+                    <div className="star">   
+                          <Img className="iconMenu" src="/euro.svg"/>
+                    </div>
+                    <div className="TextMenu">
+                      Dons
+                    </div>
+                </Link>
+              </div>
+
               <div className="MenuItem">
                 <Link to={'/Livre/'} >   
                     <div className="star">   
@@ -90,28 +123,10 @@ class ContentMenuLeft extends Component {
                 </Link>
               </div>
     					
-    					<div className="MenuItem">
-  				        <Link to={'/Chat/' + this.state.id}>
-                  <div className="star">   
-                          <Img className="iconMenu" src="/chat.svg"/>
-                    </div>
-                    <div className="TextMenu">
-                      Messagerie
-                    </div>
-  				        </Link>
-  					</div>
-  			       
-  			       	<div className="MenuItem">
-  			        	<Link to={'/Favoris/' }>
-                     <div className="star">   
-                          <Img className="iconMenu" src="/star.svg"/>
-                    </div>
-                    <div className="TextMenu">
-                      Favoris
-                    </div>
-  			          </Link>
-    					</div>
-
+    					<div className="espacePub" ></div>
+              <div className="TitreMenuItem">
+               Conseils
+              </div>
               <div className="MenuItem">
                   <Link to={'/SuiviConseil/' }>
                     <div className="star">   
@@ -156,92 +171,81 @@ class ContentMenuLeft extends Component {
                   </Link>
               </div>
 
-  			      	<div className="MenuItem">
-  			        	<Link to={'/ListeDons/' + Meteor.userId() }>
-                    <div className="star">   
-                          <Img className="iconMenu" src="/euro.svg"/>
-                    </div>
-                    <div className="TextMenu">
-                      Dons
-                    </div>
-  			    		</Link>
-    					</div>
+              <div className="espacePub" ></div>
 
-          <div className="espacePub" ></div>
-
-          <div className="espaceConseiller"></div>
-            <div className="TitreMenuItem">
-             Conseillers
-          </div>
-
-           <div className="MenuItem">
-                  <Link to="/ConseillerConnecter" >
-                    <div className="star">   
-                          <Img className="iconMenu" src="/users.svg"/>
-                    </div>
-                    <div className="TextMenu">
-                      Conseillers en ligne
-                    </div>
-                  </Link>
+              <div className="espaceConseiller"></div>
+                <div className="TitreMenuItem">
+                 Conseillers
               </div>
 
-                <div className="MenuItem">
-                  <Link to={'/NouveauxConseillers/' }>
-                    <div className="star">   
-                          <Img className="iconMenu" src="/team.svg"/>
-                    </div>
-                    <div className="TextMenu">
-                      Nouveaux conseillers
-                    </div>
-                </Link>
-            </div>
+               <div className="MenuItem">
+                      <Link to="/ConseillerConnecter" >
+                        <div className="star">   
+                              <Img className="iconMenu" src="/users.svg"/>
+                        </div>
+                        <div className="TextMenu">
+                          Conseillers en ligne
+                        </div>
+                      </Link>
+                  </div>
 
-            <div className="MenuItem">
-                  <Link to={'/DerniereRecommandations/'}>
-                    <div className="star">   
-                          <Img className="iconMenu" src="/bulb.svg"/>
-                    </div>
-                    <div className="TextMenu">
-                      Dernières recommandations
-                    </div>
-                  </Link>
+                    <div className="MenuItem">
+                      <Link to={'/NouveauxConseillers/' }>
+                        <div className="star">   
+                              <Img className="iconMenu" src="/team.svg"/>
+                        </div>
+                        <div className="TextMenu">
+                          Nouveaux conseillers
+                        </div>
+                    </Link>
+                </div>
+
+                <div className="MenuItem">
+                      <Link to={'/DerniereRecommandations/'}>
+                        <div className="star">   
+                              <Img className="iconMenu" src="/bulb.svg"/>
+                        </div>
+                        <div className="TextMenu">
+                          Dernières recommandations
+                        </div>
+                      </Link>
+                  </div>
+
+                    <div className="MenuItem">
+                      <Link to={'/DevenirConseiller/'}>
+                        <div className="star">   
+                              <Img className="iconMenu" src="/aid.svg"/>
+                        </div>
+                        <div className="TextMenu">
+                          Devenir conseillers
+                        </div>
+                    </Link>
+                </div>
+
+              <div className="espacePub" ></div>
+
+              <div className="espaceConseiller"></div>
+                <div className="TitreMenuItem">
+                 L'équipe
               </div>
 
-                <div className="MenuItem">
-                  <Link to={'/DevenirConseiller/'}>
-                    <div className="star">   
-                          <Img className="iconMenu" src="/aid.svg"/>
-                    </div>
-                    <div className="TextMenu">
-                      Devenir conseillers
-                    </div>
-                </Link>
-            </div>
-
-          <div className="espacePub" ></div>
-
-          <div className="espaceConseiller"></div>
-            <div className="TitreMenuItem">
-             L'équipe
-          </div>
-
-          <div className="MenuItem">
-                <Link to={'/NousRejoindre/'}>
-                  <div className="star">   
-                        <Img className="iconMenu" src="/join.svg"/>
-                  </div>
-                  <div className="TextMenu">
-                    Nous rejoindre
-                  </div>
-                </Link>
-          </div>
-       
-        {/*
-        <AdSense.Google
-          client='ca-pub-6112176939320267'
-          slot='6737349349'
-          style={{ display: 'inline-block',width:'200px', height:'200px'}}
-        />*/}
+              <div className="MenuItem">
+                    <Link to={'/NousRejoindre/'}>
+                      <div className="star">   
+                            <Img className="iconMenu" src="/join.svg"/>
+                      </div>
+                      <div className="TextMenu">
+                        Nous rejoindre
+                      </div>
+                    </Link>
+              </div>
+           
+            {/*
+            <AdSense.Google
+              client='ca-pub-6112176939320267'
+              slot='6737349349'
+              style={{ display: 'inline-block',width:'200px', height:'200px'}}
+            />*/}
 
 
         <div className="espacePub" ></div>

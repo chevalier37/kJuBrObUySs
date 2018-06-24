@@ -92,15 +92,14 @@ header {
 }
 
 .iconMenu{
-	width: 20px;
-    height: 20px;
+	width: 17px;
+    height: 17px;
     margin-right: 5px;
 }
 
 .TextMenu{
 	display: inline-block;
 	position: relative;
-    top: -5px;
 }
 
 .titreKURBYS{
@@ -742,8 +741,8 @@ header {
     margin-bottom: -15px;
     padding-left: 3px;
     padding-top: 4px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
     display: inline-block;
 }
 
@@ -753,8 +752,8 @@ header {
     margin-bottom: -15px;
     padding-left: 3px;
     padding-top: 4px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
     display: inline-block;
 }
 
@@ -765,8 +764,8 @@ header {
     margin-bottom: -15px;
     padding-left: 10px;
     padding-top: 4px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
 }
 
 .garconMessageBackground{
@@ -775,8 +774,8 @@ header {
     margin-bottom: -15px;
     padding-left: 10px;
     padding-top: 4px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
 }
 
 .filleSearch{
@@ -1179,6 +1178,7 @@ header {
 	height: 30px;
 	color: black;
 	padding-top: 5px;
+	border-radius: 3px;
 }
 
 
@@ -1193,7 +1193,7 @@ header {
 
 .MenuItem:hover{
 	color: black;
-	background-color: #dadada;
+	background-color: #f9f9f9;
 }
 
 .none{
@@ -1715,12 +1715,13 @@ header {
 
 .visibleMessage{
 	display: inline-block;
-    /*margin-top: -20px;*/
+    margin-top: -10px;
 }
 
 .star {
 	color:#236fa9;
 	display: inline-block;
+	float: left;
 }
 
 .headerForm h2.ui.header{
@@ -1746,8 +1747,14 @@ header {
 	margin-top: -10px;
 }
 
+.SupprimerChat{
+	margin-top: -10px;
+	color: red;
+	cursor:pointer;
+}
+
 .telechargerMobile{
-	margin-top: 100px;
+	margin-top: 300px;
 }
 
 .lesFilles{
@@ -1805,6 +1812,14 @@ header {
 	width: 50%;
 }
 
+.inlinePoster a{
+	color:black;
+}
+
+.inlinePoster a:hover{
+	color:black;
+}
+
 .compétences{
 	display: inline-block;
 	width: 200px;
@@ -1843,6 +1858,36 @@ header {
     z-index: 100;
 }
 
+.DemanderConseil{
+	width: 99%;
+	text-align: center;
+	background-color: #f2f2f5;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	border-radius: 2px;
+	box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+	border-style: solid;
+	border-width: 1px;
+	border-color: #dadbdc;
+	font-weight: bold;
+	cursor: pointer;
+
+}
+
+.iconPoster{
+	height: 20px;
+	width: 20px;
+	display: inline-block;
+	margin-top: 5px;
+	float: left;
+	margin-right: 5px;
+}
+
+.textPoster{
+	display: inline-block;
+	
+}
 
 @media only screen and (max-width: 1800px) {
 

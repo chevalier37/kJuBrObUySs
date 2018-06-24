@@ -14,7 +14,6 @@ class ListeConseillerConnecte extends Component {
 		      	sexe: '',
 			    disabled:false,
 			    disabledVote:false,
-			    IsConseiller:false,
 			    premierAmour:false,
 		    };
 		}
@@ -193,7 +192,7 @@ class ListeConseillerConnecte extends Component {
 	let age = Math.round(diff / 31536000000);
 
 		return (
-			<div className={this.props.isOnline == true ? "ListeMessages" : "none"}>
+			<div className="ListeMessages">
 	  				<div className={this.props.message.gender == "fille" ? "filleMessageBackground" : "garconMessageBackground"} >
 			  			<div className={this.props.message.gender == "fille" ?
 	        				  "titreMessageFille" : "titreMessageGarcon"
@@ -373,12 +372,9 @@ class ListeConseillerConnecte extends Component {
   	}
 }
 
-export default ListeConseillerConnecte =  withTracker(({id}) => {
-  const Handle = Meteor.subscribe('user', id);
-  const loading = !Handle.ready();
-  const user = Meteor.users.findOne({'_id':id});
-  const reponseExists = !loading && !!user;
+export default ListeConseillerConnecte =  withTracker(() => {
+
   return {
-  	isOnline:reponseExists ? user.status.online : '',
+
   };
 })(ListeConseillerConnecte);

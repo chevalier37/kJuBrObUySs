@@ -1098,6 +1098,7 @@ Meteor.methods({
                   date: new Date(),
                   naissance:user.profile.naissance,
                   presentation: presentation,
+                  Online:true,
                 });
             } 
       },
@@ -1113,15 +1114,36 @@ Meteor.methods({
                 {IsConseiller==0 ? Istrue = true : Istrue = false}
                 console.log(IsConseiller)
                 return Istrue;
-             },    
+             },
 
-  
+      ConseillerOnline: function() {
+                const IsConseiller = Conseilleres.find({'user_id':this.userId}).count();
+                if(IsConseiller>0){
+                  Conseilleres.update({user_id:this.userId}, {
+                  $set: { Online: true },
+                  })
+                }
+             },
+
+      ConseillerOffline: function() {
+                const IsConseiller = Conseilleres.find({'user_id':this.userId}).count();
+                if(IsConseiller>0){
+                  Conseilleres.update({user_id:this.userId}, {
+                  $set: { Online: false },
+                  })
+                }
+             },
 
 });
 
 Meteor.publish('AllConseiller', function () {
 
   return Conseilleres.find();
+});
+
+Meteor.publish('ConseillerOnline', function () {
+
+  return Conseilleres.find({'Online':true});
 });
 
 Meteor.publish('IsConseiller', function (id) {

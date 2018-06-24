@@ -26,10 +26,10 @@ export default class FormLogin extends Component {
       	if(err){
           this.setState({erreurLogin: true,})
       	} else {
-        	{
-          Meteor.userId() ? 
-       	  this.setState({connection: true,}): ''     
-        	}
+      		if(Meteor.userId()){
+      			Meteor.call('ConseillerOnline');
+      			this.setState({connection: true})
+      		}
       	}
     	});
   	}

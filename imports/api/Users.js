@@ -98,7 +98,7 @@ Meteor.methods({
                    },
 
       supprimerCompte: function() {
-        const myId = this.userId;
+          const myId = this.userId;
 
           Meteor.users.remove({_id:myId});
           
@@ -140,6 +140,55 @@ Meteor.methods({
           //console.log("Comments") 
           }
        },
+
+       /*SearchPseudo: function(name) {
+
+        let LowerName = name.name.toLowerCase();
+
+        let result2 = LowerName.substr(0, 2);
+        let result3 = LowerName.substr(0, 3);
+        let result4 = LowerName.substr(0, 4);
+        let result5 = LowerName.substr(0, 5);
+        let result6 = LowerName.substr(0, 6);
+                 
+        let search = Meteor.users.find().fetch();
+        let max = Meteor.users.find().count();
+let result=[]
+        let i =0;
+        for(i; i=max-1; i++){
+             let resultSearch2 = search[i].username.substr(0, 2);
+             let resultSearch3 = search[i].username.substr(0, 3);
+             let resultSearch4 = search[i].username.substr(0, 4);
+             let resultSearch5 = search[i].username.substr(0, 5);
+             let resultSearch6 = search[i].username.substr(0, 6);
+
+            if(LowerName.length ==2 && result2==resultSearch2){
+              
+
+              
+              result[i] = search[i];
+                         
+              
+            }
+            if(LowerName.length ==3 && result3==resultSearch3){
+               result[i] = search[i];
+            }
+            if(LowerName.length ==4 && result4==resultSearch4){
+               result[i] = search[i];
+            }
+            if(LowerName.length ==5 && result5==resultSearch5){
+               result[i] = search[i].username;
+            }
+            if(LowerName.length ==6 && result6==resultSearch6){
+              result[i] = search[i];
+            }
+          }
+          console.log(result)
+return  result
+          
+       },*/
+
+       
 
 });
 

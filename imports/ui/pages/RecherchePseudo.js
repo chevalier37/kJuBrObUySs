@@ -64,7 +64,7 @@ class RecherchePseudo extends Component {
     }
 
     renderAllreponses() {
-          let Allreponses = this.props.Conseiller;
+          let Allreponses = this.props.User;
           const { name, email } = this.state
           return Allreponses.map((message) => {
            let date = Date.parse(message.date);
@@ -170,19 +170,14 @@ class RecherchePseudo extends Component {
 }
 
 export default RecherchePseudo =  withTracker(() => {
-  const userId = Meteor.userId()
-  const Handle = Meteor.subscribe('IsConseiller', userId);
-  const loading = !Handle.ready();
-  const allreponses = Conseilleres.find({'user_id':userId});
-  const reponseExists = !loading && !!allreponses;
 
   const Handle1 = Meteor.subscribe('all');
   const loading1 = !Handle1.ready();
   const allConseillers = Meteor.users.find({}, {sort:{createdAt: -1}});
-  const reponseExists1 = !loading1 && !!allConseillers;
+  const reponseExists = !loading1 && !!allConseillers;
 
   return {
-    user: reponseExists ? allreponses.count() : [],
-    Conseiller: reponseExists ? allConseillers.fetch() : [],
+
+    User: reponseExists ? allConseillers.fetch() : [],
   };
 })(RecherchePseudo);

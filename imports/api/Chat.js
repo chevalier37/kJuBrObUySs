@@ -97,7 +97,17 @@ Meteor.methods({
       NotifChat: function(message_id){
         check(message_id, String);
         Chat.update(message_id, {$set: {read:true} })
-      }
+      },
+
+      supprimerChat: function(idMessage) {
+        new SimpleSchema({
+            idMessage: {type: String},
+          }).validate({
+            idMessage,
+          });
+
+          Chat.remove({_id:idMessage});
+       },
 });
 
 Meteor.publish('Chat', function (to_id, from_id) {

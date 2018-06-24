@@ -73,6 +73,12 @@ export default class ChatContent extends Component {
 	   
 		}
 
+		Supprimer(){
+			Meteor.call('supprimerChat',
+		    this.props.message._id,
+		     );
+		}
+
 		componentDidMount() {
 		    this.scrollToBottom();
 		}
@@ -97,6 +103,10 @@ export default class ChatContent extends Component {
 	    	<div>
 		    	<div className={"AffficheDiscussion" + " "+this.state.messageDate}>
 		    		{this.state.date}
+		    	</div>
+		    	<div className={"SupprimerChat" + " "+this.state.gauche}
+		    	     onClick={this.Supprimer.bind(this)}>
+		    		supprimer
 		    	</div>
 				<div className={"AffficheDiscussion" + " "+this.state.message}>
 					<div className="display-linebreak">

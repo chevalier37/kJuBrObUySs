@@ -79,24 +79,7 @@ class ConseillerConnecter extends Component {
     toggleHidden = () => this.setState({ visible: false })
 
     componentWillMount(){
-      let id = this.props.match.params.id
-      Meteor.apply('usernameRecommander', [{
-              id,
-              }], {
-              onResultReceived: (error, response) => {
-                if (error) console.warn(error.reason);
-                                 
-                 {response ?
-                 this.setState({username: response.username}) 
-                 :
-                 ''}
-
-                  {response ?
-                 this.setState({gender: response.profile.gender}) 
-                 :
-                 ''}
-                },
-        })
+      
     }
 
 
@@ -776,10 +759,10 @@ class ConseillerConnecter extends Component {
 
 export default ConseillerConnecter =  withTracker(() => {
   
-  const Handle = Meteor.subscribe('AllConseiller');
+  const Handle = Meteor.subscribe('ConseillerOnline');
   const loading = !Handle.ready();
   
-  const allConseillers = Conseilleres.find({}, {sort:{date: -1}});
+  const allConseillers = Conseilleres.find({Online:true}, {sort:{date: -1}});
   const reponseExists = !loading && !!allConseillers;
 
   const premierAmour = Conseilleres.find({premierAmour:true}, {sort:{date: -1}});

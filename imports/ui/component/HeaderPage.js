@@ -13,6 +13,26 @@ import { Conseilleres } from '../../api/Conseilleres.js';
 
 class HeaderPage extends Component {
 
+	componentWillMount(){
+      Meteor.call('ConseillerOnline');
+       window.addEventListener("beforeunload", (ev) => 
+		{  
+		    Meteor.call('ConseillerOffline');
+		});
+    }
+
+
+	componentDidMount() {
+	   window.addEventListener("beforeunload", (ev) => 
+	{  
+	    Meteor.call('ConseillerOffline');
+	});
+}
+
+
+
+
+
   	render() {
 
 	return (
@@ -20,13 +40,13 @@ class HeaderPage extends Component {
 			<Link to="/home" ><Img className="logoPage" src="/logo_site.png"/></Link>
 			{/*<div className="titreKURBYSpage"><Link to="/home" >KURBYS</Link></div>*/}			
 				<div className="DevenirConseiller">
-				<div className="ButtonHeader">
+				{/*<div className="ButtonHeader">
 						<Link to="/RecherchePseudo" >
 							<Button color="blue" size="small">
 							 Rechercher un pseudo
 							</Button>
 						</Link>
-					</div>
+					</div>*/}	
 
 					<div className="ButtonHeader">
 						<Link to="/DevenirConseiller" >

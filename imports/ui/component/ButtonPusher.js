@@ -31,6 +31,7 @@ import { Comments } from '../../api/Reponses.js';
 import { Recommandations } from '../../api/Recommandations.js';
 import { Dons } from '../../api/Stripe.js';
 
+
 class ButtonPusher extends Component {
   
   constructor(props) {
@@ -60,7 +61,8 @@ class ButtonPusher extends Component {
   	 this.setState({
       logout: true,
     });
-  	Meteor.logout()
+    Meteor.call('ConseillerOffline');
+  	Meteor.logout();
   }
 
   componentWillMount(){

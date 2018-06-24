@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Segment, Button, Checkbox, Form, Header, TextArea, Dimmer, Loader } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
+import Img from 'react-image'
 
 import FormPosterMessage from './FormPosterMessage.js';
 import ListeMessages from './ListeMessages.js';
@@ -318,23 +319,27 @@ class MainContent extends Component {
 		return (
 			<div className="MainContent">
 				<div className='inlinePoster'>
-					<Button
-					    fluid
-						color='blue'
+					<div
+						className='DemanderConseil'
 				    	onClick={this.posterConseil.bind(this)}
 				    	 >
+				    	 <div className="textPoster">
+				    	 <Img className="iconPoster" src="/support.svg"/>
 				    	 Demander un conseil
-				    </Button>
+				    	 </div>
+				    </div>
 			    </div>
 			    
 			    <div className='inlinePoster'>
-				    <Button
-					    fluid
-						color='teal'
-				    	onClick={this.poster.bind(this)}
-				    	 >
-				    	 Trier les messages
-				    </Button>
+					  	 <div 
+							className='DemanderConseil'
+					    	onClick={this.poster.bind(this)}
+					    	 >
+					    	 <div className="textPoster">
+					    	 <Img className="iconPoster" src="/order.svg"/>
+					    	 Trier les messages
+					    	 </div>
+					    </div>
 				</div>
 
 				<div className={this.state.posterConseil ? '' : "none"}>
@@ -345,61 +350,69 @@ class MainContent extends Component {
 				<div className={this.state.poster ? '' : "none"}>
 				<Segment>
 				      <Button
-				        size="small"
-				        inverted color="red"
+				        size="mini"
+				        basic
+				        color="red"
 				        onClick={this.showAll.bind(this)}>
 				        Tous
 				       </Button>
 
 				       <Button
-				        size="small"
-				        inverted color="blue"
+				        size="mini"
+				        basic
+				        color="blue"
 				        onClick={this.nonLu.bind(this)}>
 				        Non répondus
 				       </Button>
 
 				      <Button
-				        size="small"
-				         inverted color="red"
-				         onClick={this.shawAmour.bind(this)}>
+				        size="mini"
+				        basic
+				        color="red"
+				        onClick={this.shawAmour.bind(this)}>
 				         Amour
 				       </Button>
 
 				      <Button
-				        size="small" 
-				        inverted color="red"
+				        size="mini"
+				        basic
+				        color="red"
 				        onClick={this.showConfiance.bind(this)}>
 				        Confiance en soi
 				       </Button>
 
 				      <Button
-				        size="small"
-				        inverted color="red"
+				        size="mini"
+				        basic
+				        color="red"
 				        onClick={this.showSexo.bind(this)}>
 				        Sexo
 				       </Button>
 
 				      <Button
-				        size="small"
-				        inverted color="red"
+				        size="mini"
+				        basic
+				        color="red"
 				        onClick={this.showSante.bind(this)}>
 				        Santé
 				       </Button>
 
 				      <Button
-				        size="small"
-				        inverted color="red"
+				        size="mini"
+				        basic
+				        color="red"
 				        onClick={this.showEcole.bind(this)}>
 				        Scolaire
 				       </Button>
 
 				       <Button
-				        size="small"
-				        inverted color="red"
+				        size="mini"
+				        basic
+				        color="red"
 				        onClick={this.ShowAutre.bind(this)}>
 				        Autre
 				       </Button>
-				       </Segment>
+				    </Segment>
 				</div>
 
 	  			{/*loader au chargement de la page*/}
@@ -408,8 +421,6 @@ class MainContent extends Component {
 	  				</div>
 	  			<div className={this.state.allMessages}>
 					
-
-
 	  				{this.renderAllMessages()}
 	  				<div className={this.state.more > this.props.countAllMessages ? "none" : "voirPlus" }>
 						<Button
