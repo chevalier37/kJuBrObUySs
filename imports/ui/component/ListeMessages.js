@@ -51,7 +51,6 @@ class ListeMessages extends Component {
 			    autre:'',
 			    disabled:false,
 			    author_id:false,
-			    open:false,
 			    moderateur:false,
 		    };
 		}
@@ -264,20 +263,20 @@ class ListeMessages extends Component {
 	
 	show(){
 		confirmAlert({
-      title: 'Supprimer',
-      message: 'Confirmer la suppression du message ?',
-      buttons: [
-        {
-          label: 'Oui',
-          onClick: () => {
-          	this.Supprimer()
-          }
-        },
-        {
-          label: 'Non',
-        }
-      ]
-    })
+	      title: 'Supprimer',
+	      message: 'Confirmer la suppression du message ?',
+	      buttons: [
+	        {
+	          label: 'Oui',
+	          onClick: () => {
+	          	this.Supprimer()
+	          }
+	        },
+	        {
+	          label: 'Non',
+	        }
+	      ]
+	    })
 	}
 
 	Supprimer(){
@@ -378,7 +377,6 @@ class ListeMessages extends Component {
 	          						 >
 	          							Supprimer
 	          						</Button>
-	          						
 	          				</div>
 
 							<p className="categorie">
