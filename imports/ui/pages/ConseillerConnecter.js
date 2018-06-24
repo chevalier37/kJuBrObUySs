@@ -765,88 +765,88 @@ export default ConseillerConnecter =  withTracker(() => {
   const allConseillers = Conseilleres.find({Online:true}, {sort:{date: -1}});
   const reponseExists = !loading && !!allConseillers;
 
-  const premierAmour = Conseilleres.find({premierAmour:true}, {sort:{date: -1}});
+  const premierAmour = Conseilleres.find({premierAmour:true, Online:true}, {sort:{date: -1}});
   const reponseExists1 = !loading && !!premierAmour;
 
-  const trahison = Conseilleres.find({trahison:true}, {sort:{date: -1}});
+  const trahison = Conseilleres.find({trahison:true, Online:true}, {sort:{date: -1}});
   const reponseExists2 = !loading && !!trahison;
 
-  const amourdistance = Conseilleres.find({amourdistance:true}, {sort:{date: -1}});
+  const amourdistance = Conseilleres.find({amourdistance:true, Online:true}, {sort:{date: -1}});
   const reponseExists4 = !loading && !!amourdistance;
 
-  const Friendzone = Conseilleres.find({Friendzone:true}, {sort:{date: -1}});
+  const Friendzone = Conseilleres.find({Friendzone:true, Online:true}, {sort:{date: -1}});
   const reponseExists3 = !loading && !!Friendzone;
 
-  const separation = Conseilleres.find({separation:true}, {sort:{date: -1}});
+  const separation = Conseilleres.find({separation:true, Online:true}, {sort:{date: -1}});
   const reponseExists5 = !loading && !!separation;
 
-  const timidite = Conseilleres.find({timidite:true}, {sort:{date: -1}});
+  const timidite = Conseilleres.find({timidite:true, Online:true}, {sort:{date: -1}});
   const reponseExists6 = !loading && !!timidite;
 
-  const depression = Conseilleres.find({depression:true}, {sort:{date: -1}});
+  const depression = Conseilleres.find({depression:true, Online:true}, {sort:{date: -1}});
   const reponseExists7 = !loading && !!depression;
 
-  const mutilation = Conseilleres.find({mutilation:true}, {sort:{date: -1}});
+  const mutilation = Conseilleres.find({mutilation:true, Online:true}, {sort:{date: -1}});
   const reponseExists8 = !loading && !!mutilation;
 
-  const suicide = Conseilleres.find({suicide:true}, {sort:{date: -1}});
+  const suicide = Conseilleres.find({suicide:true, Online:true}, {sort:{date: -1}});
   const reponseExists9 = !loading && !!suicide;
 
-  const deces = Conseilleres.find({deces:true}, {sort:{date: -1}});
+  const deces = Conseilleres.find({deces:true, Online:true}, {sort:{date: -1}});
   const reponseExists10 = !loading && !!deces;
 
-  const premierfois = Conseilleres.find({premierfois:true}, {sort:{date: -1}});
+  const premierfois = Conseilleres.find({premierfois:true, Online:true}, {sort:{date: -1}});
   const reponseExists11 = !loading && !!premierfois;
 
-  const contraception = Conseilleres.find({contraception:true}, {sort:{date: -1}});
+  const contraception = Conseilleres.find({contraception:true, Online:true}, {sort:{date: -1}});
   const reponseExists12 = !loading && !!contraception;
 
-  const mst = Conseilleres.find({mst:true}, {sort:{date: -1}});
+  const mst = Conseilleres.find({mst:true, Online:true}, {sort:{date: -1}});
   const reponseExists13 = !loading && !!mst;
 
-  const viol = Conseilleres.find({viol:true}, {sort:{date: -1}});
+  const viol = Conseilleres.find({viol:true, Online:true}, {sort:{date: -1}});
   const reponseExists14 = !loading && !!viol;
 
-  const avortement = Conseilleres.find({avortement:true}, {sort:{date: -1}});
+  const avortement = Conseilleres.find({avortement:true, Online:true}, {sort:{date: -1}});
   const reponseExists15 = !loading && !!avortement;
 
-  const orientationSex = Conseilleres.find({orientationSex:true}, {sort:{date: -1}});
+  const orientationSex = Conseilleres.find({orientationSex:true, Online:true}, {sort:{date: -1}});
   const reponseExists16 = !loading && !!orientationSex;
 
-  const Anorexie = Conseilleres.find({Anorexie:true}, {sort:{date: -1}});
+  const Anorexie = Conseilleres.find({Anorexie:true, Online:true}, {sort:{date: -1}});
   const reponseExists17 = !loading && !!Anorexie;
 
-  const obesite = Conseilleres.find({obesite:true}, {sort:{date: -1}});
+  const obesite = Conseilleres.find({obesite:true, Online:true}, {sort:{date: -1}});
   const reponseExists18 = !loading && !!obesite;
 
-  const drogue = Conseilleres.find({drogue:true}, {sort:{date: -1}});
+  const drogue = Conseilleres.find({drogue:true, Online:true}, {sort:{date: -1}});
   const reponseExists19 = !loading && !!drogue;
 
-  const alcool = Conseilleres.find({alcool:true}, {sort:{date: -1}});
+  const alcool = Conseilleres.find({alcool:true, Online:true}, {sort:{date: -1}});
   const reponseExists20 = !loading && !!alcool;
 
-  const complexe = Conseilleres.find({complexe:true}, {sort:{date: -1}});
+  const complexe = Conseilleres.find({complexe:true, Online:true}, {sort:{date: -1}});
   const reponseExists21 = !loading && !!complexe;
 
-  const hopital = Conseilleres.find({hopital:true}, {sort:{date: -1}});
+  const hopital = Conseilleres.find({hopital:true, Online:true}, {sort:{date: -1}});
   const reponseExists23 = !loading && !!hopital;
 
-  const accident = Conseilleres.find({accident:true}, {sort:{date: -1}});
+  const accident = Conseilleres.find({accident:true, Online:true}, {sort:{date: -1}});
   const reponseExists24 = !loading && !!accident;
 
-  const handicap = Conseilleres.find({handicap:true}, {sort:{date: -1}});
+  const handicap = Conseilleres.find({handicap:true, Online:true}, {sort:{date: -1}});
   const reponseExists25 = !loading && !!handicap;
 
-  const echecEcole = Conseilleres.find({echecEcole:true}, {sort:{date: -1}});
+  const echecEcole = Conseilleres.find({echecEcole:true, Online:true}, {sort:{date: -1}});
   const reponseExists26 = !loading && !!echecEcole;
 
-  const Harcelement = Conseilleres.find({Harcelement:true}, {sort:{date: -1}});
+  const Harcelement = Conseilleres.find({Harcelement:true, Online:true}, {sort:{date: -1}});
   const reponseExists27 = !loading && !!Harcelement;
 
-  const discrimination = Conseilleres.find({discrimination:true}, {sort:{date: -1}});
+  const discrimination = Conseilleres.find({discrimination:true, Online:true}, {sort:{date: -1}});
   const reponseExists28 = !loading && !!discrimination;
 
-  const Violence = Conseilleres.find({Violence:true}, {sort:{date: -1}});
+  const Violence = Conseilleres.find({Violence:true, Online:true}, {sort:{date: -1}});
   const reponseExists29 = !loading && !!Violence;
 
   return {
