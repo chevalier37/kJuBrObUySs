@@ -32,6 +32,7 @@ class ContentMenuLeft extends Component {
         this.state = {
            activeItem: '',
            id:'',
+           moderateur:false,
            
         };
     }
@@ -52,6 +53,11 @@ class ContentMenuLeft extends Component {
 
             },
         });
+    if(Meteor.userId() == "QXf4Th7ghBzLZjpWo" ||
+       Meteor.userId() == "oANNC3P9SpQ5Fw8Qg" ||
+       Meteor.userId() == "3zwe2xG8SyHvMZaub"){
+      this.setState({moderateur: true})
+    }
   }
 
   handleContextRef = contextRef => this.setState({ contextRef })
@@ -122,6 +128,44 @@ class ContentMenuLeft extends Component {
                     </div>
                 </Link>
               </div>
+
+              <div className="espacePub" ></div>
+              <div className="TitreMenuItem">
+               Articles
+              </div>
+              <div className="MenuItem">
+                  <Link to={'/MesArticles/' }>
+                    <div className="star">   
+                          <Img className="iconMenu" src="/articles.svg"/>
+                    </div>
+                    <div className="TextMenu">
+                      Mes articles
+                    </div>
+                  </Link>
+              </div>
+
+              <div className="MenuItem">
+                  <Link to="/RedigerArticles" >
+                    <div className="star">   
+                          <Img className="iconMenu" src="/pen.svg"/>
+                    </div>
+                    <div className="TextMenu">
+                      Rédiger un article
+                    </div>
+                  </Link>
+              </div>
+
+              <div className={this.state.moderateur ? "MenuItem" : "none"}>
+                  <Link to="/ArticlesModeration" >
+                    <div className="star">   
+                          <Img className="iconMenu" src="/notepad.svg"/>
+                    </div>
+                    <div className="TextMenu">
+                      Modération
+                    </div>
+                  </Link>
+              </div>
+
     					
     					<div className="espacePub" ></div>
               <div className="TitreMenuItem">

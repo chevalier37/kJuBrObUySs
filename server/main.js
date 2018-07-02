@@ -15,7 +15,8 @@ import '../imports/api/mail.js';
 import '../imports/api/Notifications.js';
 import '../imports/api/BloquerChat.js';
 import '../imports/api/Writing.js';
-
+import '../imports/api/Articles.js';
+import '../imports/api/CommentArticle.js';
 
 
 Meteor.startup(() => {

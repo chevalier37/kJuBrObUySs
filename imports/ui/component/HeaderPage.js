@@ -62,6 +62,13 @@ class HeaderPage extends Component {
 							</Button>
 						</Link>
 					</div>
+					<div className="ButtonHeader">
+						<Link to="/Articles" >
+							<Button color="blue" size="small">
+							 Articles
+							</Button>
+						</Link>
+					</div>
 				</div>
 			</div>
 	);

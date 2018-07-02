@@ -5,7 +5,6 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 import { Sidebar, Segment, Button, Icon, Header, Divider } from 'semantic-ui-react'
 import { Route, Redirect } from 'react-router';
-import Img from 'react-image'
  
 //Component
 import HeaderPage from '../component/HeaderPage.js';
@@ -13,11 +12,9 @@ import ContentMenuRight from '../component/ContentMenuRight.js';
 import ButtonPusher from '../component/ButtonPusher.js';
 import ContentMenuLeft from '../component/ContentMenuLeft.js';
 
-//Stripe
-import {StripeProvider} from 'react-stripe-elements';
-import MyStoreCheckoutLivre from '../component/MyStoreCheckoutLivre.js';
 
-class Livre extends Component {
+
+class ConfirmationVirement extends Component {
 
     state = { visible: false }
 
@@ -29,15 +26,11 @@ class Livre extends Component {
     }
 
     componentDidUpdate() {
-        //this.scrollToTop();
+        this.scrollToTop();
     }
 
     scrollToTop() {
         this.el.scrollIntoView();
-    }
-
-    Submit(event) {
-        event.preventDefault();
     }
 
     render() {
@@ -51,8 +44,8 @@ class Livre extends Component {
       <div ref={el => { this.el = el; }} ></div>
         <header>
           <div className="containerSupHeader">
-          <ContentMenuLeft />
             <div className="containerHeader">
+            <ContentMenuLeft />
             <div className="headerPage">
               <HeaderPage />
               <span
@@ -85,28 +78,17 @@ class Livre extends Component {
                 <div className="containerSite" onClick={this.toggleHidden}>
                   <div className="containerIMG">
                     <div className="MainContent">
-                      <Segment className="MainContentPage">
+                      <Segment className="MainContent">
                         <Header>
-                        Commander Le Secret de Cendrillon
+                          Article en cours de modération
                         </Header>
-
+                      
                         <Divider />
 
-                        <div className="imgLivreCommande">
-                          <Img className="imgLivre" src="/livre.png"/>
-                        </div>
-
-                        <div className="prix">
-                          <b>Format :</b> 21cm x 14cm<br />
-                          <b>Nombre de pages :</b> 250 pages<br />
-                          <b>Auteur :</b> Jean-Benoit ROUSSAT<br />
-                          <b>Editions :</b> Seconde Vie Editions<br />
-                          <b>Prix :</b> 22€<br />
-                        </div>
-
-                        <StripeProvider apiKey="pk_live_Cq60qm92b2AkPUxpWFdr48ud">
-                          <MyStoreCheckoutLivre />
-                        </StripeProvider>
+                        <p className="consigne">
+                        Ton article à bien été envoyé.<br />
+                        Il sera posté après modération. 
+                        </p>
 
                       </Segment>
                     </div>
@@ -114,7 +96,6 @@ class Livre extends Component {
                 </div>
 
               </Sidebar.Pusher>
-
         </Sidebar.Pushable>
       
       </div>
@@ -127,4 +108,4 @@ class Livre extends Component {
 export default withTracker(() => {
   return {
   };
-})(Livre);
+})(ConfirmationVirement);

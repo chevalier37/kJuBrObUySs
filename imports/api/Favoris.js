@@ -44,6 +44,35 @@ Meteor.methods({
                 });
        },
 
+       addFavorisArticles: function(idMessage,text,authorName, authorId, gender) {
+          new SimpleSchema({
+            idMessage: {type: String},
+            text: {type: String},
+            authorName: {type: String},
+            authorId: {type: String},
+            gender: {type: String},
+          }).validate({
+            idMessage,
+            text,
+            authorName,
+            authorId,
+            gender
+          });
+
+
+          let user = Meteor.user();
+          Favoris.insert({
+                  from_id:this.userId,
+                  authorId:authorId,
+                  from_name: user.username,
+                  authorName: authorName,
+                  gender :gender,
+                  date: new Date(),
+                  text:text,
+                  idMessage:idMessage,
+                });
+       },
+
        supprimerFavoris: function(idMessage) {
         new SimpleSchema({
             idMessage: {type: String},

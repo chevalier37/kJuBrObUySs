@@ -46,6 +46,13 @@ import DerniereRecommandations from '../../../imports/ui/pages/DerniereRecommand
 import NouveauxConseillers from '../../../imports/ui/pages/NouveauxConseillers.js';
 import RecherchePseudo from '../../../imports/ui/pages/RecherchePseudo.js';
 import NousRejoindre from '../../../imports/ui/pages/NousRejoindre.js';
+import RedigerArticles from '../../../imports/ui/pages/RedigerArticles.js';
+import ConfirmationArticle from '../../../imports/ui/pages/ConfirmationArticle.js';
+import Articles from '../../../imports/ui/pages/Articles.js';
+import ArticlesModeration from '../../../imports/ui/pages/ArticlesModeration.js';
+import SingleArticle from '../../../imports/ui/pages/SingleArticle.js';
+import MesArticles from '../../../imports/ui/pages/MesArticles.js';
+
 
 
 const requireAuth = (nextState, replace) => {
@@ -105,6 +112,12 @@ export const renderRoutes = () => (
       <Route path="/NouveauxConseillers/" component={NouveauxConseillers}/>
       <Route path="/RecherchePseudo/" component={RecherchePseudo}/>
       <Route path="/NousRejoindre/" component={NousRejoindre}/>
+      <Route path="/RedigerArticles/" component={RedigerArticles}/>
+      <Route path="/ConfirmationArticle/" component={ConfirmationArticle}/>
+      <Route path="/Articles/" component={Articles}/>
+      <Route path="/ArticlesModeration/" component={ArticlesModeration}/>
+      <Route path="/SingleArticle/:id" component={SingleArticle}/>
+      <Route path="/MesArticles/" component={MesArticles}/>
 
     </div>
   </Router>
