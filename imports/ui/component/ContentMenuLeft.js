@@ -33,11 +33,11 @@ class ContentMenuLeft extends Component {
            activeItem: '',
            id:'',
            moderateur:false,
-           
         };
     }
 
   componentWillMount(){
+    
   	//on cherche le dernier contact
   	Meteor.apply('lastContact', [{
           }], {
@@ -55,7 +55,10 @@ class ContentMenuLeft extends Component {
         });
     if(Meteor.userId() == "QXf4Th7ghBzLZjpWo" ||
        Meteor.userId() == "oANNC3P9SpQ5Fw8Qg" ||
-       Meteor.userId() == "3zwe2xG8SyHvMZaub"){
+       Meteor.userId() == "3zwe2xG8SyHvMZaub" ||
+       Meteor.userId() == "Bd7c7opRJ6TQ8PcD3" || //alibaba
+       Meteor.userId() == "ThwXvbof74cb56Jgz"  // seduire est un art
+       ){
       this.setState({moderateur: true})
     }
   }
@@ -78,6 +81,26 @@ class ContentMenuLeft extends Component {
                     </div>
                     <div className="TextMenu">
                       Messagerie
+                    </div>
+                  </Link>
+            </div>
+            <div className={this.state.moderateur ? "MenuItem" : "none"}>
+                  <Link to={'/Videos/'}>
+                  <div className="star">   
+                          <Img className="iconMenu" src="/youtube.svg"/>
+                    </div>
+                    <div className="TextMenu">
+                      Vidéos
+                    </div>
+                  </Link>
+            </div>
+            <div className={this.state.moderateur ? "MenuItem" : "none"}>
+                  <Link to={'/ajouterVideo/'}>
+                  <div className="star">   
+                          <Img className="iconMenu" src="/video.svg"/>
+                    </div>
+                    <div className="TextMenu">
+                      Ajouter une vidéo
                     </div>
                   </Link>
             </div>

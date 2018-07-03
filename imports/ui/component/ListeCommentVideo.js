@@ -6,11 +6,9 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 import { hot } from 'react-hot-loader'
-import Vote from 'react-icons/lib/fa/thumbs-up'; 
 
-import { Favoris } from '../../api/Favoris.js';
 
-class ListeReponses extends Component {
+class ListeCommentVideo extends Component {
 	
 	constructor(props) {
 		    super(props);
@@ -30,7 +28,7 @@ class ListeReponses extends Component {
        	this.setState({disabled: true});
 	 }
 
-	 addFavoris() {
+	/* addFavoris() {
 	    Meteor.call('addFavoris',
 	    this.props.message._id,
 	    this.props.message.comments,
@@ -38,21 +36,18 @@ class ListeReponses extends Component {
 	    this.props.message.post_author_id,
 	    this.props.message.gender );
        	this.setState({disabledFavoris: true});
-	 }
+	 }*/
 
-	 vote() {
+	 /*vote() {
 	    Meteor.call('vote', this.props.message._id);
        	this.setState({disabledVote: true});
         this.setState({color: false});
-	 }
+	 }*/
 
 	componentWillMount(){
 		if(Meteor.userId() == "QXf4Th7ghBzLZjpWo" ||
 		   Meteor.userId() == "oANNC3P9SpQ5Fw8Qg" ||
-		   Meteor.userId() == "3zwe2xG8SyHvMZaub" ||
-		   Meteor.userId() == "Bd7c7opRJ6TQ8PcD3" || //alibaba
-       	   Meteor.userId() == "ThwXvbof74cb56Jgz"  // seduire est un art
-		   ){
+		   Meteor.userId() == "3zwe2xG8SyHvMZaub"){
 			this.setState({moderateur: true})
 		}
 
@@ -180,7 +175,7 @@ class ListeReponses extends Component {
 						
 							<div className="repondreMessage" >
 
-								<span className="vote">
+								{/*<span className="vote">
 									{this.props.message.votes}
 								</span>
 
@@ -212,7 +207,7 @@ class ListeReponses extends Component {
 								 color='red'
 								 onClick={this.signalerReponse.bind(this)}>
 									Signaler
-								</Button>
+								</Button>*/}
 
 								<div className="contacter" >
 									<Button basic size="tiny" color='blue'>
@@ -221,17 +216,7 @@ class ListeReponses extends Component {
 										</Link>
 									</Button>
 								</div>
-
-								<Button
-								 basic size="tiny"
-								 disabled={
-								 	this.props.isFavoris==true ||
-								    this.state.disabledFavoris==true ?
-								    true : false}
-								 color='blue'
-								 onClick={this.addFavoris.bind(this)}>
-									Ajouter au favoris
-								</Button>
+								
 							</div>
 	      				</Comment.Content>
 	    			</Comment>
@@ -241,14 +226,14 @@ class ListeReponses extends Component {
   	}
 }
 
-export default ListeReponses =  withTracker(({ message }) => {
-	let id = message._id;
+export default ListeCommentVideo =  withTracker(({ message }) => {
+	/*let id = message._id;
 	let myId = Meteor.userId();
 	const Handle = Meteor.subscribe('isFavoris', id, myId );
 	const loading = !Handle.ready();
  	let FavorisSearch = Favoris.findOne({'idMessage':id, 'from_id':myId});
- 	const reponseExists = !loading && !!FavorisSearch;
+ 	const reponseExists = !loading && !!FavorisSearch;*/
   return {
-  	isFavoris:reponseExists ? true : false,
+  	/*isFavoris:reponseExists ? true : false,*/
   };
-})(ListeReponses);
+})(ListeCommentVideo);

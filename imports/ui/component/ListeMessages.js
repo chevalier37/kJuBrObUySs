@@ -63,7 +63,10 @@ class ListeMessages extends Component {
 	componentWillMount(){
 		if(Meteor.userId() == "QXf4Th7ghBzLZjpWo" ||
 		   Meteor.userId() == "oANNC3P9SpQ5Fw8Qg" ||
-		   Meteor.userId() == "3zwe2xG8SyHvMZaub"){
+		   Meteor.userId() == "3zwe2xG8SyHvMZaub" ||
+		   Meteor.userId() == "Bd7c7opRJ6TQ8PcD3" || //alibaba
+       	   Meteor.userId() == "ThwXvbof74cb56Jgz"  // seduire est un art
+		   ){
 			this.setState({moderateur: true})
 		}
 

@@ -3,11 +3,10 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
-import { Sidebar, Segment, Button, Header, Message, Embed  } from 'semantic-ui-react'
+import { Sidebar, Segment, Button, Header,  } from 'semantic-ui-react'
 import Img from 'react-image'
 import { Route, Redirect } from 'react-router';
-import FormPosterArticle from '../component/FormPosterArticle.js';
-import YouTube from 'react-youtube';
+
 
 //Component
 import HeaderPage from '../component/HeaderPage.js';
@@ -15,7 +14,10 @@ import ContentMenuRight from '../component/ContentMenuRight.js';
 import ButtonPusher from '../component/ButtonPusher.js';
 import ContentMenuLeft from '../component/ContentMenuLeft.js';
 
-class RedigerArticles extends Component {
+import FormAjouterVideo from '../component/FormAjouterVideo.js';
+
+
+class ajouterVideo extends Component {
 
     constructor(props) {
         super(props);
@@ -31,7 +33,7 @@ class RedigerArticles extends Component {
     }
 
     componentDidUpdate() {
-        //this.scrollToTop();
+        this.scrollToTop();
     }
 
     scrollToTop() {
@@ -42,14 +44,13 @@ class RedigerArticles extends Component {
     toggleHidden = () => this.setState({ visible: false })
 
     componentWillMount(){
-
+      let id = this.props.match.params.id
       }
 
 
     render() {
    
-    const { visible } = this.state 
-    
+    const { visible } = this.state  
 
     if (!Meteor.loggingIn() && !Meteor.userId()){
       return <Redirect to="/" />;
@@ -93,25 +94,16 @@ class RedigerArticles extends Component {
         
                 <div className="containerSite" onClick={this.toggleHidden}>
                   <div className="containerIMG">
-                    <div className="MainContent">
-                      <Segment>
-                        <Header>
-                          <div className="titreRecomandation"> Rédiger un article </div>
-                        </Header>
-                      </Segment>
-                      <Message
-                        info
-                        header='Conseils pour rédiger un article :'
-                        list={[
-                          'Rédige un article pour donner un conseil ou partager ton expérience',
-                          'Tout le monde peut voir tes articles et les commenter',
-                          "Pas de fautes d'orthographe",
-                          "Ton article sera posté après validation par notre équipe",
-                        ]}
-                      />
-
-                      <FormPosterArticle />
-                    </div>    
+                  <div className="MainContent">
+                  <Segment>
+                  <Header>
+                    <div className="titreRecomandation"> Ajouter une vidéo </div>
+                      
+                  </Header>
+                  </Segment>
+                   <FormAjouterVideo />
+                  </div>    
+                      
                   </div> 
                 </div>
 
@@ -124,9 +116,10 @@ class RedigerArticles extends Component {
   }
 }
 
-export default RedigerArticles =  withTracker(() => {
+export default ajouterVideo =  withTracker(() => {
   
+
   return {
     
   };
-})(RedigerArticles);
+})(ajouterVideo);

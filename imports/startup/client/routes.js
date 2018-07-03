@@ -52,7 +52,9 @@ import Articles from '../../../imports/ui/pages/Articles.js';
 import ArticlesModeration from '../../../imports/ui/pages/ArticlesModeration.js';
 import SingleArticle from '../../../imports/ui/pages/SingleArticle.js';
 import MesArticles from '../../../imports/ui/pages/MesArticles.js';
-
+import ajouterVideo from '../../../imports/ui/pages/ajouterVideo.js';
+import Videos from '../../../imports/ui/pages/Videos.js';
+import singleVideo from '../../../imports/ui/pages/singleVideo.js';
 
 
 const requireAuth = (nextState, replace) => {
@@ -118,6 +120,9 @@ export const renderRoutes = () => (
       <Route path="/ArticlesModeration/" component={ArticlesModeration}/>
       <Route path="/SingleArticle/:id" component={SingleArticle}/>
       <Route path="/MesArticles/" component={MesArticles}/>
+      <Route path="/ajouterVideo/" component={ajouterVideo}/>
+      <Route path="/Videos/" component={Videos}/>
+      <Route path="/singleVideo/:id" component={singleVideo}/>
 
     </div>
   </Router>

@@ -17,7 +17,8 @@ import '../imports/api/BloquerChat.js';
 import '../imports/api/Writing.js';
 import '../imports/api/Articles.js';
 import '../imports/api/CommentArticle.js';
-
+import '../imports/api/Videos.js';
+import '../imports/api/CommentVideos.js';
 
 Meteor.startup(() => {
   // code to run on server at startup
