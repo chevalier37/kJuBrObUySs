@@ -121,11 +121,7 @@ class SingleArticlePost extends Component {
 						
 					</div>
 
-		  			<div className={"ContentQuestion" + " " + "display-linebreak"}>
-		  				{renderHTML(this.props.content)}
-		  			</div>
-
-		  			<div className="espacePub" ></div>
+					<div className="espacePub" ></div>
 
       				<div className="pubArticle">
 				        <AdSense.Google
@@ -134,6 +130,14 @@ class SingleArticlePost extends Component {
 				          style={{ display: 'inline-block',width:'468px', height:'60px'}}
 				        />
 					</div>
+
+					<div className="espacePub" ></div>
+
+		  			<div className={"ContentQuestion" + " " + "display-linebreak"}>
+		  				{renderHTML(this.props.content)}
+		  			</div>
+
+		  			
 
 		  			
 		  			<Divider />

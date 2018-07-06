@@ -1084,13 +1084,11 @@ Meteor.methods({
             const user = Meteor.user()
             const IsConseiller = Conseilleres.findOne({user_id:this.userId});
             
-            {
-              IsConseiller
-             ?
+            if(IsConseiller){
              Conseilleres.update({user_id:this.userId}, {
               $set: { presentation: presentation},
               }) && console.log(IsConseiller)
-             :
+           }else{
              Conseilleres.insert({
                   user_id: this.userId,
                   username: user.username,
@@ -1100,7 +1098,12 @@ Meteor.methods({
                   presentation: presentation,
                   Online:true,
                 });
-            } 
+
+             Meteor.users.update({_id:this.userId}, {
+                    $set: { "conseiller": true,},
+                    })
+                }
+             
       },
 
       IsConseillerHeader: function() {

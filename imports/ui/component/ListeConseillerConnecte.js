@@ -30,15 +30,14 @@ class ListeConseillerConnecte extends Component {
 
 
 	componentWillMount(){
-		const sexe = this.props.message.gender;
-	    
+		const sexe = this.props.gender;
 	    {sexe == 'fille' ? 
 	         this.setState({sexe: 'pink'}):
 		  	 this.setState({sexe: 'blue'})
 		}
 
 		//On affiche les catégories
-		const premierAmour = this.props.message.premierAmour;
+		/*const premierAmour = this.props.message.premierAmour;
 		{ premierAmour ? 
 		  this.setState({premierAmour: true }) : ''
 		}
@@ -176,7 +175,7 @@ class ListeConseillerConnecte extends Component {
 		const Violence = this.props.message.Violence;
 		{ Violence ? 
 		  this.setState({Violence: 'Violence '}) : ''
-		}
+		}*/
 	}
 
 	breaklines(){
@@ -188,21 +187,21 @@ class ListeConseillerConnecte extends Component {
     
 	const colorSexe = this.state.sexe;
 	let now = new Date();
-	let diff = now - this.props.message.naissance;
+	let diff = now - this.props.date;
 	let age = Math.round(diff / 31536000000);
 
 		return (
 			<div className="ListeMessages">
-	  				<div className={this.props.message.gender == "fille" ? "filleMessageBackground" : "garconMessageBackground"} >
-			  			<div className={this.props.message.gender == "fille" ?
+	  				<div className={this.props.gender == "fille" ? "filleMessageBackground" : "garconMessageBackground"} >
+			  			<div className={this.props.gender == "fille" ?
 	        				  "titreMessageFille" : "titreMessageGarcon"
 	        				}>
 	        				<div className={"PointOnlineConseiller"}>
 								<FaPoint />
 							</div>
-				  			<Link to={'/profil/' + this.props.id}>
+				  			{/*<Link to={'/profil/' + this.props.id}>*/}
 				  				{this.props.message.username} 
-				  			</Link>
+				  			{/*</Link>*/}
 			  			</div>
 			  			<div className="ageAuthorReponse">
 	        				{age} ans
@@ -220,7 +219,7 @@ class ListeConseillerConnecte extends Component {
 		  			<Comment>
 	      				<Comment.Content>
 						<div className="Blockcompetence"> 	      					
-	      					{ this.state.premierAmour ? 
+	      					{/*{ this.state.premierAmour ? 
 							<span className="espace">Premier amour </span>
 							 : "" }
 							
@@ -330,11 +329,11 @@ class ListeConseillerConnecte extends Component {
 
 							{ this.state.Violence ? 
 							<span className="espace">{this.state.Violence} </span>
-							 : "" }
+							 : "" }*/}
 						</div>
 
 	         				<div className="dateMessage">
-			         			<div className="noteRecommandation" >
+			         			{/*<div className="noteRecommandation" >
 									<span className="vote">
 										<Rating icon='heart'
 				              			defaultRating={this.props.message.note}
@@ -342,27 +341,27 @@ class ListeConseillerConnecte extends Component {
 				              			disabled
 	              	 				/>
 									</span>
-								</div>
+								</div>*/}
 	         				</div>
 
 							<div className="repondreMessage1" >
 								<Button size="tiny"  color='green'>
-										<Link to={'/Chat/' + this.props.message.user_id }>
+										<Link to={'/Chat/' + this.props.message._id }>
 										Contacter
 										</Link>
 								</Button>
 							</div>
 
-							<div className="repondreMessage1" >
+							{/*<div className="repondreMessage1" >
 								<Button
 								  size="tiny"
 								  color='blue'
 								  >
-									<Link to={'/Profil/' + this.props.message.user_id }>
+									<Link to={'/Profil/' + this.props.message._id }>
 										Profil
 									</Link>
 								</Button>
-							</div>
+							</div>*/}
 
 	      				</Comment.Content>
 	    			</Comment>

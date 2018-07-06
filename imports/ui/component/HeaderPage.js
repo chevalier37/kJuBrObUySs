@@ -14,11 +14,6 @@ import { Conseilleres } from '../../api/Conseilleres.js';
 class HeaderPage extends Component {
 
 	componentWillMount(){
-      Meteor.call('ConseillerOnline');
-       window.addEventListener("beforeunload", (ev) => 
-		{  
-		    Meteor.call('ConseillerOffline');
-		});
     }
 
 

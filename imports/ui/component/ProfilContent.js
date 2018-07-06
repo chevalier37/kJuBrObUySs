@@ -1321,13 +1321,13 @@ class ProfilContent extends Component {
 
 
 			if(this.props.online.online == true){ return "Connecté" }
-            if(this.props.online.online !== true && nbrSeconde<60){ return "Dernière connection il y a 30 secondes"} 
-		    else if(this.props.online.online !== true && nbrMinutes<2){ return "Dernière connection il y a " + nbrMinutes +" minute"}
-		    else if(this.props.online.online !== true && nbrMinutes<60){ return "Dernière connection il y a " + nbrMinutes +" minutes"}
-		    else if(this.props.online.online !== true && nbrHeures<2){ return "Dernière connection il y a " + nbrHeures +" heure"} 
-			else if(this.props.online.online !== true && nbrHeures<24){return "Dernière connection il y a " + nbrHeures +" heures"} 
-			else if(this.props.online.online !== true && nbrJours<2 ){ return "Dernière connection il y a " + nbrJours  +" jour"}
-			else if(this.props.online.online !== true && nbrJours<30 ){return "Dernière connection il y a " + nbrJours +" jours"} 
+            if(this.props.online.online !== true && nbrSeconde<60){ return "Dernière connexion il y a 30 secondes"} 
+		    else if(this.props.online.online !== true && nbrMinutes<2){ return "Dernière connexion il y a " + nbrMinutes +" minute"}
+		    else if(this.props.online.online !== true && nbrMinutes<60){ return "Dernière connexion il y a " + nbrMinutes +" minutes"}
+		    else if(this.props.online.online !== true && nbrHeures<2){ return "Dernière connexion il y a " + nbrHeures +" heure"} 
+			else if(this.props.online.online !== true && nbrHeures<24){return "Dernière connexion il y a " + nbrHeures +" heures"} 
+			else if(this.props.online.online !== true && nbrJours<2 ){ return "Dernière connexion il y a " + nbrJours  +" jour"}
+			else if(this.props.online.online !== true && nbrJours<30 ){return "Dernière connexion il y a " + nbrJours +" jours"} 
 			else {return "Il y a " + nbrMois +" mois" }
 		}
 

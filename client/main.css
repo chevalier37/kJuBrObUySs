@@ -1872,7 +1872,7 @@ header {
 }
 
 .containerResultVideos{
-	height: 300px;
+	/*height: 300px;*/
     overflow-y: auto;
     position: fixed;
     margin-left: 245px;
@@ -2099,8 +2099,8 @@ header {
 }
 
 .MiniatureVideo{
-    height: 195px;
-    width: 320px;
+    /*height: 156px;*/
+    width: 256px;
     float: left;
     margin-left: 5px;
     margin-top: 20px;
@@ -2111,6 +2111,7 @@ header {
 	text-align: center;
 	color: red;
 	font-size: 15px;
+	/*height: 100%;*/
 }
 
 .InputSearchVideos{
@@ -2121,6 +2122,34 @@ header {
 	margin-top: 20px;
 	color: black;
 	font-size: 15px;
+}
+
+.ContentVideo{
+	height: 390px;
+    width: 640px;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+.LienEquipe{
+	display: inline-block;
+	color:red;
+	margin-left: 3px;
+}
+
+.LienEquipe a{
+	display: inline-block;
+	color:red;
+}
+
+.LienEquipe a:hover{
+	display: inline-block;
+	color:red;
+}
+
+.TitreEquipe{
+	font-weight: bold;
+	text-decoration: underline;
 }
 
 @media only screen and (max-width: 1800px) {

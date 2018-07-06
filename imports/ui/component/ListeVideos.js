@@ -47,8 +47,8 @@ class ListeVideos extends Component {
   render() {
     
 	const opts = {
-      height: '195',
-      width: '320',
+      height: '156',
+      width: '256',
       }
 
       if (this.state.redirect){

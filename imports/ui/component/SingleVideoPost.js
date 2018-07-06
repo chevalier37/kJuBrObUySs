@@ -112,14 +112,11 @@ class SingleVideoPost extends Component {
 						
 					</div>
 
-		  			<div className={"ContentQuestion" + " " + "display-linebreak"}>
+		  			<div className={"ContentVideo" + " " + "display-linebreak"}>
 		  				<YouTube
 		        			videoId={this.props.message.IDvideo}
 		        			opts={opts}
 	      				/>
-		  			</div>
-		  			<div className={"CommentaireVideo"+ " " + "display-linebreak"}>
-		  				{this.props.message.commentaire}
 		  			</div>
 		  			<div className="espacePub" ></div>
 
@@ -130,6 +127,11 @@ class SingleVideoPost extends Component {
 				          style={{ display: 'inline-block',width:'468px', height:'60px'}}
 				        />
 					</div>
+					<div className="espacePub" ></div>
+		  			<div className={"CommentaireVideo"+ " " + "display-linebreak"}>
+		  				{this.props.message.commentaire}
+		  			</div>
+		  			
 
 	  			</Segment>
 			</div>

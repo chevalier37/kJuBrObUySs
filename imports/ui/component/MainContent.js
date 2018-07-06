@@ -4,6 +4,7 @@ import { Segment, Button, Checkbox, Form, Header, TextArea, Dimmer, Loader, Mess
 import { Link } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 import Img from 'react-image'
+import AdSense from 'react-adsense';
 
 import FormPosterMessage from './FormPosterMessage.js';
 import ListeMessages from './ListeMessages.js';
@@ -346,12 +347,22 @@ class MainContent extends Component {
 			    <FormPosterMessage />
 			    </div>
 				
-				<Message info>
-				    <Message.Header>NOUVEAUTE : Les articles</Message.Header>
-				    <p>Vous pouvez maintenant rédiger des articles pour donner un conseils ou partager une expérience !<br />
-				       N'hésitez pas à rédiger autant d'articles que vous le souhaitez.
+				<Message warning>
+				    <Message.Header>NOUVEAUTE : Vidéos</Message.Header>
+				    <p>Vous pouvez maintenant regarder toutes les vidéos de Ambre sur Kurbys !<br />
+				       N'hésitez pas rechercher une vidéo selon le conseil que vous avez besoin.
 				    </p>
 				</Message>
+
+				<div className="espacePub" ></div>
+				<div className="pubArticle">
+				        <AdSense.Google
+				          client='ca-pub-6112176939320267'
+				          slot='4929880369'
+				          style={{ display: 'inline-block',width:'468px', height:'60px'}}
+				        />
+					</div>
+				<div className="espacePub" ></div>
 				
 				<div className={this.state.poster ? '' : "none"}>
 				<Segment>

@@ -18,8 +18,15 @@ class Home extends Component {
 
     state = { visible: false }
 
+    componentWillMount(){
+      Meteor.call('UpdateConseiller');
+
+    }
+
     toggleVisibility = () => this.setState({ visible: !this.state.visible })
     toggleHidden = () => this.setState({ visible: false })
+
+    
 
     render() {
     const { visible } = this.state  

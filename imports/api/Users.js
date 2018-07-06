@@ -139,7 +139,20 @@ Meteor.methods({
           Comments.remove({userId:myId})
           //console.log("Comments") 
           }
+
        },
+
+        UpdateConseiller: function() {
+              const isConseiller = Conseilleres.find({user_id:this.userId}).count()
+
+              if(isConseiller>=1){
+                    Meteor.users.update({_id:this.userId}, {
+                    $set: { "conseiller": true,},
+                    })
+                }
+             },
+
+      
 
        /*SearchPseudo: function(name) {
 
@@ -215,6 +228,12 @@ Meteor.publish('fetchUser', function ( ) {
 
 
   return Meteor.users.find(options);
+});
+
+Meteor.publish('allConseiller', function () {
+   return Meteor.users.find({}, {
+    fields: {'username':1, 'profile':1, 'conseiller':1, "status.online":1,}
+  });
 });
 
 Meteor.publish('all', function () {

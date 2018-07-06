@@ -84,7 +84,7 @@ class ContentMenuLeft extends Component {
                     </div>
                   </Link>
             </div>
-            <div className={this.state.moderateur ? "MenuItem" : "none"}>
+            <div className="MenuItem">
                   <Link to={'/Videos/'}>
                   <div className="star">   
                           <Img className="iconMenu" src="/youtube.svg"/>
@@ -245,7 +245,7 @@ class ContentMenuLeft extends Component {
                  Conseillers
               </div>
 
-               <div className="MenuItem">
+               {/*<div className="MenuItem">
                       <Link to="/ConseillerConnecter" >
                         <div className="star">   
                               <Img className="iconMenu" src="/users.svg"/>
@@ -254,7 +254,7 @@ class ContentMenuLeft extends Component {
                           Conseillers en ligne
                         </div>
                       </Link>
-                  </div>
+                  </div>*/}
 
                     <div className="MenuItem">
                       <Link to={'/NouveauxConseillers/' }>
@@ -278,7 +278,7 @@ class ContentMenuLeft extends Component {
                       </Link>
                   </div>
 
-                    <div className="MenuItem">
+                   {/* <div className="MenuItem">
                       <Link to={'/DevenirConseiller/'}>
                         <div className="star">   
                               <Img className="iconMenu" src="/aid.svg"/>
@@ -287,7 +287,7 @@ class ContentMenuLeft extends Component {
                           Devenir conseillers
                         </div>
                     </Link>
-                </div>
+                </div>*/}
 
               <div className="espacePub" ></div>
 

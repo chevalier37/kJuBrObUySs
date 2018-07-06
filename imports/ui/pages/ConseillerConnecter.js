@@ -93,20 +93,22 @@ class ConseillerConnecter extends Component {
           let Allreponses = this.props.Conseiller;
 
           return Allreponses.map((message) => {
-           let date = Date.parse(message.date);
-             
+           let gender = message.profile.gender;
+           let naissance = message.profile.naissance;
+
             return (
               <ListeConseillerConnecte
                 key={message._id}
-                id={message.user_id}
+                id={message._id}
                 message={message}
-                date={date}         
+                date={naissance}
+                gender={gender}        
               />
             );
           });
       }
 
-    renderpremierAmour() {
+    /*renderpremierAmour() {
           let Allreponses = this.props.premierAmour;
 
           return Allreponses.map((message) => {
@@ -581,7 +583,7 @@ class ConseillerConnecter extends Component {
               />
             );
           });
-      }
+      }*/
 
 
 
@@ -637,10 +639,10 @@ class ConseillerConnecter extends Component {
                     <div className="containerIMG">
                       <div className="MainContent">
                          <Segment>
-                          <Header>
+                         <Header>
                             <div className="titreRecomandation">
-                             Rechercher par compétences: 
-                             <div className="compétences">
+                             Tous les conseillers en ligne
+                             {/* <div className="compétences">
                                <Form>
                                   <Form.Group widths='equal' error>
                                           <Form.Select
@@ -651,7 +653,7 @@ class ConseillerConnecter extends Component {
                                            />
                                   </Form.Group>
                                 </Form>
-                              </div>
+                              </div>*/}
                             </div>
                           </Header>
                         </Segment>
@@ -662,7 +664,7 @@ class ConseillerConnecter extends Component {
                         <div className={this.state.theme=="" ? "visibleConseiller" : "none"}>
                          {this.renderAllreponses()}
                          </div>
-                         <div className={this.state.theme=="premierAmour" ? "visibleConseiller" : "none"}>
+                        {/* <div className={this.state.theme=="premierAmour" ? "visibleConseiller" : "none"}>
                             {this.renderpremierAmour()}
                          </div>
                          <div className={this.state.theme=="trahison" ? "visibleConseiller" : "none"}>
@@ -745,8 +747,8 @@ class ConseillerConnecter extends Component {
                          </div>
                          <div className={this.state.theme=="Violence" ? "visibleConseiller" : "none"}>
                             {this.renderViolence()}
-                         </div>
-                      </div>    
+                         </div>*/}  
+                      </div>  
                     </div> 
                 </div>
               </Sidebar.Pusher>
@@ -759,13 +761,14 @@ class ConseillerConnecter extends Component {
 
 export default ConseillerConnecter =  withTracker(() => {
   
-  const Handle = Meteor.subscribe('ConseillerOnline');
+  const Handle = Meteor.subscribe('allConseiller');
   const loading = !Handle.ready();
-  
-  const allConseillers = Conseilleres.find({Online:true}, {sort:{date: -1}});
+
+ 
+  const allConseillers = Meteor.users.find({'conseiller':true, 'status.online':true});
   const reponseExists = !loading && !!allConseillers;
 
-  const premierAmour = Conseilleres.find({premierAmour:true, Online:true}, {sort:{date: -1}});
+  /*const premierAmour = Conseilleres.find({premierAmour:true, Online:true}, {sort:{date: -1}});
   const reponseExists1 = !loading && !!premierAmour;
 
   const trahison = Conseilleres.find({trahison:true, Online:true}, {sort:{date: -1}});
@@ -847,11 +850,11 @@ export default ConseillerConnecter =  withTracker(() => {
   const reponseExists28 = !loading && !!discrimination;
 
   const Violence = Conseilleres.find({Violence:true, Online:true}, {sort:{date: -1}});
-  const reponseExists29 = !loading && !!Violence;
+  const reponseExists29 = !loading && !!Violence;*/
 
   return {
     Conseiller: reponseExists ? allConseillers.fetch() : [],
-    premierAmour: reponseExists1 ? premierAmour.fetch() : [],
+    /*premierAmour: reponseExists1 ? premierAmour.fetch() : [],
     trahison: reponseExists2 ? trahison.fetch() : [],
     Friendzone: reponseExists3 ? Friendzone.fetch() : [],
     amourdistance: reponseExists4 ? amourdistance.fetch() : [],
@@ -878,7 +881,8 @@ export default ConseillerConnecter =  withTracker(() => {
     echecEcole: reponseExists26 ? echecEcole.fetch() : [],
     Harcelement: reponseExists27 ? Harcelement.fetch() : [],
     discrimination: reponseExists28 ? discrimination.fetch() : [],
-    Violence: reponseExists29 ? Violence.fetch() : [],
+    Violence: reponseExists29 ? Violence.fetch() : [],*/
+
     
 
 

@@ -102,6 +102,41 @@ class NousRejoindre extends Component {
                           <br /><br />
                           Si vous êtes intéressé par ces postes, n'hésitez pas à nous contacter à cette adresse :<br />
                           <strong> editions@seconde-vie.fr</strong>
+                          
+                          <br /><br />
+                          <div className="TitreEquipe">Présentation de l'équipe :</div>
+                          <strong>Community Manager :</strong><br />
+                          Alexis <div className="LienEquipe">
+                                  <Link to={'/Chat/' + 'PBrmikKTmifWJ6nix'}> Laidjy</Link>
+                                  </div>
+                          <br />
+                          Emilie<div className="LienEquipe">
+                                  <Link to={'/Chat/' + 'QRnN46zHY3RjwmGcw'}> TheADL</Link>
+                                  </div>
+                          <br />
+                          <br />
+                          <strong>Modérateurs :</strong><br />
+                          Jérôme<div className="LienEquipe">
+                                  <Link to={'/Chat/' + '3zwe2xG8SyHvMZaub'}> Mora</Link>
+                                  </div>
+                          <br />
+                          Loic<div className="LienEquipe">
+                                  <Link to={'/Chat/' + 'ThwXvbof74cb56Jgz'}> SeduireEstUnArt</Link>
+                                  </div>
+                          <br />
+                          Saruja<div className="LienEquipe">
+                                  <Link to={'/Chat/' + 'Bd7c7opRJ6TQ8PcD3'}> AlibabaS</Link>
+                                  </div>
+                          <br />
+                          <br />
+                          <strong>Vidéos :</strong><br />
+                          Ambre<br />
+                          <br />
+                          <strong>Développeur : </strong><br />
+                          Jean-Benoit<br />
+                          <br />
+
+
                       </div>
                   </Segment>
 
