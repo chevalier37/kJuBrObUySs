@@ -272,6 +272,8 @@ class ButtonPusher extends Component {
     		   <Button 
            color="blue"
            size="small"
+           basic
+           inverted
            >
                Trouver un conseil
            </Button>

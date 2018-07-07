@@ -192,8 +192,10 @@ class ListeConseillerConnecte extends Component {
 
 		return (
 			<div className="ListeMessages">
-	  				<div className={this.props.gender == "fille" ? "filleMessageBackground" : "garconMessageBackground"} >
-			  			<div className={this.props.gender == "fille" ?
+		  		<Segment color={this.props.gender == "fille" ?
+	        				  "pink" : "blue" }>
+		  			<p className="ContentQuestion">
+		  				<div className={this.props.gender == "fille" ?
 	        				  "titreMessageFille" : "titreMessageGarcon"
 	        				}>
 	        				<div className={"PointOnlineConseiller"}>
@@ -204,167 +206,15 @@ class ListeConseillerConnecte extends Component {
 				  			{/*</Link>*/}
 			  			</div>
 			  			<div className="ageAuthorReponse">
-	        				{age} ans
-	        			</div>
-		  			</div>
-
-		  		<Segment color={this.props.message.gender == "fille" ?
-	        				  "pink" : "blue" }>
-		  			<p className="ContentQuestion">
-		  				{this.breaklines()}
-		  			</p>
-		  			
-		  			<Divider />
-		  	
-		  			<Comment>
-	      				<Comment.Content>
-						<div className="Blockcompetence"> 	      					
-	      					{/*{ this.state.premierAmour ? 
-							<span className="espace">Premier amour </span>
-							 : "" }
-							
-							{ this.state.trahison ? 
-							<span className="espace">{this.state.trahison} </span>
-							 : "" } 
-
-							{ this.state.Friendzone ? 
-							<span className="espace">{this.state.Friendzone} </span>
-							 : "" }
-
-							{ this.state.amourdistance ? 
-							<span className="espace">{this.state.amourdistance} </span>
-							 : "" }
-
-							{ this.state.separation ? 
-							<span className="espace">{this.state.separation} </span>
-							 : "" }
-
-							{ this.state.timidite ? 
-							<span className="espace">{this.state.timidite} </span>
-							 : "" }
-
-							{ this.state.depression ? 
-							<span className="espace">{this.state.depression} </span>
-							 : "" }
-
-							{ this.state.suicide ? 
-							<span className="espace">{this.state.suicide} </span>
-							 : "" }
-
-							{ this.state.deces ? 
-							<span className="espace">{this.state.deces} </span>
-							 : "" }
-
-							{ this.state.mutilation ? 
-							<span className="espace">{this.state.mutilation} </span>
-							 : "" }
-
-							{ this.state.premierAmour ? 
-							<span className="espace">{this.state.premierfois} </span>
-							 : "" }
-
-							{ this.state.Contraception ? 
-							<span className="espace">{this.state.Contraception} </span>
-							 : "" }
-
-							{ this.state.mst ? 
-							<span className="espace">{this.state.mst} </span>
-							 : "" }
-
-							{ this.state.viol ? 
-							<span className="espace">{this.state.viol} </span>
-							 : "" }
-
-							{ this.state.premierAmour ? 
-							<span className="espace">{this.state.avortement}</span>
-							 : "" }
-
-							{ this.state.orientationSex ? 
-							<span className="espace">{this.state.orientationSex} </span>
-							 : "" }
-
-							{ this.state.Anorexie ? 
-							<span className="espace">{this.state.Anorexie} </span>
-							 : "" }
-
-							{ this.state.obesite ? 
-							<span className="espace">{this.state.obesite} </span>
-							 : "" }
-
-							{ this.state.drogue ? 
-							<span className="espace">{this.state.drogue} </span>
-							 : "" }
-
-							{ this.state.alcool ? 
-							<span className="espace">{this.state.alcool} </span>
-							 : "" }
-
-							{ this.state.complexe ? 
-							<span className="espace">{this.state.complexe} </span>
-							 : "" }
-
-							{ this.state.hopital ? 
-							<span className="espace">{this.state.hopital} </span>
-							 : "" }
-
-							{ this.state.handicap ? 
-							<span className="espace">{this.state.handicap}</span>
-							 : "" }
-
-							{ this.state.Accident ? 
-							<span className="espace">{this.state.Accident}</span>
-							 : "" }
-
-							{ this.state.echecEcole ? 
-							<span className="espace">{this.state.echecEcole} </span>
-							 : "" }
-
-							{ this.state.Harcelement ? 
-							<span className="espace">{this.state.Harcelement} </span>
-							 : "" }
-
-							{ this.state.Discrimination ? 
-							<span className="espace">{this.state.Discrimination} </span>
-							 : "" }
-
-							{ this.state.Violence ? 
-							<span className="espace">{this.state.Violence} </span>
-							 : "" }*/}
-						</div>
-
-	         				<div className="dateMessage">
-			         			{/*<div className="noteRecommandation" >
-									<span className="vote">
-										<Rating icon='heart'
-				              			defaultRating={this.props.message.note}
-				              			maxRating={4}
-				              			disabled
-	              	 				/>
-									</span>
-								</div>*/}
-	         				</div>
-
-							<div className="repondreMessage1" >
-								<Button size="tiny"  color='green'>
+	        				<div className="ageConseiller">{age} ans</div>
+	        				<Button size="tiny"  color='green'>
 										<Link to={'/Chat/' + this.props.message._id }>
 										Contacter
 										</Link>
-								</Button>
-							</div>
-
-							{/*<div className="repondreMessage1" >
-								<Button
-								  size="tiny"
-								  color='blue'
-								  >
-									<Link to={'/Profil/' + this.props.message._id }>
-										Profil
-									</Link>
-								</Button>
-							</div>*/}
-
-	      				</Comment.Content>
-	    			</Comment>
+							</Button>
+	        			</div>
+		  			</p>
+		  			    
 	  			</Segment>
 			</div>
 		);

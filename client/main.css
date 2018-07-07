@@ -24,8 +24,6 @@ header {
     height: 500px;
 }
 
-
-
 .containerSupIMG{
 	background-color: #e9ebee;
 	display: block;
@@ -50,11 +48,13 @@ header {
 .headerPage{
 	height: 40px;
 	min-width: 914px;
-	background-color: #2185d0;
+	/*background-color: #2185d0;*/
+	background-color: #3b5998;
 	/*background-image: linear-gradient(#6c96f5, #1c3c84 100%);*/
 	/*background-color: #3b5998;
 	background-image: linear-gradient(#7ba0ef, #3a5182 100%);*/
 }
+
 
 .formLogin{
 	float: right;
@@ -240,6 +240,7 @@ header {
 
 .pusher{
 	display: inline-block;
+	margin-top: 3px;
 }
 
 .ListeSideBar{
@@ -1210,7 +1211,7 @@ header {
 
 .TitreMenuItem{
 	font-weight: bold;
-	color: #0078d6;
+	color: #3b5998;
 	padding-left: 10px;
 	
 }
@@ -1724,9 +1725,23 @@ header {
 }
 
 .ageAuthorReponse{
-    margin-top: -20px;
+    margin-top: -25px;
     float: right;
     margin-right: 20px;
+    margin-left: 10px;
+}
+
+.ageAuthorReponse a{
+    color: white;
+}
+
+.ageAuthorReponse a:hover{
+    color: white;
+}
+
+.ageConseiller{
+	margin-right: 10px;
+	display: inline-block;
 }
 
 .deleteContact{
@@ -2151,6 +2166,8 @@ header {
 	font-weight: bold;
 	text-decoration: underline;
 }
+
+
 
 @media only screen and (max-width: 1800px) {
 

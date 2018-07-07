@@ -662,6 +662,10 @@ class ConseillerConnecter extends Component {
                                 <Loader active>Chargement des conseillers</Loader>
                           </div>
                         <div className={this.state.theme=="" ? "visibleConseiller" : "none"}>
+                        {/*loader au chargement de la page*/}
+                            <div className={this.props.loading ? "visibleLoader" : "none"}>
+                                  <Loader active>Recherche des conseillers en ligne</Loader>
+                            </div>
                          {this.renderAllreponses()}
                          </div>
                         {/* <div className={this.state.theme=="premierAmour" ? "visibleConseiller" : "none"}>

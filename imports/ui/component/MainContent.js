@@ -347,21 +347,22 @@ class MainContent extends Component {
 			    <FormPosterMessage />
 			    </div>
 				
-				<Message warning>
+				{/*<Message warning>
 				    <Message.Header>NOUVEAUTE : Vidéos</Message.Header>
 				    <p>Vous pouvez maintenant regarder toutes les vidéos de Ambre sur Kurbys !<br />
 				       N'hésitez pas rechercher une vidéo selon le conseil que vous avez besoin.
 				    </p>
-				</Message>
+				</Message>*/}
 
 				<div className="espacePub" ></div>
 				<div className="pubArticle">
 				        <AdSense.Google
 				          client='ca-pub-6112176939320267'
-				          slot='4929880369'
-				          style={{ display: 'inline-block',width:'468px', height:'60px'}}
+				          slot='5922557517'
+				          format="auto"
 				        />
-					</div>
+				</div>
+
 				<div className="espacePub" ></div>
 				
 				<div className={this.state.poster ? '' : "none"}>

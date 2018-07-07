@@ -106,11 +106,11 @@ class NousRejoindre extends Component {
                           <br /><br />
                           <div className="TitreEquipe">Présentation de l'équipe :</div>
                           <strong>Community Manager :</strong><br />
-                          Alexis <div className="LienEquipe">
+                          Emilie <div className="LienEquipe">
                                   <Link to={'/Chat/' + 'PBrmikKTmifWJ6nix'}> Laidjy</Link>
                                   </div>
                           <br />
-                          Emilie<div className="LienEquipe">
+                          Alexis<div className="LienEquipe">
                                   <Link to={'/Chat/' + 'QRnN46zHY3RjwmGcw'}> TheADL</Link>
                                   </div>
                           <br />

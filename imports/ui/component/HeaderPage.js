@@ -16,16 +16,12 @@ class HeaderPage extends Component {
 	componentWillMount(){
     }
 
-
-	componentDidMount() {
-	   window.addEventListener("beforeunload", (ev) => 
-	{  
-	    Meteor.call('ConseillerOffline');
-	});
-}
-
-
-
+	/*componentDidMount() {
+		   window.addEventListener("beforeunload", (ev) => 
+		{  
+		    Meteor.call('ConseillerOffline');
+		});
+	}*/
 
 
   	render() {
@@ -35,31 +31,31 @@ class HeaderPage extends Component {
 			<Link to="/home" ><Img className="logoPage" src="/logo_site.png"/></Link>
 			{/*<div className="titreKURBYSpage"><Link to="/home" >KURBYS</Link></div>*/}			
 				<div className="DevenirConseiller">
-				{/*<div className="ButtonHeader">
+				<div className="ButtonHeader">
 						<Link to="/RecherchePseudo" >
-							<Button color="blue" size="small">
-							 Rechercher un pseudo
+							<Button color="blue" size="small" basic inverted>
+							 Recherche pseudo
 							</Button>
 						</Link>
-					</div>*/}	
+					</div>	
 
 					<div className="ButtonHeader">
 						<Link to="/DevenirConseiller" >
-							<Button color="blue" size="small">
+							<Button color="blue" size="small" basic inverted>
 							 Devenir conseiller 
 							</Button>
 						</Link>
 					</div>
 					<div className="ButtonHeader">
 						<Link to="/ConseillerConnecter" >
-							<Button color="blue" size="small">
+							<Button color="blue" size="small" basic inverted>
 							 Conseillers en ligne
 							</Button>
 						</Link>
 					</div>
 					<div className="ButtonHeader">
 						<Link to="/Articles" >
-							<Button color="blue" size="small">
+							<Button color="blue" size="small" basic inverted>
 							 Articles
 							</Button>
 						</Link>
