@@ -182,14 +182,15 @@ class FormChat extends Component {
 				    est en train d'écrire
 				    </div>
 			    </div>
-
-			    <Form onSubmit={this.Submit.bind(this)}>
-			      <Button fluid color="green"  >
+			<Form onSubmit={this.Submit.bind(this)}>
+		    	<div className="ButtonChatForm1">
+			     	<Button color="green" fluid size="tiny">
 				    	Envoyer 
-				    </Button>
-			    						    
-				   
-				     <div className="valideChatArea">
+				  	</Button>
+		    	</div>
+
+			    
+				    <div className="valideChatArea1">
 				      <TextArea
 				       ref="message"
 				       onFocus={this.focusMessage.bind(this)}

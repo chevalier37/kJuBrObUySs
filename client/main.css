@@ -296,16 +296,19 @@ header {
     width: 208px;
     color: black;
     text-align: center;
-    height: 30px;
-    padding-top: 5px;
+    height: 41px;
+    padding-top: 8px;
     font-size: 16px;
     position: fixed;
     margin-bottom: 10px;
     display: block;
     font-weight: bold;
-    background-color: #e9ebee;
+    background-color: white;
     border-bottom-style: solid;
     border-bottom-width: 1px;
+    border-bottom-color: #e9ebee;
+    z-index: 10;
+    margin-top: -1px;
 
 }
 
@@ -658,7 +661,7 @@ header {
 .ChatContactLeft{
 	float: left;
     /* width: 150px; */
-    height: 500px;
+    height: 100%;
     margin-top: 40px;
     overflow: auto;
 }
@@ -692,7 +695,6 @@ header {
 
 .ContentDiscussion{
 	background-color: white;
-    background-color: white;
     height: 100%;
     padding-left: 10px;
     overflow: auto;
@@ -701,6 +703,9 @@ header {
     width: 85%;
     padding-bottom: 350px;
     margin-top: -10px;
+    border-top-style: solid;
+    border-top-color: #e9ebee;
+    border-top-width: 1px;
     
 }
 
@@ -1044,15 +1049,19 @@ header {
 .valideChatForm{
 	position: fixed;
     bottom: 0px;
-    left: 10px;
     margin-right: 5px;
-    margin-left: 210px;
+    left: 210px;
     width: 100%;
 }
 
 .valideChatArea{
-	width: 100%;
+	/*width: 100%;*/
 	margin-top: 10px;
+	display: inline-block;
+}
+
+.ButtonChatForm{
+	display: inline-block;
 }
 
 .AffficheDiscussion{
@@ -1061,16 +1070,16 @@ header {
 
 .AffficheContact{
 	display: block;
-	background-color: #e9ebee;
+	/*background-color: #e9ebee;*/
 	border-bottom-style: solid;
-	border-bottom-color: black;
+	border-bottom-color: #e9ebee;
 	border-bottom-width: 1px;  
 }
 
 .message_droite{
   display: block;
   float: right;
-  background-color: #0a68b4;
+  background-color: #0084ff;
   color: #fff;
   border-radius: 5px;
   padding: 8px;
@@ -1121,8 +1130,16 @@ header {
 .headerChat{
 	height: 50px;
     padding-left: 20px;
-    /*background-color: white;*/
-    margin-left: 10px;
+    background-color: white;
+    border-bottom-style: solid;
+    border-bottom-color: #e9ebee;
+    border-bottom-width: 1px;
+    width:1500px;
+}
+
+.rientest{
+	    height: 50px;
+    background: red;
 }
 
 .display-linebreak {
@@ -1130,12 +1147,12 @@ header {
 }
 
 .current{
-	background-color: #0a68b4;
+	background-color: #0084ff;
 	color: white;
 }
 
 .current.item{
-	background-color: #0a68b4;
+	background-color: #0084ff;
 	color: white;
 }
 
@@ -1832,6 +1849,24 @@ header {
 .ButtonHeader{
 	display: inline-block;
 	margin-right: 10px;
+	padding: 6px;
+	border-radius: 3px;
+}
+
+.ButtonHeader a{
+	text-decoration: none;
+	color: white;
+}
+
+.ButtonHeader:hover{
+	text-decoration: none;
+	color: white;
+	background-color: #3c64b9;
+}
+
+.ButtonHeader a:hover{
+	text-decoration: none;
+	color: white;
 }
 
 .NoteConseiller{
@@ -2167,22 +2202,22 @@ header {
 	text-decoration: underline;
 }
 
+.ArticleModeration{
+	display: inline-block;
+	padding: 2px;
+	background-color: red;
+	margin-left: 3px;
+	color: white;
+	border-radius: 3px;
+}
+
 
 
 @media only screen and (max-width: 1800px) {
 
-	/*.ContentDiscussion{
-		width: 80%;
-	}*/
-
 	.valideChatForm {
    	 padding-right: 20%;
 	}
-
-	.headerChat{
-		width: 1000px;
-	}
-
 
 }
 
@@ -2192,9 +2227,6 @@ header {
     	padding-right: 20%;
 	}
 
-	.headerChat{
-		width: 800px;
-	}
 }
 
 
@@ -2231,13 +2263,6 @@ header {
 		padding-bottom: 400px;
 	}
 
-	.ChatContactLeft{
-		height: 600px;
-	}
-
-
-
-
 }
 
 @media only screen and (max-height: 800px) {
@@ -2246,18 +2271,11 @@ header {
 		padding-bottom: 400px;
 	}
 
-	.ChatContactLeft{
-		height: 550px;
-	}
-
 	.MenuLeftLastConseiller{
 		height: 500px;
 		overflow: auto;
 	}
-
-
 }
-
 
 
 @media only screen and (max-height: 750px) {
@@ -2266,16 +2284,10 @@ header {
 		padding-bottom: 400px;
 	}
 
-	.ChatContactLeft{
-		height: 500px;
-	}
-
 	.MenuLeftLastConseiller{
 		height: 450px;
 		overflow: auto;
 	}
-
-
 }
 
 @media only screen and (max-height: 700px) {
@@ -2284,16 +2296,10 @@ header {
 		padding-bottom: 400px;
 	}
 
-	.ChatContactLeft{
-		height: 450px;
-	}
-
 	.MenuLeftLastConseiller{
 		height: 400px;
 		overflow: auto;
 	}
-
-
 }
 
 @media only screen and (max-height: 650px) {
@@ -2301,12 +2307,6 @@ header {
 	.ContentDiscussion{
 		padding-bottom: 400px;
 	}
-
-	.ChatContactLeft{
-		height: 400px;
-	}
-
-
 }
 
 @media only screen and (max-height: 600px) {
@@ -2314,12 +2314,6 @@ header {
 	.ContentDiscussion{
 		padding-bottom: 400px;
 	}
-
-	.ChatContactLeft{
-		height: 350px;
-	}
-
-
 }
 
 @media only screen and (max-height: 550px) {
@@ -2327,10 +2321,5 @@ header {
 	.ContentDiscussion{
 		padding-bottom: 400px;
 	}
-
-	.ChatContactLeft{
-		height: 300px;
-	}
-
 
 }

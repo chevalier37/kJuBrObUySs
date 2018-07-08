@@ -219,6 +219,14 @@ Meteor.methods({
           })
        },
 
+       ArticleModeration: function() {
+       //article en attente de modération   
+        const searchArticles = Articles.find({valider:false, refuse:false}).count();
+        console.log(searchArticles)
+        return searchArticles 
+        }
+  
+
 
 });
 

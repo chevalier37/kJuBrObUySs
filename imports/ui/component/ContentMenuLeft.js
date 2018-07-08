@@ -33,6 +33,7 @@ class ContentMenuLeft extends Component {
            activeItem: '',
            id:'',
            moderateur:false,
+           ArticleModeration:0,
         };
     }
 
@@ -52,7 +53,23 @@ class ContentMenuLeft extends Component {
           	}
 
             },
-        });
+    });
+
+    Meteor.apply('ArticleModeration', [{
+          }], {
+          onResultReceived: (error, response) => {
+            if (error) console.warn(error.reason);
+            
+            {
+            response ?
+             this.setState({ArticleModeration: response})
+             :
+             ""
+          	}
+
+            },
+    });
+
     if(Meteor.userId() == "QXf4Th7ghBzLZjpWo" ||
        Meteor.userId() == "oANNC3P9SpQ5Fw8Qg" ||
        Meteor.userId() == "3zwe2xG8SyHvMZaub" ||
@@ -144,7 +161,7 @@ class ContentMenuLeft extends Component {
               <div className="MenuItem">
                 <Link to={'/Livre/'} >   
                     <div className="star">   
-                          <Img className="iconMenu" src="/notebook.svg"/>
+                          <Img className="iconMenu" src="/girl.svg"/>
                     </div>
                     <div className="TextMenu">
                       Pour les filles
@@ -184,7 +201,8 @@ class ContentMenuLeft extends Component {
                           <Img className="iconMenu" src="/notepad.svg"/>
                     </div>
                     <div className="TextMenu">
-                      Modération
+                      Modération 
+                      <div className="ArticleModeration">{this.state.ArticleModeration}</div>
                     </div>
                   </Link>
               </div>
