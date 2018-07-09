@@ -207,6 +207,17 @@ class ContentMenuLeft extends Component {
                   </Link>
               </div>
 
+              <div className={this.state.moderateur ? "MenuItem" : "none"}>
+                  <Link to="/ajouterSondage" >
+                    <div className="star">   
+                          <Img className="iconMenu" src="/graph.svg"/>
+                    </div>
+                    <div className="TextMenu">
+                      Ajouter sondage
+                    </div>
+                  </Link>
+              </div>
+
     					
     					<div className="espacePub" ></div>
               <div className="TitreMenuItem">

@@ -2098,8 +2098,13 @@ header {
 .pubArticle{
 	width: 470px;
 	height: 65px;
-	margin-right: auto;
-	margin-left: auto;
+	/*background-color: red;*/
+	margin-top: 3px;
+	width: 470px;
+    height: 65px;
+    margin-top: 3px;
+    display: inline-block;
+    float: left;
 }
 
 .NonValider{
@@ -2211,7 +2216,65 @@ header {
 	border-radius: 3px;
 }
 
+.SondageSemaine{
+	height: 65px;
+    /* width: 100%; */
+    display: inline-block;
+    /*background-color: red;*/
+    /* margin-left: 150px; */
+    /* margin-right: 150px; */
+    display: inline-block;
+    float: left;
+    margin-top: 3px;
+    text-align: center;
+    background-color: #f2f2f5;
+    line-height: 30px;
+    font-size: 14px;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+    border-style: solid;
+    border-width: 1px;
+    border-color: #dadbdc;
+    font-weight: bold;
+    cursor: pointer;
+    padding-left: 5px;
+    padding-right: 5px;
+}
 
+.LabelSondage{
+	color: red;
+	font-size:20px;
+}
+
+.titreQuestion{
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.ContentSondage{
+	display: block;
+}
+
+.pubSondage{
+	width: 470px;
+	height: 65px;
+	/*background-color: red;*/
+	margin-top: 3px;
+	width: 470px;
+    height: 65px;
+    margin-top: 3px;
+    display: block; 
+}
+
+.ChoixSondage{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.espaceSondage{
+	height: 20px;
+}
 
 @media only screen and (max-width: 1800px) {
 

@@ -354,7 +354,6 @@ class MainContent extends Component {
 				    </p>
 				</Message>*/}
 
-				<div className="espacePub" ></div>
 				<div className="pubArticle">
 				        <AdSense.Google
 				          client='ca-pub-6112176939320267'
@@ -363,8 +362,14 @@ class MainContent extends Component {
 				        />
 				</div>
 
-				<div className="espacePub" ></div>
-				
+				<div className="SondageSemaine" >
+				<Link to="/SingleSondage" >
+					<Img className="iconPoster" src="/graph.svg"/>
+					Sondage de la semaine<br/>
+					Comment êtes-vous en couple ?
+				</Link>
+				</div>
+
 				<div className={this.state.poster ? '' : "none"}>
 				<Segment>
 				      <Button

@@ -19,7 +19,7 @@ import '../imports/api/Articles.js';
 import '../imports/api/CommentArticle.js';
 import '../imports/api/Videos.js';
 import '../imports/api/CommentVideos.js';
-
+import '../imports/api/Sondages.js';
 Meteor.startup(() => {
   // code to run on server at startup
 });
