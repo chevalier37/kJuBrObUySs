@@ -2098,13 +2098,22 @@ header {
 .pubArticle{
 	width: 470px;
 	height: 65px;
-	/*background-color: red;*/
-	margin-top: 3px;
+	margin-right: auto;
+-	margin-left: auto;
+}
+
+.pubHome{
 	width: 470px;
-    height: 65px;
+	height: 65px;
+	/*background-color: red;*/
     margin-top: 3px;
     display: inline-block;
-    float: left;
+}
+
+.centerpub{
+	width: 950px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .NonValider{
@@ -2227,7 +2236,7 @@ header {
     float: left;
     margin-top: 3px;
     text-align: center;
-    background-color: #f2f2f5;
+    background-color: #ffffff;
     line-height: 30px;
     font-size: 14px;
     border-radius: 2px;
@@ -2274,6 +2283,38 @@ header {
 
 .espaceSondage{
 	height: 20px;
+}
+
+.singleBar{
+	margin-top: -25px;
+}
+
+.resultBar{
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+.TousSondage{
+	float: right;
+}
+
+.IconListeSondage{
+	display: inline-block;
+	float: right;
+	margin-top: -10px;
+}
+
+.TitreSondage{
+	text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.ageAuthorSondage{
+	margin-top: -20px;
+    float: right;
+    margin-right: 20px;
+    margin-left: 10px;
 }
 
 @media only screen and (max-width: 1800px) {

@@ -18,7 +18,6 @@ if (Meteor.isServer) {
 Meteor.methods({
 
       FormSubscribePseudo: function(pseudo) {
-                
 
                 let search = Meteor.users.find({'username':pseudo.pseudo}).count();
                 let IsPseudo = false;

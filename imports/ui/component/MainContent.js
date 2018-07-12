@@ -35,6 +35,8 @@ class MainContent extends Component {
 					moreEcole:5,
 					poster:false,
 					posterConseil:false,
+					idSondage:"",
+					titreSondage:"",
 			    };
 			}
 
@@ -314,6 +316,38 @@ class MainContent extends Component {
 	      posterConseil: !this.state.posterConseil,
 	    });
   	}
+
+  	componentWillMount(){
+	  	 Meteor.apply('ArticleSemaine', [{
+	          }], {
+	          onResultReceived: (error, response) => {
+	            if (error) console.warn(error.reason);
+	            {
+	            response ?
+	             this.setState({idSondage: response})
+	             :
+	             ""
+	          	}
+
+	            },
+	    });
+
+	  	  Meteor.apply('ArticleTitre', [{
+	          }], {
+	          onResultReceived: (error, response) => {
+	            if (error) console.warn(error.reason);
+	            {
+	            response ?
+	             this.setState({titreSondage: response})
+	             :
+	             ""
+	          	}
+
+	            },
+	    });
+  	  }
+
+
 			   
   render() {
 
@@ -353,23 +387,21 @@ class MainContent extends Component {
 				       N'hésitez pas rechercher une vidéo selon le conseil que vous avez besoin.
 				    </p>
 				</Message>*/}
-
-				<div className="pubArticle">
-				        <AdSense.Google
-				          client='ca-pub-6112176939320267'
-				          slot='5922557517'
-				          format="auto"
-				        />
+				<div className="centerpub">
+					<div className="pubHome">
+					        <AdSense.Google
+					          client='ca-pub-6112176939320267'
+					          slot='5922557517'
+					          format="auto"
+					        />
+					</div>
+	 				<Link to={'/SingleSondage/'+ this.state.idSondage }>
+						<div className="SondageSemaine" >						
+									Sondage de la semaine<br/>
+									{this.state.titreSondage}
+						</div>
+					</Link>
 				</div>
-
-				<div className="SondageSemaine" >
-				<Link to="/SingleSondage" >
-					<Img className="iconPoster" src="/graph.svg"/>
-					Sondage de la semaine<br/>
-					Comment êtes-vous en couple ?
-				</Link>
-				</div>
-
 				<div className={this.state.poster ? '' : "none"}>
 				<Segment>
 				      <Button

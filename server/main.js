@@ -20,6 +20,8 @@ import '../imports/api/CommentArticle.js';
 import '../imports/api/Videos.js';
 import '../imports/api/CommentVideos.js';
 import '../imports/api/Sondages.js';
+import '../imports/api/CommentSondage.js';
+
 Meteor.startup(() => {
   // code to run on server at startup
 });

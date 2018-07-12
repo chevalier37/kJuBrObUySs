@@ -57,6 +57,7 @@ import Videos from '../../../imports/ui/pages/Videos.js';
 import singleVideo from '../../../imports/ui/pages/singleVideo.js';
 import ajouterSondage from '../../../imports/ui/pages/ajouterSondage.js';
 import SingleSondage from '../../../imports/ui/pages/SingleSondage.js';
+import TousSondage from '../../../imports/ui/pages/TousSondage.js';
 
 
 const requireAuth = (nextState, replace) => {
@@ -126,7 +127,8 @@ export const renderRoutes = () => (
       <Route path="/Videos/" component={Videos}/>
       <Route path="/singleVideo/:id" component={singleVideo}/>
       <Route path="/ajouterSondage/" component={ajouterSondage}/>
-      <Route path="/SingleSondage/" component={SingleSondage}/>
+      <Route path="/SingleSondage/:id" component={SingleSondage}/>
+      <Route path="/TousSondage/" component={TousSondage}/>
 
     </div>
   </Router>

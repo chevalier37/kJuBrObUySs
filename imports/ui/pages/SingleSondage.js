@@ -8,16 +8,16 @@ import Img from 'react-image'
 import { Route, Redirect } from 'react-router';
 
 import { Sondages } from '../../api/Sondages.js';
-import { CommentArticle } from '../../api/CommentArticle.js';
+import { CommentSondage } from '../../api/CommentSondage.js';
 
 //Component
 import HeaderPage from '../component/HeaderPage.js';
 import ContentMenuRight from '../component/ContentMenuRight.js';
 import ButtonPusher from '../component/ButtonPusher.js';
 import ContentMenuLeft from '../component/ContentMenuLeft.js';
-import FormPosterReponseArticle from '../component/FormPosterReponseArticle.js';
+import FormCommentSondage from '../component/FormCommentSondage.js';
 import SingleSondagePost from '../component/SingleSondagePost.js';
-import ListeCommentArticle from '../component/ListeCommentArticle.js';
+import ListeCommentSondage from '../component/ListeCommentSondage.js';
 
 
 class SingleSondage extends Component {
@@ -77,7 +77,7 @@ class SingleSondage extends Component {
        let date = Date.parse(message.submitted);
          
         return (
-          <ListeCommentArticle
+          <ListeCommentSondage
             key={message._id}
             message={message}
             date={date}         
@@ -136,7 +136,7 @@ class SingleSondage extends Component {
                      {this.renderAllMessages()}
                     </div>
                     <div className="visibleForm">
-                       <FormPosterReponseArticle
+                       <FormCommentSondage
                         id={this.props.match.params.id}
                         authorId={this.props.authorId}
                         titreMessage={this.props.titreMessage}
@@ -160,14 +160,14 @@ class SingleSondage extends Component {
 export default SingleSondage =  withTracker(({ match }) => {
   const id = match.params.id;
 
-  const Handle = Meteor.subscribe('reponsesSingleArticle',id );
+  const Handle = Meteor.subscribe('reponsesSingleSondage',id );
   const loading = !Handle.ready();
-  const allreponses = CommentArticle.find({postId:id}, { sort: {submitted: -1 } });
+  const allreponses = CommentSondage.find({postId:id}, { sort: {submitted: -1 } });
   const reponseExists = !loading && !!allreponses;
 
-  const Handle1 = Meteor.subscribe('SingleSondage');
+  const Handle1 = Meteor.subscribe('SondageSemaine');
   const loading1 = !Handle1.ready();
-  const allposts = Sondages.find({}, { sort: {_id: -1 }, limit:1 }); // on cherche le dernier sondage crée
+  const allposts = Sondages.find(id); 
   const postExists = !loading1 && !!allposts;
 
   return {

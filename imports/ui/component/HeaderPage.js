@@ -31,11 +31,11 @@ class HeaderPage extends Component {
 			<Link to="/home" ><Img className="logoPage" src="/logo_site.png"/></Link>
 			{/*<div className="titreKURBYSpage"><Link to="/home" >KURBYS</Link></div>*/}			
 				<div className="DevenirConseiller">
-				<div className="ButtonHeader">
+				{/*<div className="ButtonHeader">
 						<Link to="/RecherchePseudo" >
 							 Recherche pseudo
 						</Link>
-					</div>	
+					</div>*/}	
 
 					<div className="ButtonHeader">
 						<Link to="/DevenirConseiller" >

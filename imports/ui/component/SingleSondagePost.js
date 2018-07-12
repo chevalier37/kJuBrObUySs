@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Segment, Button, Checkbox, Form, Header, Divider, Label, Comment } from 'semantic-ui-react'
+import { Segment, Button, Progress, Form, Header, Divider, Label, Comment } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Articles } from '../../api/Articles.js';
@@ -12,7 +12,7 @@ import AdSense from 'react-adsense';
 
 
 
-class SingleArticlePost extends Component {
+class SingleSondagePost extends Component {
 	
 	constructor(props) {
 		    super(props);
@@ -607,7 +607,6 @@ class SingleArticlePost extends Component {
 
 
 	componentWillMount(){
-
 		if(Meteor.userId() && _.include(this.props.message.upvoters, Meteor.userId())){
        	this.setState({disabledVote: true}); this.setState({color: false})}else{
        	this.setState({disabledVote: false})
@@ -624,7 +623,7 @@ class SingleArticlePost extends Component {
 	Submit(event) {
 
 				this.setState({disabled: true})
-
+				let id =this.props.id;
 				 let Q1R1 = this.state.Q1R1;
 			  	 let Q1R2 = this.state.Q1R2;
 			  	 let Q1R3 = this.state.Q1R3;
@@ -677,6 +676,7 @@ class SingleArticlePost extends Component {
 
         Meteor.call('addReponseSondage',
 		  	
+			  	 id,
 			  	 Q1R1,
 			  	 Q1R2, 
 			  	 Q1R3,
@@ -744,6 +744,75 @@ class SingleArticlePost extends Component {
 
 
   render() {
+ 	let TotalQ1T = this.props.message.Q1R1C + this.props.message.Q1R2C  + this.props.message.Q1R3C + this.props.message.Q1R4C;
+ 	{TotalQ1T ==0 ? TotalQ1 = 1 : TotalQ1=TotalQ1T} 
+	let TotalQ1R1 = Math.round((this.props.message.Q1R1C / TotalQ1)*100);
+	let TotalQ1R2 = Math.round((this.props.message.Q1R2C / TotalQ1)*100);
+	let TotalQ1R3 = Math.round((this.props.message.Q1R3C / TotalQ1)*100);
+	let TotalQ1R4 = Math.round((this.props.message.Q1R4C / TotalQ1)*100);
+
+	let TotalQ2T = this.props.message.Q2R1C + this.props.message.Q2R2C  + this.props.message.Q2R3C + this.props.message.Q2R4C;
+	{TotalQ2T ==0 ? TotalQ2 = 1 : TotalQ2=TotalQ2T}  
+	let TotalQ2R1 = Math.round((this.props.message.Q2R1C / TotalQ2)*100);
+	let TotalQ2R2 = Math.round((this.props.message.Q2R2C / TotalQ2)*100);
+	let TotalQ2R3 = Math.round((this.props.message.Q2R3C / TotalQ2)*100);
+	let TotalQ2R4 = Math.round((this.props.message.Q2R4C / TotalQ2)*100);
+
+	let TotalQ3T = this.props.message.Q3R1C + this.props.message.Q3R2C  + this.props.message.Q3R3C + this.props.message.Q3R4C;
+	{TotalQ3T ==0 ? TotalQ3 = 1 : TotalQ3=TotalQ3T}   
+	let TotalQ3R1 = Math.round((this.props.message.Q3R1C / TotalQ3)*100);
+	let TotalQ3R2 = Math.round((this.props.message.Q3R2C / TotalQ3)*100);
+	let TotalQ3R3 = Math.round((this.props.message.Q3R3C / TotalQ3)*100);
+	let TotalQ3R4 = Math.round((this.props.message.Q3R4C / TotalQ3)*100);
+
+	let TotalQ4T = this.props.message.Q4R1C + this.props.message.Q4R2C  + this.props.message.Q4R3C + this.props.message.Q4R4C;
+	{TotalQ4T ==0 ? TotalQ4 = 1 : TotalQ4=TotalQ4T}   
+	let TotalQ4R1 = Math.round((this.props.message.Q4R1C / TotalQ4)*100);
+	let TotalQ4R2 = Math.round((this.props.message.Q4R2C / TotalQ4)*100);
+	let TotalQ4R3 = Math.round((this.props.message.Q4R3C / TotalQ4)*100);
+	let TotalQ4R4 = Math.round((this.props.message.Q4R4C / TotalQ4)*100);
+
+	let TotalQ5T = this.props.message.Q5R1C + this.props.message.Q5R2C  + this.props.message.Q5R3C + this.props.message.Q5R4C;
+	{TotalQ5T ==0 ? TotalQ5 = 1 : TotalQ5=TotalQ5T}   
+	let TotalQ5R1 = Math.round((this.props.message.Q5R1C / TotalQ5)*100);
+	let TotalQ5R2 = Math.round((this.props.message.Q5R2C / TotalQ5)*100);
+	let TotalQ5R3 = Math.round((this.props.message.Q5R3C / TotalQ5)*100);
+	let TotalQ5R4 = Math.round((this.props.message.Q5R4C / TotalQ5)*100);
+
+	let TotalQ6T = this.props.message.Q6R1C + this.props.message.Q6R2C  + this.props.message.Q6R3C + this.props.message.Q6R4C;
+	{TotalQ6T ==0 ? TotalQ6 = 1 : TotalQ6=TotalQ6T}   
+	let TotalQ6R1 = Math.round((this.props.message.Q6R1C / TotalQ6)*100);
+	let TotalQ6R2 = Math.round((this.props.message.Q6R2C / TotalQ6)*100);
+	let TotalQ6R3 = Math.round((this.props.message.Q6R3C / TotalQ6)*100);
+	let TotalQ6R4 = Math.round((this.props.message.Q6R4C / TotalQ6)*100);
+
+	let TotalQ7T = this.props.message.Q7R1C + this.props.message.Q7R2C  + this.props.message.Q7R3C + this.props.message.Q7R4C;
+	{TotalQ7T ==0 ? TotalQ7 = 1 : TotalQ7=TotalQ7T}   
+	let TotalQ7R1 = Math.round((this.props.message.Q7R1C / TotalQ7)*100);
+	let TotalQ7R2 = Math.round((this.props.message.Q7R2C / TotalQ7)*100);
+	let TotalQ7R3 = Math.round((this.props.message.Q7R3C / TotalQ7)*100);
+	let TotalQ7R4 = Math.round((this.props.message.Q7R4C / TotalQ7)*100);
+
+	let TotalQ8T = this.props.message.Q8R1C + this.props.message.Q8R2C  + this.props.message.Q8R3C + this.props.message.Q8R4C;
+	{TotalQ8T ==0 ? TotalQ8 = 1 : TotalQ8=TotalQ8T}   
+	let TotalQ8R1 = Math.round((this.props.message.Q8R1C / TotalQ8)*100);
+	let TotalQ8R2 = Math.round((this.props.message.Q8R2C / TotalQ8)*100);
+	let TotalQ8R3 = Math.round((this.props.message.Q8R3C / TotalQ8)*100);
+	let TotalQ8R4 = Math.round((this.props.message.Q8R4C / TotalQ8)*100);
+
+	let TotalQ9T = this.props.message.Q9R1C + this.props.message.Q9R2C  + this.props.message.Q9R3C + this.props.message.Q9R4C;
+	{TotalQ9T ==0 ? TotalQ9 = 1 : TotalQ9=TotalQ9T}   
+	let TotalQ9R1 = Math.round((this.props.message.Q9R1C / TotalQ9)*100);
+	let TotalQ9R2 = Math.round((this.props.message.Q9R2C / TotalQ9)*100);
+	let TotalQ9R3 = Math.round((this.props.message.Q9R3C / TotalQ9)*100);
+	let TotalQ9R4 = Math.round((this.props.message.Q9R4C / TotalQ9)*100);
+
+	let TotalQ10T = this.props.message.Q10R1C + this.props.message.Q10R2C  + this.props.message.Q10R3C + this.props.message.Q10R4C;
+	{TotalQ10T ==0 ? TotalQ10 = 1 : TotalQ10=TotalQ10T}   
+	let TotalQ10R1 = Math.round((this.props.message.Q10R1C / TotalQ10)*100);
+	let TotalQ10R2 = Math.round((this.props.message.Q10R2C / TotalQ10)*100);
+	let TotalQ10R3 = Math.round((this.props.message.Q10R3C / TotalQ10)*100);
+	let TotalQ10R4 = Math.round((this.props.message.Q10R4C / TotalQ10)*100);
 
 		return (
 			<div className="ListeMessagesSingle">
@@ -752,6 +821,16 @@ class SingleArticlePost extends Component {
 					<div className="TitreSingleMessage">
 						{this.props.message.titre}
 					</div>
+
+					<div className="TousSondage">
+					  <Link to={'/TousSondage/' }>
+			  				<Button
+			  				 color="green"
+			  				>
+			  				Voir tous les sondages
+			  				</Button>
+		  				</Link>
+			  		</div>
 
 					<div className="espacePub" ></div>
       				<div className="pubSondage">
@@ -765,271 +844,631 @@ class SingleArticlePost extends Component {
 			<Form error >
 		  			<div className={"ContentSondage" + " " + "display-linebreak"}>
 			  			<div className="titreQuestion">
-			  			Question n°1 :
+			  			<u>Question n°1 :</u> <br/>
 			  				{this.props.message.Q1}
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ1R1} fluid onClick={this.Q1R1.bind(this)}>
+			  				<Button
+			  				 color="blue" basic={this.state.disabled ? false : this.state.ButtonQ1R1}
+			  				 fluid
+			  				 onClick={this.Q1R1.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				>
 			  				{this.props.message.Q1R1}
 			  				</Button>
+				  			<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ1R1} color='orange' progress />
+					  		</div>
 			  			</div>
+
+
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ1R2} fluid onClick={this.Q1R2.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ1R2}
+			  				 fluid
+			  				 onClick={this.Q1R2.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q1R2}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ1R2} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ1R3} fluid onClick={this.Q1R3.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ1R3}
+			  				 fluid 
+			  				 onClick={this.Q1R3.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q1R3}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ1R3} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ1R4} fluid onClick={this.Q1R4.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ1R4}
+			  				 fluid
+			  				 onClick={this.Q1R4.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q1R4}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ1R4} color='orange' progress />
+					  		</div>
 			  			</div>
 
 			  			<div className="espaceSondage" ></div>
 
 			  			<div className="titreQuestion">
-			  			Question n°2 :
+			  			<u>Question n°2 :</u> <br/>
 			  				{this.props.message.Q2}
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ2R1} fluid onClick={this.Q2R1.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ2R1}
+			  				 fluid
+			  				 onClick={this.Q2R1.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q2R1}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ2R1} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ2R2} fluid onClick={this.Q2R2.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ2R2}
+			  				 fluid
+			  				 onClick={this.Q2R2.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q2R2}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ2R2} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ2R3} fluid onClick={this.Q2R3.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ2R3}
+			  				 fluid
+			  				 onClick={this.Q2R3.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q2R3}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ2R3} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ2R4} fluid onClick={this.Q2R4.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ2R4}
+			  				 fluid 
+			  				 onClick={this.Q2R4.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q2R4}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ2R4} color='orange' progress />
+					  		</div>
 			  			</div>
 
 			  			<div className="espaceSondage" ></div>
 
 			  			<div className="titreQuestion">
-			  			Question n°3 :
+			  			<u>Question n°3 :</u> <br/>
 			  				{this.props.message.Q3}
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ3R1} fluid onClick={this.Q3R1.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ3R1}
+			  				 fluid
+			  				 onClick={this.Q3R1.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q3R1}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ3R1} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ3R2} fluid onClick={this.Q3R2.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ3R2}
+			  				 fluid
+			  				 onClick={this.Q3R2.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q3R2}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ3R2} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ3R3} fluid onClick={this.Q3R3.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ3R3}
+			  				 fluid
+			  				 onClick={this.Q3R3.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q3R3}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ3R3} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ3R4} fluid onClick={this.Q3R4.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				  basic={this.state.disabled ? false : this.state.ButtonQ3R4}
+			  				  fluid
+			  				  onClick={this.Q3R4.bind(this)}
+			  				  disabled={this.state.disabled}
+			  				  >
 			  				{this.props.message.Q3R4}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ3R4} color='orange' progress />
+					  		</div>
 			  			</div>
 
 			  			<div className="espaceSondage" ></div>
 
 			  			<div className="titreQuestion">
-			  			Question n°4 :
+			  			<u>Question n°4 :</u> <br/>
 			  				{this.props.message.Q4}
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ4R1} fluid onClick={this.Q4R1.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ4R1}
+			  				 fluid
+			  				 onClick={this.Q4R1.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q4R1}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ4R1} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ4R2} fluid onClick={this.Q4R2.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ4R2}
+			  				 fluid
+			  				 onClick={this.Q4R2.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q4R2}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ4R2} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ4R3} fluid onClick={this.Q4R3.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ4R3}
+			  				 fluid
+			  				 onClick={this.Q4R3.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q4R3}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ4R3} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ4R4} fluid onClick={this.Q4R4.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ4R4}
+			  				 fluid
+			  				 onClick={this.Q4R4.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q4R4}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ4R4} color='orange' progress />
+					  		</div>
 			  			</div>
 
 			  			<div className="espaceSondage" ></div>
 
 			  			<div className="titreQuestion">
-			  			Question n°5 :
+			  			<u>Question n°5 :</u> <br/>
 			  				{this.props.message.Q5}
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ5R1} fluid onClick={this.Q5R1.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ5R1}
+			  				 fluid
+			  				 onClick={this.Q5R1.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q5R1}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ5R1} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ5R2} fluid onClick={this.Q5R2.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ5R2}
+			  				 fluid
+			  				 onClick={this.Q5R2.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q5R2}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ5R2} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ5R3} fluid onClick={this.Q5R3.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ5R3}
+			  				 fluid
+			  				 onClick={this.Q5R3.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q5R3}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ5R3} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ5R4} fluid onClick={this.Q5R4.bind(this)}>
+			  				<Button
+			  				 color="blue" 
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ5R4}
+			  				 fluid
+			  				 onClick={this.Q5R4.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q5R4}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ5R4} color='orange' progress />
+					  		</div>
 			  			</div>
 
 			  			<div className="espaceSondage" ></div>
 
 			  			<div className="titreQuestion">
-			  			Question n°6 :
+			  			<u>Question n°6 :</u> <br/>
 			  				{this.props.message.Q6}
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ6R1} fluid onClick={this.Q6R1.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ6R1}
+			  				 fluid
+			  				 onClick={this.Q6R1.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q6R1}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ6R1} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ6R2} fluid onClick={this.Q6R2.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ6R2}
+			  				 fluid
+			  				 onClick={this.Q6R2.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q6R2}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ6R2} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ6R3} fluid onClick={this.Q6R3.bind(this)}>
+			  				<Button 
+			  				color="blue"
+			  				basic={this.state.disabled ? false : this.state.ButtonQ6R3}
+			  				fluid
+			  				onClick={this.Q6R3.bind(this)}
+			  				disabled={this.state.disabled}
+			  				>
 			  				{this.props.message.Q6R3}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ6R3} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ6R4} fluid onClick={this.Q6R4.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ6R4}
+			  				 fluid
+			  				 onClick={this.Q6R4.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q6R4}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ6R4} color='orange' progress />
+					  		</div>
 			  			</div>
 
 			  			<div className="espaceSondage" ></div>
 
 			  			<div className="titreQuestion">
-			  			Question n°7 :
+			  			<u>Question n°7 :</u> <br/>
 			  				{this.props.message.Q7}
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ7R1} fluid onClick={this.Q7R1.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ7R1}
+			  				 fluid
+			  				 onClick={this.Q7R1.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q7R1}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ7R1} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ7R2} fluid onClick={this.Q7R2.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ7R2}
+			  				 fluid
+			  				 onClick={this.Q7R2.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q7R2}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ7R2} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ7R3} fluid onClick={this.Q7R3.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ7R3}
+			  				 fluid
+			  				 onClick={this.Q7R3.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q7R3}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ7R3} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ7R4} fluid onClick={this.Q7R4.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ7R4}
+			  				 fluid
+			  				 onClick={this.Q7R4.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q7R4}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ7R4} color='orange' progress />
+					  		</div>
 			  			</div>
 
 			  			<div className="espaceSondage" ></div>
 
 			  			<div className="titreQuestion">
-			  			Question n°8 :
+			  			<u>Question n°8 :</u> <br/>
 			  				{this.props.message.Q8}
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" fluid basic={this.state.ButtonQ8R1} onClick={this.Q8R1.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 fluid
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ8R1}
+			  				 onClick={this.Q8R1.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q8R1}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ8R1} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ8R2} fluid onClick={this.Q8R2.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ8R2}
+			  				 fluid
+			  				 onClick={this.Q8R2.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q8R2}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ8R2} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ8R3} fluid onClick={this.Q8R3.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ8R3}
+			  				 fluid 
+			  				 onClick={this.Q8R3.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q8R3}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ8R3} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ8R4} fluid onClick={this.Q8R4.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ8R4}
+			  				 fluid
+			  				 onClick={this.Q8R4.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q8R4}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ8R4} color='orange' progress />
+					  		</div>
 			  			</div>
 
 			  			<div className="espaceSondage" ></div>
 
 			  			<div className="titreQuestion">
-			  			Question n°9 :
+			  			<u>Question n°9 :</u> <br/>
 			  				{this.props.message.Q9}
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ9R1} fluid onClick={this.Q9R1.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ9R1}
+			  				 fluid
+			  				 onClick={this.Q9R1.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q9R1}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ9R1} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ9R2} fluid onClick={this.Q9R2.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ9R2}
+			  				 fluid
+			  				 onClick={this.Q9R2.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q9R2}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ9R2} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ9R3} fluid onClick={this.Q9R3.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ9R3}
+			  				 fluid
+			  				 onClick={this.Q9R3.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q9R3}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ9R3} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ9R4} fluid onClick={this.Q9R4.bind(this)}>
+			  				<Button 
+			  				color="blue"
+			  				basic={this.state.disabled ? false : this.state.ButtonQ9R4}
+			  				fluid onClick={this.Q9R4.bind(this)}
+			  				disabled={this.state.disabled}
+			  				>
 			  				{this.props.message.Q9R4}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ9R4} color='orange' progress />
+					  		</div>
 			  			</div>
 
 			  			<div className="espaceSondage" ></div>
 
 			  			<div className="titreQuestion">
-			  			Question n°10 :
+			  			<u>Question n°10 :</u> <br/>
 			  				{this.props.message.Q10}
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ10R1} fluid onClick={this.Q10R1.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ10R1}
+			  				 fluid
+			  				 onClick={this.Q10R1.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q10R1}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ10R1} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ10R2} fluid onClick={this.Q10R2.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ10R2}
+			  				 fluid 
+			  				 onClick={this.Q10R2.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q10R2}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ10R2} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ10R3} fluid onClick={this.Q10R3.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ10R3}
+			  				 fluid
+			  				 onClick={this.Q10R3.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q10R3}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ10R3} color='orange' progress />
+					  		</div>
 			  			</div>
 			  			<div className="ChoixSondage">
-			  				<Button color="blue" basic={this.state.ButtonQ10R4} fluid onClick={this.Q10R4.bind(this)}>
+			  				<Button
+			  				 color="blue"
+			  				 basic={this.state.disabled ? false : this.state.ButtonQ10R4}
+			  				 fluid
+			  				 onClick={this.Q10R4.bind(this)}
+			  				 disabled={this.state.disabled}
+			  				 >
 			  				{this.props.message.Q10R4}
 			  				</Button>
+			  				<div className={this.state.disabled ? "resultBar" : "none"}>
+					  				<Progress percent={TotalQ10R4} color='orange' progress />
+					  		</div>
 			  			</div>
 		  			</div>
 		  			<br/>
@@ -1051,10 +1490,10 @@ class SingleArticlePost extends Component {
   	}
 }
 
-export default SingleArticlePost =  withTracker(({ id }) => {
+export default SingleSondagePost =  withTracker(({ id }) => {
   
 
   return {
 
   };
-})(SingleArticlePost);
+})(SingleSondagePost);
