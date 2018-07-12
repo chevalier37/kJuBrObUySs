@@ -2111,7 +2111,7 @@ header {
 }
 
 .centerpub{
-	width: 950px;
+	width: 700px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -2226,12 +2226,12 @@ header {
 }
 
 .SondageSemaine{
-	height: 65px;
+	height: 58px;
     /* width: 100%; */
     display: inline-block;
     /*background-color: red;*/
     /* margin-left: 150px; */
-    /* margin-right: 150px; */
+    margin-right: 15px;
     display: inline-block;
     float: left;
     margin-top: 3px;
@@ -2295,7 +2295,7 @@ header {
 }
 
 .TousSondage{
-	float: right;
+	/*float: right;*/
 }
 
 .IconListeSondage{
