@@ -53,16 +53,12 @@ class ListeArticles extends Component {
 			    disabled:false,
 			    author_id:false,
 			    moderateur:false,
+			    IsModerateur:false,
 		    };
 		}
 
 
 	componentWillMount(){
-		if(Meteor.userId() == "QXf4Th7ghBzLZjpWo" ||
-		   Meteor.userId() == "oANNC3P9SpQ5Fw8Qg" ||
-		   Meteor.userId() == "3zwe2xG8SyHvMZaub"){
-			this.setState({moderateur: true})
-		}
 
 		const sexe = this.props.message.gender;
 	    const author_id = this.props.message.post_author_id;

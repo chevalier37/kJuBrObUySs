@@ -151,6 +151,19 @@ Meteor.methods({
                 }
              },
 
+        addModerateur: function() {
+                     Meteor.users.update({_id:this.userId}, {
+                    $set: { "moderateur": true,},
+                    })
+             },
+
+        IsModerateur: function() {
+                      let search = Meteor.users.findOne({'_id':this.userId});
+                      let Ismoderateur = search.moderateur;
+                      return Ismoderateur;
+                   },
+
+
       
 
        /*SearchPseudo: function(name) {

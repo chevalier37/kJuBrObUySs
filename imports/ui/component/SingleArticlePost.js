@@ -123,7 +123,7 @@ class SingleArticlePost extends Component {
 
 					<div className="espacePub" ></div>
 
-      				<div className="pubArticle">
+      				<div className="pubArticles">
 				        <AdSense.Google
 				          client='ca-pub-6112176939320267'
 				          slot='4929880369'

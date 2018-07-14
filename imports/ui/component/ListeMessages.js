@@ -51,7 +51,7 @@ class ListeMessages extends Component {
 			    autre:'',
 			    disabled:false,
 			    author_id:false,
-			    moderateur:false,
+			    IsModerateur:false,
 		    };
 		}
 
@@ -61,14 +61,21 @@ class ListeMessages extends Component {
 	 }
 
 	componentWillMount(){
-		if(Meteor.userId() == "QXf4Th7ghBzLZjpWo" ||
-		   Meteor.userId() == "oANNC3P9SpQ5Fw8Qg" ||
-		   Meteor.userId() == "3zwe2xG8SyHvMZaub" ||
-		   Meteor.userId() == "Bd7c7opRJ6TQ8PcD3" || //alibaba
-       	   Meteor.userId() == "ThwXvbof74cb56Jgz"  // seduire est un art
-		   ){
-			this.setState({moderateur: true})
-		}
+
+		Meteor.apply('IsModerateur', [{
+          }], {
+          onResultReceived: (error, response) => {
+            if (error) console.warn(error.reason);
+            
+            {
+            response ?
+             this.setState({IsModerateur: response})
+             :
+             ""
+            }
+
+            },
+    })
 
 		const sexe = this.props.message.gender;
 	    const author_id = this.props.message.post_author_id;
@@ -372,7 +379,7 @@ class ListeMessages extends Component {
 									</Link>
 								</Button>
 							</div>
-							<div className={this.state.moderateur ? "repondreMessage" : "none"}>
+							<div className={this.state.IsModerateur ? "repondreMessage" : "none"}>
 	          						<Button 
 	          						 size="mini"
 	          						 color="red"

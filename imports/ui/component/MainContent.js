@@ -397,10 +397,16 @@ class MainContent extends Component {
 					</div>
 	 				<Link to={'/SingleSondage/'+ this.state.idSondage }>
 						<div className="SondageSemaine" >						
-									Sondage de la semaine<br/>
-									{this.state.titreSondage}
+									<div className="NewSondageSemaine"> Sondage de la semaine</div>
+									<div className="sondageTitre">{this.state.titreSondage}</div>
 						</div>
 					</Link>
+					<Link to={'/Livre/'}>
+						<div className="LivreAcceuil" >						
+									<Img className="iconLivre" src="/livre_25.png"/>
+						</div>
+					</Link>
+					 
 				</div>
 				<div className={this.state.poster ? '' : "none"}>
 				<Segment>

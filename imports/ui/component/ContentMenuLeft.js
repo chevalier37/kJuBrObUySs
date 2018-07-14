@@ -34,6 +34,7 @@ class ContentMenuLeft extends Component {
            id:'',
            moderateur:false,
            ArticleModeration:0,
+           IsModerateur:false,
         };
     }
 
@@ -70,11 +71,23 @@ class ContentMenuLeft extends Component {
             },
     });
 
+    Meteor.apply('IsModerateur', [{
+          }], {
+          onResultReceived: (error, response) => {
+            if (error) console.warn(error.reason);
+            
+            {
+            response ?
+             this.setState({IsModerateur: response})
+             :
+             ""
+            }
+
+            },
+    });
+
     if(Meteor.userId() == "QXf4Th7ghBzLZjpWo" ||
-       Meteor.userId() == "oANNC3P9SpQ5Fw8Qg" ||
-       Meteor.userId() == "3zwe2xG8SyHvMZaub" ||
-       Meteor.userId() == "Bd7c7opRJ6TQ8PcD3" || //alibaba
-       Meteor.userId() == "ThwXvbof74cb56Jgz"  // seduire est un art
+       Meteor.userId() == "oANNC3P9SpQ5Fw8Qg"
        ){
       this.setState({moderateur: true})
     }
@@ -87,7 +100,6 @@ class ContentMenuLeft extends Component {
   render() {
     const { activeItem } = this.state
     const { contextRef } = this.state
-
 		return (
 			<div className="MenuLeft">
             <div className="espaceConseiller"></div>
@@ -111,13 +123,23 @@ class ContentMenuLeft extends Component {
                     </div>
                   </Link>
             </div>
-            <div className={this.state.moderateur ? "MenuItem" : "none"}>
+            <div className={this.state.IsModerateur ? "MenuItem" : "none"}>
                   <Link to={'/ajouterVideo/'}>
                   <div className="star">   
                           <Img className="iconMenu" src="/video.svg"/>
                     </div>
                     <div className="TextMenu">
                       Ajouter une vidéo
+                    </div>
+                  </Link>
+            </div>
+            <div className={this.state.moderateur ? "MenuItem" : "none"}>
+                  <Link to={'/ajouterModerateur/'}>
+                  <div className="star">   
+                          <Img className="iconMenu" src="/security.svg"/>
+                    </div>
+                    <div className="TextMenu">
+                      Ajouter un moderateur
                     </div>
                   </Link>
             </div>
@@ -161,10 +183,10 @@ class ContentMenuLeft extends Component {
               <div className="MenuItem">
                 <Link to={'/Livre/'} >   
                     <div className="star">   
-                          <Img className="iconMenu" src="/girl.svg"/>
+                          <Img className="iconMenu" src="/notebook.svg"/>
                     </div>
                     <div className="TextMenu">
-                      Pour les filles
+                      Le Livre
                     </div>
                 </Link>
               </div>
@@ -195,7 +217,7 @@ class ContentMenuLeft extends Component {
                   </Link>
               </div>
 
-              <div className={this.state.moderateur ? "MenuItem" : "none"}>
+              <div className={this.state.IsModerateur ? "MenuItem" : "none"}>
                   <Link to="/ArticlesModeration" >
                     <div className="star">   
                           <Img className="iconMenu" src="/notepad.svg"/>
@@ -207,7 +229,7 @@ class ContentMenuLeft extends Component {
                   </Link>
               </div>
 
-              <div className={this.state.moderateur ? "MenuItem" : "none"}>
+              <div className={this.state.IsModerateur ? "MenuItem" : "none"}>
                   <Link to="/ajouterSondage" >
                     <div className="star">   
                           <Img className="iconMenu" src="/graph.svg"/>

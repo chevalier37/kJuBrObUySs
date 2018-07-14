@@ -97,6 +97,11 @@ header {
     margin-right: 5px;
 }
 
+.iconLivre{
+    margin-right: 5px;
+    height: 65px;
+}
+
 .TextMenu{
 	display: inline-block;
 	position: relative;
@@ -379,7 +384,7 @@ header {
 }
 
 .ListeMessages{
-	margin-top: 15px;
+	margin-top: 9px;
 }
 
 .ListeArticles{
@@ -2099,7 +2104,14 @@ header {
 	width: 470px;
 	height: 65px;
 	margin-right: auto;
--	margin-left: auto;
+	margin-left: auto;
+}
+
+.pubArticles{
+	width: 470px;
+	height: 65px;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .pubHome{
@@ -2111,7 +2123,7 @@ header {
 }
 
 .centerpub{
-	width: 700px;
+	width: 800px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -2226,15 +2238,15 @@ header {
 }
 
 .SondageSemaine{
-	height: 58px;
+	height: 65px;
     /* width: 100%; */
     display: inline-block;
-    /*background-color: red;*/
+    /* background-color: red; */
     /* margin-left: 150px; */
     margin-right: 15px;
     display: inline-block;
     float: left;
-    margin-top: 3px;
+    margin-top: 1px;
     text-align: center;
     background-color: #ffffff;
     line-height: 30px;
@@ -2246,8 +2258,25 @@ header {
     border-color: #dadbdc;
     font-weight: bold;
     cursor: pointer;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.LivreAcceuil{
+	height: 65px;
+    display: inline-block;
+    margin-right: 15px;
+    margin-top: 1px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.NewSondageSemaine{
+	color: #ff6c6c;
+}
+
+.sondageTitre{
+	margin-top: -4px;
 }
 
 .LabelSondage{
@@ -2274,6 +2303,8 @@ header {
     height: 65px;
     margin-top: 3px;
     display: block; 
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .ChoixSondage{

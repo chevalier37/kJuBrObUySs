@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { Sidebar, Segment, Button, Menu, Image, Icon, Header, Checkbox, Form,  Message, Label, Divider } from 'semantic-ui-react'
 import Img from 'react-image'
 import { Route, Redirect } from 'react-router';
-
+import AdSense from 'react-adsense';
 
 //Component
 import HeaderPage from '../component/HeaderPage.js';
@@ -123,6 +123,13 @@ renderAllreponses() {
                       />
                   </div>
                   <Divider />
+                  <div className="pubSondage">
+                    <AdSense.Google
+                      client='ca-pub-6112176939320267'
+                      slot='4929880369'
+                      style={{ display: 'inline-block',width:'468px', height:'60px'}}
+                    />
+                  </div>
                    {this.renderAllreponses()}
                   </div>    
                       
