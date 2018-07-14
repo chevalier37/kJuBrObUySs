@@ -196,10 +196,83 @@ Meteor.methods({
          check(idMessage, String);
           Posts.update({_id:idMessage}, {
               $set: { post_content: text},
-              })
+             })
        },
 
+      Ecole: function() {
+          let ecole = Posts.find({$or:
+          [{echecEcole:true},
+          {Harcelement:true},
+          {Discrimination:true},
+          {Violence:true}]},
+          { sort: { post_date: -1 }, limit:30 }).fetch();
+          return ecole;
+      },
 
+      Confiance: function() {
+          let confiance = Posts.find({$or:
+          [{timidite:true},
+          {depression:true},
+          {suicide:true},
+          {deces:true},
+          {mutilation:true}]},
+          { sort: { post_date: -1 }, limit:30 }).fetch()
+          return confiance;
+      },
+
+      Sante: function() {
+          let sante = Posts.find({$or:
+          [{Anorexie:true},
+          {obesite:true},
+          {drogue:true},
+          {alcool:true},
+          {complexe:true},
+          {hopital:true},
+          {handicap:true},
+          {Accident:true}]},
+          { sort: { post_date: -1 }, limit:30 }).fetch();
+          return sante;
+      },
+
+      Sexo: function() {
+          let sexo = Posts.find({$or:
+          [{premierfois:true},
+          {Contraception:true},
+          {mst:true},
+          {viol:true},
+          {avortement:true},
+          {orientationSex:true}]},
+          { sort: { post_date: -1 }, limit:30 }).fetch();
+          return sexo;
+      },
+
+      Amour: function() {
+          let amour = Posts.find({$or:
+          [{premierAmour:true},
+          {trahison:true},
+          {Friendzone:true},
+          {amourdistance:true},
+          {separation:true}]},
+          { sort: { post_date: -1 }, limit:30 }).fetch();
+          return amour;
+      },
+
+      Autre: function() {
+          let autre = Posts.find({autre:true},
+          { sort: { post_date: -1 }, limit:30 }).fetch();
+          return autre;
+      },
+
+      NonLu: function() {
+          let nonLu = Posts.find({nbrReponse:0},
+          { sort: { post_date: -1 }, limit:30 }).fetch();
+          return nonLu;
+      },
+
+      AllMessages: function() {
+          let allposts = Posts.find({}, { sort: { post_date: -1 }, limit:30}).fetch();
+          return allposts;
+      },
 
 
 });

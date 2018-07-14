@@ -37,15 +37,23 @@ class MainContent extends Component {
 					posterConseil:false,
 					idSondage:"",
 					titreSondage:"",
+					Ecole:"",
+					Confiance:"",
+					Sante:"",
+					Sexo:"",
+					Amour:"",
+					Autre:"",
+					NonLu:"",
+					AllMessages:"",
 			    };
 			}
 
 	renderAllMessages() {
-	    let AllMessages = this.props.allMessages;
+		if(this.state.AllMessages){ 
+	    let AllMessages = this.state.AllMessages;
 	    let more = this.state.more;
-	    return AllMessages.slice(0, more).map((message) => {
+	    return AllMessages.slice(0, 30).map((message) => {
 	     let date = Date.parse(message.post_date);
-         
 	      return (
 	        <ListeMessages
 	          key={message._id}
@@ -55,14 +63,15 @@ class MainContent extends Component {
 	        />
 	      );
 	    });
+	  }
 	}
 
 	renderNonLu() {
-	    let nonLu = this.props.postNonLu;
+		if(this.state.NonLu){ 
+	    let nonLu = this.state.NonLu;
 	    let more = this.state.moreNonLu;
-	    return nonLu.slice(0, more).map((message) => {
+	    return nonLu.slice(0, 30).map((message) => {
 	     let date = Date.parse(message.post_date);
-         
 	      return (
 	        <ListeMessages
 	          key={message._id}
@@ -72,14 +81,15 @@ class MainContent extends Component {
 	        />
 	      );
 	    });
+	   }
 	}
 
 	renderAutre() {
-	    let autre = this.props.postAutre;
+		if(this.state.Autre){ 
+	    let autre = this.state.Autre;
 	    let more = this.state.moreAutre;
-	    return autre.slice(0, more).map((message) => {
+	    return autre.slice(0, 30).map((message) => {
 	     let date = Date.parse(message.post_date);
-         
 	      return (
 	        <ListeMessages
 	          key={message._id}
@@ -89,14 +99,15 @@ class MainContent extends Component {
 	        />
 	      );
 	    });
+	  }
 	}
 
 	renderAmour() {
-	    let MessageAmour = this.props.postsAmour;
+		if(this.state.Amour){ 
+	    let MessageAmour = this.state.Amour;
 	    let more = this.state.moreAmour;
-	    return MessageAmour.slice(0, more).map((message) => {
+	    return MessageAmour.slice(0, 30).map((message) => {
 	     let date = Date.parse(message.post_date);
-         
 	      return (
 	        <ListeMessages
 	          key={message._id}
@@ -106,14 +117,15 @@ class MainContent extends Component {
 	        />
 	      );
 	    });
+	  }
 	}
 
 	renderSexo() {
-	    let MessageSexo = this.props.postsSexo;
+		if(this.state.Sexo){ 
+	    let MessageSexo = this.state.Sexo;
 	    let more = this.state.moreSexo;
-	    return MessageSexo.slice(0, more).map((message) => {
+	    return MessageSexo.slice(0, 30).map((message) => {
 	     let date = Date.parse(message.post_date);
-         
 	      return (
 	        <ListeMessages
 	          key={message._id}
@@ -123,14 +135,15 @@ class MainContent extends Component {
 	        />
 	      );
 	    });
+	  }
 	}
 
 	renderConfiance() {
-	    let MessageConfiance = this.props.postsConfiance;
+		if(this.state.Confiance){ 
+	    let MessageConfiance = this.state.Confiance;
 	    let more = this.state.moreConfiance;
-	    return MessageConfiance.slice(0, more).map((message) => {
+	    return MessageConfiance.slice(0, 30).map((message) => {
 	     let date = Date.parse(message.post_date);
-         
 	      return (
 	        <ListeMessages
 	          key={message._id}
@@ -140,14 +153,15 @@ class MainContent extends Component {
 	        />
 	      );
 	    });
+	  }
 	}
 
 	renderSante() {
-	    let MessageSante = this.props.postsSante;
+		if(this.state.Sante){ 
+	    let MessageSante = this.state.Sante;
 	    let more = this.state.moreSante;
-	    return MessageSante.slice(0, more).map((message) => {
+	    return MessageSante.slice(0, 30).map((message) => {
 	     let date = Date.parse(message.post_date);
-         
 	      return (
 	        <ListeMessages
 	          key={message._id}
@@ -157,14 +171,15 @@ class MainContent extends Component {
 	        />
 	      );
 	    });
+	 }
 	}
 
 	renderEcole() {
-	    let MessageEcole = this.props.postsEcole;
+	    if(this.state.Ecole){ 
+	    let MessageEcole = this.state.Ecole;
 	    let more = this.state.moreEcole;
-	    return MessageEcole.slice(0, more).map((message) => {
+	    return MessageEcole.slice(0, 30).map((message) => {
 	     let date = Date.parse(message.post_date);
-         
 	      return (
 	        <ListeMessages
 	          key={message._id}
@@ -174,6 +189,7 @@ class MainContent extends Component {
 	        />
 	      );
 	    });
+	  }
 	}
 
 	showAll() {
@@ -345,9 +361,96 @@ class MainContent extends Component {
 
 	            },
 	    });
-  	  }
 
+  	    Meteor.apply('Ecole', [{
+	          }], {
+	          onResultReceived: (error, response) => {
+	            if (error) console.warn(error.reason);
+	             let more = this.state.moreSante;
+	           return response.slice(0, 30).map((message) => {
+	     		this.setState({Ecole: response})
+	    		});
+	            },
+	    });
 
+	    Meteor.apply('Confiance', [{
+	          }], {
+	          onResultReceived: (error, response) => {
+	            if (error) console.warn(error.reason);
+	             let more = this.state.moreSante;
+	           return response.slice(0, 30).map((message) => {
+	     		this.setState({Confiance: response})
+	    		});
+	            },
+	    });
+
+	    Meteor.apply('Sante', [{
+	          }], {
+	          onResultReceived: (error, response) => {
+	            if (error) console.warn(error.reason);
+	             let more = this.state.moreSante;
+	           return response.slice(0, 30).map((message) => {
+	     		this.setState({Sante: response})
+	    		});
+	            },
+	    });
+
+	    Meteor.apply('Sexo', [{
+	          }], {
+	          onResultReceived: (error, response) => {
+	            if (error) console.warn(error.reason);
+	             let more = this.state.moreSante;
+	           return response.slice(0, 30).map((message) => {
+	     		this.setState({Sexo: response})
+	    		});
+	            },
+	    });
+
+	    Meteor.apply('Amour', [{
+	          }], {
+	          onResultReceived: (error, response) => {
+	            if (error) console.warn(error.reason);
+	             let more = this.state.moreSante;
+	           return response.slice(0, 30).map((message) => {
+	     		this.setState({Amour: response})
+	    		});
+	            },
+	    });
+
+	    Meteor.apply('Autre', [{
+	          }], {
+	          onResultReceived: (error, response) => {
+	            if (error) console.warn(error.reason);
+	             let more = this.state.moreSante;
+	           return response.slice(0, 30).map((message) => {
+	     		this.setState({Autre: response})
+	    		});
+	            },
+	    });
+
+	    Meteor.apply('NonLu', [{
+	          }], {
+	          onResultReceived: (error, response) => {
+	            if (error) console.warn(error.reason);
+	             let more = this.state.moreSante;
+	           return response.slice(0, 30).map((message) => {
+	     		this.setState({NonLu: response})
+	    		});
+	            },
+	    });
+
+	    Meteor.apply('AllMessages', [{
+	          }], {
+	          onResultReceived: (error, response) => {
+	            if (error) console.warn(error.reason);
+	             let more = this.state.moreSante;
+	           return response.slice(0, 30).map((message) => {
+	     		this.setState({AllMessages: response})
+	    		});
+	            },
+	    });
+
+ }
 			   
   render() {
 
@@ -483,98 +586,34 @@ class MainContent extends Component {
 	  			<div className={this.state.allMessages}>
 					
 	  				{this.renderAllMessages()}
-	  				<div className={this.state.more > this.props.countAllMessages ? "none" : "voirPlus" }>
-						<Button
-							fluid
-					        color="green"
-					        onClick={this.VoirPlus.bind(this)}>
-					        Voir plus
-						</Button>
-					</div>
 	  			</div>
 
 	  			<div className={this.state.MessageNonLu}>
 	  				{this.renderNonLu()}
-	  				<div className={this.state.moreNonLu > this.props.countNonLu ? "none" : "voirPlus" }>
-						<Button
-							fluid
-					        color="green"
-					        onClick={this.VoirNonLu.bind(this)}>
-					        Voir plus
-						</Button>
-					</div>
 	  			</div>
 
 				<div className={this.state.MessageAmour}>
 					{this.renderAmour()}
-					<div className={this.state.moreAmour > this.props.countPostsAmour ? "none" : "voirPlus" }>
-						<Button
-							fluid
-					        color="green"
-					        onClick={this.VoirPlusAmour.bind(this)}>
-					        Voir plus
-						</Button>
-					</div>
 				</div>
 
 				<div className={this.state.MessageSexo}>
 					{this.renderSexo()}
-					<div className={this.state.moreSexo > this.props.countpostsSexo ? "none" : "voirPlus" }>
-						<Button
-							fluid
-					        color="green"
-					        onClick={this.VoirPlusSexo.bind(this)}>
-					        Voir plus
-						</Button>
 					</div>
-				</div>
 
 				<div className={this.state.MessageConfiance}>
 					{this.renderConfiance()}
-					<div className={this.state.moreConfiance > this.props.countPostsConfiance ? "none" : "voirPlus" }>
-						<Button
-							fluid
-					        color="green"
-					        onClick={this.VoirPlusConfiance.bind(this)}>
-					        Voir plus
-						</Button>
-					</div>
 				</div>
 
 				<div className={this.state.MessageSante}>
 					{this.renderSante()}
-					<div className={this.state.moreSante > this.props.countpostsSante ? "none" : "voirPlus" }>
-						<Button
-							fluid
-					        color="green"
-					        onClick={this.VoirPlusSante.bind(this)}>
-					        Voir plus
-						</Button>
-					</div>
 				</div>
 
 				<div className={this.state.MessageEcole}>
 					{this.renderEcole()}
-					<div className={this.state.moreEcole > this.props.countpostsEcole ? "none" : "voirPlus" }>
-						<Button
-							fluid
-					        color="green"
-					        onClick={this.VoirPlusEcole.bind(this)}>
-					        Voir plus
-						</Button>
 					</div>
-				</div>
 
 				<div className={this.state.MessageAutre}>
 					{this.renderAutre()}
-					<div className={this.state.moreAutre > this.props.countAutre ? "none" : "voirPlus" }>
-						<Button
-							fluid
-					        color="green"
-					        onClick={this.VoirAutre.bind(this)}>
-					        Voir plus
-						</Button>
-					</div>
 				</div>
 
 			</div>
@@ -585,7 +624,7 @@ class MainContent extends Component {
 
 export default withTracker(() => {
   
-  const Handle = Meteor.subscribe('AllMessages');
+  /*const Handle = Meteor.subscribe('AllMessages');
   const loading = !Handle.ready();
 
   const allposts = Posts.find({}, { sort: { post_date: -1 }, limit:30});
@@ -645,34 +684,34 @@ export default withTracker(() => {
    const postSanteExists = !loading && !!sante;
    const postEcoleExists = !loading && !!ecole;
    const postNonLuExists = !loading && !!nonLu;
-   const postautreExists = !loading && !!autre;
+   const postautreExists = !loading && !!autre;*/
 
   return {
-    allMessages: postExists ? allposts.fetch() : [],
+    /*//allMessages: postExists ? allposts.fetch() : [],
     countAllMessages: postExists ? allposts.count() : '',
 
-    postNonLu: postExists ? nonLu.fetch() : [],
+    //postNonLu: postExists ? nonLu.fetch() : [],
     countNonLu: postExists ? nonLu.count() : "",
 
-    postAutre: postExists ? autre.fetch() : [],
+    //postAutre: postExists ? autre.fetch() : [],
     countAutre: postExists ? autre.count() : "",
     
-    postsAmour: postExists ? amour.fetch() : [],
+    //postsAmour: postExists ? amour.fetch() : [],
     countPostsAmour: postExists ? amour.count() : "",
     
-    postsConfiance: postExists ? confiance.fetch() : [],
+    //postsConfiance: postExists ? confiance.fetch() : [],
     countPostsConfiance: postExists ? confiance.count() : "",
 
-    postsSexo: postExists ? sexo.fetch() : [],
+    //postsSexo: postExists ? sexo.fetch() : [],
     countpostsSexo: postExists ? sexo.count() : "",
    
-    postsSante: postExists ? sante.fetch() : [],
+    //postsSante: postExists ? sante.fetch() : [],
     countpostsSante: postExists ? sante.count() : "",
     
-    postsEcole: postExists ? ecole.fetch() : [],
+    //postsEcole: postExists ? ecole.fetch() : [],
     countpostsEcole: postExists ? ecole.count() : "",
 
-    loading:loading,
+    loading:loading,*/
 
   };
 })(MainContent);
