@@ -4,6 +4,7 @@ import { Segment, Button, Checkbox, Form, Header, TextArea, Message } from 'sema
 import { Link } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import { withTracker } from 'meteor/react-meteor-data';
+import { Route, Redirect } from 'react-router';
 
 import { Posts } from '../../api/Messages.js';
 
@@ -429,6 +430,9 @@ class FormPosterMessage extends Component {
   		const { categorie } = this.state
   		const { placeholderTitre } = this.state
   		const { placeholderMessage } = this.state
+  		if (this.state.poster){
+      	return <Redirect to="/ValiderMessage" />;
+    }
 		
 		return (
 			<div >

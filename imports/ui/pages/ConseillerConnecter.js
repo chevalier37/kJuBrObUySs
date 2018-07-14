@@ -17,7 +17,7 @@ import FormPosterReponse from '../component/FormPosterReponse.js';
 import SingleMessagePost from '../component/SingleMessagePost.js';
 import ListeConseillerConnecte from '../component/ListeConseillerConnecte.js';
 
-import { Conseilleres } from '../../api/Conseilleres.js';
+//import { Conseilleres } from '../../api/Conseilleres.js';
 
 const Jours = [
   { key: '1', text: 'Premier amour', value: 'premierAmour' },
@@ -60,6 +60,9 @@ class ConseillerConnecter extends Component {
           gender:'',
           jours: '',
           theme:"",
+          Conseiller:"",
+          loading:true,
+          AllMessages:"",
         }
     }
 
@@ -79,6 +82,20 @@ class ConseillerConnecter extends Component {
     toggleHidden = () => this.setState({ visible: false })
 
     componentWillMount(){
+       Meteor.apply('AllConseillers', [{
+            }], {
+            onResultReceived: (error, response) => {
+              if (error) console.warn(error.reason);
+              if(response){
+                this.setState({loading: false})
+              }
+
+               let more = this.state.moreSante;
+             return response.slice(0, 30).map((message) => {
+          this.setState({AllMessages: response})
+          });
+              },
+      });
       
     }
 
@@ -90,8 +107,8 @@ class ConseillerConnecter extends Component {
     }
 
     renderAllreponses() {
-          let Allreponses = this.props.Conseiller;
-
+        if(this.state.AllMessages){ 
+          let Allreponses = this.state.AllMessages;
           return Allreponses.map((message) => {
            let gender = message.profile.gender;
            let naissance = message.profile.naissance;
@@ -106,6 +123,7 @@ class ConseillerConnecter extends Component {
               />
             );
           });
+        }
       }
 
     /*renderpremierAmour() {
@@ -658,7 +676,7 @@ class ConseillerConnecter extends Component {
                           </Header>
                         </Segment>
                         {/*loader au chargement de la page*/}
-                          <div className={this.props.loading ? "visibleLoader" : "none"}>
+                         <div className={this.state.loading ? "visibleLoader" : "none"}>
                                 <Loader active>Chargement des conseillers</Loader>
                           </div>
                         <div className={this.state.theme=="" ? "visibleConseiller" : "none"}>
@@ -765,12 +783,12 @@ class ConseillerConnecter extends Component {
 
 export default ConseillerConnecter =  withTracker(() => {
   
-  const Handle = Meteor.subscribe('allConseiller');
+  /*const Handle = Meteor.subscribe('allConseiller');
   const loading = !Handle.ready();
 
  
   const allConseillers = Meteor.users.find({'conseiller':true, 'status.online':true});
-  const reponseExists = !loading && !!allConseillers;
+  const reponseExists = !loading && !!allConseillers;*/
 
   /*const premierAmour = Conseilleres.find({premierAmour:true, Online:true}, {sort:{date: -1}});
   const reponseExists1 = !loading && !!premierAmour;
@@ -857,7 +875,7 @@ export default ConseillerConnecter =  withTracker(() => {
   const reponseExists29 = !loading && !!Violence;*/
 
   return {
-    Conseiller: reponseExists ? allConseillers.fetch() : [],
+    //Conseiller: reponseExists ? allConseillers.fetch() : [],
     /*premierAmour: reponseExists1 ? premierAmour.fetch() : [],
     trahison: reponseExists2 ? trahison.fetch() : [],
     Friendzone: reponseExists3 ? Friendzone.fetch() : [],

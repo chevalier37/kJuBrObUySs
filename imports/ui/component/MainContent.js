@@ -9,7 +9,7 @@ import AdSense from 'react-adsense';
 import FormPosterMessage from './FormPosterMessage.js';
 import ListeMessages from './ListeMessages.js';
 
-import { Posts } from '../../api/Messages.js';
+//import { Posts } from '../../api/Messages.js';
 
 class MainContent extends Component {
 
@@ -45,6 +45,7 @@ class MainContent extends Component {
 					Autre:"",
 					NonLu:"",
 					AllMessages:"",
+					loading:true,
 			    };
 			}
 
@@ -443,6 +444,10 @@ class MainContent extends Component {
 	          }], {
 	          onResultReceived: (error, response) => {
 	            if (error) console.warn(error.reason);
+	            if(response){
+	            	this.setState({loading: false})
+	            }
+
 	             let more = this.state.moreSante;
 	           return response.slice(0, 30).map((message) => {
 	     		this.setState({AllMessages: response})
@@ -491,6 +496,17 @@ class MainContent extends Component {
 				    </p>
 				</Message>*/}
 				<div className="centerpub">
+					<Link to={'/Livre/'}>
+						<div className="LivreAcceuil" >						
+									<Img className="iconLivre" src="/livre_25.png"/>
+						</div>
+					</Link>
+					<Link to={'/SingleSondage/'+ this.state.idSondage }>
+						<div className="SondageSemaine" >						
+									<div className="NewSondageSemaine"> Sondage de la semaine</div>
+									<div className="sondageTitre">{this.state.titreSondage}</div>
+						</div>
+					</Link>
 					<div className="pubHome">
 					        <AdSense.Google
 					          client='ca-pub-6112176939320267'
@@ -498,17 +514,8 @@ class MainContent extends Component {
 					          format="auto"
 					        />
 					</div>
-	 				<Link to={'/SingleSondage/'+ this.state.idSondage }>
-						<div className="SondageSemaine" >						
-									<div className="NewSondageSemaine"> Sondage de la semaine</div>
-									<div className="sondageTitre">{this.state.titreSondage}</div>
-						</div>
-					</Link>
-					<Link to={'/Livre/'}>
-						<div className="LivreAcceuil" >						
-									<Img className="iconLivre" src="/livre_25.png"/>
-						</div>
-					</Link>
+	 				
+					
 					 
 				</div>
 				<div className={this.state.poster ? '' : "none"}>
@@ -580,7 +587,7 @@ class MainContent extends Component {
 				</div>
 
 	  			{/*loader au chargement de la page*/}
-	  				<div className={this.props.loading ? "visibleLoader" : "none"}>
+	  				<div className={this.state.loading ? "visibleLoader" : "none"}>
 				        	<Loader active>Chargement des messages</Loader>
 	  				</div>
 	  			<div className={this.state.allMessages}>

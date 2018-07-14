@@ -59,6 +59,8 @@ import ajouterSondage from '../../../imports/ui/pages/ajouterSondage.js';
 import SingleSondage from '../../../imports/ui/pages/SingleSondage.js';
 import TousSondage from '../../../imports/ui/pages/TousSondage.js';
 import ajouterModerateur from '../../../imports/ui/pages/ajouterModerateur.js';
+import ValiderMessage from '../../../imports/ui/pages/ValiderMessage.js';
+
 
 const requireAuth = (nextState, replace) => {
 
@@ -130,7 +132,7 @@ export const renderRoutes = () => (
       <Route path="/SingleSondage/:id" component={SingleSondage}/>
       <Route path="/TousSondage/" component={TousSondage}/>
       <Route path="/ajouterModerateur/" component={ajouterModerateur}/>
-      
+      <Route path="/ValiderMessage/" component={ValiderMessage}/>
 
     </div>
   </Router>

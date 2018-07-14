@@ -1137,6 +1137,11 @@ Meteor.methods({
                 }
              },
 
+      AllConseillers: function() {
+          let allConseiler = Meteor.users.find({'conseiller':true, 'status.online':true}).fetch();
+          return allConseiler;
+      },
+
 });
 
 Meteor.publish('AllConseiller', function () {
