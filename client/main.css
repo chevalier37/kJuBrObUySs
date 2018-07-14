@@ -2126,6 +2126,8 @@ header {
 	width: 800px;
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 3px;
+    margin-top: 3px;
 }
 
 .NonValider{
@@ -2265,10 +2267,11 @@ header {
 .LivreAcceuil{
 	height: 65px;
     display: inline-block;
-    margin-right: 10px;
+    margin-right: 5px;
     margin-top: 1px;
     text-align: center;
     cursor: pointer;
+    float: left;
 }
 
 .NewSondageSemaine{
