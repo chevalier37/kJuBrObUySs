@@ -75,7 +75,7 @@ class ListeNouveauxConseillers extends Component {
 			  			<div className={this.props.message.gender == "fille" ?
 	        				  "titreMessageFille" : "titreMessageGarcon"
 	        				}>
-				  			<Link to={'/profil/' + this.props.message.to_id}>
+				  			<Link to={'/profil/' + this.props.message.user_id}>
 				  				{this.props.message.username} 
 				  			</Link>
 			  			</div>

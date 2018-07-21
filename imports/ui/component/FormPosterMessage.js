@@ -432,7 +432,7 @@ class FormPosterMessage extends Component {
   		const { placeholderMessage } = this.state
   		if (this.state.poster){
       	return <Redirect to="/ValiderMessage" />;
-    }
+    	}
 		
 		return (
 			<div >

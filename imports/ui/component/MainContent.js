@@ -335,6 +335,7 @@ class MainContent extends Component {
   	}
 
   	componentWillMount(){
+  		Meteor.call('serverNotification','the title','the text');
 	  	 Meteor.apply('ArticleSemaine', [{
 	          }], {
 	          onResultReceived: (error, response) => {
@@ -513,7 +514,7 @@ class MainContent extends Component {
 					          slot='5922557517'
 					          format="auto"
 					        />
-					</div>
+				</div>
 	 				
 					
 					 

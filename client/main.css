@@ -2020,7 +2020,6 @@ header {
 
 .textPoster{
 	display: inline-block;
-	
 }
 
 .rdw-editor-main {
@@ -2123,7 +2122,7 @@ header {
 }
 
 .centerpub{
-	width: 800px;
+	width: 700px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 3px;
