@@ -118,6 +118,8 @@ class RecommanderContent extends Component {
 		          : ''
 
         }
+
+        Meteor.call('serverNotification','Recommandation','Nouvelle recommandation de ' + from_name, id)
    
 		}
 

@@ -92,6 +92,8 @@ class FormPosterReponse extends Component {
 		          //: ''
           	//}
 
+          	Meteor.call('serverNotification','Nouvelle réponse',titre, this.props.id)
+
 	}
 
   render() {
