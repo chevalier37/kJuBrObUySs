@@ -1348,8 +1348,9 @@ header {
 
 .titreRecomandation{
 	display: inline-block;
-	width: 100%;
+	/*width: 100%;*/
 	text-align: center;
+	margin-right: 5px;
 }
 
 .titreMessageRecommandation a{
