@@ -335,7 +335,7 @@ class MainContent extends Component {
   	}
 
   	componentWillMount(){
-  		Meteor.call('serverNotification','the title','the text');
+  		
 	  	 Meteor.apply('ArticleSemaine', [{
 	          }], {
 	          onResultReceived: (error, response) => {

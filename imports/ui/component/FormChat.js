@@ -103,6 +103,7 @@ class FormChat extends Component {
 	  	
 	  	const message = ReactDOM.findDOMNode(this.refs.message).value.trim();
 	  	const to_id = this.props.to_id;
+	  	const to_name = this.props.username;
 	  	const user = Meteor.user();
 	  	const from_name = user.username;
 	  	const mail = this.props.mail;
@@ -166,6 +167,17 @@ class FormChat extends Component {
 		          : ''
           	}
 
+          	{
+          		!this.props.isOnline ?
+
+		          Meteor.call('serverNotification','Nouveau message','Tu as reçu un message de ' + to_name);
+		          : ''
+          	}
+
+
+
+          	
+
 	}
 
   render() {
@@ -220,6 +232,7 @@ export default FormChat =  withTracker(({ to_id }) => {
 
   return {
   isOnline:reponseExists ? user.status.online : '',
+  username:reponseExists ? user.username : '',
   mail:reponseExists ? user.profile.mail : '',
   IsWriting: reponseExists1 ? search.count():'',
   };

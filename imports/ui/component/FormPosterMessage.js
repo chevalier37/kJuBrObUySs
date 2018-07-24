@@ -90,7 +90,7 @@ class FormPosterMessage extends Component {
 
 	Submit(event) {
         event.preventDefault();
-
+        
 	  	const titre = ReactDOM.findDOMNode(this.refs.titre).value.trim();
 	  	const message = ReactDOM.findDOMNode(this.refs.message).value.trim();
 	  	const premierAmour = this.state.CheckPremierAmour;
