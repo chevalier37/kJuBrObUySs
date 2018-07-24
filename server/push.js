@@ -7,19 +7,6 @@ Push.allow({
   }
 });
 
-Meteor.methods({
-  'serverNotification'(title, text) {
-    Push.send({
-      title,
-      text,
-      from: 'server',
-      badge: 1,
-      query: {}
-    });
-  }
-});
-
-
 Push.Configure({
   apn: {
     certData: Assets.getText('meteorApp-cert-prod.pem'), 
@@ -41,4 +28,18 @@ Push.Configure({
   // 'sendBatchSize': 1, Configurable number of notifications to send per batch
   // 'keepNotifications': false,
 //
+});
+
+Meteor.methods({
+  'serverNotification'(title, text, id) {
+    Push.send({
+      title,
+      text,
+      from: 'Kurbys',
+      badge: 1,
+      query: {
+        userId: id,
+      }
+    });
+  }
 });

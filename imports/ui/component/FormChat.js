@@ -170,7 +170,7 @@ class FormChat extends Component {
           	{
           		!this.props.isOnline ?
 
-		          Meteor.call('serverNotification','Nouveau message','Tu as reçu un message de ' + to_name);
+		          Meteor.call('serverNotification','Nouveau message','Tu as reçu un message de ' + from_name, to_id);
 		          : ''
           	}
 
@@ -232,7 +232,6 @@ export default FormChat =  withTracker(({ to_id }) => {
 
   return {
   isOnline:reponseExists ? user.status.online : '',
-  username:reponseExists ? user.username : '',
   mail:reponseExists ? user.profile.mail : '',
   IsWriting: reponseExists1 ? search.count():'',
   };
