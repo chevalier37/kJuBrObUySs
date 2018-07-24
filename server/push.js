@@ -36,7 +36,7 @@ Meteor.methods({
       title,
       text,
       from: 'Kurbys',
-      badge: 1,
+      badge: 5,
       query: {
         userId: id,
       }
