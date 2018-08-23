@@ -490,12 +490,12 @@ class MainContent extends Component {
 			    <FormPosterMessage />
 			    </div>
 				
-				<Message warning>
+				{/*<Message warning>
 				    <Message.Header>AMELIORATION DU SITE</Message.Header>
 				    <p>Afin d'améliorer le site, nous avons besoin de votre avis<br />
 				       N'hésitez pas remplir ce <a href='https://goo.gl/forms/HohtfNQWw10vFAev2'><strong>questionnaire </strong></a>afin de nous faire part de vos remarques.
 				    </p>
-				</Message>
+				</Message>*/}
 
 				<div className="centerpub">
 					<Link to={'/Livre/'}>
